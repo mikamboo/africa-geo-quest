@@ -20,6 +20,7 @@ import {
   type PlaceData,
   type ReliefData,
 } from '../../src/data/schemas';
+import { project } from '../../src/core/projection';
 import { ensureSources } from './sources';
 import {
   CITY_COUNTRY_FIXES,
@@ -373,6 +374,65 @@ function computeNeighbors(): Record<string, string[]> {
   return Object.fromEntries(Object.entries(result).map(([code, set]) => [code, [...set].sort()]));
 }
 
+/** Silhouette du continent pour l'accueil : un seul tracé, très simplifié, sans requête réseau. */
+function buildSilhouette(countriesShp: string): void {
+  const file = join(work, 'silhouette.json');
+  const list = JSON.stringify([...CODES, 'ESH']);
+  mapshaper(
+    countriesShp,
+    '-each',
+    `code = ADM0_A3 === 'SOL' ? 'SOM' : ADM0_A3 === 'SAH' ? 'ESH' : ISO_A3_EH; keep = ${list}.indexOf(code) >= 0`,
+    '-filter',
+    'keep',
+    '-clip',
+    `bbox=-20,-36,52,38`,
+    '-dissolve',
+    '-simplify',
+    'percentage=4%',
+    'keep-shapes',
+    '-filter-islands',
+    'min-area=20000km2',
+    '-o',
+    file,
+    'format=geojson',
+  );
+  const collection = readJson<{ geometries?: (Polygon | MultiPolygon)[] } & FeatureCollection>(
+    file,
+  );
+  const geometry = (collection.geometries?.[0] ?? collection.features?.[0]?.geometry) as
+    Polygon | MultiPolygon;
+  const polygons = geometry.type === 'Polygon' ? [geometry.coordinates] : geometry.coordinates;
+  const scale = 0.1;
+  let d = '';
+  const box = { minX: Infinity, minY: Infinity, maxX: -Infinity, maxY: -Infinity };
+  const points = polygons.map((rings) =>
+    rings[0]!.map(([lon, lat]) => {
+      const { x, y } = project(lon!, lat!);
+      box.minX = Math.min(box.minX, x);
+      box.minY = Math.min(box.minY, y);
+      box.maxX = Math.max(box.maxX, x);
+      box.maxY = Math.max(box.maxY, y);
+      return [x, y] as [number, number];
+    }),
+  );
+  for (const ring of points) {
+    d += `M${ring
+      .map(
+        ([x, y]) => `${Math.round((x - box.minX) * scale)} ${Math.round((y - box.minY) * scale)}`,
+      )
+      .join('L')}Z`;
+  }
+  mkdirSync('src/data/generated', { recursive: true });
+  writeFileSync(
+    'src/data/generated/silhouette.json',
+    JSON.stringify({
+      width: Math.round((box.maxX - box.minX) * scale),
+      height: Math.round((box.maxY - box.minY) * scale),
+      d,
+    }),
+  );
+}
+
 function copyFlags(): void {
   rmSync(FLAGS_DIR, { recursive: true, force: true });
   mkdirSync(FLAGS_DIR, { recursive: true });
@@ -390,6 +450,7 @@ buildPlaces(
   paths.ne_10m_populated_places_simple!,
   buildRelief(paths.ne_50m_geography_regions_polys!),
 );
+buildSilhouette(paths.ne_50m_admin_0_countries!);
 copyFlags();
 rmSync(work, { recursive: true, force: true });
 console.log('Données générées dans public/geo et public/flags.');
