@@ -1,0 +1,243 @@
+{
+  "rivers": [
+    {
+      "id": "nile",
+      "names": { "fr": "Nil", "en": "Nile" },
+      "level": "explorer",
+      "sources": [
+        "Nile",
+        "Albert Nile",
+        "Bahr el Jebel",
+        "El Bahr el Abyad",
+        "Victoria Nile",
+        "Kagera",
+        "Damietta Branch",
+        "Rosetta Branch"
+      ]
+    },
+    {
+      "id": "blue-nile",
+      "names": { "fr": "Nil Bleu", "en": "Blue Nile" },
+      "level": "geographer",
+      "sources": ["Abay", "El Bahr el Azraq"]
+    },
+    {
+      "id": "congo",
+      "names": { "fr": "Congo", "en": "Congo" },
+      "level": "explorer",
+      "sources": ["Congo", "Lualaba"]
+    },
+    {
+      "id": "niger",
+      "names": { "fr": "Niger", "en": "Niger" },
+      "level": "explorer",
+      "sources": ["Niger"]
+    },
+    {
+      "id": "zambezi",
+      "names": { "fr": "Zambèze", "en": "Zambezi" },
+      "level": "explorer",
+      "sources": ["Zambezi"]
+    },
+    {
+      "id": "orange",
+      "names": { "fr": "Orange", "en": "Orange" },
+      "level": "explorer",
+      "sources": ["Orange"]
+    },
+    {
+      "id": "limpopo",
+      "names": { "fr": "Limpopo", "en": "Limpopo" },
+      "level": "explorer",
+      "sources": ["Limpopo"]
+    },
+    {
+      "id": "senegal",
+      "names": { "fr": "Sénégal", "en": "Senegal" },
+      "level": "explorer",
+      "sources": ["Sénégal", "Bafing"]
+    },
+    {
+      "id": "volta",
+      "names": { "fr": "Volta", "en": "Volta" },
+      "level": "geographer",
+      "sources": ["Volta", "Mouhoun", "Nakanbé"]
+    },
+    {
+      "id": "benue",
+      "names": { "fr": "Bénoué", "en": "Benue" },
+      "level": "geographer",
+      "sources": ["Benue", "Bénoué"]
+    },
+    {
+      "id": "ubangi",
+      "names": { "fr": "Oubangui", "en": "Ubangi" },
+      "level": "geographer",
+      "sources": ["Ubangi", "Uele", "Kibali"]
+    },
+    {
+      "id": "kasai",
+      "names": { "fr": "Kasaï", "en": "Kasai" },
+      "level": "geographer",
+      "sources": ["Kasai"]
+    },
+    {
+      "id": "okavango",
+      "names": { "fr": "Okavango", "en": "Okavango" },
+      "level": "geographer",
+      "sources": ["Okavango", "Cubango"]
+    },
+    {
+      "id": "chari",
+      "names": { "fr": "Chari", "en": "Chari" },
+      "level": "geographer",
+      "sources": ["Chari"]
+    },
+    {
+      "id": "vaal",
+      "names": { "fr": "Vaal", "en": "Vaal" },
+      "level": "geographer",
+      "sources": ["Vaal"]
+    },
+    {
+      "id": "shire",
+      "names": { "fr": "Shire", "en": "Shire" },
+      "level": "geographer",
+      "sources": ["Shire"]
+    },
+    {
+      "id": "ruvuma",
+      "names": { "fr": "Rovuma", "en": "Ruvuma" },
+      "level": "geographer",
+      "sources": ["Ruvuma"]
+    },
+    {
+      "id": "juba",
+      "names": { "fr": "Djouba", "en": "Juba" },
+      "level": "geographer",
+      "sources": ["Jubba", "Genale"]
+    },
+    {
+      "id": "omo",
+      "names": { "fr": "Omo", "en": "Omo" },
+      "level": "geographer",
+      "sources": ["Omo"]
+    },
+    {
+      "id": "sanaga",
+      "names": { "fr": "Sanaga", "en": "Sanaga" },
+      "level": "geographer",
+      "sources": ["Sanaga"]
+    },
+    {
+      "id": "atbara",
+      "names": { "fr": "Atbara", "en": "Atbara" },
+      "level": "geographer",
+      "sources": ["Atbara", "Setit"]
+    },
+    {
+      "id": "mangoky",
+      "names": { "fr": "Mangoky", "en": "Mangoky" },
+      "level": "geographer",
+      "sources": ["Mangoky", "Mananantanana"]
+    }
+  ],
+  "lakes": [
+    {
+      "id": "victoria",
+      "names": { "fr": "Lac Victoria", "en": "Lake Victoria" },
+      "level": "explorer",
+      "sources": ["Lake Victoria"]
+    },
+    {
+      "id": "tanganyika",
+      "names": { "fr": "Lac Tanganyika", "en": "Lake Tanganyika" },
+      "level": "explorer",
+      "sources": ["Lake Tanganyika"]
+    },
+    {
+      "id": "malawi",
+      "names": { "fr": "Lac Malawi", "en": "Lake Malawi" },
+      "level": "explorer",
+      "sources": ["Lake Malawi"]
+    },
+    {
+      "id": "chad",
+      "names": { "fr": "Lac Tchad", "en": "Lake Chad" },
+      "level": "explorer",
+      "sources": ["Lake Chad"]
+    },
+    {
+      "id": "turkana",
+      "names": { "fr": "Lac Turkana", "en": "Lake Turkana" },
+      "level": "geographer",
+      "sources": ["Lake Turkana"]
+    },
+    {
+      "id": "albert",
+      "names": { "fr": "Lac Albert", "en": "Lake Albert" },
+      "level": "geographer",
+      "sources": ["Lake Albert"]
+    },
+    {
+      "id": "kivu",
+      "names": { "fr": "Lac Kivu", "en": "Lake Kivu" },
+      "level": "geographer",
+      "sources": ["Lake Kivu"]
+    },
+    {
+      "id": "edward",
+      "names": { "fr": "Lac Édouard", "en": "Lake Edward" },
+      "level": "geographer",
+      "sources": ["Lake Edward"]
+    },
+    {
+      "id": "tana",
+      "names": { "fr": "Lac Tana", "en": "Lake Tana" },
+      "level": "geographer",
+      "sources": ["Lake Tana"]
+    },
+    {
+      "id": "volta-lake",
+      "names": { "fr": "Lac Volta", "en": "Lake Volta" },
+      "level": "geographer",
+      "sources": ["Lake Volta"]
+    },
+    {
+      "id": "nasser",
+      "names": { "fr": "Lac Nasser", "en": "Lake Nasser" },
+      "level": "geographer",
+      "sources": ["Lake Nasser"]
+    },
+    {
+      "id": "kariba",
+      "names": { "fr": "Lac Kariba", "en": "Lake Kariba" },
+      "level": "geographer",
+      "sources": ["Lake Kariba"]
+    },
+    {
+      "id": "mweru",
+      "names": { "fr": "Lac Moero", "en": "Lake Mweru" },
+      "level": "geographer",
+      "sources": ["Lac Moeru"]
+    },
+    {
+      "id": "bangweulu",
+      "names": { "fr": "Lac Bangweulu", "en": "Lake Bangweulu" },
+      "level": "geographer",
+      "sources": ["Lake Bangweulu"]
+    },
+    {
+      "id": "rukwa",
+      "names": { "fr": "Lac Rukwa", "en": "Lake Rukwa" },
+      "level": "geographer",
+      "sources": ["Lake Rukwa"]
+    },
+    {
+      "id": "kyoga",
+      "names": { "fr": "Lac Kyoga", "en": "Lake Kyoga" },
+      "level": "geographer",
+      "sources": ["Lake Kyoga"]
+    }
+  ]
+}

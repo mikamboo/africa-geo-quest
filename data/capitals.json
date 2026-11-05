@@ -1,0 +1,837 @@
+[
+  {
+    "code": "DZA",
+    "cities": [
+      {
+        "names": {
+          "fr": "Alger",
+          "en": "Algiers"
+        },
+        "lat": 36.75,
+        "lon": 3.06,
+        "role": "official"
+      }
+    ]
+  },
+  {
+    "code": "AGO",
+    "cities": [
+      {
+        "names": {
+          "fr": "Luanda",
+          "en": "Luanda"
+        },
+        "lat": -8.84,
+        "lon": 13.23,
+        "role": "official"
+      }
+    ]
+  },
+  {
+    "code": "BEN",
+    "cities": [
+      {
+        "names": {
+          "fr": "Porto-Novo",
+          "en": "Porto-Novo"
+        },
+        "lat": 6.5,
+        "lon": 2.6,
+        "role": "official"
+      },
+      {
+        "names": {
+          "fr": "Cotonou",
+          "en": "Cotonou"
+        },
+        "lat": 6.37,
+        "lon": 2.43,
+        "role": "seat"
+      }
+    ],
+    "sourceUrl": "https://www.britannica.com/place/Benin"
+  },
+  {
+    "code": "BWA",
+    "cities": [
+      {
+        "names": {
+          "fr": "Gaborone",
+          "en": "Gaborone"
+        },
+        "lat": -24.65,
+        "lon": 25.91,
+        "role": "official"
+      }
+    ]
+  },
+  {
+    "code": "BFA",
+    "cities": [
+      {
+        "names": {
+          "fr": "Ouagadougou",
+          "en": "Ouagadougou"
+        },
+        "lat": 12.37,
+        "lon": -1.52,
+        "role": "official"
+      }
+    ]
+  },
+  {
+    "code": "BDI",
+    "cities": [
+      {
+        "names": {
+          "fr": "Gitega",
+          "en": "Gitega"
+        },
+        "lat": -3.43,
+        "lon": 29.93,
+        "role": "political"
+      },
+      {
+        "names": {
+          "fr": "Bujumbura",
+          "en": "Bujumbura"
+        },
+        "lat": -3.38,
+        "lon": 29.36,
+        "role": "economic"
+      }
+    ],
+    "sourceUrl": "https://www.britannica.com/place/Burundi"
+  },
+  {
+    "code": "CPV",
+    "cities": [
+      {
+        "names": {
+          "fr": "Praia",
+          "en": "Praia"
+        },
+        "lat": 14.92,
+        "lon": -23.51,
+        "role": "official"
+      }
+    ]
+  },
+  {
+    "code": "CMR",
+    "cities": [
+      {
+        "names": {
+          "fr": "Yaoundé",
+          "en": "Yaoundé"
+        },
+        "lat": 3.87,
+        "lon": 11.52,
+        "role": "official"
+      }
+    ]
+  },
+  {
+    "code": "CAF",
+    "cities": [
+      {
+        "names": {
+          "fr": "Bangui",
+          "en": "Bangui"
+        },
+        "lat": 4.39,
+        "lon": 18.56,
+        "role": "official"
+      }
+    ]
+  },
+  {
+    "code": "TCD",
+    "cities": [
+      {
+        "names": {
+          "fr": "N'Djamena",
+          "en": "N'Djamena"
+        },
+        "lat": 12.13,
+        "lon": 15.06,
+        "role": "official"
+      }
+    ]
+  },
+  {
+    "code": "COM",
+    "cities": [
+      {
+        "names": {
+          "fr": "Moroni",
+          "en": "Moroni"
+        },
+        "lat": -11.7,
+        "lon": 43.26,
+        "role": "official"
+      }
+    ]
+  },
+  {
+    "code": "COG",
+    "cities": [
+      {
+        "names": {
+          "fr": "Brazzaville",
+          "en": "Brazzaville"
+        },
+        "lat": -4.27,
+        "lon": 15.28,
+        "role": "official"
+      }
+    ]
+  },
+  {
+    "code": "COD",
+    "cities": [
+      {
+        "names": {
+          "fr": "Kinshasa",
+          "en": "Kinshasa"
+        },
+        "lat": -4.32,
+        "lon": 15.31,
+        "role": "official"
+      }
+    ]
+  },
+  {
+    "code": "CIV",
+    "cities": [
+      {
+        "names": {
+          "fr": "Yamoussoukro",
+          "en": "Yamoussoukro"
+        },
+        "lat": 6.82,
+        "lon": -5.28,
+        "role": "official"
+      },
+      {
+        "names": {
+          "fr": "Abidjan",
+          "en": "Abidjan"
+        },
+        "lat": 5.35,
+        "lon": -4.01,
+        "role": "economic"
+      }
+    ],
+    "sourceUrl": "https://www.britannica.com/place/Cote-dIvoire"
+  },
+  {
+    "code": "DJI",
+    "cities": [
+      {
+        "names": {
+          "fr": "Djibouti",
+          "en": "Djibouti"
+        },
+        "lat": 11.59,
+        "lon": 43.15,
+        "role": "official"
+      }
+    ]
+  },
+  {
+    "code": "EGY",
+    "cities": [
+      {
+        "names": {
+          "fr": "Le Caire",
+          "en": "Cairo"
+        },
+        "lat": 30.04,
+        "lon": 31.24,
+        "role": "official"
+      }
+    ]
+  },
+  {
+    "code": "GNQ",
+    "cities": [
+      {
+        "names": {
+          "fr": "Ciudad de la Paz",
+          "en": "Ciudad de la Paz"
+        },
+        "lat": 1.58,
+        "lon": 10.82,
+        "role": "official"
+      },
+      {
+        "names": {
+          "fr": "Malabo",
+          "en": "Malabo"
+        },
+        "lat": 3.75,
+        "lon": 8.78,
+        "role": "former"
+      }
+    ],
+    "sourceUrl": "https://www.lemonde.fr/en/international/article/2026/01/04/equatorial-guinea-relocates-capital-to-ciudad-de-la-paz_6749064_4.html"
+  },
+  {
+    "code": "ERI",
+    "cities": [
+      {
+        "names": {
+          "fr": "Asmara",
+          "en": "Asmara"
+        },
+        "lat": 15.32,
+        "lon": 38.93,
+        "role": "official"
+      }
+    ]
+  },
+  {
+    "code": "SWZ",
+    "cities": [
+      {
+        "names": {
+          "fr": "Mbabane",
+          "en": "Mbabane"
+        },
+        "lat": -26.32,
+        "lon": 31.13,
+        "role": "administrative"
+      },
+      {
+        "names": {
+          "fr": "Lobamba",
+          "en": "Lobamba"
+        },
+        "lat": -26.45,
+        "lon": 31.2,
+        "role": "legislative"
+      }
+    ],
+    "sourceUrl": "https://www.britannica.com/place/Eswatini"
+  },
+  {
+    "code": "ETH",
+    "cities": [
+      {
+        "names": {
+          "fr": "Addis-Abeba",
+          "en": "Addis Ababa"
+        },
+        "lat": 9.03,
+        "lon": 38.74,
+        "role": "official"
+      }
+    ]
+  },
+  {
+    "code": "GAB",
+    "cities": [
+      {
+        "names": {
+          "fr": "Libreville",
+          "en": "Libreville"
+        },
+        "lat": 0.39,
+        "lon": 9.45,
+        "role": "official"
+      }
+    ]
+  },
+  {
+    "code": "GMB",
+    "cities": [
+      {
+        "names": {
+          "fr": "Banjul",
+          "en": "Banjul"
+        },
+        "lat": 13.45,
+        "lon": -16.58,
+        "role": "official"
+      }
+    ]
+  },
+  {
+    "code": "GHA",
+    "cities": [
+      {
+        "names": {
+          "fr": "Accra",
+          "en": "Accra"
+        },
+        "lat": 5.56,
+        "lon": -0.2,
+        "role": "official"
+      }
+    ]
+  },
+  {
+    "code": "GIN",
+    "cities": [
+      {
+        "names": {
+          "fr": "Conakry",
+          "en": "Conakry"
+        },
+        "lat": 9.54,
+        "lon": -13.68,
+        "role": "official"
+      }
+    ]
+  },
+  {
+    "code": "GNB",
+    "cities": [
+      {
+        "names": {
+          "fr": "Bissau",
+          "en": "Bissau"
+        },
+        "lat": 11.86,
+        "lon": -15.6,
+        "role": "official"
+      }
+    ]
+  },
+  {
+    "code": "KEN",
+    "cities": [
+      {
+        "names": {
+          "fr": "Nairobi",
+          "en": "Nairobi"
+        },
+        "lat": -1.29,
+        "lon": 36.82,
+        "role": "official"
+      }
+    ]
+  },
+  {
+    "code": "LSO",
+    "cities": [
+      {
+        "names": {
+          "fr": "Maseru",
+          "en": "Maseru"
+        },
+        "lat": -29.31,
+        "lon": 27.48,
+        "role": "official"
+      }
+    ]
+  },
+  {
+    "code": "LBR",
+    "cities": [
+      {
+        "names": {
+          "fr": "Monrovia",
+          "en": "Monrovia"
+        },
+        "lat": 6.3,
+        "lon": -10.8,
+        "role": "official"
+      }
+    ]
+  },
+  {
+    "code": "LBY",
+    "cities": [
+      {
+        "names": {
+          "fr": "Tripoli",
+          "en": "Tripoli"
+        },
+        "lat": 32.89,
+        "lon": 13.19,
+        "role": "official"
+      }
+    ]
+  },
+  {
+    "code": "MDG",
+    "cities": [
+      {
+        "names": {
+          "fr": "Antananarivo",
+          "en": "Antananarivo"
+        },
+        "lat": -18.88,
+        "lon": 47.51,
+        "role": "official"
+      }
+    ]
+  },
+  {
+    "code": "MWI",
+    "cities": [
+      {
+        "names": {
+          "fr": "Lilongwe",
+          "en": "Lilongwe"
+        },
+        "lat": -13.97,
+        "lon": 33.79,
+        "role": "official"
+      }
+    ]
+  },
+  {
+    "code": "MLI",
+    "cities": [
+      {
+        "names": {
+          "fr": "Bamako",
+          "en": "Bamako"
+        },
+        "lat": 12.64,
+        "lon": -8.0,
+        "role": "official"
+      }
+    ]
+  },
+  {
+    "code": "MRT",
+    "cities": [
+      {
+        "names": {
+          "fr": "Nouakchott",
+          "en": "Nouakchott"
+        },
+        "lat": 18.09,
+        "lon": -15.98,
+        "role": "official"
+      }
+    ]
+  },
+  {
+    "code": "MUS",
+    "cities": [
+      {
+        "names": {
+          "fr": "Port-Louis",
+          "en": "Port Louis"
+        },
+        "lat": -20.16,
+        "lon": 57.5,
+        "role": "official"
+      }
+    ]
+  },
+  {
+    "code": "MAR",
+    "cities": [
+      {
+        "names": {
+          "fr": "Rabat",
+          "en": "Rabat"
+        },
+        "lat": 34.02,
+        "lon": -6.84,
+        "role": "official"
+      }
+    ]
+  },
+  {
+    "code": "MOZ",
+    "cities": [
+      {
+        "names": {
+          "fr": "Maputo",
+          "en": "Maputo"
+        },
+        "lat": -25.97,
+        "lon": 32.57,
+        "role": "official"
+      }
+    ]
+  },
+  {
+    "code": "NAM",
+    "cities": [
+      {
+        "names": {
+          "fr": "Windhoek",
+          "en": "Windhoek"
+        },
+        "lat": -22.56,
+        "lon": 17.08,
+        "role": "official"
+      }
+    ]
+  },
+  {
+    "code": "NER",
+    "cities": [
+      {
+        "names": {
+          "fr": "Niamey",
+          "en": "Niamey"
+        },
+        "lat": 13.51,
+        "lon": 2.13,
+        "role": "official"
+      }
+    ]
+  },
+  {
+    "code": "NGA",
+    "cities": [
+      {
+        "names": {
+          "fr": "Abuja",
+          "en": "Abuja"
+        },
+        "lat": 9.06,
+        "lon": 7.49,
+        "role": "official"
+      }
+    ]
+  },
+  {
+    "code": "RWA",
+    "cities": [
+      {
+        "names": {
+          "fr": "Kigali",
+          "en": "Kigali"
+        },
+        "lat": -1.95,
+        "lon": 30.06,
+        "role": "official"
+      }
+    ]
+  },
+  {
+    "code": "STP",
+    "cities": [
+      {
+        "names": {
+          "fr": "São Tomé",
+          "en": "São Tomé"
+        },
+        "lat": 0.34,
+        "lon": 6.73,
+        "role": "official"
+      }
+    ]
+  },
+  {
+    "code": "SEN",
+    "cities": [
+      {
+        "names": {
+          "fr": "Dakar",
+          "en": "Dakar"
+        },
+        "lat": 14.69,
+        "lon": -17.45,
+        "role": "official"
+      }
+    ]
+  },
+  {
+    "code": "SYC",
+    "cities": [
+      {
+        "names": {
+          "fr": "Victoria",
+          "en": "Victoria"
+        },
+        "lat": -4.62,
+        "lon": 55.45,
+        "role": "official"
+      }
+    ]
+  },
+  {
+    "code": "SLE",
+    "cities": [
+      {
+        "names": {
+          "fr": "Freetown",
+          "en": "Freetown"
+        },
+        "lat": 8.48,
+        "lon": -13.23,
+        "role": "official"
+      }
+    ]
+  },
+  {
+    "code": "SOM",
+    "cities": [
+      {
+        "names": {
+          "fr": "Mogadiscio",
+          "en": "Mogadishu"
+        },
+        "lat": 2.05,
+        "lon": 45.32,
+        "role": "official"
+      }
+    ]
+  },
+  {
+    "code": "ZAF",
+    "cities": [
+      {
+        "names": {
+          "fr": "Pretoria",
+          "en": "Pretoria"
+        },
+        "lat": -25.75,
+        "lon": 28.19,
+        "role": "executive"
+      },
+      {
+        "names": {
+          "fr": "Le Cap",
+          "en": "Cape Town"
+        },
+        "lat": -33.92,
+        "lon": 18.42,
+        "role": "legislative"
+      },
+      {
+        "names": {
+          "fr": "Bloemfontein",
+          "en": "Bloemfontein"
+        },
+        "lat": -29.12,
+        "lon": 26.21,
+        "role": "judicial"
+      }
+    ],
+    "sourceUrl": "https://www.britannica.com/place/South-Africa"
+  },
+  {
+    "code": "SSD",
+    "cities": [
+      {
+        "names": {
+          "fr": "Djouba",
+          "en": "Juba"
+        },
+        "lat": 4.85,
+        "lon": 31.58,
+        "role": "official"
+      }
+    ]
+  },
+  {
+    "code": "SDN",
+    "cities": [
+      {
+        "names": {
+          "fr": "Khartoum",
+          "en": "Khartoum"
+        },
+        "lat": 15.5,
+        "lon": 32.56,
+        "role": "official"
+      }
+    ]
+  },
+  {
+    "code": "TZA",
+    "cities": [
+      {
+        "names": {
+          "fr": "Dodoma",
+          "en": "Dodoma"
+        },
+        "lat": -6.16,
+        "lon": 35.75,
+        "role": "official"
+      },
+      {
+        "names": {
+          "fr": "Dar es Salaam",
+          "en": "Dar es Salaam"
+        },
+        "lat": -6.79,
+        "lon": 39.21,
+        "role": "economic"
+      }
+    ],
+    "sourceUrl": "https://www.britannica.com/place/Tanzania"
+  },
+  {
+    "code": "TGO",
+    "cities": [
+      {
+        "names": {
+          "fr": "Lomé",
+          "en": "Lomé"
+        },
+        "lat": 6.13,
+        "lon": 1.22,
+        "role": "official"
+      }
+    ]
+  },
+  {
+    "code": "TUN",
+    "cities": [
+      {
+        "names": {
+          "fr": "Tunis",
+          "en": "Tunis"
+        },
+        "lat": 36.81,
+        "lon": 10.18,
+        "role": "official"
+      }
+    ]
+  },
+  {
+    "code": "UGA",
+    "cities": [
+      {
+        "names": {
+          "fr": "Kampala",
+          "en": "Kampala"
+        },
+        "lat": 0.35,
+        "lon": 32.58,
+        "role": "official"
+      }
+    ]
+  },
+  {
+    "code": "ZMB",
+    "cities": [
+      {
+        "names": {
+          "fr": "Lusaka",
+          "en": "Lusaka"
+        },
+        "lat": -15.42,
+        "lon": 28.28,
+        "role": "official"
+      }
+    ]
+  },
+  {
+    "code": "ZWE",
+    "cities": [
+      {
+        "names": {
+          "fr": "Harare",
+          "en": "Harare"
+        },
+        "lat": -17.83,
+        "lon": 31.05,
+        "role": "official"
+      }
+    ]
+  }
+]

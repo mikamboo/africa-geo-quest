@@ -24,7 +24,7 @@ export default defineConfig({
     coverage: {
       provider: 'v8',
       include: ['src/core/**/*.ts'],
-      exclude: ['src/core/**/*.test.ts', 'src/core/**/types.ts'],
+      exclude: ['src/core/**/*.test.ts', 'src/core/**/types.ts', 'src/core/testing.ts'],
       reporter: ['text-summary', 'text'],
       thresholds: { lines: 80, functions: 80, statements: 80, branches: 80 },
     },

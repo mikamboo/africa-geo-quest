@@ -1,0 +1,596 @@
+[
+  {
+    "code": "DZA",
+    "iso2": "dz",
+    "names": {
+      "fr": "Algérie",
+      "en": "Algeria"
+    },
+    "region": "north",
+    "landlocked": false,
+    "island": false
+  },
+  {
+    "code": "AGO",
+    "iso2": "ao",
+    "names": {
+      "fr": "Angola",
+      "en": "Angola"
+    },
+    "region": "central",
+    "landlocked": false,
+    "island": false
+  },
+  {
+    "code": "BEN",
+    "iso2": "bj",
+    "names": {
+      "fr": "Bénin",
+      "en": "Benin"
+    },
+    "region": "west",
+    "landlocked": false,
+    "island": false
+  },
+  {
+    "code": "BWA",
+    "iso2": "bw",
+    "names": {
+      "fr": "Botswana",
+      "en": "Botswana"
+    },
+    "region": "south",
+    "landlocked": true,
+    "island": false
+  },
+  {
+    "code": "BFA",
+    "iso2": "bf",
+    "names": {
+      "fr": "Burkina Faso",
+      "en": "Burkina Faso"
+    },
+    "region": "west",
+    "landlocked": true,
+    "island": false
+  },
+  {
+    "code": "BDI",
+    "iso2": "bi",
+    "names": {
+      "fr": "Burundi",
+      "en": "Burundi"
+    },
+    "region": "east",
+    "landlocked": true,
+    "island": false
+  },
+  {
+    "code": "CPV",
+    "iso2": "cv",
+    "names": {
+      "fr": "Cabo Verde",
+      "en": "Cabo Verde"
+    },
+    "region": "west",
+    "landlocked": false,
+    "island": true
+  },
+  {
+    "code": "CMR",
+    "iso2": "cm",
+    "names": {
+      "fr": "Cameroun",
+      "en": "Cameroon"
+    },
+    "region": "central",
+    "landlocked": false,
+    "island": false
+  },
+  {
+    "code": "CAF",
+    "iso2": "cf",
+    "names": {
+      "fr": "République centrafricaine",
+      "en": "Central African Republic"
+    },
+    "region": "central",
+    "landlocked": true,
+    "island": false
+  },
+  {
+    "code": "TCD",
+    "iso2": "td",
+    "names": {
+      "fr": "Tchad",
+      "en": "Chad"
+    },
+    "region": "central",
+    "landlocked": true,
+    "island": false
+  },
+  {
+    "code": "COM",
+    "iso2": "km",
+    "names": {
+      "fr": "Comores",
+      "en": "Comoros"
+    },
+    "region": "east",
+    "landlocked": false,
+    "island": true
+  },
+  {
+    "code": "COG",
+    "iso2": "cg",
+    "names": {
+      "fr": "République du Congo",
+      "en": "Republic of the Congo"
+    },
+    "region": "central",
+    "landlocked": false,
+    "island": false
+  },
+  {
+    "code": "COD",
+    "iso2": "cd",
+    "names": {
+      "fr": "République démocratique du Congo",
+      "en": "Democratic Republic of the Congo"
+    },
+    "region": "central",
+    "landlocked": false,
+    "island": false
+  },
+  {
+    "code": "CIV",
+    "iso2": "ci",
+    "names": {
+      "fr": "Côte d'Ivoire",
+      "en": "Côte d'Ivoire"
+    },
+    "region": "west",
+    "landlocked": false,
+    "island": false
+  },
+  {
+    "code": "DJI",
+    "iso2": "dj",
+    "names": {
+      "fr": "Djibouti",
+      "en": "Djibouti"
+    },
+    "region": "east",
+    "landlocked": false,
+    "island": false
+  },
+  {
+    "code": "EGY",
+    "iso2": "eg",
+    "names": {
+      "fr": "Égypte",
+      "en": "Egypt"
+    },
+    "region": "north",
+    "landlocked": false,
+    "island": false
+  },
+  {
+    "code": "GNQ",
+    "iso2": "gq",
+    "names": {
+      "fr": "Guinée équatoriale",
+      "en": "Equatorial Guinea"
+    },
+    "region": "central",
+    "landlocked": false,
+    "island": false
+  },
+  {
+    "code": "ERI",
+    "iso2": "er",
+    "names": {
+      "fr": "Érythrée",
+      "en": "Eritrea"
+    },
+    "region": "east",
+    "landlocked": false,
+    "island": false
+  },
+  {
+    "code": "SWZ",
+    "iso2": "sz",
+    "names": {
+      "fr": "Eswatini",
+      "en": "Eswatini"
+    },
+    "region": "south",
+    "landlocked": true,
+    "island": false
+  },
+  {
+    "code": "ETH",
+    "iso2": "et",
+    "names": {
+      "fr": "Éthiopie",
+      "en": "Ethiopia"
+    },
+    "region": "east",
+    "landlocked": true,
+    "island": false
+  },
+  {
+    "code": "GAB",
+    "iso2": "ga",
+    "names": {
+      "fr": "Gabon",
+      "en": "Gabon"
+    },
+    "region": "central",
+    "landlocked": false,
+    "island": false
+  },
+  {
+    "code": "GMB",
+    "iso2": "gm",
+    "names": {
+      "fr": "Gambie",
+      "en": "The Gambia"
+    },
+    "region": "west",
+    "landlocked": false,
+    "island": false
+  },
+  {
+    "code": "GHA",
+    "iso2": "gh",
+    "names": {
+      "fr": "Ghana",
+      "en": "Ghana"
+    },
+    "region": "west",
+    "landlocked": false,
+    "island": false
+  },
+  {
+    "code": "GIN",
+    "iso2": "gn",
+    "names": {
+      "fr": "Guinée",
+      "en": "Guinea"
+    },
+    "region": "west",
+    "landlocked": false,
+    "island": false
+  },
+  {
+    "code": "GNB",
+    "iso2": "gw",
+    "names": {
+      "fr": "Guinée-Bissau",
+      "en": "Guinea-Bissau"
+    },
+    "region": "west",
+    "landlocked": false,
+    "island": false
+  },
+  {
+    "code": "KEN",
+    "iso2": "ke",
+    "names": {
+      "fr": "Kenya",
+      "en": "Kenya"
+    },
+    "region": "east",
+    "landlocked": false,
+    "island": false
+  },
+  {
+    "code": "LSO",
+    "iso2": "ls",
+    "names": {
+      "fr": "Lesotho",
+      "en": "Lesotho"
+    },
+    "region": "south",
+    "landlocked": true,
+    "island": false
+  },
+  {
+    "code": "LBR",
+    "iso2": "lr",
+    "names": {
+      "fr": "Liberia",
+      "en": "Liberia"
+    },
+    "region": "west",
+    "landlocked": false,
+    "island": false
+  },
+  {
+    "code": "LBY",
+    "iso2": "ly",
+    "names": {
+      "fr": "Libye",
+      "en": "Libya"
+    },
+    "region": "north",
+    "landlocked": false,
+    "island": false
+  },
+  {
+    "code": "MDG",
+    "iso2": "mg",
+    "names": {
+      "fr": "Madagascar",
+      "en": "Madagascar"
+    },
+    "region": "east",
+    "landlocked": false,
+    "island": true
+  },
+  {
+    "code": "MWI",
+    "iso2": "mw",
+    "names": {
+      "fr": "Malawi",
+      "en": "Malawi"
+    },
+    "region": "east",
+    "landlocked": true,
+    "island": false
+  },
+  {
+    "code": "MLI",
+    "iso2": "ml",
+    "names": {
+      "fr": "Mali",
+      "en": "Mali"
+    },
+    "region": "west",
+    "landlocked": true,
+    "island": false
+  },
+  {
+    "code": "MRT",
+    "iso2": "mr",
+    "names": {
+      "fr": "Mauritanie",
+      "en": "Mauritania"
+    },
+    "region": "west",
+    "landlocked": false,
+    "island": false
+  },
+  {
+    "code": "MUS",
+    "iso2": "mu",
+    "names": {
+      "fr": "Maurice",
+      "en": "Mauritius"
+    },
+    "region": "east",
+    "landlocked": false,
+    "island": true
+  },
+  {
+    "code": "MAR",
+    "iso2": "ma",
+    "names": {
+      "fr": "Maroc",
+      "en": "Morocco"
+    },
+    "region": "north",
+    "landlocked": false,
+    "island": false
+  },
+  {
+    "code": "MOZ",
+    "iso2": "mz",
+    "names": {
+      "fr": "Mozambique",
+      "en": "Mozambique"
+    },
+    "region": "east",
+    "landlocked": false,
+    "island": false
+  },
+  {
+    "code": "NAM",
+    "iso2": "na",
+    "names": {
+      "fr": "Namibie",
+      "en": "Namibia"
+    },
+    "region": "south",
+    "landlocked": false,
+    "island": false
+  },
+  {
+    "code": "NER",
+    "iso2": "ne",
+    "names": {
+      "fr": "Niger",
+      "en": "Niger"
+    },
+    "region": "west",
+    "landlocked": true,
+    "island": false
+  },
+  {
+    "code": "NGA",
+    "iso2": "ng",
+    "names": {
+      "fr": "Nigeria",
+      "en": "Nigeria"
+    },
+    "region": "west",
+    "landlocked": false,
+    "island": false
+  },
+  {
+    "code": "RWA",
+    "iso2": "rw",
+    "names": {
+      "fr": "Rwanda",
+      "en": "Rwanda"
+    },
+    "region": "east",
+    "landlocked": true,
+    "island": false
+  },
+  {
+    "code": "STP",
+    "iso2": "st",
+    "names": {
+      "fr": "Sao Tomé-et-Principe",
+      "en": "São Tomé and Príncipe"
+    },
+    "region": "central",
+    "landlocked": false,
+    "island": true
+  },
+  {
+    "code": "SEN",
+    "iso2": "sn",
+    "names": {
+      "fr": "Sénégal",
+      "en": "Senegal"
+    },
+    "region": "west",
+    "landlocked": false,
+    "island": false
+  },
+  {
+    "code": "SYC",
+    "iso2": "sc",
+    "names": {
+      "fr": "Seychelles",
+      "en": "Seychelles"
+    },
+    "region": "east",
+    "landlocked": false,
+    "island": true
+  },
+  {
+    "code": "SLE",
+    "iso2": "sl",
+    "names": {
+      "fr": "Sierra Leone",
+      "en": "Sierra Leone"
+    },
+    "region": "west",
+    "landlocked": false,
+    "island": false
+  },
+  {
+    "code": "SOM",
+    "iso2": "so",
+    "names": {
+      "fr": "Somalie",
+      "en": "Somalia"
+    },
+    "region": "east",
+    "landlocked": false,
+    "island": false
+  },
+  {
+    "code": "ZAF",
+    "iso2": "za",
+    "names": {
+      "fr": "Afrique du Sud",
+      "en": "South Africa"
+    },
+    "region": "south",
+    "landlocked": false,
+    "island": false
+  },
+  {
+    "code": "SSD",
+    "iso2": "ss",
+    "names": {
+      "fr": "Soudan du Sud",
+      "en": "South Sudan"
+    },
+    "region": "east",
+    "landlocked": true,
+    "island": false
+  },
+  {
+    "code": "SDN",
+    "iso2": "sd",
+    "names": {
+      "fr": "Soudan",
+      "en": "Sudan"
+    },
+    "region": "north",
+    "landlocked": false,
+    "island": false
+  },
+  {
+    "code": "TZA",
+    "iso2": "tz",
+    "names": {
+      "fr": "Tanzanie",
+      "en": "Tanzania"
+    },
+    "region": "east",
+    "landlocked": false,
+    "island": false
+  },
+  {
+    "code": "TGO",
+    "iso2": "tg",
+    "names": {
+      "fr": "Togo",
+      "en": "Togo"
+    },
+    "region": "west",
+    "landlocked": false,
+    "island": false
+  },
+  {
+    "code": "TUN",
+    "iso2": "tn",
+    "names": {
+      "fr": "Tunisie",
+      "en": "Tunisia"
+    },
+    "region": "north",
+    "landlocked": false,
+    "island": false
+  },
+  {
+    "code": "UGA",
+    "iso2": "ug",
+    "names": {
+      "fr": "Ouganda",
+      "en": "Uganda"
+    },
+    "region": "east",
+    "landlocked": true,
+    "island": false
+  },
+  {
+    "code": "ZMB",
+    "iso2": "zm",
+    "names": {
+      "fr": "Zambie",
+      "en": "Zambia"
+    },
+    "region": "east",
+    "landlocked": true,
+    "island": false
+  },
+  {
+    "code": "ZWE",
+    "iso2": "zw",
+    "names": {
+      "fr": "Zimbabwe",
+      "en": "Zimbabwe"
+    },
+    "region": "east",
+    "landlocked": true,
+    "island": false
+  }
+]

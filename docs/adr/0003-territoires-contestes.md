@@ -12,6 +12,7 @@ Alignement sur les 54 États membres de l'ONU :
 
 - **Somaliland** : fusionné dans la Somalie, sans frontière interne.
 - **Sahara occidental** : affiché avec son contour et nommé « territoire non autonome (ONU) », sans statut d'État. Il n'est pas compté dans les 54, n'a ni drapeau ni tampon, et il ne figure ni dans les quiz ni dans les missions.
+- **Contour du Sahara occidental** : Natural Earth le découpe selon la ligne de fait, en rattachant l'essentiel au Maroc. Le pipeline réunit les deux géométries puis les sépare au parallèle 27°40' N, limite nord du territoire.
 - **Mention « frontières indicatives »** dans l'interface et sur la page parents.
 
 ## Conséquences

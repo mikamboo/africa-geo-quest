@@ -1,0 +1,156 @@
+[
+  {
+    "id": "sahara",
+    "kind": "desert",
+    "level": "explorer",
+    "names": { "fr": "Sahara", "en": "Sahara" },
+    "source": "SAHARA"
+  },
+  {
+    "id": "kalahari",
+    "kind": "desert",
+    "level": "explorer",
+    "names": { "fr": "Kalahari", "en": "Kalahari" },
+    "source": "KALAHARI DESERT"
+  },
+  {
+    "id": "namib",
+    "kind": "desert",
+    "level": "explorer",
+    "names": { "fr": "Namib", "en": "Namib" },
+    "source": "NAMIB DESERT"
+  },
+  {
+    "id": "atlas",
+    "kind": "mountain",
+    "level": "explorer",
+    "names": { "fr": "Atlas", "en": "Atlas Mountains" },
+    "source": "ATLAS MOUNTAINS"
+  },
+  {
+    "id": "ethiopian-highlands",
+    "kind": "mountain",
+    "level": "explorer",
+    "names": { "fr": "Hauts plateaux d'Éthiopie", "en": "Ethiopian Highlands" },
+    "source": "ETHIOPIAN HIGHLANDS"
+  },
+  {
+    "id": "congo-basin",
+    "kind": "basin",
+    "level": "explorer",
+    "names": { "fr": "Bassin du Congo", "en": "Congo Basin" },
+    "source": "CONGO BASIN"
+  },
+  {
+    "id": "sahel",
+    "kind": "plain",
+    "level": "explorer",
+    "names": { "fr": "Sahel", "en": "Sahel" },
+    "source": "SAHEL"
+  },
+  {
+    "id": "rift",
+    "kind": "valley",
+    "level": "explorer",
+    "names": { "fr": "Grand Rift", "en": "Great Rift Valley" },
+    "source": "GREAT RIFT VALLEY"
+  },
+  {
+    "id": "drakensberg",
+    "kind": "mountain",
+    "level": "geographer",
+    "names": { "fr": "Drakensberg", "en": "Drakensberg" },
+    "source": "DRAKENSBERG"
+  },
+  {
+    "id": "ahaggar",
+    "kind": "mountain",
+    "level": "geographer",
+    "names": { "fr": "Hoggar", "en": "Ahaggar Mountains" },
+    "source": "AHAGGAR MTS."
+  },
+  {
+    "id": "tibesti",
+    "kind": "mountain",
+    "level": "geographer",
+    "names": { "fr": "Tibesti", "en": "Tibesti Mountains" },
+    "source": "TIBESTI MTS."
+  },
+  {
+    "id": "air",
+    "kind": "mountain",
+    "level": "geographer",
+    "names": { "fr": "Aïr", "en": "Aïr Mountains" },
+    "source": "AÏR MTS."
+  },
+  {
+    "id": "mitumba",
+    "kind": "mountain",
+    "level": "geographer",
+    "names": { "fr": "Monts Mitumba", "en": "Mitumba Mountains" },
+    "source": "MITUMBA MTS."
+  },
+  {
+    "id": "adamawa",
+    "kind": "plateau",
+    "level": "geographer",
+    "names": { "fr": "Plateau de l'Adamaoua", "en": "Adamawa Plateau" },
+    "source": "Adamawa Plateau"
+  },
+  {
+    "id": "bie",
+    "kind": "plateau",
+    "level": "geographer",
+    "names": { "fr": "Plateau du Bié", "en": "Bié Plateau" },
+    "source": "Bié Plateau"
+  },
+  {
+    "id": "katanga",
+    "kind": "plateau",
+    "level": "geographer",
+    "names": { "fr": "Plateau du Katanga", "en": "Katanga Plateau" },
+    "source": "KATANGA PLATEAU"
+  },
+  {
+    "id": "tenere",
+    "kind": "desert",
+    "level": "geographer",
+    "names": { "fr": "Ténéré", "en": "Ténéré" },
+    "source": "Ténéré"
+  },
+  {
+    "id": "nubian",
+    "kind": "desert",
+    "level": "geographer",
+    "names": { "fr": "Désert de Nubie", "en": "Nubian Desert" },
+    "source": "NUBIAN DESERT"
+  },
+  {
+    "id": "libyan",
+    "kind": "desert",
+    "level": "geographer",
+    "names": { "fr": "Désert libyque", "en": "Libyan Desert" },
+    "source": "LIBYAN DESERT"
+  },
+  {
+    "id": "sudd",
+    "kind": "wetland",
+    "level": "geographer",
+    "names": { "fr": "Sudd", "en": "Sudd" },
+    "source": "SUDD"
+  },
+  {
+    "id": "niger-delta",
+    "kind": "delta",
+    "level": "geographer",
+    "names": { "fr": "Delta du Niger", "en": "Niger Delta" },
+    "source": "Niger Delta"
+  },
+  {
+    "id": "nile-delta",
+    "kind": "delta",
+    "level": "geographer",
+    "names": { "fr": "Delta du Nil", "en": "Nile Delta" },
+    "source": "Nile Delta"
+  }
+]
