@@ -1,3 +1,3 @@
 export function App() {
-  return <h1 data-testid="app-title">Sankofa Trek</h1>;
+  return <h1 data-testid="app-title">Tembea</h1>;
 }
