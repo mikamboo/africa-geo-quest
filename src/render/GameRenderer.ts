@@ -11,7 +11,7 @@ import {
 } from 'pixi.js';
 import type { Position } from 'geojson';
 import { Explorer, type GameEvent } from '../core/explorer';
-import type { Point } from '../core/geometry';
+import { bboxOfRings, type Point } from '../core/geometry';
 import type { InputVector } from '../core/movement';
 import type { AvatarId } from '../core/progress';
 import { project } from '../core/projection';
@@ -162,9 +162,10 @@ export async function createGameRenderer(options: RendererOptions): Promise<Game
   await app.init({
     resizeTo: host,
     background: OCEAN,
-    antialias: true,
+    // Sur écran dense, la résolution suffit : l'anticrénelage coûterait cher au GPU mobile.
+    antialias: (window.devicePixelRatio || 1) < 1.5,
     autoDensity: true,
-    resolution: Math.min(window.devicePixelRatio || 1, 2),
+    resolution: Math.min(window.devicePixelRatio || 1, window.innerWidth < 900 ? 1.5 : 2),
     preference: 'webgl',
     powerPreference: 'high-performance',
   });
@@ -195,6 +196,12 @@ export async function createGameRenderer(options: RendererOptions): Promise<Game
   // Pays : du plus grand au plus petit, pour que les enclaves restent visibles.
   const countryMeta = new Map(COUNTRIES.map((country) => [country.code, country]));
   const shapes = new Map<string, Graphics>();
+  const countryBoxes = new Map(
+    data.countries.map((country) => [
+      country.code,
+      bboxOfRings(country.polygons.flat().map((ring) => Float64Array.from(projectLine(ring)))),
+    ]),
+  );
   const countriesLayer = new Container();
   const ordered = [...data.countries].sort(
     (a, b) => data.world.areaOf(b.code) - data.world.areaOf(a.code),
@@ -404,6 +411,42 @@ export async function createGameRenderer(options: RendererOptions): Promise<Game
     });
   }
 
+  // Fleuves et lacs : le nom est posé sur la ligne la plus longue ou au centre du lac.
+  for (const river of data.hydro.rivers) {
+    if (options.level === 'explorer' && river.level !== 'explorer') continue;
+    const longest = [...river.lines].sort((a, b) => b.length - a.length)[0]!;
+    const middle = longest[Math.floor(longest.length / 2)]!;
+    labels.push({
+      point: project(middle[0]!, middle[1]!),
+      text: river.names,
+      node: null,
+      minZoom: river.level === 'explorer' ? 0.2 : 0.35,
+      maxZoom: Infinity,
+      style: 'water',
+      anchorY: 0.5,
+    });
+  }
+  for (const lake of data.hydro.lakes) {
+    if (options.level === 'explorer' && lake.level !== 'explorer') continue;
+    const ring = [...lake.polygons].sort((a, b) => b[0]!.length - a[0]!.length)[0]![0]!;
+    const flat = projectLine(ring);
+    let sx = 0;
+    let sy = 0;
+    for (let i = 0; i < flat.length; i += 2) {
+      sx += flat[i]!;
+      sy += flat[i + 1]!;
+    }
+    labels.push({
+      point: { x: sx / (flat.length / 2), y: sy / (flat.length / 2) },
+      text: lake.names,
+      node: null,
+      minZoom: lake.level === 'explorer' ? 0.2 : 0.35,
+      maxZoom: Infinity,
+      style: 'water',
+      anchorY: 0.5,
+    });
+  }
+
   function createLabelNode(label: Label): Text {
     const locale = options.locale;
     const isCountry = label.style === 'country';
@@ -414,7 +457,7 @@ export async function createGameRenderer(options: RendererOptions): Promise<Game
         fontWeight: isCountry ? '400' : '800',
         fontSize: isCountry ? 19 : 16,
         letterSpacing: label.style === 'relief' ? 2 : 0,
-        fill: label.style === 'relief' ? 0x5a4026 : INK,
+        fill: label.style === 'relief' ? 0x5a4026 : label.style === 'water' ? 0x0f4c68 : INK,
         stroke: { color: PAPER, width: 4, join: 'round' },
       },
       resolution: Math.min(window.devicePixelRatio || 1, 2),
@@ -445,7 +488,12 @@ export async function createGameRenderer(options: RendererOptions): Promise<Game
   const avatar = new Sprite(frames.down![4]!);
   avatar.anchor.set(0.5, 0.92);
   avatar.scale.set(0.62);
-  avatarRoot.addChild(pirogue, avatar);
+  // Onde d'encre quand un pays reçoit son tampon.
+  const ripple = new Graphics();
+  ripple.circle(0, 0, 40).stroke({ color: TERRE, width: 6 });
+  ripple.visible = false;
+  let rippleAge = Infinity;
+  avatarRoot.addChild(ripple, pirogue, avatar);
   app.stage.addChild(avatarRoot);
 
   function initialZoom(): number {
@@ -457,17 +505,58 @@ export async function createGameRenderer(options: RendererOptions): Promise<Game
   let cullTimer = 0;
   let animationClock = 0;
 
+  const LABEL_PRIORITY: Record<Label['style'], number> = {
+    country: 0,
+    place: 1,
+    water: 2,
+    relief: 3,
+  };
+  let sortedLabels: Label[] | null = null;
+  function orderedLabels(): Label[] {
+    sortedLabels ??= [...labels].sort((a, b) => LABEL_PRIORITY[a.style] - LABEL_PRIORITY[b.style]);
+    return sortedLabels;
+  }
+
   function updateCulling(): void {
     const halfW = app.screen.width / 2 / zoom;
     const halfH = app.screen.height / 2 / zoom;
     const { x, y } = explorer.position;
     const inside = (p: Point): boolean =>
       Math.abs(p.x - x) < halfW + 60 / zoom && Math.abs(p.y - y) < halfH + 40 / zoom;
+    // Les pays hors écran ne sont pas envoyés au GPU.
+    const viewMinX = x - halfW;
+    const viewMaxX = x + halfW;
+    const viewMinY = y - halfH;
+    const viewMaxY = y + halfH;
+    for (const [code, graphics] of shapes) {
+      const box = countryBoxes.get(code)!;
+      graphics.visible =
+        box.minX <= viewMaxX &&
+        box.maxX >= viewMinX &&
+        box.minY <= viewMaxY &&
+        box.maxY >= viewMinY;
+    }
     for (const marker of markers) {
       marker.node.visible = zoom >= marker.minZoom && inside(marker.point);
     }
-    for (const label of labels) {
-      const show = zoom >= label.minZoom && zoom < label.maxZoom && inside(label.point);
+    // Les étiquettes prioritaires réservent leur place ; celles qui les chevauchent se masquent.
+    const taken: { x: number; y: number; w: number; h: number }[] = [];
+    for (const label of orderedLabels()) {
+      let show = zoom >= label.minZoom && zoom < label.maxZoom && inside(label.point);
+      if (show) {
+        const name = label.text[options.locale];
+        const w = name.length * (label.style === 'country' ? 10 : 9) + 10;
+        const h = 22;
+        const sx = (label.point.x - x) * zoom;
+        const sy = (label.point.y - y) * zoom + (label.anchorY < 0 ? 22 : 0);
+        const clash = taken.some(
+          (other) =>
+            Math.abs(other.x - sx) < (other.w + w) / 2 &&
+            Math.abs(other.y - sy) < (other.h + h) / 2,
+        );
+        if (clash) show = false;
+        else taken.push({ x: sx, y: sy, w, h });
+      }
       if (show && !label.node) label.node = createLabelNode(label);
       if (label.node) label.node.visible = show;
     }
@@ -536,6 +625,13 @@ export async function createGameRenderer(options: RendererOptions): Promise<Game
       pirogue.position.y = 4 + sway;
     } else {
       avatar.position.y = 0;
+    }
+
+    if (rippleAge < 0.6) {
+      rippleAge += dt;
+      ripple.visible = rippleAge < 0.6;
+      ripple.scale.set(0.4 + rippleAge * 3);
+      ripple.alpha = Math.max(0, 1 - rippleAge / 0.6);
     }
 
     if (targetRing.visible && !reducedMotion) {
@@ -607,6 +703,10 @@ export async function createGameRenderer(options: RendererOptions): Promise<Game
       targetZoom = clampZoom(targetZoom * factor);
     },
     setStamped(next) {
+      if (next.size > stamped.size && !reducedMotion) {
+        rippleAge = 0;
+        ripple.visible = true;
+      }
       stamped = next;
       colorCountries();
     },

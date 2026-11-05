@@ -78,6 +78,15 @@ describe('Explorer', () => {
     const back = walk(explorer, 0, -1, 2);
     expect(back.filter((e) => e.type === 'place-reached')).toHaveLength(1);
   });
+  it('annonce l’entrée sur un lac une seule fois, puis à nouveau en y revenant', () => {
+    const explorer = new Explorer(world, { x: -300, y: -500 }, 'explorer');
+    const lakes = (seconds: number, y: number) =>
+      walk(explorer, 0, y, seconds).filter((event) => event.type === 'lake-entered');
+    expect(lakes(2, 1)).toEqual([{ type: 'lake-entered', id: 'lac' }]);
+    expect(lakes(0.5, 1)).toEqual([]);
+    expect(lakes(2, 1)).toEqual([]);
+    expect(lakes(2, -1)).toEqual([{ type: 'lake-entered', id: 'lac' }]);
+  });
   it('ne détecte pas à chaque image', () => {
     const explorer = new Explorer(world, { x: 900, y: 0 }, 'explorer');
     expect(explorer.update({ x: 0, y: 0 }, 0.01)).toEqual([]);

@@ -1,1 +1,272 @@
-{}
+{
+  "AGO": {
+    "text": "Mbanza Kongo, on a plateau at 570 m, was the capital of the Kingdom of Kongo, one of the largest states in Southern Africa from the 14th to the 19th century.",
+    "sourceUrl": "https://whc.unesco.org/en/list/1511",
+    "reviewStatus": "ai-draft"
+  },
+  "BDI": {
+    "text": "Near Gitega, in central Burundi, lie the southernmost source of the Nile and the spectacular Kagera Falls.",
+    "sourceUrl": "https://www.britannica.com/place/Burundi",
+    "reviewStatus": "ai-draft"
+  },
+  "BEN": {
+    "text": "From 1625 to 1900, twelve kings ruled the Kingdom of Abomey. Almost all of them built their palaces inside the same earthen-walled enclosure.",
+    "sourceUrl": "https://whc.unesco.org/en/list/323",
+    "reviewStatus": "ai-draft"
+  },
+  "BFA": {
+    "text": "The Loropeni ruins, with their imposing stone walls, are at least 1,000 years old. They recall the gold trade across the Sahara.",
+    "sourceUrl": "https://whc.unesco.org/en/list/1225",
+    "reviewStatus": "ai-draft"
+  },
+  "BWA": {
+    "text": "In Botswana, the Tsodilo Hills in the Kalahari Desert hold over 4,500 paintings in just 10 km². They are called the \"Louvre of the Desert\".",
+    "sourceUrl": "https://whc.unesco.org/en/list/1021",
+    "reviewStatus": "ai-draft"
+  },
+  "CAF": {
+    "text": "Sangha Trinational joins three neighbouring national parks of about 750,000 hectares, home to forest elephants and gorillas.",
+    "sourceUrl": "https://whc.unesco.org/en/list/1380",
+    "reviewStatus": "ai-draft"
+  },
+  "CIV": {
+    "text": "Taï National Park protects one of the last large pieces of primary tropical forest in West Africa, home to the pygmy hippopotamus and 11 species of monkeys.",
+    "sourceUrl": "https://whc.unesco.org/en/list/195",
+    "reviewStatus": "ai-draft"
+  },
+  "CMR": {
+    "text": "Cameroon's Dja Faunal Reserve is almost surrounded by the Dja River and shelters 107 mammal species, including many primates.",
+    "sourceUrl": "https://whc.unesco.org/en/list/407",
+    "reviewStatus": "ai-draft"
+  },
+  "COD": {
+    "text": "In the north-east, the Okapi Wildlife Reserve covers one-fifth of the Ituri forest, a refuge of the okapi, the \"forest giraffe\".",
+    "sourceUrl": "https://whc.unesco.org/en/list/718",
+    "reviewStatus": "ai-draft"
+  },
+  "COG": {
+    "text": "The Equator crosses the Republic of the Congo, just north of the town of Liranga. Brazzaville is a major port on the Congo River.",
+    "sourceUrl": "https://www.britannica.com/place/Republic-of-the-Congo",
+    "reviewStatus": "ai-draft"
+  },
+  "COM": {
+    "text": "On Grande Comore island, Karthala is an active volcano of 2,361 m, the highest point in the Comoros.",
+    "sourceUrl": "https://www.britannica.com/place/Grand-Comore",
+    "reviewStatus": "ai-draft"
+  },
+  "CPV": {
+    "text": "Cidade Velha, on the island of Santiago, was called Ribeira Grande. You can still see two churches, a royal fortress and part of the original street layout.",
+    "sourceUrl": "https://whc.unesco.org/en/list/1310",
+    "reviewStatus": "ai-draft"
+  },
+  "DJI": {
+    "text": "Lake Assal, a salt lake in Djibouti, lies 155 m below sea level: it is the lowest point in Africa.",
+    "sourceUrl": "https://www.britannica.com/place/Lake-Assal",
+    "reviewStatus": "ai-draft"
+  },
+  "DZA": {
+    "text": "In Tassili n'Ajjer, in the Sahara, more than 15,000 prehistoric drawings and engravings decorate eroded sandstone shaped into \"rock forests\".",
+    "sourceUrl": "https://whc.unesco.org/en/list/179",
+    "reviewStatus": "ai-draft"
+  },
+  "EGY": {
+    "text": "The pyramid fields from Giza to Dahshur surround Memphis, capital of the Old Kingdom. In ancient times, the site was counted among the Seven Wonders of the World.",
+    "sourceUrl": "https://whc.unesco.org/en/list/86",
+    "reviewStatus": "ai-draft"
+  },
+  "ERI": {
+    "text": "Asmara, the capital of Eritrea, stands at over 2,000 m above sea level and is famous for its modernist architecture.",
+    "sourceUrl": "https://whc.unesco.org/en/list/1550",
+    "reviewStatus": "ai-draft"
+  },
+  "ETH": {
+    "text": "At Lalibela, in the heart of Ethiopia, eleven medieval churches were carved out of living rock in a mountainous region.",
+    "sourceUrl": "https://whc.unesco.org/en/list/18",
+    "reviewStatus": "ai-draft"
+  },
+  "GAB": {
+    "text": "In Lopé-Okanda, rainforest and savannah meet, and the rocks carry about 1,800 prehistoric carvings.",
+    "sourceUrl": "https://whc.unesco.org/en/list/1147",
+    "reviewStatus": "ai-draft"
+  },
+  "GHA": {
+    "text": "Near Kumasi, the traditional Asante buildings, made of earth, wood and straw, are the last remains of the great Asante civilization of the 18th century.",
+    "sourceUrl": "https://whc.unesco.org/en/list/35",
+    "reviewStatus": "ai-draft"
+  },
+  "GIN": {
+    "text": "Mount Nimba, on the border of Guinea, Liberia and Côte d'Ivoire, shelters the viviparous toad and chimpanzees that use stones as tools.",
+    "sourceUrl": "https://whc.unesco.org/en/list/155",
+    "reviewStatus": "ai-draft"
+  },
+  "GMB": {
+    "text": "Along the River Gambia, over 1,000 monuments, including circles of laterite pillars, form a sacred landscape created over more than 1,500 years.",
+    "sourceUrl": "https://whc.unesco.org/en/list/1226",
+    "reviewStatus": "ai-draft"
+  },
+  "GNB": {
+    "text": "In Guinea-Bissau, tides reach up to 100 km inland. Their brackish water is used to irrigate rice paddies called bolanhas.",
+    "sourceUrl": "https://www.britannica.com/place/Guinea-Bissau",
+    "reviewStatus": "ai-draft"
+  },
+  "GNQ": {
+    "text": "On Bioko island, Basile Peak is an extinct volcano rising to 3,008 m. The island also has crater lakes.",
+    "sourceUrl": "https://www.britannica.com/place/Equatorial-Guinea",
+    "reviewStatus": "ai-draft"
+  },
+  "KEN": {
+    "text": "Lake Turkana in Kenya is the largest desert lake in the world. It is nicknamed the \"Jade Sea\" for its beautiful colour.",
+    "sourceUrl": "https://whc.unesco.org/en/list/801",
+    "reviewStatus": "ai-draft"
+  },
+  "LBR": {
+    "text": "In Liberia, the Vai people invented their own alphabet, a script created right there.",
+    "sourceUrl": "https://www.britannica.com/place/Liberia",
+    "reviewStatus": "ai-draft"
+  },
+  "LBY": {
+    "text": "Cyrene, founded by Greeks from the island of Thera, stayed a great capital until the earthquake of 365. A thousand years of history is written into its ruins.",
+    "sourceUrl": "https://whc.unesco.org/en/list/190",
+    "reviewStatus": "ai-draft"
+  },
+  "LSO": {
+    "text": "In Lesotho, Sehlabathebe National Park shelters the Maloti minnow, a rare fish found only in this park.",
+    "sourceUrl": "https://whc.unesco.org/en/list/985",
+    "reviewStatus": "ai-draft"
+  },
+  "MAR": {
+    "text": "Ait-Ben-Haddou, near Ouarzazate, is a ksar: earthen houses crowded together behind high walls reinforced by corner towers.",
+    "sourceUrl": "https://whc.unesco.org/en/list/444",
+    "reviewStatus": "ai-draft"
+  },
+  "MDG": {
+    "text": "In Madagascar, the Bemaraha tsingy form a \"forest of sharp stones\": limestone pinnacles up to 100 metres high, like cathedrals.",
+    "sourceUrl": "https://whc.unesco.org/en/list/494",
+    "reviewStatus": "ai-draft"
+  },
+  "MLI": {
+    "text": "In Djenné, nearly 2,000 traditional houses have survived. They are built on mounds called toguere to protect them from seasonal floods.",
+    "sourceUrl": "https://whc.unesco.org/en/list/116",
+    "reviewStatus": "ai-draft"
+  },
+  "MOZ": {
+    "text": "In Mozambique, Chopi orchestras bring together five to thirty wooden xylophones, called timbila, fitted with gourd resonators.",
+    "sourceUrl": "https://ich.unesco.org/en/RL/chopi-timbila-00133",
+    "reviewStatus": "ai-draft"
+  },
+  "MRT": {
+    "text": "Banc d'Arguin National Park mixes desert dunes and shallow sea along the Atlantic. Many migrating birds spend the winter there.",
+    "sourceUrl": "https://whc.unesco.org/en/list/506",
+    "reviewStatus": "ai-draft"
+  },
+  "MUS": {
+    "text": "In Mauritius, about a quarter of the plants and animals live only on the island. The Black River Gorges protect the last fragments of its original forest.",
+    "sourceUrl": "https://www.unesco.org/en/mab/black-river-gorges-bel-ombre",
+    "reviewStatus": "ai-draft"
+  },
+  "MWI": {
+    "text": "Lake Malawi is home to over 350 species of small colourful fish called mbuna, almost all found nowhere else in the world.",
+    "sourceUrl": "https://whc.unesco.org/en/list/289",
+    "reviewStatus": "ai-draft"
+  },
+  "NAM": {
+    "text": "In Namibia, the engravings at Twyfelfontein show rhinoceroses and giraffes. They record hunter-gatherer rituals going back at least 2,000 years.",
+    "sourceUrl": "https://whc.unesco.org/en/list/1255",
+    "reviewStatus": "ai-draft"
+  },
+  "NER": {
+    "text": "The Aïr and Ténéré reserves cover about 7.7 million hectares. They include the volcanic Aïr massif, a small Sahelian pocket in the Saharan desert.",
+    "sourceUrl": "https://whc.unesco.org/en/list/573",
+    "reviewStatus": "ai-draft"
+  },
+  "NGA": {
+    "text": "Near Osogbo, the Osun Sacred Grove is one of the last remnants of primary forest in southern Nigeria. It holds sanctuaries, sculptures and artworks.",
+    "sourceUrl": "https://whc.unesco.org/en/list/1118",
+    "reviewStatus": "ai-draft"
+  },
+  "RWA": {
+    "text": "In Rwanda, Nyungwe mountain forest shelters one-fifth of Africa's primate species, including chimpanzees, and over 300 bird species.",
+    "sourceUrl": "https://whc.unesco.org/en/list/1697/",
+    "reviewStatus": "ai-draft"
+  },
+  "SDN": {
+    "text": "Between the Nile and the Atbara, Meroe was the heartland of the Kingdom of Kush. Its remains include pyramids, temples and major water-management works.",
+    "sourceUrl": "https://whc.unesco.org/en/list/1336",
+    "reviewStatus": "ai-draft"
+  },
+  "SEN": {
+    "text": "In the Senegal River delta, the Djoudj sanctuary shelters some 1.5 million birds, such as white pelicans, purple herons and African spoonbills.",
+    "sourceUrl": "https://whc.unesco.org/en/list/25",
+    "reviewStatus": "ai-draft"
+  },
+  "SLE": {
+    "text": "The name Sierra Leone comes from the Portuguese Serra Lyoa, \"Lion Mountains\", given by an explorer to the hills around Freetown harbour.",
+    "sourceUrl": "https://www.britannica.com/place/Sierra-Leone",
+    "reviewStatus": "ai-draft"
+  },
+  "SOM": {
+    "text": "Somalia is the easternmost country of Africa, on the Horn of Africa. The frankincense tree (Boswellia) grows in its northern mountains.",
+    "sourceUrl": "https://www.britannica.com/place/Somalia",
+    "reviewStatus": "ai-draft"
+  },
+  "SSD": {
+    "text": "In South Sudan, an estimated six million antelope and gazelles (white-eared kob, tiang, Mongalla gazelle) migrate across floodplains and savannas each year.",
+    "sourceUrl": "https://whc.unesco.org/en/list/1808/",
+    "reviewStatus": "ai-draft"
+  },
+  "STP": {
+    "text": "São Tomé and Príncipe is a country of volcanic islands on the Equator. Its highest point, São Tomé Peak, rises to 2,024 m.",
+    "sourceUrl": "https://www.britannica.com/place/Sao-Tome-and-Principe",
+    "reviewStatus": "ai-draft"
+  },
+  "SWZ": {
+    "text": "At Ngwenya in Eswatini, people were already mining red ochre and sparkling haematite at least 42,000 years ago: one of the oldest mines in the world.",
+    "sourceUrl": "https://whc.unesco.org/en/tentativelists/5421/",
+    "reviewStatus": "ai-draft"
+  },
+  "SYC": {
+    "text": "In Seychelles, on Praslin island, the Vallée de Mai is home to the coco de mer, whose seed is the largest in the plant kingdom.",
+    "sourceUrl": "https://whc.unesco.org/en/list/261",
+    "reviewStatus": "ai-draft"
+  },
+  "TCD": {
+    "text": "In north-eastern Chad, in the Sahara desert, the Lakes of Ounianga form 18 connected lakes fed by groundwater.",
+    "sourceUrl": "https://whc.unesco.org/en/list/1400/",
+    "reviewStatus": "ai-draft"
+  },
+  "TGO": {
+    "text": "In Koutammakou, in north-eastern Togo, the Batammariba build mud tower-houses called takienta, grouped in villages with springs and ceremonial spaces.",
+    "sourceUrl": "https://whc.unesco.org/en/list/1140",
+    "reviewStatus": "ai-draft"
+  },
+  "TUN": {
+    "text": "Dougga, built on a height overlooking a fertile plain, was the capital of a Libyco-Punic state. Its impressive Roman ruins can still be visited.",
+    "sourceUrl": "https://whc.unesco.org/en/list/794",
+    "reviewStatus": "ai-draft"
+  },
+  "TZA": {
+    "text": "Mount Kilimanjaro in Tanzania rises to 5,895 m: the highest point in Africa, an isolated volcano whose snowy peak towers over the savannah.",
+    "sourceUrl": "https://whc.unesco.org/en/list/403",
+    "reviewStatus": "ai-draft"
+  },
+  "UGA": {
+    "text": "In Uganda, Bwindi forest is home to almost half of the world's mountain gorillas, as well as over 200 tree species.",
+    "sourceUrl": "https://whc.unesco.org/en/list/682",
+    "reviewStatus": "ai-draft"
+  },
+  "ZAF": {
+    "text": "In South Africa, the Vredefort Dome is the scar of a meteorite impact about 2 billion years old, one of the oldest and largest known on Earth.",
+    "sourceUrl": "https://whc.unesco.org/en/list/1162",
+    "reviewStatus": "ai-draft"
+  },
+  "ZMB": {
+    "text": "In Zambia, at Victoria Falls (Mosi-oa-Tunya), the Zambezi, over 2 km wide, plunges into basalt gorges. Its mist can be seen from more than 20 km away.",
+    "sourceUrl": "https://whc.unesco.org/en/list/509",
+    "reviewStatus": "ai-draft"
+  },
+  "ZWE": {
+    "text": "In Zimbabwe, the stone city of Great Zimbabwe, built between 1100 and 1450, gave the country its name: in Shona, \"zimbabwe\" means \"house of stone\".",
+    "sourceUrl": "https://whc.unesco.org/en/list/364",
+    "reviewStatus": "ai-draft"
+  }
+}

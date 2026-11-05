@@ -2,6 +2,7 @@
 import { readFileSync } from 'node:fs';
 import react from '@vitejs/plugin-react';
 import { defineConfig } from 'vite';
+import { VitePWA } from 'vite-plugin-pwa';
 
 interface VercelConfig {
   headers: { source: string; headers: { key: string; value: string }[] }[];
@@ -15,7 +16,44 @@ function securityHeaders(): Record<string, string> {
 }
 
 export default defineConfig({
-  plugins: [react()],
+  plugins: [
+    react(),
+    VitePWA({
+      registerType: 'autoUpdate',
+      // Fichier externe : la CSP interdit les scripts en ligne.
+      injectRegister: 'script-defer',
+      includeAssets: ['favicon.svg', 'robots.txt'],
+      manifest: {
+        name: 'Tembea',
+        short_name: 'Tembea',
+        description: "Marche l'Afrique : 54 pays, leurs capitales, fleuves et reliefs à découvrir.",
+        lang: 'fr',
+        theme_color: '#b5381f',
+        background_color: '#f6e4bf',
+        display: 'standalone',
+        start_url: '/',
+        icons: [
+          { src: '/icons/icon-192.png', sizes: '192x192', type: 'image/png' },
+          { src: '/icons/icon-512.png', sizes: '512x512', type: 'image/png' },
+          {
+            src: '/icons/icon-maskable-512.png',
+            sizes: '512x512',
+            type: 'image/png',
+            purpose: 'maskable',
+          },
+        ],
+      },
+      workbox: {
+        globPatterns: ['**/*.{js,css,html,json,svg,png,woff2}'],
+        globIgnores: ['**/og-image.png'],
+        navigateFallback: '/index.html',
+        // Le cache doit protéger la toute première session, sans attendre un rechargement.
+        clientsClaim: true,
+        skipWaiting: true,
+        maximumFileSizeToCacheInBytes: 3 * 1024 * 1024,
+      },
+    }),
+  ],
   preview: { headers: securityHeaders() },
   build: { target: 'es2022', sourcemap: false },
   test: {

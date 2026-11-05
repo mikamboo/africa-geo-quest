@@ -1,4 +1,4 @@
-import { z } from 'zod';
+import { z } from 'zod/mini';
 import {
   createInitialProgress,
   PROGRESS_VERSION,
@@ -12,35 +12,35 @@ import type {
   ProgressRepository,
   ScoreRepository,
 } from '../core/repositories';
-import { LEVELS } from './schemas';
+
+const LEVELS = ['explorer', 'geographer'] as const;
 
 export const PROGRESS_KEY = 'tembea.progress';
 export const SCORES_KEY = 'tembea.scores';
 export const SETTINGS_KEY = 'tembea.settings';
 
+const nonNegativeInt = z.int().check(z.minimum(0));
+
 const progressSchema = z.object({
   version: z.literal(PROGRESS_VERSION),
-  profile: z
-    .object({
+  profile: z.nullable(
+    z.object({
       avatar: z.enum(AVATAR_IDS),
       pseudonym: z
         .object({ animal: z.string(), adjective: z.string() })
-        .refine(isValidPseudonym, 'Pseudonyme hors liste'),
-    })
-    .nullable(),
+        .check(z.refine(isValidPseudonym, 'Pseudonyme hors liste')),
+    }),
+  ),
   level: z.enum(LEVELS),
   stamps: z.record(z.string(), z.string()),
   discoveredPlaces: z.array(z.string()),
   crossedRivers: z.array(z.string()),
-  leitner: z.record(
-    z.string(),
-    z.object({ box: z.number().int().min(1), dueDay: z.number().int() }),
-  ),
-  missionsCompleted: z.number().int().min(0),
-  quizCorrect: z.number().int().min(0),
-  quizAnswered: z.number().int().min(0),
-  points: z.number().min(0),
-  lastPosition: z.object({ x: z.number(), y: z.number() }).nullable(),
+  leitner: z.record(z.string(), z.object({ box: z.int().check(z.minimum(1)), dueDay: z.int() })),
+  missionsCompleted: nonNegativeInt,
+  quizCorrect: nonNegativeInt,
+  quizAnswered: nonNegativeInt,
+  points: z.number().check(z.minimum(0)),
+  lastPosition: z.nullable(z.object({ x: z.number(), y: z.number() })),
 });
 
 const dailyScoresSchema = z.array(
@@ -120,12 +120,12 @@ export class LocalScoreRepository implements ScoreRepository {
 }
 
 export const settingsSchema = z.object({
-  locale: z.enum(['fr', 'en']).default('fr'),
-  muted: z.boolean().default(false),
-  dyslexia: z.boolean().default(false),
-  reduceMotion: z.boolean().default(false),
-  noMovement: z.boolean().default(false),
-  timer: z.boolean().default(false),
+  locale: z._default(z.enum(['fr', 'en']), 'fr'),
+  muted: z._default(z.boolean(), false),
+  dyslexia: z._default(z.boolean(), false),
+  reduceMotion: z._default(z.boolean(), false),
+  noMovement: z._default(z.boolean(), false),
+  timer: z._default(z.boolean(), false),
 });
 export type Settings = z.infer<typeof settingsSchema>;
 

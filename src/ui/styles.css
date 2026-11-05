@@ -304,6 +304,43 @@ select {
   fill: var(--ink);
 }
 
+.poster__chevron {
+  fill: none;
+  stroke: var(--savane-dark);
+  stroke-width: 3;
+  opacity: 0.35;
+}
+
+.poster__dot {
+  fill: var(--paper);
+  opacity: 0.7;
+}
+
+.poster__trail {
+  fill: none;
+  stroke: var(--terre);
+  stroke-width: 8;
+  stroke-linecap: round;
+  stroke-dasharray: 1 20;
+}
+
+.poster__pin {
+  fill: var(--terre);
+  stroke: var(--ink);
+  stroke-width: 5;
+}
+
+.poster__crew {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 14px;
+}
+
+.home--new .poster {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
 .modes {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -703,6 +740,10 @@ select {
   margin: 0;
 }
 
+.mission-banner > div {
+  flex: 1;
+}
+
 .mission-banner__title {
   font-family: var(--display);
   font-size: 1.2rem;
@@ -800,10 +841,11 @@ select {
 
 .card__stamp {
   position: absolute;
-  right: 34px;
-  bottom: -6px;
-  width: 42px;
-  height: 42px;
+  left: 58px;
+  bottom: -8px;
+  width: 38px;
+  height: 38px;
+  background: rgb(255 246 227 / 85%);
   border: 3px solid var(--terre);
   border-radius: 50%;
   transform: rotate(-14deg);
@@ -842,11 +884,25 @@ select {
   border-radius: 10px;
   font-weight: 800;
   font-size: 1rem;
+  line-height: 1.25;
   animation: card-in 200ms ease both;
 }
 
-.toast--river {
+.toast p {
+  margin: 0;
+}
+
+.toast__blurb {
+  font-weight: 700;
+}
+
+.toast--river,
+.toast--lake {
   background: var(--fleuve-light);
+}
+
+.toast--badge {
+  background: var(--ocre);
 }
 
 /* Dialogues */

@@ -10,6 +10,7 @@ export type GameEvent =
   | { type: 'country-entered'; code: string; from: string | null }
   | { type: 'country-left'; code: string }
   | { type: 'terrain-changed'; terrain: Terrain }
+  | { type: 'lake-entered'; id: string }
   | { type: 'place-reached'; id: string }
   | { type: 'river-crossed'; id: string };
 
@@ -79,6 +80,9 @@ export class Explorer {
       if (next.country) {
         events.push({ type: 'country-entered', code: next.country, from: previous.country });
       }
+    }
+    if (next.lake && next.lake !== previous.lake) {
+      events.push({ type: 'lake-entered', id: next.lake });
     }
     this.location = next;
     events.push(...this.detectPlaces());

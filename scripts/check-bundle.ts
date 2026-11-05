@@ -3,6 +3,7 @@ import { join } from 'node:path';
 import { gzipSync } from 'node:zlib';
 
 const BUDGET_BYTES = 300 * 1024;
+
 const html = readFileSync('dist/index.html', 'utf8');
 
 /** JS initial = scripts et modulepreload référencés par index.html (les chunks à la demande en sont exclus). */
@@ -23,6 +24,18 @@ console.log(`JS initial : ${(total / 1024).toFixed(1)} Ko gzip (budget ${BUDGET_
 const assets = readdirSync('dist/assets').filter((name) => name.endsWith('.js'));
 const everything = assets.reduce((sum, name) => sum + statSync(join('dist/assets', name)).size, 0);
 console.log(`Tous les chunks JS (non compressés) : ${(everything / 1024).toFixed(0)} Ko`);
+
+// Aucun crochet de test ni appel de mesure d'audience dans le build par défaut.
+const FORBIDDEN = ['__TEST__', '__tembea', '_vercel/insights'];
+for (const name of assets) {
+  const content = readFileSync(join('dist/assets', name), 'utf8');
+  for (const token of FORBIDDEN) {
+    if (content.includes(token)) {
+      console.error(`Élément interdit dans le build : ${token} (${name})`);
+      process.exit(1);
+    }
+  }
+}
 
 if (total > BUDGET_BYTES) {
   console.error('Budget de JS initial dépassé.');

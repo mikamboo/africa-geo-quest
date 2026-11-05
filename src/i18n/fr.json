@@ -150,7 +150,9 @@
   },
   "toast": {
     "place": "Lieu découvert : {{name}}",
-    "river": "Fleuve traversé : {{name}}"
+    "river": "Fleuve traversé : {{name}}",
+    "badge": "Badge gagné : {{name}} !",
+    "lake": "Lac atteint : {{name}}"
   },
   "region": {
     "north": "Afrique du Nord",

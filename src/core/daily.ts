@@ -4,10 +4,7 @@ import type { Mission } from './missions';
 import type { Point } from './geometry';
 import { project } from './projection';
 
-/** Date UTC au format AAAA-MM-JJ : la même partout au même instant. */
-export function utcDateKey(date: Date): string {
-  return date.toISOString().slice(0, 10);
-}
+export { utcDateKey } from './dates';
 
 export function dailySeed(dateKey: string): number {
   return hashString(`tembea-daily-${dateKey}`);

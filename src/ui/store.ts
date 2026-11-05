@@ -1,13 +1,15 @@
 import { create } from 'zustand';
-import type { GameCatalog } from '../core/catalog';
-import { dailyChallenge, utcDateKey, type DailyChallenge } from '../core/daily';
+import { countryByCode, type GameCatalog } from '../core/catalog';
+import type { DailyChallenge } from '../core/daily';
+import { utcDateKey } from '../core/dates';
 import type { GameEvent } from '../core/explorer';
 import type { Point } from '../core/geometry';
 import { dayNumber, reviewCard } from '../core/leitner';
-import { missionCompletedBy, type Mission } from '../core/missions';
+import { missionCompletedBy, type Mission } from '../core/missionRules';
 import {
   createInitialProgress,
   discoverPlace,
+  earnedBadges,
   recordRiver,
   stampCountry,
   type Profile,
@@ -39,7 +41,7 @@ export interface MissionResult {
 
 export interface Toast {
   id: number;
-  kind: 'place' | 'river' | 'badge';
+  kind: 'place' | 'river' | 'lake' | 'badge';
   subject: string;
 }
 
@@ -79,7 +81,7 @@ interface GameStore {
   setLevel: (level: Level) => void;
   startFree: () => void;
   startMission: (mission: Mission) => void;
-  startDaily: (catalog: GameCatalog) => void;
+  startDaily: (daily: DailyChallenge) => void;
   finishMissionResult: () => void;
   handleEvents: (
     events: GameEvent[],
@@ -166,8 +168,7 @@ export const useGameStore = create<GameStore>((set, get) => ({
       card: null,
       currentCountry: null,
     }),
-  startDaily: (catalog) => {
-    const daily = dailyChallenge(utcDateKey(new Date()), catalog);
+  startDaily: (daily) => {
     set({
       screen: 'play',
       mode: 'daily',
@@ -197,6 +198,12 @@ export const useGameStore = create<GameStore>((set, get) => ({
             progress = { ...progress, points: progress.points + STAMP_POINTS };
             changed = true;
             playSound('stamp');
+            const region = countryByCode(catalog, event.code)?.region;
+            if (region && earnedBadges(progress, catalog).includes(region)) {
+              toastId += 1;
+              toasts = [...toasts.slice(-2), { id: toastId, kind: 'badge', subject: region }];
+              playSound('success');
+            }
           } else {
             playSound('enter');
           }
@@ -207,6 +214,10 @@ export const useGameStore = create<GameStore>((set, get) => ({
           break;
         case 'terrain-changed':
           terrain = event.terrain;
+          break;
+        case 'lake-entered':
+          toastId += 1;
+          toasts = [...toasts.slice(-2), { id: toastId, kind: 'lake', subject: event.id }];
           break;
         case 'place-reached':
           if (!progress.discoveredPlaces.includes(event.id)) {

@@ -6,19 +6,12 @@ import {
   type GameCatalog,
 } from './catalog';
 import { distance, type Point } from './geometry';
-import type { GameEvent } from './explorer';
+import type { Mission } from './missionRules';
 import { project } from './projection';
 import { pick, shuffle, type Rng } from './rng';
 import type { Level } from './types';
 
-export type MissionType = 'go-to-place' | 'cross-river' | 'find-landlocked' | 'find-island';
-
-export interface Mission {
-  id: string;
-  type: MissionType;
-  /** Identifiant du lieu ou du fleuve visé ; vide pour une recherche par propriété. */
-  targetId: string;
-}
+export { missionCompletedBy, type Mission, type MissionType } from './missionRules';
 
 export type Compass = 'N' | 'NE' | 'E' | 'SE' | 'S' | 'SW' | 'W' | 'NW';
 
@@ -26,28 +19,6 @@ export interface MissionHint {
   distanceKm: number;
   compass: Compass;
   target: Point;
-}
-
-/** Vrai si l'événement accomplit la mission. */
-export function missionCompletedBy(
-  mission: Mission,
-  event: GameEvent,
-  catalog: GameCatalog,
-): boolean {
-  switch (mission.type) {
-    case 'go-to-place':
-      return event.type === 'place-reached' && event.id === mission.targetId;
-    case 'cross-river':
-      return event.type === 'river-crossed' && event.id === mission.targetId;
-    case 'find-landlocked':
-      return (
-        event.type === 'country-entered' && countryByCode(catalog, event.code)?.landlocked === true
-      );
-    case 'find-island':
-      return (
-        event.type === 'country-entered' && countryByCode(catalog, event.code)?.island === true
-      );
-  }
 }
 
 export function compassBetween(from: Point, to: Point): Compass {

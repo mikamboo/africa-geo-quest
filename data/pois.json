@@ -1,1 +1,614 @@
-[]
+[
+  {
+    "id": "poi-giza",
+    "kind": "monument",
+    "country": "EGY",
+    "names": {
+      "fr": "Pyramides de Gizeh",
+      "en": "Pyramids of Giza"
+    },
+    "lat": 29.98,
+    "lon": 31.13,
+    "level": "explorer",
+    "blurb": {
+      "fr": "Près du Caire, la Grande Pyramide, bâtie il y a environ 4 500 ans, fut longtemps la plus haute construction du monde.",
+      "en": "Near Cairo, the Great Pyramid, built about 4,500 years ago, was once the tallest human-made structure in the world."
+    },
+    "sourceUrl": "https://en.wikipedia.org/wiki/Giza_pyramid_complex"
+  },
+  {
+    "id": "poi-djenne",
+    "kind": "monument",
+    "country": "MLI",
+    "names": {
+      "fr": "Vieille ville de Djenné",
+      "en": "Old Towns of Djenné"
+    },
+    "lat": 13.91,
+    "lon": -4.56,
+    "level": "geographer",
+    "blurb": {
+      "fr": "À Djenné, la grande mosquée en briques de terre reçoit chaque année une nouvelle couche d'enduit de boue.",
+      "en": "In Djenné, the Great Mosque of mud bricks gets a fresh coat of mud plaster every year."
+    },
+    "sourceUrl": "https://en.wikipedia.org/wiki/Djenn%C3%A9"
+  },
+  {
+    "id": "poi-timbuktu",
+    "kind": "monument",
+    "country": "MLI",
+    "names": {
+      "fr": "Tombouctou",
+      "en": "Timbuktu"
+    },
+    "lat": 16.78,
+    "lon": -3.01,
+    "level": "explorer",
+    "blurb": {
+      "fr": "Tombouctou, à une vingtaine de km au nord du fleuve Niger, fut un grand centre du savoir.",
+      "en": "Timbuktu, about 20 km north of the Niger River, was once a famous centre of learning."
+    },
+    "sourceUrl": "https://en.wikipedia.org/wiki/Timbuktu"
+  },
+  {
+    "id": "poi-lalibela",
+    "kind": "monument",
+    "country": "ETH",
+    "names": {
+      "fr": "Églises de Lalibela",
+      "en": "Rock-Hewn Churches of Lalibela"
+    },
+    "lat": 12.03,
+    "lon": 39.04,
+    "level": "explorer",
+    "blurb": {
+      "fr": "À Lalibela, les églises sont creusées dans la roche : les bâtisseurs ont sculpté portes, piliers et toits.",
+      "en": "In Lalibela, churches were carved down into solid rock: builders dug out the doors, pillars and roofs."
+    },
+    "sourceUrl": "https://en.wikipedia.org/wiki/Lalibela"
+  },
+  {
+    "id": "poi-great-zimbabwe",
+    "kind": "monument",
+    "country": "ZWE",
+    "names": {
+      "fr": "Grand Zimbabwe",
+      "en": "Great Zimbabwe"
+    },
+    "lat": -20.27,
+    "lon": 30.93,
+    "level": "explorer",
+    "blurb": {
+      "fr": "Le Grand Zimbabwe est une cité ancienne de blocs de pierre empilés sans ciment, bâtie par les ancêtres des Shona.",
+      "en": "Great Zimbabwe is an ancient city of stone blocks stacked without cement, built by ancestors of the Shona people."
+    },
+    "sourceUrl": "https://en.wikipedia.org/wiki/Great_Zimbabwe"
+  },
+  {
+    "id": "poi-victoria-falls",
+    "kind": "nature",
+    "country": "ZMB",
+    "names": {
+      "fr": "Chutes Victoria",
+      "en": "Victoria Falls"
+    },
+    "lat": -17.87,
+    "lon": 25.83,
+    "level": "explorer",
+    "blurb": {
+      "fr": "Le Zambèze plonge ici dans des gorges de basalte, dans un nuage de brume visible de très loin.",
+      "en": "The Zambezi plunges into basalt gorges here, in a cloud of mist visible from far away."
+    },
+    "sourceUrl": "https://whc.unesco.org/en/list/509"
+  },
+  {
+    "id": "poi-kilimanjaro",
+    "kind": "nature",
+    "country": "TZA",
+    "names": {
+      "fr": "Kilimandjaro",
+      "en": "Mount Kilimanjaro"
+    },
+    "lat": -3.08,
+    "lon": 37.35,
+    "level": "explorer",
+    "blurb": {
+      "fr": "Le Kilimandjaro est un volcan endormi de 5 895 m, le plus haut sommet d'Afrique, encore coiffé de neige.",
+      "en": "Kilimanjaro is a sleeping volcano 5,895 m high, Africa's tallest mountain, still capped with snow and ice."
+    },
+    "sourceUrl": "https://en.wikipedia.org/wiki/Mount_Kilimanjaro"
+  },
+  {
+    "id": "poi-mount-kenya",
+    "kind": "nature",
+    "country": "KEN",
+    "names": {
+      "fr": "Mont Kenya",
+      "en": "Mount Kenya"
+    },
+    "lat": -0.15,
+    "lon": 37.31,
+    "level": "geographer",
+    "blurb": {
+      "fr": "Le mont Kenya est un vieux volcan de 5 199 m, près de l'équateur, qui garde de la glace à son sommet.",
+      "en": "Mount Kenya is an old 5,199 m volcano near the equator that still has ice on its top."
+    },
+    "sourceUrl": "https://en.wikipedia.org/wiki/Mount_Kenya"
+  },
+  {
+    "id": "poi-serengeti",
+    "kind": "nature",
+    "country": "TZA",
+    "names": {
+      "fr": "Serengeti",
+      "en": "Serengeti"
+    },
+    "lat": -2.4,
+    "lon": 34.6,
+    "level": "explorer",
+    "blurb": {
+      "fr": "Chaque année, plus d'un million de gnous et beaucoup de zèbres parcourent le Serengeti : un immense défilé animal.",
+      "en": "Each year over a million wildebeest and many zebras loop across the Serengeti, like the world's biggest animal parade."
+    },
+    "sourceUrl": "https://en.wikipedia.org/wiki/Serengeti_National_Park"
+  },
+  {
+    "id": "poi-okavango",
+    "kind": "nature",
+    "country": "BWA",
+    "names": {
+      "fr": "Delta de l'Okavango",
+      "en": "Okavango Delta"
+    },
+    "lat": -19.4,
+    "lon": 22.9,
+    "level": "explorer",
+    "blurb": {
+      "fr": "L'Okavango, au Botswana, est un monde d'eau où les rivières s'étalent en marais et en îles pleines d'animaux.",
+      "en": "The Okavango in Botswana is a watery wonderland where rivers spread into swamps and islands full of animals."
+    },
+    "sourceUrl": "https://en.wikipedia.org/wiki/Okavango_Delta"
+  },
+  {
+    "id": "poi-table-mountain",
+    "kind": "nature",
+    "country": "ZAF",
+    "names": {
+      "fr": "Montagne de la Table",
+      "en": "Table Mountain"
+    },
+    "lat": -33.96,
+    "lon": 18.41,
+    "level": "geographer",
+    "blurb": {
+      "fr": "La montagne de la Table, au sommet plat, domine Le Cap ; ses pentes abritent le fynbos, des plantes uniques.",
+      "en": "Flat-topped Table Mountain towers over Cape Town, and its slopes are home to fynbos, plants unique to this region."
+    },
+    "sourceUrl": "https://en.wikipedia.org/wiki/Table_Mountain"
+  },
+  {
+    "id": "poi-namib-sand-sea",
+    "kind": "nature",
+    "country": "NAM",
+    "names": {
+      "fr": "Mer de sable du Namib",
+      "en": "Namib Sand Sea"
+    },
+    "lat": -24.75,
+    "lon": 15.28,
+    "level": "explorer",
+    "blurb": {
+      "fr": "Le désert du Namib longe l'Atlantique : le brouillard désaltère plantes et insectes, et ses dunes dépassent des gratte-ciel.",
+      "en": "The Namib Desert runs along the Atlantic: fog gives plants and tiny bugs a drink, and its dunes rise taller than skyscrapers."
+    },
+    "sourceUrl": "https://en.wikipedia.org/wiki/Namib"
+  },
+  {
+    "id": "poi-ngorongoro",
+    "kind": "nature",
+    "country": "TZA",
+    "names": {
+      "fr": "Cratère du Ngorongoro",
+      "en": "Ngorongoro Crater"
+    },
+    "lat": -3.21,
+    "lon": 35.46,
+    "level": "geographer",
+    "blurb": {
+      "fr": "Le cratère du Ngorongoro est une immense cuvette née de l'effondrement d'un volcan, où vivent lions et zèbres.",
+      "en": "Ngorongoro Crater is a huge bowl formed when a giant volcano collapsed, and it is home to lions, zebras and more."
+    },
+    "sourceUrl": "https://en.wikipedia.org/wiki/Ngorongoro_Conservation_Area"
+  },
+  {
+    "id": "poi-goree",
+    "kind": "monument",
+    "country": "SEN",
+    "names": {
+      "fr": "Île de Gorée",
+      "en": "Gorée Island"
+    },
+    "lat": 14.67,
+    "lon": -17.4,
+    "level": "explorer",
+    "blurb": {
+      "fr": "Gorée, petite île en face de Dakar, est aujourd'hui un lieu de mémoire et de patrimoine mondial.",
+      "en": "Gorée, a small island off Dakar, is today a place of memory and a World Heritage site."
+    },
+    "sourceUrl": "https://en.wikipedia.org/wiki/Gor%C3%A9e"
+  },
+  {
+    "id": "poi-aksum",
+    "kind": "monument",
+    "country": "ETH",
+    "names": {
+      "fr": "Aksoum",
+      "en": "Axum"
+    },
+    "lat": 14.12,
+    "lon": 38.73,
+    "level": "geographer",
+    "blurb": {
+      "fr": "À Aksoum se dressent de hautes stèles de pierre sculptée, vieilles de près de 1 700 ans.",
+      "en": "Axum has tall carved stone towers called stelae, built nearly 1,700 years ago."
+    },
+    "sourceUrl": "https://en.wikipedia.org/wiki/Axum"
+  },
+  {
+    "id": "poi-carthage",
+    "kind": "monument",
+    "country": "TUN",
+    "names": {
+      "fr": "Carthage",
+      "en": "Carthage"
+    },
+    "lat": 36.85,
+    "lon": 10.32,
+    "level": "explorer",
+    "blurb": {
+      "fr": "Carthage, près de Tunis, fut une grande cité au bord de la mer ; on visite ses ruines pour imaginer la vie d'autrefois.",
+      "en": "Carthage was a bustling ancient city by the sea near Tunis; visit its ruins and imagine life long ago."
+    },
+    "sourceUrl": "https://en.wikipedia.org/wiki/Carthage"
+  },
+  {
+    "id": "poi-ait-ben-haddou",
+    "kind": "monument",
+    "country": "MAR",
+    "names": {
+      "fr": "Aït-Ben-Haddou",
+      "en": "Aït Benhaddou"
+    },
+    "lat": 31.05,
+    "lon": -7.13,
+    "level": "geographer",
+    "blurb": {
+      "fr": "Aït-Ben-Haddou est un village fortifié de terre et de boue, où les familles vivaient et stockaient leurs grains.",
+      "en": "Aït Benhaddou is an old walled village built of packed earth and mud, where families lived and stored grain."
+    },
+    "sourceUrl": "https://en.wikipedia.org/wiki/Ait_Benhaddou"
+  },
+  {
+    "id": "poi-rwenzori",
+    "kind": "nature",
+    "country": "UGA",
+    "names": {
+      "fr": "Monts Rwenzori",
+      "en": "Rwenzori Mountains"
+    },
+    "lat": 0.4,
+    "lon": 29.95,
+    "level": "geographer",
+    "blurb": {
+      "fr": "Au parc des monts Rwenzori, en Ouganda, on trouve montagnes enneigées, cascades, lacs et plantes colorées.",
+      "en": "Rwenzori Mountains National Park in Uganda has snowy mountains, waterfalls, lakes and colourful plants."
+    },
+    "sourceUrl": "https://en.wikipedia.org/wiki/Rwenzori_Mountains_National_Park"
+  },
+  {
+    "id": "poi-virunga",
+    "kind": "nature",
+    "country": "COD",
+    "names": {
+      "fr": "Parc national des Virunga",
+      "en": "Virunga National Park"
+    },
+    "lat": -0.92,
+    "lon": 29.17,
+    "level": "explorer",
+    "blurb": {
+      "fr": "Le parc des Virunga, en RD Congo, abrite de rares gorilles de montagne et de hauts volcans.",
+      "en": "Virunga Park in the DR Congo is home to rare mountain gorillas and towering volcanoes."
+    },
+    "sourceUrl": "https://en.wikipedia.org/wiki/Virunga_National_Park"
+  },
+  {
+    "id": "poi-tsingy",
+    "kind": "nature",
+    "country": "MDG",
+    "names": {
+      "fr": "Tsingy de Bemaraha",
+      "en": "Tsingy de Bemaraha"
+    },
+    "lat": -18.67,
+    "lon": 44.75,
+    "level": "explorer",
+    "blurb": {
+      "fr": "Les Tsingy de Bemaraha forment une forêt d'aiguilles de calcaire pointues et très hautes.",
+      "en": "The Tsingy de Bemaraha are a giant forest of sharp, tall limestone spikes."
+    },
+    "sourceUrl": "https://en.wikipedia.org/wiki/Tsingy_de_Bemaraha_Strict_Nature_Reserve"
+  },
+  {
+    "id": "poi-lake-malawi-park",
+    "kind": "nature",
+    "country": "MWI",
+    "names": {
+      "fr": "Parc national du lac Malawi",
+      "en": "Lake Malawi National Park"
+    },
+    "lat": -14.03,
+    "lon": 34.88,
+    "level": "geographer",
+    "blurb": {
+      "fr": "Dans le parc du lac Malawi nagent de petits poissons colorés, les cichlidés, dont beaucoup vivent ici seulement.",
+      "en": "In Lake Malawi National Park swim small colourful fish called cichlids, many found nowhere else on Earth."
+    },
+    "sourceUrl": "https://en.wikipedia.org/wiki/Lake_Malawi_National_Park"
+  },
+  {
+    "id": "poi-kilwa",
+    "kind": "monument",
+    "country": "TZA",
+    "names": {
+      "fr": "Ruines de Kilwa Kisiwani",
+      "en": "Ruins of Kilwa Kisiwani"
+    },
+    "lat": -8.96,
+    "lon": 39.51,
+    "level": "geographer",
+    "blurb": {
+      "fr": "Kilwa Kisiwani, île du sud de la Tanzanie, fut une grande cité marchande médiévale et reste un patrimoine mondial.",
+      "en": "Kilwa Kisiwani, an island off southern Tanzania, was a major medieval trading city and is a World Heritage site."
+    },
+    "sourceUrl": "https://en.wikipedia.org/wiki/Kilwa_Kisiwani"
+  },
+  {
+    "id": "poi-stone-town",
+    "kind": "monument",
+    "country": "TZA",
+    "names": {
+      "fr": "Stone Town de Zanzibar",
+      "en": "Stone Town of Zanzibar"
+    },
+    "lat": -6.16,
+    "lon": 39.19,
+    "level": "geographer",
+    "blurb": {
+      "fr": "Stone Town, vieille ville de l'île de Zanzibar, est célèbre pour ses portes en bois magnifiquement sculptées.",
+      "en": "Stone Town, the old town on Zanzibar island, is famous for its beautifully carved wooden doors."
+    },
+    "sourceUrl": "https://en.wikipedia.org/wiki/Stone_Town"
+  },
+  {
+    "id": "poi-drakensberg",
+    "kind": "nature",
+    "country": "LSO",
+    "names": {
+      "fr": "Parc de Sehlabathebe",
+      "en": "Sehlabathebe National Park"
+    },
+    "lat": -29.9,
+    "lon": 29.12,
+    "level": "geographer",
+    "blurb": {
+      "fr": "Sehlabathebe, haut dans les montagnes du Lesotho, a des cascades et de très anciennes peintures sur la roche.",
+      "en": "Sehlabathebe, high in Lesotho's mountains, has waterfalls and ancient paintings on the rocks."
+    },
+    "sourceUrl": "https://en.wikipedia.org/wiki/Sehlabathebe_National_Park"
+  },
+  {
+    "id": "poi-aldabra",
+    "kind": "nature",
+    "country": "SYC",
+    "names": {
+      "fr": "Atoll d'Aldabra",
+      "en": "Aldabra Atoll"
+    },
+    "lat": -9.42,
+    "lon": 46.35,
+    "level": "geographer",
+    "blurb": {
+      "fr": "Aldabra, atoll des Seychelles, est le refuge de tortues géantes qui se promènent en liberté.",
+      "en": "Aldabra, an atoll in the Seychelles, is a special island home where giant tortoises roam."
+    },
+    "sourceUrl": "https://en.wikipedia.org/wiki/Aldabra"
+  },
+  {
+    "id": "poi-vallee-de-mai",
+    "kind": "nature",
+    "country": "SYC",
+    "names": {
+      "fr": "Vallée de Mai",
+      "en": "Vallée de Mai"
+    },
+    "lat": -4.33,
+    "lon": 55.74,
+    "level": "explorer",
+    "blurb": {
+      "fr": "La Vallée de Mai, sur l'île de Praslin, abrite le cocotier de mer, dont la graine est la plus grosse du monde végétal.",
+      "en": "Vallée de Mai on Praslin Island is home to the coco de mer palm, which makes the biggest seed of any plant."
+    },
+    "sourceUrl": "https://en.wikipedia.org/wiki/Vall%C3%A9e_de_Mai_Nature_Reserve"
+  },
+  {
+    "id": "poi-le-morne",
+    "kind": "nature",
+    "country": "MUS",
+    "names": {
+      "fr": "Le Morne Brabant",
+      "en": "Le Morne Brabant"
+    },
+    "lat": -20.45,
+    "lon": 57.33,
+    "level": "geographer",
+    "blurb": {
+      "fr": "Le Morne Brabant, montagne de basalte au bord de l'île Maurice, est un lieu de mémoire et de patrimoine mondial.",
+      "en": "Le Morne Brabant, a basalt mountain on Mauritius's coast, is a World Heritage site and a place of memory."
+    },
+    "sourceUrl": "https://en.wikipedia.org/wiki/Le_Morne_Brabant"
+  },
+  {
+    "id": "poi-cidade-velha",
+    "kind": "monument",
+    "country": "CPV",
+    "names": {
+      "fr": "Cidade Velha",
+      "en": "Cidade Velha"
+    },
+    "lat": 14.92,
+    "lon": -23.61,
+    "level": "explorer",
+    "blurb": {
+      "fr": "Cidade Velha, fondée en 1462 sur l'île de Santiago, est un site du patrimoine mondial riche d'histoire et de mémoire.",
+      "en": "Cidade Velha, founded in 1462 on Santiago Island, is a World Heritage site rich in history and memory."
+    },
+    "sourceUrl": "https://en.wikipedia.org/wiki/Cidade_Velha"
+  },
+  {
+    "id": "poi-bijagos",
+    "kind": "nature",
+    "country": "GNB",
+    "names": {
+      "fr": "Archipel des Bijagos",
+      "en": "Bijagós Archipelago"
+    },
+    "lat": 11.25,
+    "lon": -16.08,
+    "level": "geographer",
+    "blurb": {
+      "fr": "L'archipel des Bijagos compte environ 88 petites îles dans l'Atlantique, réserve de biosphère depuis 1996.",
+      "en": "The Bijagós are a chain of about 88 small Atlantic islands, a protected biosphere reserve since 1996."
+    },
+    "sourceUrl": "https://en.wikipedia.org/wiki/Bijag%C3%B3s_Archipelago"
+  },
+  {
+    "id": "poi-tassili",
+    "kind": "nature",
+    "country": "DZA",
+    "names": {
+      "fr": "Tassili n'Ajjer",
+      "en": "Tassili n'Ajjer"
+    },
+    "lat": 25.5,
+    "lon": 9.0,
+    "level": "geographer",
+    "blurb": {
+      "fr": "Le Tassili n'Ajjer est un plateau rocheux du Sahara où d'anciens artistes ont peint des animaux sur la pierre.",
+      "en": "Tassili n'Ajjer is a rocky Sahara plateau where ancient artists painted and carved animals into the sandstone."
+    },
+    "sourceUrl": "https://en.wikipedia.org/wiki/Tassili_n%27Ajjer"
+  },
+  {
+    "id": "poi-leptis-magna",
+    "kind": "monument",
+    "country": "LBY",
+    "names": {
+      "fr": "Leptis Magna",
+      "en": "Leptis Magna"
+    },
+    "lat": 32.64,
+    "lon": 14.29,
+    "level": "geographer",
+    "blurb": {
+      "fr": "Leptis Magna est une ville romaine antique, avec arcs, théâtre et marchés, longtemps cachée sous le sable.",
+      "en": "Leptis Magna is an ancient Roman city of grand arches, theatres and markets, long covered by sand."
+    },
+    "sourceUrl": "https://en.wikipedia.org/wiki/Leptis_Magna"
+  },
+  {
+    "id": "poi-meroe",
+    "kind": "monument",
+    "country": "SDN",
+    "names": {
+      "fr": "Pyramides de Méroé",
+      "en": "Pyramids of Meroë"
+    },
+    "lat": 16.93,
+    "lon": 33.73,
+    "level": "explorer",
+    "blurb": {
+      "fr": "À Méroé, les rois de Koush ont bâti plus de 200 pyramides de pierre qui servaient de tombeaux royaux.",
+      "en": "At Meroë, the rulers of the Kingdom of Kush built over 200 stone pyramids used as royal tombs."
+    },
+    "sourceUrl": "https://en.wikipedia.org/wiki/Meroe"
+  },
+  {
+    "id": "poi-koutammakou",
+    "kind": "monument",
+    "country": "TGO",
+    "names": {
+      "fr": "Koutammakou",
+      "en": "Koutammakou"
+    },
+    "lat": 10.07,
+    "lon": 1.13,
+    "level": "geographer",
+    "blurb": {
+      "fr": "Au Koutammakou, les Batammariba vivent dans des maisons en forme de tours de terre, classées au patrimoine mondial.",
+      "en": "In Koutammakou, the Batammariba people live in tall mud tower-shaped homes, a World Heritage site."
+    },
+    "sourceUrl": "https://en.wikipedia.org/wiki/Koutammakou"
+  },
+  {
+    "id": "poi-sukur",
+    "kind": "monument",
+    "country": "NGA",
+    "names": {
+      "fr": "Paysage culturel de Sukur",
+      "en": "Sukur Cultural Landscape"
+    },
+    "lat": 10.74,
+    "lon": 13.57,
+    "level": "geographer",
+    "blurb": {
+      "fr": "Sukur est un village perché au Nigeria, où l'on cultive depuis des siècles sur de grandes terrasses en escalier.",
+      "en": "Sukur is a hilltop place in Nigeria where crops have grown for centuries on giant staircase-like terraces."
+    },
+    "sourceUrl": "https://en.wikipedia.org/wiki/Sukur"
+  },
+  {
+    "id": "poi-dja",
+    "kind": "nature",
+    "country": "CMR",
+    "names": {
+      "fr": "Réserve du Dja",
+      "en": "Dja Faunal Reserve"
+    },
+    "lat": 3.0,
+    "lon": 13.0,
+    "level": "geographer",
+    "blurb": {
+      "fr": "La réserve du Dja est une immense forêt tropicale du Cameroun où vivent gorilles, chimpanzés et éléphants.",
+      "en": "The Dja Faunal Reserve is a huge rainforest in Cameroon where gorillas, chimpanzees and elephants live."
+    },
+    "sourceUrl": "https://en.wikipedia.org/wiki/Dja_Faunal_Reserve"
+  },
+  {
+    "id": "poi-lope",
+    "kind": "nature",
+    "country": "GAB",
+    "names": {
+      "fr": "Lopé-Okanda",
+      "en": "Lopé-Okanda"
+    },
+    "lat": -0.5,
+    "lon": 11.5,
+    "level": "geographer",
+    "blurb": {
+      "fr": "Au Lopé, au Gabon, la forêt tropicale rencontre la savane, près du fleuve Ogooué.",
+      "en": "In Lopé, Gabon, thick rainforest meets open grassland, with the Ogooué River flowing nearby."
+    },
+    "sourceUrl": "https://en.wikipedia.org/wiki/Lop%C3%A9_National_Park"
+  }
+]

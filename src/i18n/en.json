@@ -150,7 +150,9 @@
   },
   "toast": {
     "place": "Place discovered: {{name}}",
-    "river": "River crossed: {{name}}"
+    "river": "River crossed: {{name}}",
+    "badge": "Badge earned: {{name}}!",
+    "lake": "Lake reached: {{name}}"
   },
   "region": {
     "north": "Northern Africa",

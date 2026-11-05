@@ -17,3 +17,8 @@ createRoot(container).render(
     <App />
   </StrictMode>,
 );
+
+// Mesure d'audience facultative : ce code disparaît du build tant que le drapeau n'est pas actif.
+if (import.meta.env.VITE_ENABLE_ANALYTICS === 'true') {
+  void import('./analytics').then(({ startAnalytics }) => startAnalytics());
+}

@@ -52,6 +52,15 @@ describe('oracles géographiques', () => {
     expect(geoFilesBytes()).toBeLessThan(BORDERS_BUDGET_BYTES);
   });
 
+  it('garde tous les pays et toutes les capitales dans les limites de la carte', () => {
+    for (const entry of data.capitals) {
+      for (const city of entry.cities) {
+        const point = project(city.lon, city.lat);
+        expect(data.world.clampToBounds(point), city.names.en).toEqual(point);
+      }
+    }
+  });
+
   it('fusionne le Somaliland dans la Somalie', () => {
     const hargeisa = project(44.06, 9.56);
     expect(data.world.locate(hargeisa).country).toBe('SOM');

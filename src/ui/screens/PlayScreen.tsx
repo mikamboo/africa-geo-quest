@@ -9,6 +9,7 @@ import { NON_STATE_TERRITORY, type Locale } from '../../core/types';
 import type { GameData } from '../../data/gameData';
 import type { GameRendererHandle } from '../../render/GameRenderer';
 import { CountryCard } from '../components/CountryCard';
+import { Dialog } from '../components/Dialog';
 import { Joystick } from '../components/Joystick';
 import { listenKeyboard, readInput } from '../input';
 import { useGameStore } from '../store';
@@ -46,6 +47,7 @@ function MissionBanner({
   const { t, i18n } = useTranslation();
   const currentCountry = useGameStore((state) => state.currentCountry);
   const finish = useGameStore((state) => state.finishMissionResult);
+  const timed = useGameStore((state) => state.settings.timer || state.mode === 'daily');
   const locale = i18n.language as Locale;
   const hint = useMemo(
     () =>
@@ -78,6 +80,7 @@ function MissionBanner({
           </p>
         )}
       </div>
+      {timed && <Stopwatch />}
       <button
         type="button"
         className="card__close card__close--light"
@@ -90,6 +93,23 @@ function MissionBanner({
   );
 }
 
+/** Chronomètre visible : uniquement si le joueur l'a activé, et pour le défi du jour. */
+function Stopwatch() {
+  const { t } = useTranslation();
+  const startedAt = useGameStore((state) => state.missionStartedAt);
+  const [now, setNow] = useState(startedAt);
+  useEffect(() => {
+    const timer = window.setInterval(() => setNow(Date.now()), 1000);
+    return () => window.clearInterval(timer);
+  }, []);
+  const seconds = Math.max(0, Math.round((now - startedAt) / 1000));
+  return (
+    <p className="mission-banner__hint" data-testid="mission-timer">
+      {t('mission.time', { seconds })}
+    </p>
+  );
+}
+
 function MissionSuccess() {
   const { t } = useTranslation();
   const result = useGameStore((state) => state.missionResult);
@@ -97,43 +117,37 @@ function MissionSuccess() {
   const navigate = useGameStore((state) => state.navigate);
   const timer = useGameStore((state) => state.settings.timer);
   const mode = useGameStore((state) => state.mode);
-  const ref = useRef<HTMLButtonElement>(null);
-  useEffect(() => {
-    if (result) ref.current?.focus();
-  }, [result]);
   if (!result) return null;
   return (
-    <div className="overlay" data-testid="mission-success">
-      <div
-        className="dialog dialog--win"
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby="win-title"
-      >
-        <span className="win-stamp" aria-hidden="true">
-          ★
-        </span>
-        <h2 id="win-title">{t('mission.successTitle')}</h2>
-        <p className="dialog__points">{t('mission.points', { points: result.points })}</p>
-        {(timer || mode === 'daily') && <p>{t('mission.time', { seconds: result.seconds })}</p>}
-        {result.daily && <p>{t('mission.dailyScore', { score: result.daily.score })}</p>}
-        <div className="dialog__actions">
-          <button ref={ref} type="button" className="btn btn--primary" onClick={finish}>
-            {t('mission.continue')}
-          </button>
-          <button
-            type="button"
-            className="btn"
-            onClick={() => {
-              finish();
-              navigate('missions');
-            }}
-          >
-            {t('mission.another')}
-          </button>
-        </div>
+    <Dialog
+      labelledBy="win-title"
+      className="dialog--win"
+      testId="mission-success"
+      onEscape={finish}
+    >
+      <span className="win-stamp" aria-hidden="true">
+        ★
+      </span>
+      <h2 id="win-title">{t('mission.successTitle')}</h2>
+      <p className="dialog__points">{t('mission.points', { points: result.points })}</p>
+      {(timer || mode === 'daily') && <p>{t('mission.time', { seconds: result.seconds })}</p>}
+      {result.daily && <p>{t('mission.dailyScore', { score: result.daily.score })}</p>}
+      <div className="dialog__actions">
+        <button type="button" className="btn btn--primary" onClick={finish}>
+          {t('mission.continue')}
+        </button>
+        <button
+          type="button"
+          className="btn"
+          onClick={() => {
+            finish();
+            navigate('missions');
+          }}
+        >
+          {t('mission.another')}
+        </button>
       </div>
-    </div>
+    </Dialog>
   );
 }
 
@@ -144,20 +158,28 @@ function Toasts({ data }: { data: GameData }) {
   const dismiss = useGameStore((state) => state.dismissToast);
   useEffect(() => {
     if (toasts.length === 0) return;
-    const timer = window.setTimeout(() => dismiss(toasts[0]!.id), 3800);
+    const first = toasts[0]!;
+    const hasBlurb = first.kind === 'place' && Boolean(data.world.placeById(first.subject)?.blurb);
+    const timer = window.setTimeout(() => dismiss(first.id), hasBlurb ? 9000 : 3800);
     return () => window.clearTimeout(timer);
-  }, [toasts, dismiss]);
+  }, [toasts, dismiss, data]);
   return (
     <div className="toasts" data-testid="toasts">
       {toasts.map((toast) => {
+        const place = toast.kind === 'place' ? data.world.placeById(toast.subject) : undefined;
         const name =
           toast.kind === 'place'
-            ? data.world.placeById(toast.subject)?.names[locale]
-            : data.hydro.rivers.find((river) => river.id === toast.subject)?.names[locale];
+            ? place?.names[locale]
+            : toast.kind === 'river'
+              ? data.hydro.rivers.find((river) => river.id === toast.subject)?.names[locale]
+              : toast.kind === 'lake'
+                ? data.hydro.lakes.find((lake) => lake.id === toast.subject)?.names[locale]
+                : t(`region.${toast.subject}`);
         return (
-          <p key={toast.id} className={`toast toast--${toast.kind}`}>
-            {t(`toast.${toast.kind}`, { name: name ?? toast.subject })}
-          </p>
+          <div key={toast.id} className={`toast toast--${toast.kind}`} data-testid="toast">
+            <p>{t(`toast.${toast.kind}`, { name: name ?? toast.subject })}</p>
+            {place?.blurb && <p className="toast__blurb">{place.blurb[locale]}</p>}
+          </div>
         );
       })}
     </div>

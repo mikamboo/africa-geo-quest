@@ -1,0 +1,14 @@
+{
+  "mobile": {
+    "performance": 93,
+    "accessibility": 100,
+    "best-practices": 100,
+    "lcpMs": 794
+  },
+  "desktop": {
+    "performance": 100,
+    "accessibility": 100,
+    "best-practices": 100,
+    "lcpMs": 224
+  }
+}
