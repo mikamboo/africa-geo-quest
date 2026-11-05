@@ -1,8 +1,8 @@
 import { useMemo, useState } from 'react';
-import { geoPath } from 'd3-geo';
+import type { Position } from 'geojson';
 import { useTranslation } from 'react-i18next';
 import type { GameEvent } from '../../core/explorer';
-import { createProjection, project } from '../../core/projection';
+import { project } from '../../core/projection';
 import { NON_STATE_TERRITORY, type Level, type Locale } from '../../core/types';
 import { COUNTRIES, type GameData } from '../../data/gameData';
 
@@ -15,6 +15,19 @@ interface Props {
 }
 
 const ZOOM_STEP = 0.72;
+
+/** Tracés plans : mêmes coordonnées que le moteur, sans le découpage sphérique de `geoPath`. */
+function lineToPath(line: Position[], close = false): string {
+  const points = line.map((position) => {
+    const { x, y } = project(position[0]!, position[1]!);
+    return `${x.toFixed(1)} ${y.toFixed(1)}`;
+  });
+  return `M${points.join('L')}${close ? 'Z' : ''}`;
+}
+
+function polygonsToPath(polygons: Position[][][]): string {
+  return polygons.map((rings) => rings.map((ring) => lineToPath(ring, true)).join('')).join('');
+}
 
 /** Même carte pour le repli sans WebGL et le mode sans déplacement : mêmes événements que Pixi. */
 export function SvgMap({ data, level, current, stamped, onEvents }: Props) {
@@ -30,31 +43,24 @@ export function SvgMap({ data, level, current, stamped, onEvents }: Props) {
     h: fullHeight,
   });
 
-  const paths = useMemo(() => {
-    const path = geoPath(createProjection());
-    return {
+  const paths = useMemo(
+    () => ({
       countries: data.countries.map((country) => ({
         code: country.code,
-        d:
-          path({
-            type: 'MultiPolygon',
-            coordinates: country.polygons,
-          }) ?? '',
+        d: polygonsToPath(country.polygons),
       })),
-      context: path({ type: 'MultiPolygon', coordinates: data.context }) ?? '',
-      lakes: data.hydro.lakes.map((lake) => ({
-        id: lake.id,
-        d: path({ type: 'MultiPolygon', coordinates: lake.polygons }) ?? '',
-      })),
+      context: polygonsToPath(data.context),
+      lakes: data.hydro.lakes.map((lake) => ({ id: lake.id, d: polygonsToPath(lake.polygons) })),
       rivers: data.hydro.rivers
         .filter((river) => level === 'geographer' || river.level === 'explorer')
         .map((river) => ({
           id: river.id,
           name: river.names[locale],
-          d: path({ type: 'MultiLineString', coordinates: river.lines }) ?? '',
+          d: river.lines.map((line) => lineToPath(line)).join(''),
         })),
-    };
-  }, [data, level, locale]);
+    }),
+    [data, level, locale],
+  );
 
   const meta = useMemo(() => new Map(COUNTRIES.map((c) => [c.code, c])), []);
   const places = useMemo(
@@ -180,7 +186,7 @@ export function SvgMap({ data, level, current, stamped, onEvents }: Props) {
         role="group"
         aria-label={t('svg.label')}
       >
-        <path d={paths.context} className="svgmap__context" />
+        <path d={paths.context} className="svgmap__context" fillRule="evenodd" />
         {paths.countries.map(({ code, d }) => {
           const country = meta.get(code);
           const isStamped = Boolean(stamped[code]);
@@ -192,6 +198,7 @@ export function SvgMap({ data, level, current, stamped, onEvents }: Props) {
             <path
               key={code}
               d={d}
+              fillRule="evenodd"
               role="button"
               tabIndex={0}
               aria-label={label}
@@ -213,7 +220,7 @@ export function SvgMap({ data, level, current, stamped, onEvents }: Props) {
             key={target.code}
             cx={target.point.x}
             cy={target.point.y}
-            r={unit * 12}
+            r={unit * 9}
             className="svgmap__hit"
             aria-hidden="true"
             data-testid={`svg-hit-${target.code}`}
@@ -248,7 +255,7 @@ export function SvgMap({ data, level, current, stamped, onEvents }: Props) {
               key={place.id}
               cx={place.point.x}
               cy={place.point.y}
-              r={unit * (place.kind === 'capital' ? 5 : 3.5)}
+              r={unit * (place.kind === 'capital' ? 3.6 : 2.6)}
               strokeWidth={unit * 1}
               className={`svgmap__place svgmap__place--${place.kind}`}
               role="button"

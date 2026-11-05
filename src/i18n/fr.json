@@ -36,7 +36,12 @@
     "go": "C'est parti !",
     "privacy": "Pas de compte, pas de vrai nom. Tout reste sur cet appareil."
   },
-  "avatar": { "amina": "Amina", "kofi": "Kofi", "zola": "Zola", "idir": "Idir" },
+  "avatar": {
+    "amina": "Amina",
+    "kofi": "Kofi",
+    "zola": "Zola",
+    "idir": "Idir"
+  },
   "pseudo": {
     "animal": {
       "gazelle": "Gazelle",
@@ -67,14 +72,38 @@
       "meerkat": "m"
     },
     "adj": {
-      "fast": { "m": "rapide", "f": "rapide" },
-      "curious": { "m": "curieux", "f": "curieuse" },
-      "brave": { "m": "courageux", "f": "courageuse" },
-      "clever": { "m": "malin", "f": "maligne" },
-      "calm": { "m": "tranquille", "f": "tranquille" },
-      "joyful": { "m": "joyeux", "f": "joyeuse" },
-      "patient": { "m": "patient", "f": "patiente" },
-      "bold": { "m": "audacieux", "f": "audacieuse" }
+      "fast": {
+        "m": "rapide",
+        "f": "rapide"
+      },
+      "curious": {
+        "m": "curieux",
+        "f": "curieuse"
+      },
+      "brave": {
+        "m": "courageux",
+        "f": "courageuse"
+      },
+      "clever": {
+        "m": "malin",
+        "f": "maligne"
+      },
+      "calm": {
+        "m": "tranquille",
+        "f": "tranquille"
+      },
+      "joyful": {
+        "m": "joyeux",
+        "f": "joyeuse"
+      },
+      "patient": {
+        "m": "patient",
+        "f": "patiente"
+      },
+      "bold": {
+        "m": "audacieux",
+        "f": "audacieuse"
+      }
     },
     "format": "{{animal}} {{adjective}}"
   },
@@ -94,7 +123,8 @@
     "entered": "Tu entres : {{name}}.",
     "showCard": "Revoir la fiche",
     "controls": "Flèches ou WASD pour marcher, + et − pour zoomer.",
-    "joystick": "Joystick de déplacement"
+    "joystick": "Joystick de déplacement",
+    "pickCountry": "Choisis un pays sur la carte"
   },
   "card": {
     "capital": "Capitale",
@@ -118,7 +148,10 @@
       "former": "ancienne capitale"
     }
   },
-  "toast": { "place": "Lieu découvert : {{name}}", "river": "Fleuve traversé : {{name}}" },
+  "toast": {
+    "place": "Lieu découvert : {{name}}",
+    "river": "Fleuve traversé : {{name}}"
+  },
   "region": {
     "north": "Afrique du Nord",
     "west": "Afrique de l'Ouest",
@@ -197,10 +230,18 @@
     "earned": "Badge gagné",
     "stamped": "Visité le {{date}}",
     "notYet": "Pas encore visité",
-    "places": "{{count}} lieux découverts",
-    "rivers": "{{count}} fleuves traversés",
-    "missions": "{{count}} missions réussies",
-    "points": "{{count}} points"
+    "places_one": "{{count}} lieu découvert",
+    "places_other": "{{count}} lieux découverts",
+    "rivers_one": "{{count}} fleuve traversé",
+    "rivers_other": "{{count}} fleuves traversés",
+    "missions_one": "{{count}} mission réussie",
+    "missions_other": "{{count}} missions réussies",
+    "points_one": "{{count}} point",
+    "points_other": "{{count}} points",
+    "places_many": "{{count}} lieux découverts",
+    "rivers_many": "{{count}} fleuves traversés",
+    "missions_many": "{{count}} missions réussies",
+    "points_many": "{{count}} points"
   },
   "settings": {
     "title": "Réglages",
@@ -252,7 +293,11 @@
     "access": "Clavier complet, police adaptée à la dyslexie, réduction des animations, et mode sans déplacement dans les réglages.",
     "legal": "Cette page décrit le fonctionnement du jeu. Elle ne constitue pas un avis juridique."
   },
-  "common": { "back": "Retour", "on": "Activé", "off": "Désactivé" },
+  "common": {
+    "back": "Retour",
+    "on": "Activé",
+    "off": "Désactivé"
+  },
   "error": {
     "title": "Oups, quelque chose a coincé.",
     "body": "Ta progression est en sécurité sur cet appareil. Recharge la page pour reprendre.",

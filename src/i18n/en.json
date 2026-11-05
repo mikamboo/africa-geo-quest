@@ -36,7 +36,12 @@
     "go": "Let's go!",
     "privacy": "No account, no real name. Everything stays on this device."
   },
-  "avatar": { "amina": "Amina", "kofi": "Kofi", "zola": "Zola", "idir": "Idir" },
+  "avatar": {
+    "amina": "Amina",
+    "kofi": "Kofi",
+    "zola": "Zola",
+    "idir": "Idir"
+  },
   "pseudo": {
     "animal": {
       "gazelle": "gazelle",
@@ -67,14 +72,38 @@
       "meerkat": "m"
     },
     "adj": {
-      "fast": { "m": "Fast", "f": "Fast" },
-      "curious": { "m": "Curious", "f": "Curious" },
-      "brave": { "m": "Brave", "f": "Brave" },
-      "clever": { "m": "Clever", "f": "Clever" },
-      "calm": { "m": "Calm", "f": "Calm" },
-      "joyful": { "m": "Joyful", "f": "Joyful" },
-      "patient": { "m": "Patient", "f": "Patient" },
-      "bold": { "m": "Bold", "f": "Bold" }
+      "fast": {
+        "m": "Fast",
+        "f": "Fast"
+      },
+      "curious": {
+        "m": "Curious",
+        "f": "Curious"
+      },
+      "brave": {
+        "m": "Brave",
+        "f": "Brave"
+      },
+      "clever": {
+        "m": "Clever",
+        "f": "Clever"
+      },
+      "calm": {
+        "m": "Calm",
+        "f": "Calm"
+      },
+      "joyful": {
+        "m": "Joyful",
+        "f": "Joyful"
+      },
+      "patient": {
+        "m": "Patient",
+        "f": "Patient"
+      },
+      "bold": {
+        "m": "Bold",
+        "f": "Bold"
+      }
     },
     "format": "{{adjective}} {{animal}}"
   },
@@ -94,7 +123,8 @@
     "entered": "You are entering: {{name}}.",
     "showCard": "Show the card again",
     "controls": "Arrows or WASD to walk, + and − to zoom.",
-    "joystick": "Movement joystick"
+    "joystick": "Movement joystick",
+    "pickCountry": "Pick a country on the map"
   },
   "card": {
     "capital": "Capital",
@@ -118,7 +148,10 @@
       "former": "former capital"
     }
   },
-  "toast": { "place": "Place discovered: {{name}}", "river": "River crossed: {{name}}" },
+  "toast": {
+    "place": "Place discovered: {{name}}",
+    "river": "River crossed: {{name}}"
+  },
   "region": {
     "north": "Northern Africa",
     "west": "Western Africa",
@@ -197,10 +230,14 @@
     "earned": "Badge earned",
     "stamped": "Visited on {{date}}",
     "notYet": "Not visited yet",
-    "places": "{{count}} places discovered",
-    "rivers": "{{count}} rivers crossed",
-    "missions": "{{count}} missions completed",
-    "points": "{{count}} points"
+    "places_one": "{{count}} place discovered",
+    "places_other": "{{count}} places discovered",
+    "rivers_one": "{{count}} river crossed",
+    "rivers_other": "{{count}} rivers crossed",
+    "missions_one": "{{count}} mission completed",
+    "missions_other": "{{count}} missions completed",
+    "points_one": "{{count}} point",
+    "points_other": "{{count}} points"
   },
   "settings": {
     "title": "Settings",
@@ -252,7 +289,11 @@
     "access": "Full keyboard play, a dyslexia-friendly font, reduced animations, and a no-movement mode in the settings.",
     "legal": "This page describes how the game works. It is not legal advice."
   },
-  "common": { "back": "Back", "on": "On", "off": "Off" },
+  "common": {
+    "back": "Back",
+    "on": "On",
+    "off": "Off"
+  },
   "error": {
     "title": "Oops, something got stuck.",
     "body": "Your progress is safe on this device. Reload the page to carry on.",

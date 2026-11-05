@@ -20,7 +20,7 @@ test('réussir une mission en se guidant avec la boussole', async ({ page }, tes
   await expect(page.getByTestId('mission-banner')).toBeHidden();
   await page.getByTestId('hud-menu').click();
   await page.getByTestId('open-passport').click();
-  await expect(page.getByText('1 missions réussies')).toBeVisible();
+  await expect(page.getByText('1 mission réussie')).toBeVisible();
   expectClean(guards);
 });
 

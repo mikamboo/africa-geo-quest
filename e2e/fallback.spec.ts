@@ -11,6 +11,14 @@ test('le mode sans déplacement permet de jouer à la carte', async ({ page }) =
   await expect(page.getByTestId('svg-map')).toBeVisible();
   await expect(page.getByTestId('game-canvas')).toHaveCount(0);
 
+  // La carte doit réellement dessiner les pays, à une taille plausible.
+  const algeria = await page.getByTestId('svg-country-DZA').boundingBox();
+  expect(algeria?.width).toBeGreaterThan(40);
+  const map = await page.locator('.svgmap__svg').boundingBox();
+  expect(algeria!.width).toBeLessThan(map!.width);
+  const viewport = page.viewportSize()!;
+  expect(map!.y + map!.height).toBeLessThanOrEqual(viewport.height + 1);
+
   await page.getByTestId('svg-country-select').selectOption('SEN');
   await expect(page.getByTestId('card-name')).toHaveText('Sénégal');
   await expect(page.getByTestId('hud-percent')).toHaveAttribute('data-stamps', '1');

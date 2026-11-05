@@ -78,8 +78,13 @@ function MissionBanner({
           </p>
         )}
       </div>
-      <button type="button" className="btn btn--small" onClick={finish}>
-        {t('mission.cancel')}
+      <button
+        type="button"
+        className="card__close card__close--light"
+        aria-label={t('mission.cancel')}
+        onClick={finish}
+      >
+        ×
       </button>
     </section>
   );
@@ -307,7 +312,9 @@ export function PlayScreen() {
       : inHud && data
         ? countryByCode(data.catalog, inHud)?.names[locale]
         : null;
-  const place = countryName ?? (terrain === 'water' ? t('hud.ocean') : t('hud.outside'));
+  const place =
+    countryName ??
+    (useSvg ? t('hud.pickCountry') : terrain === 'water' ? t('hud.ocean') : t('hud.outside'));
 
   return (
     <main
@@ -378,9 +385,11 @@ export function PlayScreen() {
         {countryName ? t('hud.entered', { name: countryName }) : ''}
       </p>
 
-      {data && mission && <MissionBanner data={data} mission={mission} position={position} />}
-      {data && card && <CountryCard code={card} catalog={data.catalog} />}
-      {data && <Toasts data={data} />}
+      <div className="play__panels">
+        {data && mission && <MissionBanner data={data} mission={mission} position={position} />}
+        {data && card && <CountryCard code={card} catalog={data.catalog} />}
+        {data && <Toasts data={data} />}
+      </div>
       <MissionSuccess />
 
       {!useSvg && (
