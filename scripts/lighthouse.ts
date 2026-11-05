@@ -36,13 +36,13 @@ let failed = false;
 try {
   await waitForServer();
   mkdirSync('docs/reports', { recursive: true });
-  // Sous WSL, chrome-launcher calcule sinon un chemin Windows, créé tel quel à la racine du projet.
+  // Sous WSL, chrome-launcher convertirait son propre profil en chemin Windows, créé tel quel à la racine.
   const profile = '.cache/lighthouse-profile';
   rmSync(profile, { recursive: true, force: true });
   mkdirSync(profile, { recursive: true });
   const chrome = await launch({
-    userDataDir: resolve(profile),
-    chromeFlags: ['--headless=new', '--no-sandbox'],
+    userDataDir: false,
+    chromeFlags: ['--headless=new', '--no-sandbox', `--user-data-dir=${resolve(profile)}`],
   });
   try {
     const summary: Record<string, Record<string, number>> = {};

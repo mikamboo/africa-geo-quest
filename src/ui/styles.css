@@ -841,7 +841,7 @@ select {
 
 .card__stamp {
   position: absolute;
-  left: 58px;
+  left: 46px;
   bottom: -8px;
   width: 38px;
   height: 38px;
@@ -1420,8 +1420,10 @@ select {
     padding: 4px 8px;
   }
 
+  /* La fiche s'arrête au-dessus du personnage, centré à l'écran. */
   .card {
-    max-height: 40dvh;
+    max-height: 34dvh;
+    padding: 10px 12px;
   }
 
   .hud-foot {
