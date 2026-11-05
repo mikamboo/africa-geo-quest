@@ -1,0 +1,12 @@
+dist
+coverage
+pnpm-lock.yaml
+public/geo
+public/flags
+src/data/generated
+docs/reports
+docs/PROMPT.md
+aidlc
+.cache
+playwright-report
+test-results
