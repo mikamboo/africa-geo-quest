@@ -42,8 +42,8 @@ import {
 
 const MIN_ZOOM = 0.09;
 const MAX_ZOOM = 2.6;
-const LABEL_FONT = 'Lilita One, Nunito, sans-serif';
-const BODY_FONT = 'Nunito, sans-serif';
+const LABEL_FONT = 'Fraunces, Georgia, serif';
+const BODY_FONT = '"Atkinson Hyperlegible", system-ui, sans-serif';
 
 export interface RendererOptions {
   host: HTMLElement;
@@ -56,6 +56,7 @@ export interface RendererOptions {
   discovered: ReadonlySet<string>;
   reducedMotion: boolean;
   getInput: () => InputVector;
+  getSpeedFactor: () => number;
   onEvents: (events: GameEvent[]) => void;
   onPosition: (position: Point, terrain: 'land' | 'water') => void;
 }
@@ -63,6 +64,7 @@ export interface RendererOptions {
 export interface GameRendererHandle {
   destroy(): void;
   zoomBy(factor: number): void;
+  toggleOverview(): void;
   setStamped(stamped: ReadonlySet<string>): void;
   setDiscovered(discovered: ReadonlySet<string>): void;
   setTarget(target: Point | null): void;
@@ -79,6 +81,8 @@ interface Label {
   maxZoom: number;
   style: 'country' | 'place' | 'relief' | 'water';
   anchorY: number;
+  /** Sur la carte muette, le nom n'apparaît qu'une fois ce lieu découvert. */
+  gate?: string;
 }
 
 interface Marker {
@@ -297,9 +301,9 @@ export async function createGameRenderer(options: RendererOptions): Promise<Game
     }
     bordersLayer.clear();
     strokeLines(bordersLayer, borders);
-    bordersLayer.stroke({ color: BORDER, width: 1.5 * unit, alpha: 0.85, join: 'round' });
+    bordersLayer.stroke({ color: BORDER, width: 1.1 * unit, alpha: 0.7, join: 'round' });
     strokeLines(bordersLayer, coasts);
-    bordersLayer.stroke({ color: BORDER, width: 2 * unit, join: 'round' });
+    bordersLayer.stroke({ color: BORDER, width: 1.4 * unit, join: 'round' });
   }
 
   // Marqueurs de lieux, à taille constante à l'écran.
@@ -314,11 +318,13 @@ export async function createGameRenderer(options: RendererOptions): Promise<Game
   map.addChild(labelsLayer);
   map.addChild(targetRing);
 
+  // Niveau Expert : carte muette, seuls les lieux déjà découverts sont nommés.
+  const isBlind = options.level === 'expert';
   const markers: Marker[] = [];
   const labels: Label[] = [];
   let discovered = options.discovered;
   const visiblePlaces = data.places.filter(
-    (place) => options.level === 'geographer' || place.level === 'explorer',
+    (place) => options.level !== 'explorer' || place.level === 'explorer',
   );
 
   function drawMarker(marker: Marker): void {
@@ -363,13 +369,14 @@ export async function createGameRenderer(options: RendererOptions): Promise<Game
       maxZoom: Infinity,
       style: 'place',
       anchorY: -0.45,
+      ...(isBlind ? { gate: place.id } : {}),
     });
   }
 
   for (const country of data.countries) {
     const meta = countryMeta.get(country.code);
     const isNonState = country.code === NON_STATE_TERRITORY;
-    if (!meta && !isNonState) continue;
+    if (isBlind || (!meta && !isNonState)) continue;
     const largest = [...country.polygons].sort((a, b) => b[0]!.length - a[0]!.length)[0]![0]!;
     const flat = projectLine(largest);
     let sx = 0;
@@ -399,7 +406,7 @@ export async function createGameRenderer(options: RendererOptions): Promise<Game
   }
 
   for (const relief of data.relief) {
-    if (options.level === 'explorer' && relief.level !== 'explorer') continue;
+    if (isBlind || (options.level === 'explorer' && relief.level !== 'explorer')) continue;
     labels.push({
       point: project(relief.label[0], relief.label[1]),
       text: relief.names,
@@ -413,7 +420,7 @@ export async function createGameRenderer(options: RendererOptions): Promise<Game
 
   // Fleuves et lacs : le nom est posé sur la ligne la plus longue ou au centre du lac.
   for (const river of data.hydro.rivers) {
-    if (options.level === 'explorer' && river.level !== 'explorer') continue;
+    if (isBlind || (options.level === 'explorer' && river.level !== 'explorer')) continue;
     const longest = [...river.lines].sort((a, b) => b.length - a.length)[0]!;
     const middle = longest[Math.floor(longest.length / 2)]!;
     labels.push({
@@ -427,7 +434,7 @@ export async function createGameRenderer(options: RendererOptions): Promise<Game
     });
   }
   for (const lake of data.hydro.lakes) {
-    if (options.level === 'explorer' && lake.level !== 'explorer') continue;
+    if (isBlind || (options.level === 'explorer' && lake.level !== 'explorer')) continue;
     const ring = [...lake.polygons].sort((a, b) => b[0]!.length - a[0]!.length)[0]![0]!;
     const flat = projectLine(ring);
     let sx = 0;
@@ -454,7 +461,7 @@ export async function createGameRenderer(options: RendererOptions): Promise<Game
       text: label.style === 'relief' ? label.text[locale].toUpperCase() : label.text[locale],
       style: {
         fontFamily: isCountry ? LABEL_FONT : BODY_FONT,
-        fontWeight: isCountry ? '400' : '800',
+        fontWeight: isCountry ? '900' : '700',
         fontSize: isCountry ? 19 : 16,
         letterSpacing: label.style === 'relief' ? 2 : 0,
         fill: label.style === 'relief' ? 0x5a4026 : label.style === 'water' ? 0x0f4c68 : INK,
@@ -487,7 +494,8 @@ export async function createGameRenderer(options: RendererOptions): Promise<Game
   pirogue.visible = false;
   const avatar = new Sprite(frames.down![4]!);
   avatar.anchor.set(0.5, 0.92);
-  avatar.scale.set(0.62);
+  avatar.scale.set(0.52);
+  pirogue.scale.set(0.84);
   // Onde d'encre quand un pays reçoit son tampon.
   const ripple = new Graphics();
   ripple.circle(0, 0, 40).stroke({ color: TERRE, width: 6 });
@@ -502,6 +510,7 @@ export async function createGameRenderer(options: RendererOptions): Promise<Game
   }
   let zoom = initialZoom();
   let targetZoom = zoom;
+  let overviewFrom: number | null = null;
   let cullTimer = 0;
   let animationClock = 0;
 
@@ -542,7 +551,11 @@ export async function createGameRenderer(options: RendererOptions): Promise<Game
     // Les étiquettes prioritaires réservent leur place ; celles qui les chevauchent se masquent.
     const taken: { x: number; y: number; w: number; h: number }[] = [];
     for (const label of orderedLabels()) {
-      let show = zoom >= label.minZoom && zoom < label.maxZoom && inside(label.point);
+      let show =
+        zoom >= label.minZoom &&
+        zoom < label.maxZoom &&
+        inside(label.point) &&
+        (!label.gate || discovered.has(label.gate));
       if (show) {
         const name = label.text[options.locale];
         const w = name.length * (label.style === 'country' ? 10 : 9) + 10;
@@ -595,7 +608,7 @@ export async function createGameRenderer(options: RendererOptions): Promise<Game
 
   const tick = (ticker: { deltaMS: number }): void => {
     const dt = ticker.deltaMS / 1000;
-    const events = explorer.update(options.getInput(), dt);
+    const events = explorer.update(options.getInput(), dt, options.getSpeedFactor());
     if (events.length > 0) options.onEvents(events);
 
     if (Math.abs(targetZoom - zoom) > 0.0005) {
@@ -700,7 +713,22 @@ export async function createGameRenderer(options: RendererOptions): Promise<Game
       app.destroy(true, { children: true, texture: true });
     },
     zoomBy(factor) {
+      overviewFrom = null;
       targetZoom = clampZoom(targetZoom * factor);
+    },
+    toggleOverview() {
+      if (overviewFrom !== null) {
+        targetZoom = overviewFrom;
+        overviewFrom = null;
+        return;
+      }
+      overviewFrom = targetZoom;
+      const { bounds } = data.world;
+      const fit = Math.min(
+        app.screen.width / (bounds.maxX - bounds.minX),
+        app.screen.height / (bounds.maxY - bounds.minY),
+      );
+      targetZoom = clampZoom(fit);
     },
     setStamped(next) {
       if (next.size > stamped.size && !reducedMotion) {

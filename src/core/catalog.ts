@@ -32,9 +32,9 @@ export function capitalsOf(catalog: GameCatalog, code: string): PlaceInfo[] {
 }
 
 export function placesForLevel(catalog: GameCatalog, level: Level): PlaceInfo[] {
-  return catalog.places.filter((place) => level === 'geographer' || place.level === 'explorer');
+  return catalog.places.filter((place) => level !== 'explorer' || place.level === 'explorer');
 }
 
 export function riversForLevel(catalog: GameCatalog, level: Level): NamedFeature[] {
-  return catalog.rivers.filter((river) => level === 'geographer' || river.level === 'explorer');
+  return catalog.rivers.filter((river) => level !== 'explorer' || river.level === 'explorer');
 }

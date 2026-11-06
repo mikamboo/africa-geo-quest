@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { dayNumber, dueItems, masteredCount, MAX_BOX, reviewCard } from './leitner';
+import { dailyStreak } from './dates';
 import { createRng, hashString, pick, shuffle } from './rng';
 import {
   createInitialProgress,
@@ -132,9 +133,32 @@ describe('score', () => {
     expect(quizPoints(false)).toBeGreaterThan(0);
     expect(quizPoints(true)).toBeGreaterThan(quizPoints(false));
   });
+  it('récompense une mission réussie sans aide, sans jamais pénaliser', () => {
+    expect(missionPoints(5, false, true)).toBe(150);
+    expect(missionPoints(5, false, false)).toBe(100);
+    expect(missionPoints(10, true, true)).toBe(240);
+  });
   it('le défi garde un plancher', () => {
     expect(dailyScore(1)).toBe(995);
     expect(dailyScore(99999)).toBe(100);
+  });
+});
+
+describe('série du défi', () => {
+  const today = new Date('2026-11-05T12:00:00Z');
+  it('compte les jours consécutifs jusqu’à aujourd’hui', () => {
+    expect(dailyStreak(['2026-11-05', '2026-11-04', '2026-11-03'], today)).toBe(3);
+  });
+  it('ne perd pas la série tant que le défi du jour reste à faire', () => {
+    expect(dailyStreak(['2026-11-04', '2026-11-03'], today)).toBe(2);
+  });
+  it('repart de zéro après un trou', () => {
+    expect(dailyStreak(['2026-11-05', '2026-11-03'], today)).toBe(1);
+    expect(dailyStreak(['2026-11-02'], today)).toBe(0);
+    expect(dailyStreak([], today)).toBe(0);
+  });
+  it('traverse un changement de mois', () => {
+    expect(dailyStreak(['2026-11-01', '2026-10-31'], new Date('2026-11-01T01:00:00Z'))).toBe(2);
   });
 });
 

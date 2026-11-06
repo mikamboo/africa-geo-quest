@@ -10,6 +10,7 @@ import {
 import { buildQuestion, generateQuiz, optionCount } from './quiz';
 import { dailyChallenge, dailySeed, utcDateKey } from './daily';
 import { createRng } from './rng';
+import { placesForLevel, riversForLevel } from './catalog';
 import { createTestWorld } from './testing';
 import { createInitialProgress } from './progress';
 import { project } from './projection';
@@ -198,6 +199,37 @@ describe('quiz', () => {
     expect(buildQuestion(rng, 'borders:ILE', catalog, 'explorer')).toBeNull();
     expect(buildQuestion(rng, 'landlocked:AAA', catalog, 'explorer')).toBeNull();
     expect(buildQuestion(rng, 'inconnu:AAA', catalog, 'explorer')).toBeNull();
+  });
+});
+
+describe('niveau Expert', () => {
+  const progress = { ...createInitialProgress(), level: 'expert' as const };
+
+  it('propose cinq réponses', () => {
+    expect(optionCount('expert', 0)).toBe(5);
+    const quiz = generateQuiz(createRng(1), catalog, progress, 0, 3);
+    for (const question of quiz) expect(question.options.length).toBeLessThanOrEqual(5);
+  });
+  it('tire ses pièges dans la même région d’abord', () => {
+    const question = buildQuestion(createRng(3), 'flag-of:AAA', catalog, 'expert');
+    // CCC est le seul autre pays de la région ouest du monde de test.
+    expect(question?.options).toContain('CCC');
+    expect(new Set(question?.options).size).toBe(question?.options.length);
+  });
+  it('construit une question de forme', () => {
+    const question = buildQuestion(createRng(3), 'shape-of:DDD', catalog, 'expert');
+    expect(question?.answer).toBe('DDD');
+    expect(buildQuestion(createRng(3), 'shape-of:XXX', catalog, 'expert')).toBeNull();
+  });
+  it('voit tous les lieux, comme le Géographe', () => {
+    expect(placesForLevel(catalog, 'expert').map((p) => p.id)).toContain('aaa-city');
+    expect(riversForLevel(catalog, 'expert').map((r) => r.id)).toContain('petit');
+    expect(world.placesNear({ x: -700, y: -300 }, 'expert').map((p) => p.id)).toEqual(['aaa-city']);
+  });
+  it('part de plus loin dès la première mission', () => {
+    expect(missionRadiusKm(0, 'expert')).toBe(2500);
+    expect(missionRadiusKm(0, 'geographer')).toBe(900);
+    expect(missionRadiusKm(100, 'expert')).toBe(6000);
   });
 });
 

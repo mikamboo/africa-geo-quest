@@ -3,38 +3,58 @@
     "tagline": "Marche l'Afrique. 54 pays t'attendent.",
     "loading": "On prépare la carte…",
     "loadError": "La carte n'a pas pu se charger.",
-    "retry": "Réessayer"
+    "retry": "Réessayer",
+    "audience": "Un jeu de géographie pour tous, dès 8 ans : à toi de choisir ton niveau."
   },
   "home": {
-    "start": "Commencer l'aventure",
+    "start": "Commencer",
     "hello": "Salut, {{name}} !",
     "explore": "Exploration libre",
-    "exploreDesc": "Promène-toi et découvre, sans pression.",
+    "exploreDesc": "Reprends ta route, à pied ou en pirogue.",
     "missions": "Missions",
-    "missionsDesc": "Un objectif, une carte, à toi de trouver.",
+    "missionsDesc": "Un objectif, une carte, à toi de trouver le chemin.",
     "quiz": "Quiz",
-    "quizDesc": "Ce que tu as vu revient au bon moment.",
+    "quizDesc": "Ce que tu as moins retenu revient au bon moment.",
     "daily": "Défi du jour",
-    "dailyDesc": "La même mission pour tout le monde aujourd'hui.",
-    "dailyBest": "Ton meilleur score aujourd'hui : {{score}}",
+    "dailyDesc": "La même mission pour tout le monde, chaque jour.",
+    "dailyBest": "Meilleur score : {{score}}",
     "passport": "Passeport",
     "settings": "Réglages",
-    "parents": "Parents & enseignants",
+    "parents": "À propos · Parents & enseignants",
     "recovered": "Ta sauvegarde était illisible. Le jeu repart à zéro, sans risque.",
-    "ok": "D'accord"
+    "ok": "D'accord",
+    "discovered": "de l'Afrique découverte",
+    "modes": "Modes de jeu",
+    "nextBadge": "prochain badge : {{region}} ({{visited}}/{{total}})",
+    "noReviews": "Aucune révision en attente",
+    "dailyNew": "À faire aujourd'hui",
+    "stamps_one": "{{count}} tampon sur 54",
+    "stamps_other": "{{count}} tampons sur 54",
+    "stamps_many": "{{count}} tampons sur 54",
+    "reviews_one": "{{count}} révision à faire",
+    "reviews_other": "{{count}} révisions à faire",
+    "reviews_many": "{{count}} révisions à faire",
+    "streak_one": "série de {{count}} jour",
+    "streak_other": "série de {{count}} jours",
+    "streak_many": "série de {{count}} jours",
+    "missionsDone_one": "{{count}} mission réussie",
+    "missionsDone_other": "{{count}} missions réussies",
+    "missionsDone_many": "{{count}} missions réussies"
   },
   "setup": {
     "title": "Qui part en voyage ?",
     "avatar": "Choisis ton personnage",
-    "pseudonym": "Choisis ton nom d'explorateur",
+    "pseudonym": "Choisis ton nom de voyage",
     "others": "D'autres noms",
     "level": "Choisis ton niveau",
     "explorer": "Explorateur",
-    "explorerDesc": "8–11 ans : pays, capitales, grands fleuves, avec des indices sur la carte.",
+    "explorerDesc": "Pour découvrir : pays, capitales, grands fleuves, avec des indices sur la carte.",
     "geographer": "Géographe",
-    "geographerDesc": "12–15 ans : villes, reliefs, régions et frontières, avec moins d'aide.",
+    "geographerDesc": "Pour aller plus loin : villes, reliefs, régions et frontières, avec moins d'aide.",
     "go": "C'est parti !",
-    "privacy": "Pas de compte, pas de vrai nom. Tout reste sur cet appareil."
+    "privacy": "Pas de compte, pas de vrai nom. Tout reste sur cet appareil.",
+    "expert": "Expert",
+    "expertDesc": "Pour les connaisseurs : carte muette, boussole sur demande, questions difficiles."
   },
   "avatar": {
     "amina": "Amina",
@@ -124,7 +144,11 @@
     "showCard": "Revoir la fiche",
     "controls": "Flèches ou WASD pour marcher, + et − pour zoomer.",
     "joystick": "Joystick de déplacement",
-    "pickCountry": "Choisis un pays sur la carte"
+    "pickCountry": "Choisis un pays sur la carte",
+    "sprint": "Pas rapide (touche Maj)",
+    "overview": "Vue d'ensemble du continent (touche M)",
+    "tutorialKeys": "Flèches ou WASD pour marcher, Maj pour accélérer",
+    "tutorialTouch": "Pousse le joystick pour marcher"
   },
   "card": {
     "capital": "Capitale",
@@ -198,7 +222,12 @@
       "SW": "le sud-ouest",
       "W": "l'ouest",
       "NW": "le nord-ouest"
-    }
+    },
+    "askHint": "Demander la boussole",
+    "share": "Copier mon résultat",
+    "shared": "Résultat copié !",
+    "shareFailed": "Copie impossible sur cet appareil.",
+    "shareText": "Tembea · Défi du {{date}} · {{score}} points en {{seconds}} s"
   },
   "quiz": {
     "title": "Quiz",
@@ -222,7 +251,11 @@
     "score": "{{correct}} bonnes réponses sur {{total}}",
     "encouragement": "Chaque réponse compte. Ce que tu as moins retenu reviendra plus tard.",
     "replay": "Rejouer",
-    "empty": "Explore un peu pour débloquer des questions."
+    "empty": "Explore un peu pour débloquer des questions.",
+    "shapeOf": "Quel pays a cette forme ?",
+    "shapeAlt": "Contour d'un pays à reconnaître",
+    "recapTitle": "À retenir",
+    "recapClean": "Sans faute. Ces questions reviendront plus tard, pour ancrer ce que tu sais."
   },
   "passport": {
     "title": "Mon passeport",
@@ -269,15 +302,15 @@
   },
   "external": {
     "title": "Tu vas quitter Tembea",
-    "body": "Ce lien ouvre un autre site, qui n'est pas contrôlé par ce jeu. Demande à un adulte avant de continuer.",
+    "body": "Ce lien ouvre un autre site, que ce jeu ne contrôle pas. Si tu es mineur, demande à un adulte avant de continuer.",
     "continue": "Ouvrir le site",
     "stay": "Rester dans le jeu"
   },
   "parents": {
-    "title": "Parents & enseignants",
-    "teachTitle": "Ce que le jeu enseigne",
-    "teach": "Les 54 pays d'Afrique, leurs capitales, de grandes villes, les fleuves, les lacs, les reliefs et les régions. Niveau Explorateur pour les 8–11 ans, Géographe pour les 12–15 ans. Les éléments moins bien retenus reviennent par répétition espacée.",
-    "dataTitle": "Données stockées",
+    "title": "À propos",
+    "teachTitle": "Pour qui, pour apprendre quoi",
+    "teach": "Tembea s'adresse à tout le monde, dès 8 ans. On y apprend les 54 pays d'Afrique, leurs capitales, de grandes villes, les fleuves, les lacs, les reliefs et les régions. Trois niveaux : Explorateur pour découvrir (conseillé aux plus jeunes), Géographe pour aller plus loin, Expert pour les connaisseurs. Les éléments moins bien retenus reviennent par répétition espacée.",
+    "dataTitle": "Pour les parents et enseignants : données stockées",
     "data": "Uniquement sur cet appareil : l'avatar, le pseudonyme généré, la progression, les scores et les réglages. Pas de compte, pas de nom réel, pas d'e-mail, pas de cookie, pas de publicité, pas d'achat, pas de traceur. Le jeu n'envoie aucune donnée de jeu à un serveur.",
     "resetTitle": "Réinitialiser",
     "resetText": "Efface toute la progression et les réglages de cet appareil. C'est définitif.",

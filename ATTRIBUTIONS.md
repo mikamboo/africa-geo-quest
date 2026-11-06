@@ -31,11 +31,11 @@ Les sous-régions de `data/countries.json` suivent la classification M49 de la D
 
 Auto-hébergées via Fontsource, sans appel à un CDN. Toutes sous licence SIL Open Font License 1.1.
 
-| Police       | Paquet                     | Usage           |
-| ------------ | -------------------------- | --------------- |
-| Lilita One   | `@fontsource/lilita-one`   | Titres          |
-| Nunito       | `@fontsource/nunito`       | Texte           |
-| OpenDyslexic | `@fontsource/opendyslexic` | Option dyslexie |
+| Police                | Paquet                              | Usage           |
+| --------------------- | ----------------------------------- | --------------- |
+| Fraunces              | `@fontsource/fraunces`              | Titres          |
+| Atkinson Hyperlegible | `@fontsource/atkinson-hyperlegible` | Texte           |
+| OpenDyslexic          | `@fontsource/opendyslexic`          | Option dyslexie |
 
 ## Bibliothèques
 

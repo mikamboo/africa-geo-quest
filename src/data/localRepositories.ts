@@ -13,7 +13,7 @@ import type {
   ScoreRepository,
 } from '../core/repositories';
 
-const LEVELS = ['explorer', 'geographer'] as const;
+const LEVELS = ['explorer', 'geographer', 'expert'] as const;
 
 export const PROGRESS_KEY = 'tembea.progress';
 export const SCORES_KEY = 'tembea.scores';
@@ -126,6 +126,7 @@ export const settingsSchema = z.object({
   reduceMotion: z._default(z.boolean(), false),
   noMovement: z._default(z.boolean(), false),
   timer: z._default(z.boolean(), false),
+  seenTutorial: z._default(z.boolean(), false),
 });
 export type Settings = z.infer<typeof settingsSchema>;
 

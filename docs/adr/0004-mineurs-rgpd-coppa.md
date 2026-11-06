@@ -4,7 +4,7 @@
 
 ## Contexte
 
-Le public a 8–15 ans. En France, le seuil de consentement numérique est de 15 ans (RGPD art. 8 et loi Informatique et Libertés) ; aux États-Unis, COPPA concerne les moins de 13 ans. Ces obligations portent sur la collecte de données personnelles.
+Le public comprend des mineurs dès 8 ans, et depuis l'ADR 0007 aussi des adultes. La présence d'adultes n'allège aucune mesure ci-dessous. En France, le seuil de consentement numérique est de 15 ans (RGPD art. 8 et loi Informatique et Libertés) ; aux États-Unis, COPPA concerne les moins de 13 ans. Ces obligations portent sur la collecte de données personnelles.
 
 ## Décision
 

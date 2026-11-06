@@ -11,7 +11,9 @@ import type { GameRendererHandle } from '../../render/GameRenderer';
 import { CountryCard } from '../components/CountryCard';
 import { Dialog } from '../components/Dialog';
 import { Joystick } from '../components/Joystick';
-import { listenKeyboard, readInput } from '../input';
+import { Icon } from '../components/Icon';
+import { MiniMap } from '../components/MiniMap';
+import { listenKeyboard, readInput, readSpeedFactor, setSprintToggled } from '../input';
 import { useGameStore } from '../store';
 import { useGameData } from '../useGameData';
 import { describeMission } from '../missionText';
@@ -47,6 +49,10 @@ function MissionBanner({
   const { t, i18n } = useTranslation();
   const currentCountry = useGameStore((state) => state.currentCountry);
   const finish = useGameStore((state) => state.finishMissionResult);
+  const level = useGameStore((state) => state.progress.level);
+  const mode = useGameStore((state) => state.mode);
+  const hintUsed = useGameStore((state) => state.hintUsed);
+  const revealHint = useGameStore((state) => state.revealHint);
   const timed = useGameStore((state) => state.settings.timer || state.mode === 'daily');
   const locale = i18n.language as Locale;
   const hint = useMemo(
@@ -63,11 +69,29 @@ function MissionBanner({
     [mission, position, data, currentCountry],
   );
   const text = describeMission(t, mission, data.catalog, locale);
+  // Au niveau Expert, la boussole se demande : réussir sans elle rapporte un bonus.
+  const compassHidden = level === 'expert' && !hintUsed && mode !== 'daily';
   return (
-    <section className="mission-banner" data-testid="mission-banner" aria-label={text.title}>
+    <section
+      className="mission-banner"
+      data-testid="mission-banner"
+      data-mission={mission.id}
+      aria-label={text.title}
+    >
       <div>
         <p className="mission-banner__title">{text.title}</p>
-        {hint && (
+        {!hint && position && <p className="mission-banner__hint">{t('mission.hintNone')}</p>}
+        {hint && compassHidden && (
+          <button
+            type="button"
+            className="link link--light"
+            data-testid="ask-hint"
+            onClick={revealHint}
+          >
+            {t('mission.askHint')}
+          </button>
+        )}
+        {hint && !compassHidden && (
           <p
             className="mission-banner__hint"
             data-testid="mission-hint"
@@ -87,7 +111,7 @@ function MissionBanner({
         aria-label={t('mission.cancel')}
         onClick={finish}
       >
-        ×
+        <Icon name="close" />
       </button>
     </section>
   );
@@ -112,6 +136,7 @@ function Stopwatch() {
 
 function MissionSuccess() {
   const { t } = useTranslation();
+  const [shared, setShared] = useState<'idle' | 'done' | 'failed'>('idle');
   const result = useGameStore((state) => state.missionResult);
   const finish = useGameStore((state) => state.finishMissionResult);
   const navigate = useGameStore((state) => state.navigate);
@@ -132,6 +157,30 @@ function MissionSuccess() {
       <p className="dialog__points">{t('mission.points', { points: result.points })}</p>
       {(timer || mode === 'daily') && <p>{t('mission.time', { seconds: result.seconds })}</p>}
       {result.daily && <p>{t('mission.dailyScore', { score: result.daily.score })}</p>}
+      {result.daily && (
+        <button
+          type="button"
+          className="link"
+          data-testid="share-daily"
+          onClick={() => {
+            const text = t('mission.shareText', {
+              date: result.daily?.dateKey,
+              score: result.daily?.score,
+              seconds: result.daily?.seconds,
+            });
+            navigator.clipboard
+              .writeText(text)
+              .then(() => setShared('done'))
+              .catch(() => setShared('failed'));
+          }}
+        >
+          {shared === 'done'
+            ? t('mission.shared')
+            : shared === 'failed'
+              ? t('mission.shareFailed')
+              : t('mission.share')}
+        </button>
+      )}
       <div className="dialog__actions">
         <button type="button" className="btn btn--primary" onClick={finish}>
           {t('mission.continue')}
@@ -210,6 +259,7 @@ export function PlayScreen() {
   const setFallback = useGameStore((state) => state.setFallback);
   const openCard = useGameStore((state) => state.openCard);
 
+  const [sprinting, setSprinting] = useState(false);
   const reducedMotion = useReducedMotionPreference(settings.reduceMotion);
   const useSvg = settings.noMovement || usingFallback;
   const level = progress.level;
@@ -250,6 +300,7 @@ export function PlayScreen() {
           discovered: initial.discovered,
           reducedMotion: initial.reducedMotion,
           getInput: readInput,
+          getSpeedFactor: readSpeedFactor,
           onEvents: (events) => handleEvents(events, data.catalog),
           onPosition: (point, currentTerrain) => updatePosition(point, currentTerrain),
         }),
@@ -277,7 +328,10 @@ export function PlayScreen() {
 
   useEffect(() => {
     if (useSvg) return undefined;
-    return listenKeyboard((factor) => handleRef.current?.zoomBy(factor));
+    return listenKeyboard(
+      (factor) => handleRef.current?.zoomBy(factor),
+      () => handleRef.current?.toggleOverview(),
+    );
   }, [useSvg]);
 
   useEffect(() => {
@@ -306,6 +360,18 @@ export function PlayScreen() {
           : [];
     handle.setHighlight(highlight);
   }, [mission, level, data, position === null]); // eslint-disable-line react-hooks/exhaustive-deps -- `position === null` relance l'effet quand le moteur vient de démarrer.
+
+  // La bulle d'aide disparaît dès que le joueur a compris : au premier vrai déplacement.
+  const firstPosition = useRef<Point | null>(null);
+  useEffect(() => {
+    if (!position || settings.seenTutorial) return;
+    firstPosition.current ??= position;
+    const moved = Math.hypot(
+      position.x - firstPosition.current.x,
+      position.y - firstPosition.current.y,
+    );
+    if (moved > 30) updateSettings({ seenTutorial: true });
+  }, [position, settings.seenTutorial, updateSettings]);
 
   const percent = useMemo(() => {
     if (!data) return 0;
@@ -399,7 +465,7 @@ export function PlayScreen() {
           aria-label={settings.muted ? t('hud.soundOff') : t('hud.soundOn')}
           onClick={() => updateSettings({ muted: !settings.muted })}
         >
-          {settings.muted ? '🔇' : '🔊'}
+          <Icon name={settings.muted ? 'soundOff' : 'soundOn'} />
         </button>
       </header>
 
@@ -423,7 +489,7 @@ export function PlayScreen() {
               aria-label={t('hud.zoomIn')}
               onClick={() => handleRef.current?.zoomBy(1.3)}
             >
-              +
+              <Icon name="plus" />
             </button>
             <button
               type="button"
@@ -431,10 +497,37 @@ export function PlayScreen() {
               aria-label={t('hud.zoomOut')}
               onClick={() => handleRef.current?.zoomBy(0.77)}
             >
-              −
+              <Icon name="minus" />
+            </button>
+            <button
+              type="button"
+              className={`icon-btn${sprinting ? ' is-active' : ''}`}
+              data-testid="sprint-toggle"
+              aria-pressed={sprinting}
+              aria-label={t('hud.sprint')}
+              title={t('hud.sprint')}
+              onClick={() => {
+                setSprintToggled(!sprinting);
+                setSprinting(!sprinting);
+              }}
+            >
+              <Icon name="fast" />
             </button>
           </div>
           <Joystick />
+          {data && (
+            <MiniMap
+              data={data}
+              position={position}
+              onToggle={() => handleRef.current?.toggleOverview()}
+            />
+          )}
+          {!settings.seenTutorial && (
+            <p className="coach" data-testid="tutorial">
+              <span className="coach__keys">{t('hud.tutorialKeys')}</span>
+              <span className="coach__touch">{t('hud.tutorialTouch')}</span>
+            </p>
+          )}
           <footer className="hud-foot">
             <span data-testid="hud-terrain" data-terrain={terrain}>
               {terrain === 'water' ? t('hud.onWater') : t('hud.onLand')}

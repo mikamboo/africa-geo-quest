@@ -1,5 +1,8 @@
 import { defineConfig, devices } from '@playwright/test';
 
+// Port réglable : un `pnpm preview` lancé à la main occupe souvent le 4173.
+const port = process.env.E2E_PORT ?? '4173';
+
 const swiftShaderArgs = [
   '--use-gl=angle',
   '--use-angle=swiftshader',
@@ -16,7 +19,7 @@ export default defineConfig({
   retries: 0,
   reporter: [['list']],
   use: {
-    baseURL: 'http://localhost:4173',
+    baseURL: `http://localhost:${port}`,
     trace: 'off',
     launchOptions: { args: swiftShaderArgs },
   },
@@ -28,8 +31,8 @@ export default defineConfig({
     { name: 'mobile', use: { ...devices['Pixel 7'] } },
   ],
   webServer: {
-    command: 'pnpm preview',
-    url: 'http://localhost:4173',
+    command: `node_modules/.bin/vite preview --port ${port} --strictPort`,
+    url: `http://localhost:${port}`,
     reuseExistingServer: false,
     timeout: 60_000,
   },

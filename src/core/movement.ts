@@ -8,6 +8,8 @@ import type { WorldModel } from './world';
 export const SPEED_KM_PER_S = 105;
 /** Pas de temps maximal, pour éviter un saut après un onglet resté en arrière-plan. */
 export const MAX_STEP_S = 0.1;
+/** Pas rapide, facultatif : pour traverser le continent sans attendre, une fois la carte connue. */
+export const SPRINT_FACTOR = 2;
 
 export type Facing = 'up' | 'down' | 'left' | 'right';
 
@@ -35,11 +37,12 @@ export function stepPosition(
   input: InputVector,
   dtSeconds: number,
   world: Pick<WorldModel, 'clampToBounds'>,
+  speedFactor = 1,
 ): Point {
   const direction = normalizeInput(input);
   const dt = Math.min(Math.max(dtSeconds, 0), MAX_STEP_S);
   return world.clampToBounds({
-    x: position.x + direction.x * SPEED_KM_PER_S * dt,
-    y: position.y + direction.y * SPEED_KM_PER_S * dt,
+    x: position.x + direction.x * SPEED_KM_PER_S * speedFactor * dt,
+    y: position.y + direction.y * SPEED_KM_PER_S * speedFactor * dt,
   });
 }

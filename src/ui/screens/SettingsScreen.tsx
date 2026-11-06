@@ -63,6 +63,7 @@ export function SettingsScreen() {
           >
             <option value="explorer">{t('setup.explorer')}</option>
             <option value="geographer">{t('setup.geographer')}</option>
+            <option value="expert">{t('setup.expert')}</option>
           </select>
         </label>
       </section>

@@ -6,7 +6,10 @@ export interface PageGuards {
 }
 
 /** Collecte erreurs console, violations CSP et requêtes hors origine. */
-export function watchPage(page: Page, baseUrl = 'http://localhost:4173'): PageGuards {
+export function watchPage(
+  page: Page,
+  baseUrl = `http://localhost:${process.env.E2E_PORT ?? '4173'}`,
+): PageGuards {
   const guards: PageGuards = { errors: [], external: [] };
   page.on('console', (message) => {
     if (message.type() === 'error') guards.errors.push(message.text());
@@ -20,7 +23,10 @@ export function watchPage(page: Page, baseUrl = 'http://localhost:4173'): PageGu
   return guards;
 }
 
-export async function createProfile(page: Page, level: 'explorer' | 'geographer' = 'explorer') {
+export async function createProfile(
+  page: Page,
+  level: 'explorer' | 'geographer' | 'expert' = 'explorer',
+) {
   await page.goto('/');
   await page.getByTestId('start').click();
   await page.getByTestId(`level-${level}`).check({ force: true });

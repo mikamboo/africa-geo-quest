@@ -1,39 +1,23 @@
 import { useTranslation } from 'react-i18next';
-import { utcDateKey } from '../../core/dates';
+import { REGIONS } from '../../core/catalog';
+import { dailyStreak, utcDateKey } from '../../core/dates';
+import { dayNumber, dueItems } from '../../core/leitner';
 import { AVATAR_IDS } from '../../core/progress';
-import silhouette from '../../data/generated/silhouette.json';
+import { COUNTRIES_META } from '../../data/countriesMeta';
+import { AtlasMap } from '../components/AtlasMap';
 import { Avatar } from '../components/Avatar';
+import { Icon } from '../components/Icon';
 import { formatPseudonym } from '../format';
 import { useGameStore } from '../store';
 
-/** Motif géométrique original, réservé à l'interface : chevrons et points, sans reprendre de motif existant. */
-function Poster() {
-  const { width, height, d } = silhouette;
-  return (
-    <svg
-      className="poster__map"
-      viewBox={`-20 -20 ${width + 40} ${height + 40}`}
-      aria-hidden="true"
-    >
-      <defs>
-        <pattern id="poster-motif" width="64" height="64" patternUnits="userSpaceOnUse">
-          <path d="M0 22 L16 8 L32 22 L48 8 L64 22" className="poster__chevron" />
-          <path d="M0 50 L16 36 L32 50 L48 36 L64 50" className="poster__chevron" />
-          <circle cx="16" cy="24" r="3" className="poster__dot" />
-          <circle cx="48" cy="52" r="3" className="poster__dot" />
-        </pattern>
-      </defs>
-      <path d={d} className="poster__shadow" transform="translate(14 16)" />
-      <path d={d} className="poster__land" />
-      <path d={d} fill="url(#poster-motif)" />
-      <path
-        d={`M${width * 0.32} ${height * 0.14} C ${width * 0.2} ${height * 0.34}, ${width * 0.62} ${height * 0.38}, ${width * 0.5} ${height * 0.58} S ${width * 0.52} ${height * 0.8}, ${width * 0.5} ${height * 0.9}`}
-        className="poster__trail"
-      />
-      <circle cx={width * 0.32} cy={height * 0.14} r="14" className="poster__pin" />
-      <circle cx={width * 0.5} cy={height * 0.9} r="14" className="poster__pin" />
-    </svg>
-  );
+/** Région la plus proche de son badge : un objectif concret pour la prochaine partie. */
+function nextBadge(stamps: Record<string, string>) {
+  const entries = REGIONS.map((region) => {
+    const members = COUNTRIES_META.filter((country) => country.region === region);
+    const visited = members.filter((country) => stamps[country.code]).length;
+    return { region, visited, total: members.length, left: members.length - visited };
+  }).filter((entry) => entry.left > 0);
+  return entries.sort((a, b) => a.left - b.left)[0] ?? null;
 }
 
 export function HomeScreen() {
@@ -47,18 +31,39 @@ export function HomeScreen() {
   const startDaily = useGameStore((state) => state.startDaily);
   const dismissRecovered = useGameStore((state) => state.dismissRecovered);
   const updateSettings = useGameStore((state) => state.updateSettings);
-  const { profile } = progress;
-  const best = dailyScores.find((entry) => entry.dateKey === utcDateKey(new Date()));
+  const { profile, stamps } = progress;
+
+  const now = new Date();
+  const best = dailyScores.find((entry) => entry.dateKey === utcDateKey(now));
+  const streak = dailyStreak(
+    dailyScores.map((entry) => entry.dateKey),
+    now,
+  );
+  const reviews = dueItems(progress.leitner, dayNumber(now)).length;
+  const visited = COUNTRIES_META.filter((country) => stamps[country.code]).length;
+  const percent = Math.round((visited / COUNTRIES_META.length) * 100);
+  const badge = nextBadge(stamps);
 
   function switchLocale(locale: 'fr' | 'en'): void {
     updateSettings({ locale });
     void i18n.changeLanguage(locale);
   }
 
+  const dailyMeta = [
+    best ? t('home.dailyBest', { score: best.score }) : null,
+    streak > 0 ? t('home.streak', { count: streak }) : null,
+  ].filter(Boolean);
+
   return (
     <main className={`home${profile ? '' : ' home--new'}`} data-testid="home-screen">
       <div className="band" aria-hidden="true" />
       <div className="home__top">
+        {profile && (
+          <p className="chip" data-testid="profile-name">
+            <Avatar id={profile.avatar} size={30} />
+            <span>{formatPseudonym(t, profile.pseudonym)}</span>
+          </p>
+        )}
         <div className="lang" role="group" aria-label={t('settings.language')}>
           {(['fr', 'en'] as const).map((locale) => (
             <button
@@ -82,24 +87,18 @@ export function HomeScreen() {
           </button>
         </div>
       )}
-      <section className="poster">
-        <div className="poster__text">
-          <h1 className="poster__title" data-testid="app-title">
+      <section className="hero">
+        <div className="hero__text">
+          <h1
+            className={`hero__title${profile ? ' hero__title--small' : ''}`}
+            data-testid="app-title"
+          >
             Tembea
           </h1>
-          <p className="poster__tagline">{t('app.tagline')}</p>
-          {profile ? (
-            <p className="poster__hello" data-testid="profile-name">
-              <Avatar id={profile.avatar} size={48} />
-              <span>{t('home.hello', { name: formatPseudonym(t, profile.pseudonym) })}</span>
-            </p>
-          ) : (
+          {!profile && (
             <>
-              <div className="poster__crew" aria-hidden="true">
-                {AVATAR_IDS.map((id) => (
-                  <Avatar key={id} id={id} size={62} />
-                ))}
-              </div>
+              <p className="hero__tagline">{t('app.tagline')}</p>
+              <p className="hero__sub">{t('app.audience')}</p>
               <button
                 type="button"
                 className="btn btn--primary btn--large"
@@ -108,23 +107,46 @@ export function HomeScreen() {
               >
                 {t('home.start')}
               </button>
+              <div className="hero__crew" aria-hidden="true">
+                {AVATAR_IDS.map((id) => (
+                  <Avatar key={id} id={id} size={48} />
+                ))}
+              </div>
+            </>
+          )}
+          {profile && (
+            <>
+              <p className="stat" data-testid="home-progress" data-percent={percent}>
+                <span className="stat__value">{percent} %</span>
+                <span className="stat__label">{t('home.discovered')}</span>
+              </p>
+              <div className="meter" aria-hidden="true">
+                <div className="meter__fill" style={{ width: `${percent}%` }} />
+              </div>
+              <p className="hero__sub">
+                {t('home.stamps', { count: visited })}
+                {badge &&
+                  ` · ${t('home.nextBadge', {
+                    region: t(`region.${badge.region}`),
+                    visited: badge.visited,
+                    total: badge.total,
+                  })}`}
+              </p>
+              <button type="button" className="cta" data-testid="mode-explore" onClick={startFree}>
+                <span>
+                  <strong>{t('home.explore')}</strong>
+                  <span className="cta__desc">{t('home.exploreDesc')}</span>
+                </span>
+                <Icon name="chevron" />
+              </button>
             </>
           )}
         </div>
-        <Poster />
+        <AtlasMap stamps={stamps} preview={!profile} />
       </section>
       {profile && (
         <>
-          <nav className="modes" aria-label={t('home.explore')}>
-            <button
-              type="button"
-              className="mode mode--explore"
-              data-testid="mode-explore"
-              onClick={startFree}
-            >
-              <strong>{t('home.explore')}</strong>
-              <span>{t('home.exploreDesc')}</span>
-            </button>
+          <nav className="modes" aria-label={t('home.modes')}>
             <button
               type="button"
               className="mode mode--missions"
@@ -133,6 +155,9 @@ export function HomeScreen() {
             >
               <strong>{t('home.missions')}</strong>
               <span>{t('home.missionsDesc')}</span>
+              <span className="mode__meta">
+                {t('home.missionsDone', { count: progress.missionsCompleted })}
+              </span>
             </button>
             <button
               type="button"
@@ -142,6 +167,9 @@ export function HomeScreen() {
             >
               <strong>{t('home.quiz')}</strong>
               <span>{t('home.quizDesc')}</span>
+              <span className="mode__meta" data-testid="reviews-due" data-count={reviews}>
+                {reviews > 0 ? t('home.reviews', { count: reviews }) : t('home.noReviews')}
+              </span>
             </button>
             <button
               type="button"
@@ -157,7 +185,10 @@ export function HomeScreen() {
               }}
             >
               <strong>{t('home.daily')}</strong>
-              <span>{best ? t('home.dailyBest', { score: best.score }) : t('home.dailyDesc')}</span>
+              <span>{t('home.dailyDesc')}</span>
+              <span className="mode__meta" data-testid="daily-meta">
+                {dailyMeta.length > 0 ? dailyMeta.join(' · ') : t('home.dailyNew')}
+              </span>
             </button>
           </nav>
           <div className="home__links">

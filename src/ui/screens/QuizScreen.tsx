@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import type { TFunction } from 'i18next';
 import { useTranslation } from 'react-i18next';
 import { capitalsOf, countryByCode, type GameCatalog } from '../../core/catalog';
@@ -6,6 +6,7 @@ import { dayNumber } from '../../core/leitner';
 import { generateQuiz, type QuizQuestion } from '../../core/quiz';
 import { createRng } from '../../core/rng';
 import type { Locale } from '../../core/types';
+import { countryShape } from '../countryShape';
 import { useGameStore } from '../store';
 import { useGameData } from '../useGameData';
 
@@ -37,6 +38,8 @@ function promptOf(
       });
     case 'flag-of':
       return t('quiz.flagOf');
+    case 'shape-of':
+      return t('quiz.shapeOf');
     case 'region-of':
       return t('quiz.regionOf', { country });
     case 'city-in':
@@ -91,6 +94,8 @@ export function QuizScreen() {
   const [index, setIndex] = useState(0);
   const [picked, setPicked] = useState<string | null>(null);
   const [correct, setCorrect] = useState(0);
+  const [missed, setMissed] = useState<string[]>([]);
+  const nextRef = useRef<HTMLButtonElement>(null);
 
   const questions = useMemo(() => {
     if (!data) return [];
@@ -106,6 +111,35 @@ export function QuizScreen() {
   );
 
   const question = questions[index];
+  const shape = useMemo(
+    () => (data && question?.kind === 'shape-of' ? countryShape(data, question.subject) : null),
+    [data, question],
+  );
+
+  const answer = useCallback(
+    (option: string) => {
+      if (!question || !data || picked !== null) return;
+      setPicked(option);
+      const isRight = option === question.answer;
+      if (isRight) setCorrect((value) => value + 1);
+      else setMissed((list) => [...list, explanationOf(t, question, data.catalog, locale)]);
+      answerQuiz(question.itemId, isRight);
+    },
+    [question, data, picked, answerQuiz, t, locale],
+  );
+
+  // Clavier : les chiffres répondent, et le focus passe sur « Question suivante ».
+  useEffect(() => {
+    if (picked !== null) nextRef.current?.focus();
+  }, [picked]);
+  useEffect(() => {
+    const onKey = (event: KeyboardEvent): void => {
+      const option = question?.options[Number(event.key) - 1];
+      if (option) answer(option);
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [question, answer]);
   const finished = data !== null && index >= questions.length && questions.length > 0;
 
   return (
@@ -130,6 +164,19 @@ export function QuizScreen() {
           <p className="muted">
             {t('quiz.progress', { current: index + 1, total: questions.length })}
           </p>
+          <div
+            className="meter meter--thin"
+            role="progressbar"
+            aria-valuenow={index}
+            aria-valuemin={0}
+            aria-valuemax={questions.length}
+            aria-label={t('quiz.progress', { current: index + 1, total: questions.length })}
+          >
+            <div
+              className="meter__fill"
+              style={{ width: `${(index / questions.length) * 100}%` }}
+            />
+          </div>
           <h2 className="quiz-question">{promptOf(t, question, data.catalog, locale)}</h2>
           {question.kind === 'flag-of' && (
             <img
@@ -140,8 +187,19 @@ export function QuizScreen() {
               height="180"
             />
           )}
+          {question.kind === 'shape-of' && shape && (
+            <svg
+              className="quiz-shape"
+              viewBox={shape.viewBox}
+              role="img"
+              aria-label={t('quiz.shapeAlt')}
+              data-testid="quiz-shape"
+            >
+              <path d={shape.d} vectorEffect="non-scaling-stroke" />
+            </svg>
+          )}
           <div className="quiz-options">
-            {question.options.map((option) => {
+            {question.options.map((option, optionIndex) => {
               const isAnswer = picked !== null && option === question.answer;
               const isPicked = picked === option;
               return (
@@ -152,13 +210,11 @@ export function QuizScreen() {
                   disabled={picked !== null}
                   data-testid="quiz-option"
                   data-correct={option === question.answer ? 'true' : undefined}
-                  onClick={() => {
-                    setPicked(option);
-                    const isRight = option === question.answer;
-                    if (isRight) setCorrect((value) => value + 1);
-                    answerQuiz(question.itemId, isRight);
-                  }}
+                  onClick={() => answer(option)}
                 >
+                  <kbd className="quiz-key" aria-hidden="true">
+                    {optionIndex + 1}
+                  </kbd>
                   {optionLabel(t, question, option, data.catalog, locale)}
                 </button>
               );
@@ -173,6 +229,7 @@ export function QuizScreen() {
           )}
           {picked !== null && (
             <button
+              ref={nextRef}
               type="button"
               className="btn btn--primary"
               data-testid="quiz-next"
@@ -190,7 +247,19 @@ export function QuizScreen() {
         <section className="panel" data-testid="quiz-done">
           <h2>{t('quiz.done')}</h2>
           <p data-testid="quiz-score">{t('quiz.score', { correct, total: questions.length })}</p>
-          <p>{t('quiz.encouragement')}</p>
+          {missed.length > 0 ? (
+            <>
+              <h3 className="quiz-recap__title">{t('quiz.recapTitle')}</h3>
+              <ul className="quiz-recap" data-testid="quiz-recap">
+                {missed.map((line) => (
+                  <li key={line}>{line}</li>
+                ))}
+              </ul>
+              <p>{t('quiz.encouragement')}</p>
+            </>
+          ) : (
+            <p>{t('quiz.recapClean')}</p>
+          )}
           <button
             type="button"
             className="btn btn--primary"
@@ -198,6 +267,7 @@ export function QuizScreen() {
               setRound(round + 1);
               setIndex(0);
               setCorrect(0);
+              setMissed([]);
             }}
           >
             {t('quiz.replay')}

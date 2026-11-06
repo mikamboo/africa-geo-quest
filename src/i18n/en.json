@@ -3,38 +3,54 @@
     "tagline": "Walk across Africa. 54 countries are waiting.",
     "loading": "Getting the map ready…",
     "loadError": "The map could not load.",
-    "retry": "Try again"
+    "retry": "Try again",
+    "audience": "A geography game for everyone from age 8: you pick your level."
   },
   "home": {
-    "start": "Start the adventure",
+    "start": "Start",
     "hello": "Hi, {{name}}!",
     "explore": "Free exploring",
-    "exploreDesc": "Wander and discover, no pressure.",
+    "exploreDesc": "Pick up your route, on foot or by canoe.",
     "missions": "Missions",
     "missionsDesc": "One goal, one map, you find the way.",
     "quiz": "Quiz",
-    "quizDesc": "What you saw comes back at the right time.",
+    "quizDesc": "What you remember less comes back at the right time.",
     "daily": "Daily challenge",
-    "dailyDesc": "The same mission for everyone today.",
-    "dailyBest": "Your best score today: {{score}}",
+    "dailyDesc": "The same mission for everyone, every day.",
+    "dailyBest": "Best score: {{score}}",
     "passport": "Passport",
     "settings": "Settings",
-    "parents": "Parents & teachers",
+    "parents": "About · Parents & teachers",
     "recovered": "Your save could not be read. The game starts fresh, nothing to worry about.",
-    "ok": "OK"
+    "ok": "OK",
+    "discovered": "of Africa discovered",
+    "modes": "Game modes",
+    "nextBadge": "next badge: {{region}} ({{visited}}/{{total}})",
+    "noReviews": "No reviews waiting",
+    "dailyNew": "Ready for today",
+    "stamps_one": "{{count}} stamp out of 54",
+    "stamps_other": "{{count}} stamps out of 54",
+    "reviews_one": "{{count}} review waiting",
+    "reviews_other": "{{count}} reviews waiting",
+    "streak_one": "{{count}}-day streak",
+    "streak_other": "{{count}}-day streak",
+    "missionsDone_one": "{{count}} mission completed",
+    "missionsDone_other": "{{count}} missions completed"
   },
   "setup": {
     "title": "Who is travelling?",
     "avatar": "Pick your character",
-    "pseudonym": "Pick your explorer name",
+    "pseudonym": "Pick your travel name",
     "others": "Other names",
     "level": "Pick your level",
     "explorer": "Explorer",
-    "explorerDesc": "Ages 8–11: countries, capitals, big rivers, with hints on the map.",
+    "explorerDesc": "To discover: countries, capitals, big rivers, with hints on the map.",
     "geographer": "Geographer",
-    "geographerDesc": "Ages 12–15: cities, landforms, regions and borders, with less help.",
+    "geographerDesc": "To go further: cities, landforms, regions and borders, with less help.",
     "go": "Let's go!",
-    "privacy": "No account, no real name. Everything stays on this device."
+    "privacy": "No account, no real name. Everything stays on this device.",
+    "expert": "Expert",
+    "expertDesc": "For connoisseurs: blank map, compass on request, hard questions."
   },
   "avatar": {
     "amina": "Amina",
@@ -124,7 +140,11 @@
     "showCard": "Show the card again",
     "controls": "Arrows or WASD to walk, + and − to zoom.",
     "joystick": "Movement joystick",
-    "pickCountry": "Pick a country on the map"
+    "pickCountry": "Pick a country on the map",
+    "sprint": "Fast pace (Shift key)",
+    "overview": "Whole continent view (M key)",
+    "tutorialKeys": "Arrows or WASD to walk, Shift to go faster",
+    "tutorialTouch": "Push the joystick to walk"
   },
   "card": {
     "capital": "Capital",
@@ -198,7 +218,12 @@
       "SW": "the south-west",
       "W": "the west",
       "NW": "the north-west"
-    }
+    },
+    "askHint": "Ask for the compass",
+    "share": "Copy my result",
+    "shared": "Result copied!",
+    "shareFailed": "Copying isn't available on this device.",
+    "shareText": "Tembea · Challenge of {{date}} · {{score}} points in {{seconds}} s"
   },
   "quiz": {
     "title": "Quiz",
@@ -222,7 +247,11 @@
     "score": "{{correct}} right answers out of {{total}}",
     "encouragement": "Every answer counts. What you remember less will come back later.",
     "replay": "Play again",
-    "empty": "Explore a bit to unlock questions."
+    "empty": "Explore a bit to unlock questions.",
+    "shapeOf": "Which country has this shape?",
+    "shapeAlt": "Outline of a country to recognise",
+    "recapTitle": "Worth remembering",
+    "recapClean": "No mistakes. These questions will come back later, to anchor what you know."
   },
   "passport": {
     "title": "My passport",
@@ -265,15 +294,15 @@
   },
   "external": {
     "title": "You are about to leave Tembea",
-    "body": "This link opens another website, which this game does not control. Ask an adult before you continue.",
+    "body": "This link opens another website, which this game does not control. If you are a minor, ask an adult before you continue.",
     "continue": "Open the website",
     "stay": "Stay in the game"
   },
   "parents": {
-    "title": "Parents & teachers",
-    "teachTitle": "What the game teaches",
-    "teach": "Africa's 54 countries, their capitals, major cities, rivers, lakes, landforms and regions. Explorer level for ages 8–11, Geographer for ages 12–15. Items that are harder to remember come back through spaced repetition.",
-    "dataTitle": "Stored data",
+    "title": "About",
+    "teachTitle": "Who it's for, what it teaches",
+    "teach": "Tembea is for everyone from age 8. It teaches Africa's 54 countries, their capitals, major cities, rivers, lakes, landforms and regions. Three levels: Explorer to discover (recommended for younger players), Geographer to go further, Expert for connoisseurs. Items that are harder to remember come back through spaced repetition.",
+    "dataTitle": "For parents and teachers: stored data",
     "data": "On this device only: the avatar, the generated nickname, progress, scores and settings. No account, no real name, no email, no cookie, no ads, no purchases, no trackers. The game sends no game data to any server.",
     "resetTitle": "Reset",
     "resetText": "Erases all progress and settings on this device. This cannot be undone.",

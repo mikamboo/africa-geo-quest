@@ -1,11 +1,11 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
-import '@fontsource/lilita-one/latin-400.css';
-import '@fontsource/nunito/latin-400.css';
-import '@fontsource/nunito/latin-700.css';
-import '@fontsource/nunito/latin-800.css';
-import '@fontsource/nunito/latin-ext-400.css';
-import '@fontsource/nunito/latin-ext-700.css';
+import '@fontsource/fraunces/latin-900.css';
+import '@fontsource/fraunces/latin-ext-900.css';
+import '@fontsource/atkinson-hyperlegible/latin-400.css';
+import '@fontsource/atkinson-hyperlegible/latin-700.css';
+import '@fontsource/atkinson-hyperlegible/latin-ext-400.css';
+import '@fontsource/atkinson-hyperlegible/latin-ext-700.css';
 import './i18n';
 import './ui/styles.css';
 import { App } from './ui/App';

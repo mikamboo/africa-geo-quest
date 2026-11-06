@@ -52,7 +52,7 @@ export function SvgMap({ data, level, current, stamped, onEvents }: Props) {
       context: polygonsToPath(data.context),
       lakes: data.hydro.lakes.map((lake) => ({ id: lake.id, d: polygonsToPath(lake.polygons) })),
       rivers: data.hydro.rivers
-        .filter((river) => level === 'geographer' || river.level === 'explorer')
+        .filter((river) => level !== 'explorer' || river.level === 'explorer')
         .map((river) => ({
           id: river.id,
           name: river.names[locale],
@@ -66,7 +66,7 @@ export function SvgMap({ data, level, current, stamped, onEvents }: Props) {
   const places = useMemo(
     () =>
       data.places
-        .filter((place) => level === 'geographer' || place.level === 'explorer')
+        .filter((place) => level !== 'explorer' || place.level === 'explorer')
         .map((place) => ({ ...place, point: project(place.lon, place.lat) })),
     [data.places, level],
   );
@@ -88,12 +88,12 @@ export function SvgMap({ data, level, current, stamped, onEvents }: Props) {
 
   function enter(code: string): void {
     if (code === current) {
-      onEvents([{ type: 'country-entered', code, from: code }]);
+      onEvents([{ type: 'country-entered', code, from: code, explicit: true }]);
       return;
     }
     const events: GameEvent[] = [];
     if (current) events.push({ type: 'country-left', code: current });
-    events.push({ type: 'country-entered', code, from: current });
+    events.push({ type: 'country-entered', code, from: current, explicit: true });
     onEvents(events);
   }
 

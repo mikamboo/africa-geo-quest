@@ -63,6 +63,7 @@ interface GameStore {
   mode: PlayMode;
   mission: Mission | null;
   missionStartedAt: number;
+  hintUsed: boolean;
   missionResult: MissionResult | null;
   daily: DailyChallenge | null;
   startOverride: Point | null;
@@ -89,6 +90,7 @@ interface GameStore {
     options?: { skipMissions?: boolean },
   ) => void;
   closeCard: () => void;
+  revealHint: () => void;
   openCard: (code: string) => void;
   setFallback: (value: boolean) => void;
   dismissToast: (id: number) => void;
@@ -115,6 +117,7 @@ export const useGameStore = create<GameStore>((set, get) => ({
   mode: 'free',
   mission: null,
   missionStartedAt: 0,
+  hintUsed: false,
   missionResult: null,
   daily: null,
   startOverride: null,
@@ -162,6 +165,7 @@ export const useGameStore = create<GameStore>((set, get) => ({
       mode: 'mission',
       mission,
       missionResult: null,
+      hintUsed: false,
       missionStartedAt: Date.now(),
       daily: null,
       startOverride: null,
@@ -175,6 +179,7 @@ export const useGameStore = create<GameStore>((set, get) => ({
       mission: daily.mission,
       daily,
       missionResult: null,
+      hintUsed: false,
       missionStartedAt: Date.now(),
       startOverride: daily.start,
       card: null,
@@ -184,7 +189,7 @@ export const useGameStore = create<GameStore>((set, get) => ({
   finishMissionResult: () => set({ missionResult: null, mission: null, mode: 'free', daily: null }),
   handleEvents: (events, catalog, options) => {
     let { progress, currentCountry, card, terrain, missionResult, toasts } = get();
-    const { mode, mission, missionStartedAt, settings, daily } = get();
+    const { mode, mission, missionStartedAt, settings, daily, hintUsed } = get();
     let dailyScores = get().dailyScores;
     let changed = false;
 
@@ -192,7 +197,14 @@ export const useGameStore = create<GameStore>((set, get) => ({
       switch (event.type) {
         case 'country-entered': {
           currentCountry = event.code;
-          card = event.code;
+          // La fiche s'ouvre à la découverte, ou sur demande : repasser dans un pays connu n'interrompt pas.
+          if (
+            event.explicit ||
+            event.code === NON_STATE_TERRITORY ||
+            !progress.stamps[event.code]
+          ) {
+            card = event.code;
+          }
           if (event.code !== NON_STATE_TERRITORY && !progress.stamps[event.code]) {
             progress = stampCountry(progress, event.code, todayStamp());
             progress = { ...progress, points: progress.points + STAMP_POINTS };
@@ -244,7 +256,11 @@ export const useGameStore = create<GameStore>((set, get) => ({
         missionCompletedBy(mission, event, catalog)
       ) {
         const seconds = Math.max(0, Math.round((Date.now() - missionStartedAt) / 1000));
-        let points = missionPoints(seconds, settings.timer);
+        let points = missionPoints(
+          seconds,
+          settings.timer,
+          progress.level === 'expert' && !hintUsed,
+        );
         let dailyEntry: DailyScore | null = null;
         if (mode === 'daily' && daily) {
           points = dailyScore(seconds);
@@ -269,6 +285,7 @@ export const useGameStore = create<GameStore>((set, get) => ({
     set({ progress, currentCountry, card, terrain, mission, missionResult, toasts, dailyScores });
   },
   closeCard: () => set({ card: null }),
+  revealHint: () => set({ hintUsed: true }),
   openCard: (code) => set({ card: code }),
   setFallback: (value) => set({ usingFallback: value }),
   dismissToast: (id) => set({ toasts: get().toasts.filter((toast) => toast.id !== id) }),

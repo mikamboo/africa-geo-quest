@@ -7,7 +7,8 @@ import type { Location, WorldModel } from './world';
 const DETECT_INTERVAL_S = 0.1;
 
 export type GameEvent =
-  | { type: 'country-entered'; code: string; from: string | null }
+  /** `explicit` : le joueur a demandé ce pays (carte à cliquer), sa fiche s'ouvre toujours. */
+  | { type: 'country-entered'; code: string; from: string | null; explicit?: boolean }
   | { type: 'country-left'; code: string }
   | { type: 'terrain-changed'; terrain: Terrain }
   | { type: 'lake-entered'; id: string }
@@ -44,10 +45,10 @@ export class Explorer {
     return events;
   }
 
-  update(input: InputVector, dtSeconds: number): GameEvent[] {
+  update(input: InputVector, dtSeconds: number, speedFactor = 1): GameEvent[] {
     this.moving = input.x !== 0 || input.y !== 0;
     this.facing = facingFromInput(input, this.facing);
-    this.position = stepPosition(this.position, input, dtSeconds, this.world);
+    this.position = stepPosition(this.position, input, dtSeconds, this.world, speedFactor);
     this.accumulator += dtSeconds;
     if (this.accumulator < DETECT_INTERVAL_S) return [];
     this.accumulator = 0;

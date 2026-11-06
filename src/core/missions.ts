@@ -92,8 +92,9 @@ export function missionHint(
 }
 
 /** Rayon de recherche croissant : les premières missions restent proches du joueur. */
-export function missionRadiusKm(missionsCompleted: number): number {
-  return Math.min(900 + missionsCompleted * 250, 6000);
+export function missionRadiusKm(missionsCompleted: number, level: Level = 'explorer'): number {
+  const radius = Math.min(900 + missionsCompleted * 250, 6000);
+  return level === 'expert' ? Math.max(radius, 2500) : radius;
 }
 
 function placeMission(place: { id: string }): Mission {
@@ -109,7 +110,7 @@ function pickPlaceMission(
   visited: ReadonlySet<string>,
 ): Mission {
   const eligible = placesForLevel(catalog, level).filter(
-    (place) => (place.kind === 'capital' || level === 'geographer') && !visited.has(place.id),
+    (place) => (place.kind === 'capital' || level !== 'explorer') && !visited.has(place.id),
   );
   const pool = eligible.length > 0 ? eligible : placesForLevel(catalog, level);
   const scored = pool.map((place) => ({
@@ -151,7 +152,7 @@ export function generateMissions(
   catalog: GameCatalog,
   context: MissionContext,
 ): Mission[] {
-  const radius = missionRadiusKm(context.missionsCompleted);
+  const radius = missionRadiusKm(context.missionsCompleted, context.level);
   const discovered = new Set(context.discoveredPlaces);
   const searches: Mission[] = [
     { id: 'find:landlocked', type: 'find-landlocked', targetId: '' },

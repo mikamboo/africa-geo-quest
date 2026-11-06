@@ -1,6 +1,6 @@
 # Tembea : règles pour les agents
 
-Jeu de géographie sur l'Afrique pour les 8–15 ans. Le code est en anglais ; la documentation et les messages de commit sont en français.
+Jeu de géographie sur l'Afrique pour tous, dès 8 ans (ADR 0007). Les mineurs restent un public à part entière : la section « Mineurs » s'applique à tout le monde. Le code est en anglais ; la documentation et les messages de commit sont en français.
 
 Ce projet n'utilise pas `/aidlc` : `docs/PLAN.md` et `docs/adr/` servent de trace.
 

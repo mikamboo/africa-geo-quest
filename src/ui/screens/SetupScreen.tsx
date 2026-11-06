@@ -68,7 +68,7 @@ export function SetupScreen() {
       <fieldset className="choices">
         <legend>{t('setup.level')}</legend>
         <div className="levels">
-          {(['explorer', 'geographer'] as const).map((id) => (
+          {(['explorer', 'geographer', 'expert'] as const).map((id) => (
             <label key={id} className={`choice choice--level${level === id ? ' is-active' : ''}`}>
               <input
                 type="radio"

@@ -1,7 +1,7 @@
 import { z } from 'zod';
 
 export const REGION_IDS = ['north', 'west', 'central', 'east', 'south'] as const;
-export const LEVELS = ['explorer', 'geographer'] as const;
+export const LEVELS = ['explorer', 'geographer', 'expert'] as const;
 
 export const localizedSchema = z.object({ fr: z.string().min(1), en: z.string().min(1) });
 
