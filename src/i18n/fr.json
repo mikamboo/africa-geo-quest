@@ -9,8 +9,8 @@
   "home": {
     "start": "Commencer",
     "hello": "Salut, {{name}} !",
-    "explore": "Exploration libre",
-    "exploreDesc": "Reprends ta route, à pied ou en pirogue.",
+    "explore": "Voyage libre",
+    "exploreDesc": "Promène-toi à pied ou en bateau, sans objectif.",
     "missions": "Missions",
     "missionsDesc": "Un objectif, une carte, à toi de trouver le chemin.",
     "quiz": "Quiz",
@@ -23,7 +23,7 @@
     "parents": "À propos · Parents & enseignants",
     "recovered": "Ta sauvegarde était illisible. Le jeu repart à zéro, sans risque.",
     "ok": "D'accord",
-    "discovered": "de l'Afrique découverte",
+    "travelled": "de l'Afrique parcourue",
     "modes": "Modes de jeu",
     "nextBadge": "prochain badge : {{region}} ({{visited}}/{{total}})",
     "noReviews": "Aucune révision en attente",
@@ -39,7 +39,14 @@
     "streak_many": "série de {{count}} jours",
     "missionsDone_one": "{{count}} mission réussie",
     "missionsDone_other": "{{count}} missions réussies",
-    "missionsDone_many": "{{count}} missions réussies"
+    "missionsDone_many": "{{count}} missions réussies",
+    "stories": "Reportages",
+    "storiesDesc": "Suis une piste de ville en ville, entre dans les lieux, publie ton enquête.",
+    "storiesDone_one": "{{count}} reportage publié",
+    "storiesDone_other": "{{count}} reportages publiés",
+    "storiesDone_many": "{{count}} reportages publiés",
+    "storiesNone": "Aucun publié pour l'instant",
+    "storiesResume": "Reprends ton enquête en cours."
   },
   "setup": {
     "title": "Qui part en voyage ?",
@@ -47,8 +54,8 @@
     "pseudonym": "Choisis ton nom de voyage",
     "others": "D'autres noms",
     "level": "Choisis ton niveau",
-    "explorer": "Explorateur",
-    "explorerDesc": "Pour découvrir : pays, capitales, grands fleuves, avec des indices sur la carte.",
+    "explorer": "Premiers pas",
+    "explorerDesc": "Pour débuter : pays, capitales, grands fleuves, avec des repères sur la carte.",
     "geographer": "Géographe",
     "geographerDesc": "Pour aller plus loin : villes, reliefs, régions et frontières, avec moins d'aide.",
     "go": "C'est parti !",
@@ -63,77 +70,39 @@
     "idir": "Idir"
   },
   "pseudo": {
-    "animal": {
-      "gazelle": "Gazelle",
-      "lion": "Lion",
-      "elephant": "Éléphant",
-      "giraffe": "Girafe",
-      "zebra": "Zèbre",
-      "okapi": "Okapi",
-      "hippo": "Hippopotame",
-      "pangolin": "Pangolin",
-      "ibis": "Ibis",
-      "turtle": "Tortue",
-      "fennec": "Fennec",
-      "meerkat": "Suricate"
-    },
-    "gender": {
-      "gazelle": "f",
-      "lion": "m",
-      "elephant": "m",
-      "giraffe": "f",
-      "zebra": "m",
-      "okapi": "m",
-      "hippo": "m",
-      "pangolin": "m",
-      "ibis": "m",
-      "turtle": "f",
-      "fennec": "m",
-      "meerkat": "m"
+    "role": {
+      "cartographer": "Cartographe",
+      "astronomer": "Astronome",
+      "architect": "Architecte",
+      "pilot": "Pilote",
+      "poet": "Poète",
+      "journalist": "Journaliste",
+      "librarian": "Bibliothécaire",
+      "filmmaker": "Cinéaste",
+      "photographer": "Photographe",
+      "archivist": "Archiviste",
+      "chemist": "Chimiste",
+      "geologist": "Géologue"
     },
     "adj": {
-      "fast": {
-        "m": "rapide",
-        "f": "rapide"
-      },
-      "curious": {
-        "m": "curieux",
-        "f": "curieuse"
-      },
-      "brave": {
-        "m": "courageux",
-        "f": "courageuse"
-      },
-      "clever": {
-        "m": "malin",
-        "f": "maligne"
-      },
-      "calm": {
-        "m": "tranquille",
-        "f": "tranquille"
-      },
-      "joyful": {
-        "m": "joyeux",
-        "f": "joyeuse"
-      },
-      "patient": {
-        "m": "patient",
-        "f": "patiente"
-      },
-      "bold": {
-        "m": "audacieux",
-        "f": "audacieuse"
-      }
+      "fast": "rapide",
+      "calm": "tranquille",
+      "skilled": "habile",
+      "wise": "sage",
+      "agile": "agile",
+      "lucid": "lucide",
+      "loyal": "fidèle",
+      "tenacious": "tenace"
     },
-    "format": "{{animal}} {{adjective}}"
+    "format": "{{role}} {{adjective}}"
   },
   "hud": {
     "menu": "Menu",
-    "ocean": "En pirogue, sur l'océan",
+    "ocean": "En bateau, sur l'océan",
     "outside": "Hors d'Afrique",
-    "onWater": "En pirogue",
+    "onWater": "En bateau",
     "onLand": "À pied",
-    "discovered": "{{percent}} % découvert",
+    "travelled": "{{percent}} % parcouru",
     "stamps": "{{count}} / 54 tampons",
     "soundOn": "Couper le son",
     "soundOff": "Remettre le son",
@@ -148,7 +117,9 @@
     "sprint": "Pas rapide (touche Maj)",
     "overview": "Vue d'ensemble du continent (touche M)",
     "tutorialKeys": "Flèches ou WASD pour marcher, Maj pour accélérer",
-    "tutorialTouch": "Pousse le joystick pour marcher"
+    "tutorialTouch": "Pousse le joystick pour marcher",
+    "enter": "Entrer : {{name}}",
+    "leave": "Sortir"
   },
   "card": {
     "capital": "Capitale",
@@ -173,10 +144,12 @@
     }
   },
   "toast": {
-    "place": "Lieu découvert : {{name}}",
+    "place": "Lieu visité : {{name}}",
     "river": "Fleuve traversé : {{name}}",
     "badge": "Badge gagné : {{name}} !",
-    "lake": "Lac atteint : {{name}}"
+    "lake": "Lac atteint : {{name}}",
+    "note": "Carnet complété : +{{name}} points",
+    "map": "Bien situé : {{name}}"
   },
   "region": {
     "north": "Afrique du Nord",
@@ -203,7 +176,7 @@
     "findLandlocked": "Trouve un pays sans accès à la mer",
     "findLandlockedDesc": "Entre dans un pays entouré uniquement de terres.",
     "findIsland": "Rejoins un pays insulaire",
-    "findIslandDesc": "Prends la pirogue et cap sur une île-État.",
+    "findIslandDesc": "Prends le bateau et cap sur un État insulaire.",
     "hint": "À environ {{distance}} km vers {{direction}}",
     "hintNone": "Change de pays pour réussir.",
     "successTitle": "Mission réussie !",
@@ -211,7 +184,7 @@
     "time": "En {{seconds}} s",
     "dailyScore": "Ton score du jour : {{score}}",
     "another": "Une autre mission",
-    "continue": "Continuer à explorer",
+    "continue": "Continuer à voyager",
     "cancel": "Abandonner la mission",
     "compass": {
       "N": "le nord",
@@ -251,7 +224,7 @@
     "score": "{{correct}} bonnes réponses sur {{total}}",
     "encouragement": "Chaque réponse compte. Ce que tu as moins retenu reviendra plus tard.",
     "replay": "Rejouer",
-    "empty": "Explore un peu pour débloquer des questions.",
+    "empty": "Voyage un peu pour débloquer des questions.",
     "shapeOf": "Quel pays a cette forme ?",
     "shapeAlt": "Contour d'un pays à reconnaître",
     "recapTitle": "À retenir",
@@ -259,21 +232,21 @@
   },
   "passport": {
     "title": "Mon passeport",
-    "percent": "{{percent}} % de la carte découverte",
+    "percent": "{{percent}} % de la carte parcourue",
     "badges": "Badges de région",
     "badgeProgress": "{{visited}} sur {{total}}",
     "earned": "Badge gagné",
     "stamped": "Visité le {{date}}",
     "notYet": "Pas encore visité",
-    "places_one": "{{count}} lieu découvert",
-    "places_other": "{{count}} lieux découverts",
+    "places_one": "{{count}} lieu visité",
+    "places_other": "{{count}} lieux visités",
     "rivers_one": "{{count}} fleuve traversé",
     "rivers_other": "{{count}} fleuves traversés",
     "missions_one": "{{count}} mission réussie",
     "missions_other": "{{count}} missions réussies",
     "points_one": "{{count}} point",
     "points_other": "{{count}} points",
-    "places_many": "{{count}} lieux découverts",
+    "places_many": "{{count}} lieux visités",
     "rivers_many": "{{count}} fleuves traversés",
     "missions_many": "{{count}} missions réussies",
     "points_many": "{{count}} points"
@@ -309,7 +282,7 @@
   "parents": {
     "title": "À propos",
     "teachTitle": "Pour qui, pour apprendre quoi",
-    "teach": "Tembea s'adresse à tout le monde, dès 8 ans. On y apprend les 54 pays d'Afrique, leurs capitales, de grandes villes, les fleuves, les lacs, les reliefs et les régions. Trois niveaux : Explorateur pour découvrir (conseillé aux plus jeunes), Géographe pour aller plus loin, Expert pour les connaisseurs. Les éléments moins bien retenus reviennent par répétition espacée.",
+    "teach": "Tembea s'adresse à tout le monde, dès 8 ans. On y apprend les 54 pays d'Afrique, leurs capitales et leurs villes, leur géographie, et ce que leurs habitants créent : musique, cinéma, littérature, sciences, techniques, architecture, sport. Trois niveaux : Premiers pas (conseillé aux plus jeunes), Géographe, Expert. Les éléments moins bien retenus reviennent par répétition espacée.",
     "dataTitle": "Pour les parents et enseignants : données stockées",
     "data": "Uniquement sur cet appareil : l'avatar, le pseudonyme généré, la progression, les scores et les réglages. Pas de compte, pas de nom réel, pas d'e-mail, pas de cookie, pas de publicité, pas d'achat, pas de traceur. Le jeu n'envoie aucune donnée de jeu à un serveur.",
     "resetTitle": "Réinitialiser",
@@ -337,5 +310,63 @@
     "title": "Oups, quelque chose a coincé.",
     "body": "Ta progression est en sécurité sur cet appareil. Recharge la page pour reprendre.",
     "reload": "Recharger"
+  },
+  "stories": {
+    "title": "Reportages",
+    "intro": "Tu écris pour Tembea Mag, un magazine fictif. Chaque reportage te mène dans plusieurs villes : à toi de trouver où aller.",
+    "start": "Commencer",
+    "resume": "Reprendre",
+    "replay": "Rejouer",
+    "published": "Publié",
+    "inProgress": "En cours",
+    "stops": "{{count}} étapes",
+    "notebook": "Carnet",
+    "emptyNotebook": "Tes notes de reportage apparaîtront ici.",
+    "bannerStop": "Étape {{current}} sur {{total}}",
+    "abandon": "Mettre le reportage de côté",
+    "publishedTitle": "À la une !",
+    "magazine": "Tembea Mag",
+    "publish": "Retour au voyage",
+    "more": "Voir les reportages",
+    "arrived": "Tu y es : entre dans le lieu."
+  },
+  "room": {
+    "theme": {
+      "hall": "Maison de la culture",
+      "newsroom": "Rédaction locale",
+      "studio": "Studio d'enregistrement",
+      "cinema": "Salle de cinéma",
+      "library": "Bibliothèque",
+      "lab": "Laboratoire",
+      "gallery": "Musée",
+      "stadium": "Centre sportif"
+    },
+    "talk": "Parler",
+    "talkTo": "Parler à : {{name}}",
+    "readBoard": "Lire le panneau",
+    "useMap": "Carte murale",
+    "exit": "Sortir",
+    "guide": "Guide",
+    "visitor": "Personne présente",
+    "continue": "Continuer",
+    "close": "Fermer",
+    "actions": "Dans ce lieu",
+    "boardTitle": "Panneau",
+    "boardEmpty": "Bienvenue. Le programme du mois est affiché à l'accueil.",
+    "mapTitle": "Carte murale",
+    "mapAsk": "Montre où se trouve ce pays : {{name}}.",
+    "mapRight": "Exact ! +{{points}} points.",
+    "mapWrong": "Pas ici : tu viens de toucher {{picked}}. Le bon pays clignote sur la carte.",
+    "extra": {
+      "hall": "L'exposition du moment attire du monde. Prends le temps de discuter avec l'équipe.",
+      "newsroom": "On boucle l'édition de ce soir. Les bonnes histoires commencent par une bonne question.",
+      "studio": "Une prise de plus et ce morceau est prêt. Écoute la basse, c'est elle qui tient tout.",
+      "cinema": "La projection commence bientôt. Le débat qui suit est souvent aussi bon que le film.",
+      "library": "Chut, on numérise des archives. Chaque page retrouve une nouvelle vie.",
+      "lab": "Le prototype tourne enfin. On a passé des semaines sur ce capteur.",
+      "gallery": "Regarde les détails de près : on y lit tout le savoir-faire de ses auteurs.",
+      "stadium": "Séance d'intervalles ce matin. La régularité bat toujours le talent seul."
+    },
+    "talkToExtra": "Parler à quelqu'un d'autre"
   }
 }

@@ -5,7 +5,7 @@ import {
   AVATAR_IDS,
   type ProgressData,
 } from '../core/progress';
-import { isValidPseudonym } from '../core/pseudonyms';
+import { isValidPseudonym, migrateLegacyPseudonym } from '../core/pseudonyms';
 import type {
   DailyScore,
   LoadResult,
@@ -27,7 +27,7 @@ const progressSchema = z.object({
     z.object({
       avatar: z.enum(AVATAR_IDS),
       pseudonym: z
-        .object({ animal: z.string(), adjective: z.string() })
+        .object({ role: z.string(), adjective: z.string() })
         .check(z.refine(isValidPseudonym, 'Pseudonyme hors liste')),
     }),
   ),
@@ -41,7 +41,39 @@ const progressSchema = z.object({
   quizAnswered: nonNegativeInt,
   points: z.number().check(z.minimum(0)),
   lastPosition: z.nullable(z.object({ x: z.number(), y: z.number() })),
+  story: z.nullable(z.object({ id: z.string(), stop: nonNegativeInt })),
+  storiesDone: z.array(z.string()),
+  notes: z.array(z.string()),
+  roomsVisited: z.array(z.string()),
 });
+
+interface LegacySave {
+  version?: unknown;
+  profile?: { avatar?: unknown; pseudonym?: { animal?: unknown; adjective?: unknown } } | null;
+}
+
+/** Mise à niveau en place : un joueur ne perd jamais sa progression à cause d'une nouvelle version. */
+export function migrateProgress(raw: unknown): unknown {
+  const save = raw as LegacySave | null;
+  if (save?.version !== 1) return raw;
+  const legacy = save.profile?.pseudonym;
+  const pseudonym = legacy
+    ? migrateLegacyPseudonym(String(legacy.animal), String(legacy.adjective))
+    : null;
+  // Un pseudonyme forgé reste invalide : la validation qui suit écartera la sauvegarde.
+  const profile = save.profile
+    ? { ...save.profile, pseudonym: pseudonym ?? { role: 'invalid', adjective: 'invalid' } }
+    : null;
+  return {
+    ...save,
+    version: PROGRESS_VERSION,
+    profile,
+    story: null,
+    storiesDone: [],
+    notes: [],
+    roomsVisited: [],
+  };
+}
 
 const dailyScoresSchema = z.array(
   z.object({ dateKey: z.string(), score: z.number(), seconds: z.number() }),
@@ -77,7 +109,8 @@ export class LocalProgressRepository implements ProgressRepository {
     const raw = readItem(PROGRESS_KEY);
     if (raw === null) return { value: createInitialProgress(), recovered: false };
     try {
-      return { value: progressSchema.parse(JSON.parse(raw)), recovered: false };
+      const value = progressSchema.parse(migrateProgress(JSON.parse(raw)));
+      return { value, recovered: false };
     } catch {
       removeItem(PROGRESS_KEY);
       return { value: createInitialProgress(), recovered: true };

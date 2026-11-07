@@ -118,3 +118,46 @@ export type RiverData = z.infer<typeof riverFeatureSchema>;
 export type LakeData = z.infer<typeof lakeFeatureSchema>;
 export type HydroFile = z.infer<typeof hydroFileSchema>;
 export type PlacesFile = z.infer<typeof placesFileSchema>;
+
+export const ROOM_THEME_IDS = [
+  'hall',
+  'newsroom',
+  'studio',
+  'cinema',
+  'library',
+  'lab',
+  'gallery',
+  'stadium',
+] as const;
+
+export const storySchema = z.object({
+  id: z.string(),
+  theme: z.string(),
+  title: localizedSchema,
+  intro: localizedSchema,
+  outro: localizedSchema,
+  stops: z
+    .array(
+      z.object({
+        placeId: z.string(),
+        room: z.enum(ROOM_THEME_IDS),
+        clue: localizedSchema,
+        npc: z.object({
+          name: z.string().min(1),
+          role: localizedSchema,
+          look: z.number().int().min(0).max(5),
+        }),
+        lines: z.array(localizedSchema).min(1),
+        question: z.object({
+          text: localizedSchema,
+          options: z.array(localizedSchema).min(2),
+          answer: z.number().int().min(0),
+          explanation: localizedSchema,
+        }),
+        note: localizedSchema,
+        sourceUrl: z.url(),
+      }),
+    )
+    .min(2),
+});
+export const storiesSchema = z.array(storySchema);

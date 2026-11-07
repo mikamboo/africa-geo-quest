@@ -13,10 +13,10 @@ Pour chaque pays : le fait en français, en anglais, la source, et la citation r
 
 ## Algérie (DZA)
 
-- [ ] FR : Dans le Tassili n'Ajjer, au Sahara, plus de 15 000 dessins et gravures préhistoriques ornent des grès érodés qui forment des « forêts de pierre ».
-- [ ] EN : In Tassili n'Ajjer, in the Sahara, more than 15,000 prehistoric drawings and engravings decorate eroded sandstone shaped into "rock forests".
-- Source : https://whc.unesco.org/en/list/179
-- Citation : « More than 15,000 drawings and engravings record the climatic changes, the animal migrations and the evolution of human life on the edge of the Sahara »
+- [ ] FR : La Casbah d'Alger a beaucoup influencé l'architecture et l'urbanisme en Afrique du Nord, en Andalousie et en Afrique subsaharienne, aux XVIe et XVIIe siècles.
+- [ ] EN : The Kasbah of Algiers had a great influence on architecture and town planning in North Africa, Andalusia and sub-Saharan Africa in the 16th and 17th centuries.
+- Source : https://whc.unesco.org/en/list/565
+- Citation : « The Kasbah of Algiers has exercised considerable influence on architecture and town-planning in North Africa, Andalusia and in sub-Saharan Africa during the 16th and 17th centuries. »
 
 ## Angola (AGO)
 
@@ -34,10 +34,10 @@ Pour chaque pays : le fait en français, en anglais, la source, et la citation r
 
 ## Botswana (BWA)
 
-- [ ] FR : Au Botswana, les collines de Tsodilo, dans le désert du Kalahari, gardent plus de 4 500 peintures sur 10 km². On les appelle le « Louvre du désert ».
-- [ ] EN : In Botswana, the Tsodilo Hills in the Kalahari Desert hold over 4,500 paintings in just 10 km². They are called the "Louvre of the Desert".
-- Source : https://whc.unesco.org/en/list/1021
-- Citation : « Over 4,500 paintings are preserved in an area of only 10 km2 of the Kalahari Desert. »
+- [ ] FR : Seretse Khama, né à Serowe, a été le premier président du Botswana (1966-1980), après l'indépendance de l'ancien Bechuanaland.
+- [ ] EN : Seretse Khama, born in Serowe, was the first president of Botswana (1966-1980), after the former Bechuanaland became independent.
+- Source : https://www.britannica.com/biography/Seretse-Khama
+- Citation : « Seretse Khama served as Botswana's first president (1966–80) »
 
 ## Burkina Faso (BFA)
 
@@ -48,10 +48,10 @@ Pour chaque pays : le fait en français, en anglais, la source, et la citation r
 
 ## Burundi (BDI)
 
-- [ ] FR : Près de Gitega, au centre du Burundi, se trouvent la source la plus au sud du Nil et les spectaculaires chutes de la Kagera.
-- [ ] EN : Near Gitega, in central Burundi, lie the southernmost source of the Nile and the spectacular Kagera Falls.
-- Source : https://www.britannica.com/place/Burundi
-- Citation : « near the southernmost source of the Nile River and a spectacular waterfall, Chutes de la Kagera »
+- [ ] FR : Au Burundi, la danse du tambour royal mêle tambours puissants et synchronisés, danse, poésie héroïque et chants. Les tambours, en nombre impair, entourent un tambour central.
+- [ ] EN : In Burundi, the royal drum dance blends powerful, synchronized drumming with dancing, heroic poetry and songs. The drums, always an odd number, surround a central drum.
+- Source : https://ich.unesco.org/en/RL/ritual-dance-of-the-royal-drum-00989
+- Citation : « The ritual dance of the royal drum is a spectacle combining powerful, synchronized drumming with dancing, heroic poetry and traditional songs. »
 
 ## Cabo Verde (CPV)
 
@@ -62,31 +62,31 @@ Pour chaque pays : le fait en français, en anglais, la source, et la citation r
 
 ## Cameroun (CMR)
 
-- [ ] FR : La réserve du Dja, au Cameroun, est presque entourée par le fleuve Dja et abrite 107 espèces de mammifères, dont de nombreux primates.
-- [ ] EN : Cameroon's Dja Faunal Reserve is almost surrounded by the Dja River and shelters 107 mammal species, including many primates.
-- Source : https://whc.unesco.org/en/list/407
-- Citation : « Almost completely surrounded by the Dja River, which forms a natural boundary »
+- [ ] FR : Au Cameroun, le roi bamoun Njoya a inventé vers 1895 une écriture, ouvert des écoles pour l'enseigner et commandé une presse à imprimer.
+- [ ] EN : In Cameroon, the Bamum king Njoya invented a writing system around 1895, opened schools to teach it and commissioned a printing press.
+- Source : https://www.britannica.com/biography/Njoya
+- Citation : « established schools to teach this script and commissioned a printing press »
 
 ## Comores (COM)
 
-- [ ] FR : Sur l'île de Grande Comore, le Karthala est un volcan actif de 2 361 m, le point culminant des Comores.
-- [ ] EN : On Grande Comore island, Karthala is an active volcano of 2,361 m, the highest point in the Comoros.
-- Source : https://www.britannica.com/place/Grand-Comore
-- Citation : « an active volcano, Mount Karthala, which, at 7,746 feet (2,361 metres), is the country’s highest point »
+- [ ] FR : Aux Comores, le comorien (shikomori), le français et l'arabe sont langues officielles. Le shingazidja, parlé à la Grande Comore, figure dans l'hebdomadaire Al Watwan.
+- [ ] EN : In Comoros, Comorian (Shikomor), French and Arabic are official languages. Shingazidja, spoken on Grande Comore, appears in the weekly newspaper Al Watwan.
+- Source : https://www.britannica.com/place/Moroni-Comoros
+- Citation : « The official and national languages of Comoros are Comorian (Shikomor), French, and Arabic. »
 
 ## Côte d'Ivoire (CIV)
 
-- [ ] FR : Le parc national de Taï protège un des derniers grands morceaux de forêt tropicale primaire d'Afrique de l'Ouest, avec l'hippopotame nain et 11 espèces de singes.
-- [ ] EN : Taï National Park protects one of the last large pieces of primary tropical forest in West Africa, home to the pygmy hippopotamus and 11 species of monkeys.
-- Source : https://whc.unesco.org/en/list/195
-- Citation : « This park is one of the last major remnants of the primary tropical forest of West Africa. »
+- [ ] FR : Grand-Bassam, première capitale de la Côte d'Ivoire, était un grand port et un centre de commerce. Elle a attiré des gens venus de toute l'Afrique, d'Europe et du Levant.
+- [ ] EN : Grand-Bassam, the first capital of Côte d'Ivoire, was a major port and trading centre. It drew people from all over Africa, from Europe and from the Levant.
+- Source : https://whc.unesco.org/en/list/1322
+- Citation : « it attracted populations from all parts of Africa, Europe and the Mediterranean Levant »
 
 ## Djibouti (DJI)
 
-- [ ] FR : Le lac Assal, lac salé de Djibouti, est à 155 m sous le niveau de la mer : c'est le point le plus bas d'Afrique.
-- [ ] EN : Lake Assal, a salt lake in Djibouti, lies 155 m below sea level: it is the lowest point in Africa.
-- Source : https://www.britannica.com/place/Lake-Assal
-- Citation : « Situated at 509 ft (155 m) below sea level, it is the lowest point in Africa. »
+- [ ] FR : À Djibouti, une ligne de chemin de fer relie le port à Addis-Abeba, en Éthiopie, depuis 1917. Le port sert de lieu d'échange entre l'Éthiopie et la mer Rouge.
+- [ ] EN : In Djibouti, a railway has linked the port to Addis Ababa, Ethiopia, since 1917. The port serves as a trading point between Ethiopia and the Red Sea.
+- Source : https://www.britannica.com/place/Djibouti-capital
+- Citation : « Shortly after it became the capital (1892), work began on the railway that linked Addis Ababa, Ethiopia, to the port in 1917. »
 
 ## Égypte (EGY)
 
@@ -118,10 +118,10 @@ Pour chaque pays : le fait en français, en anglais, la source, et la citation r
 
 ## Gabon (GAB)
 
-- [ ] FR : Dans le parc de Lopé-Okanda, forêt tropicale et savane se rencontrent, et la roche porte environ 1 800 gravures préhistoriques.
-- [ ] EN : In Lopé-Okanda, rainforest and savannah meet, and the rocks carry about 1,800 prehistoric carvings.
-- Source : https://whc.unesco.org/en/list/1147
-- Citation : « a remarkable collection of some 1,800 petroglyphs (rock carvings) »
+- [ ] FR : Libreville est le centre de l'enseignement du Gabon : l'université Omar-Bongo y date de 1970, avec des instituts de recherche en géologie, mines et agronomie.
+- [ ] EN : Libreville is Gabon's centre of education: Omar Bongo University dates from 1970, alongside research institutes in geology, mining and agronomy.
+- Source : https://www.britannica.com/place/Libreville
+- Citation : « Libreville is well industrialized and is the educational centre for Gabon. »
 
 ## Gambie (GMB)
 
@@ -139,17 +139,17 @@ Pour chaque pays : le fait en français, en anglais, la source, et la citation r
 
 ## Guinée (GIN)
 
-- [ ] FR : Le mont Nimba, à la frontière de la Guinée, du Liberia et de la Côte d'Ivoire, abrite le crapaud vivipare et des chimpanzés qui utilisent des pierres comme outils.
-- [ ] EN : Mount Nimba, on the border of Guinea, Liberia and Côte d'Ivoire, shelters the viviparous toad and chimpanzees that use stones as tools.
-- Source : https://whc.unesco.org/en/list/155
-- Citation : « endemic species such as the viviparous toad and chimpanzees that use stones as tools »
+- [ ] FR : En Guinée, le Sosso-Bala, balafon gardé à Nyagassola, transmet depuis des siècles des poèmes épiques, surtout l'épopée de Soundiata. Une famille de griots en enseigne le jeu.
+- [ ] EN : In Guinea, the Sosso-Bala, a balafon kept at Nyagassola, has carried epic poems for centuries, above all the Sunjata epic. A family of griots teaches how to play it.
+- Source : https://ich.unesco.org/en/RL/cultural-space-of-sosso-bala-00009
+- Citation : « the balafon has transmitted epic poems down through the centuries, principally the Sunjata epic »
 
 ## Guinée équatoriale (GNQ)
 
-- [ ] FR : Sur l'île de Bioko, le pic Basile est un volcan éteint qui s'élève à 3 008 m. L'île compte aussi des lacs de cratère.
-- [ ] EN : On Bioko island, Basile Peak is an extinct volcano rising to 3,008 m. The island also has crater lakes.
+- [ ] FR : En Guinée équatoriale, l'espagnol, le français et le portugais sont langues officielles. On y parle aussi des langues comme le fang et le bubi.
+- [ ] EN : In Equatorial Guinea, Spanish, French and Portuguese are official languages. People also speak languages such as Fang and Bubi.
 - Source : https://www.britannica.com/place/Equatorial-Guinea
-- Citation : « Santa Isabel Peak (Basile Peak), an extinct volcano, soars to a height of 9,869 feet (3,008 meters). »
+- Citation : « The official languages of Equatorial Guinea are Spanish, French, and Portuguese. »
 
 ## Guinée-Bissau (GNB)
 
@@ -160,17 +160,17 @@ Pour chaque pays : le fait en français, en anglais, la source, et la citation r
 
 ## Kenya (KEN)
 
-- [ ] FR : Le lac Turkana, au Kenya, est le plus grand lac désertique du monde. On l'appelle la « mer de Jade » pour sa belle couleur.
-- [ ] EN : Lake Turkana in Kenya is the largest desert lake in the world. It is nicknamed the "Jade Sea" for its beautiful colour.
-- Source : https://whc.unesco.org/en/list/801
-- Citation : « the largest desert lake in the world »
+- [ ] FR : Le Kényan Ngũgĩ wa Thiong'o a publié en 1964 « Weep Not, Child », premier grand roman en anglais d'un écrivain d'Afrique de l'Est. Il a ensuite écrit en kikuyu.
+- [ ] EN : Kenyan writer Ngũgĩ wa Thiong'o published 'Weep Not, Child' in 1964, the first major novel in English by an East African. He later wrote in Kikuyu.
+- Source : https://www.britannica.com/biography/Ngugi-wa-Thiongo
+- Citation : « His popular Weep Not, Child (1964) was the first major novel in English by an East African. »
 
 ## Lesotho (LSO)
 
-- [ ] FR : Au Lesotho, le parc national de Sehlabathebe abrite le Maloti minnow, un poisson rare qu'on ne trouve que dans ce parc.
-- [ ] EN : In Lesotho, Sehlabathebe National Park shelters the Maloti minnow, a rare fish found only in this park.
-- Source : https://whc.unesco.org/en/list/985
-- Citation : « Maloti minnow ( Pseudobarbus quathlambae ), a critically endangered fish species only found in this park »
+- [ ] FR : Au Lesotho, le projet d'eau des hautes terres comprend des barrages, des réservoirs, des tunnels et une centrale hydroélectrique. Le barrage de Katse date de 1997.
+- [ ] EN : In Lesotho, the Highlands Water Project includes dams, reservoirs, tunnels and a hydroelectric power station. The Katse Dam was completed in 1997.
+- Source : https://www.britannica.com/place/Lesotho
+- Citation : « The LHWP consists of dams, reservoirs, transfer tunnels, and a hydroelectric power station. »
 
 ## Liberia (LBR)
 
@@ -188,17 +188,17 @@ Pour chaque pays : le fait en français, en anglais, la source, et la citation r
 
 ## Madagascar (MDG)
 
-- [ ] FR : À Madagascar, les tsingy de Bemaraha forment une « forêt de pierres acérées » : des pointes de calcaire hautes jusqu'à 100 mètres, comme des cathédrales.
-- [ ] EN : In Madagascar, the Bemaraha tsingy form a "forest of sharp stones": limestone pinnacles up to 100 metres high, like cathedrals.
-- Source : https://whc.unesco.org/en/list/494
-- Citation : « high limestone pinnacles rising up to 100 metres, forming veritable cathedrals »
+- [ ] FR : La colline royale d'Ambohimanga est le berceau du royaume et de la dynastie qui ont fait de Madagascar un État moderne, reconnu depuis 1817.
+- [ ] EN : The Royal Hill of Ambohimanga is the cradle of the kingdom and the dynasty that made Madagascar a modern state, recognised since 1817.
+- Source : https://whc.unesco.org/en/list/950
+- Citation : « The Royal Hill of Ambohimanga is the cradle of the kingdom and the dynasty that has made Madagascar a modern state, internationally acknowledged since 1817. »
 
 ## Malawi (MWI)
 
-- [ ] FR : Le lac Malawi abrite plus de 350 espèces de petits poissons colorés, les mbuna, presque toutes absentes du reste du monde.
-- [ ] EN : Lake Malawi is home to over 350 species of small colourful fish called mbuna, almost all found nowhere else in the world.
-- Source : https://whc.unesco.org/en/list/289
-- Citation : « All but five of over 350 species of mbuna are endemic to Lake Malawi »
+- [ ] FR : Au Malawi, William Kamkwamba a construit adolescent une éolienne avec des matériaux de récupération pour éclairer la maison de sa famille. Il en a fait un livre.
+- [ ] EN : In Malawi, William Kamkwamba built a windmill from scrap materials as a teenager to power his family's home. He wrote a book about it.
+- Source : https://www.britannica.com/biography/William-Kamkwamba
+- Citation : « As a teenager, he made a windmill out of scrap materials »
 
 ## Mali (MLI)
 
@@ -216,17 +216,17 @@ Pour chaque pays : le fait en français, en anglais, la source, et la citation r
 
 ## Maurice (MUS)
 
-- [ ] FR : À Maurice, environ un quart des plantes et des animaux n'existent que sur l'île. Les gorges de la Rivière Noire protègent les derniers morceaux de la forêt d'origine.
-- [ ] EN : In Mauritius, about a quarter of the plants and animals live only on the island. The Black River Gorges protect the last fragments of its original forest.
-- Source : https://www.unesco.org/en/mab/black-river-gorges-bel-ombre
-- Citation : « About 25 per cent of Mauritius’s flora and fauna is endemic to the island. »
+- [ ] FR : À Maurice, le créole est la langue commune et l'école encourage le plurilinguisme : beaucoup de Mauriciens parlent deux langues ou plus.
+- [ ] EN : In Mauritius, Creole is the common language and schools encourage multilingualism: many Mauritians speak two or more languages.
+- Source : https://www.britannica.com/place/Mauritius
+- Citation : « The island's educational system promotes multilingualism »
 
 ## Mauritanie (MRT)
 
-- [ ] FR : Le parc du banc d'Arguin mêle dunes du désert et mer peu profonde le long de l'Atlantique. De nombreux oiseaux migrateurs y passent l'hiver.
-- [ ] EN : Banc d'Arguin National Park mixes desert dunes and shallow sea along the Atlantic. Many migrating birds spend the winter there.
-- Source : https://whc.unesco.org/en/list/506
-- Citation : « A wide variety of migrating birds spend the winter there. »
+- [ ] FR : Ouadane, Chinguetti, Tichitt et Oualata, en Mauritanie, sont nées aux XIe-XIIe siècles sur les routes des caravanes. Ces villes marchandes sont devenues des foyers de culture et de pensée.
+- [ ] EN : Ouadane, Chinguetti, Tichitt and Oualata in Mauritania were founded in the 11th-12th centuries on the caravan routes. These trading towns became centres of culture and thought.
+- Source : https://whc.unesco.org/en/list/750
+- Citation : « Founded in the 11th and 12th centuries to serve the caravans crossing the Sahara, these trading and religious centres became focal points of Islamic culture. »
 
 ## Mozambique (MOZ)
 
@@ -237,45 +237,45 @@ Pour chaque pays : le fait en français, en anglais, la source, et la citation r
 
 ## Namibie (NAM)
 
-- [ ] FR : En Namibie, les gravures de Twyfelfontein montrent des rhinocéros et des girafes. Elles gardent la trace de rituels de chasseurs-cueilleurs depuis au moins 2 000 ans.
-- [ ] EN : In Namibia, the engravings at Twyfelfontein show rhinoceroses and giraffes. They record hunter-gatherer rituals going back at least 2,000 years.
+- [ ] FR : En Namibie, les gravures de Twyfelfontein, vieilles d'au moins 2 000 ans, forment l'un des plus grands ensembles d'art rupestre d'Afrique.
+- [ ] EN : In Namibia, the Twyfelfontein engravings, at least 2,000 years old, form one of the largest concentrations of rock art in Africa.
 - Source : https://whc.unesco.org/en/list/1255
 - Citation : « record of ritual practices relating to hunter-gather communities in this part of southern Africa over at least two millennia »
 
 ## Niger (NER)
 
-- [ ] FR : Les réserves de l'Aïr et du Ténéré couvrent environ 7,7 millions d'hectares. Elles comprennent le massif volcanique de l'Aïr, petit îlot sahélien au cœur du désert.
-- [ ] EN : The Aïr and Ténéré reserves cover about 7.7 million hectares. They include the volcanic Aïr massif, a small Sahelian pocket in the Saharan desert.
-- Source : https://whc.unesco.org/en/list/573
-- Citation : « It includes the volcanic rock mass of the Aïr, a small Sahelian pocket, isolated as regards its climate and flora and fauna »
+- [ ] FR : Agadez, « porte du désert », est une ville de commerce caravanier. Son minaret de 27 m, tout en briques de terre, est le plus haut du monde dans ce matériau, selon l'UNESCO.
+- [ ] EN : Agadez, the 'gateway to the desert', is a caravan trade city. Its 27 m minaret, built entirely of mud brick, is the tallest of its kind in the world, says UNESCO.
+- Source : https://whc.unesco.org/en/list/1268
+- Citation : « made entirely of mud brick, the highest such structure in the world »
 
 ## Nigeria (NGA)
 
-- [ ] FR : Près d'Osogbo, le bois sacré d'Osun est l'un des derniers fragments de forêt primaire du sud du Nigeria. Il abrite sanctuaires, sculptures et œuvres d'art.
-- [ ] EN : Near Osogbo, the Osun Sacred Grove is one of the last remnants of primary forest in southern Nigeria. It holds sanctuaries, sculptures and artworks.
-- Source : https://whc.unesco.org/en/list/1118
-- Citation : « is one of the last remnants of primary high forest in southern Nigeria »
+- [ ] FR : Wole Soyinka, auteur nigérian né à Abeokuta, a reçu le prix Nobel de littérature en 1986, une première pour un écrivain d'Afrique subsaharienne.
+- [ ] EN : Wole Soyinka, a Nigerian author born in Abeokuta, won the Nobel Prize in Literature in 1986, a first for a writer from sub-Saharan Africa.
+- Source : https://www.britannica.com/biography/Wole-Soyinka
+- Citation : « Soyinka is the first Black African to receive the Nobel Prize for Literature (1986). »
 
 ## Ouganda (UGA)
 
-- [ ] FR : En Ouganda, la forêt de Bwindi abrite près de la moitié des gorilles de montagne du monde, ainsi que plus de 200 espèces d'arbres.
-- [ ] EN : In Uganda, Bwindi forest is home to almost half of the world's mountain gorillas, as well as over 200 tree species.
-- Source : https://whc.unesco.org/en/list/682
-- Citation : « Home to almost half of the world’s mountain gorilla population »
+- [ ] FR : À Kampala, l'université Makerere, fondée en 1922 comme école technique, est devenue université en 1970. Pendant longtemps, elle fut le seul établissement supérieur d'Afrique de l'Est.
+- [ ] EN : In Kampala, Makerere University began in 1922 as a technical school and became a university in 1970. For many years it was East Africa's only higher-education institution.
+- Source : https://www.britannica.com/place/Makerere-University
+- Citation : « For many years, it was the sole institution of higher education in East Africa. »
 
 ## République centrafricaine (CAF)
 
-- [ ] FR : La Sangha Trinationale réunit trois parcs nationaux voisins d'environ 750 000 hectares, où vivent des éléphants de forêt et des gorilles.
-- [ ] EN : Sangha Trinational joins three neighbouring national parks of about 750,000 hectares, home to forest elephants and gorillas.
-- Source : https://whc.unesco.org/en/list/1380
-- Citation : « three contiguous national parks totalling around 750,000 ha »
+- [ ] FR : Bangui, capitale de la République centrafricaine, abrite l'université de Bangui (1969), l'École nationale des arts (1966) et des instituts de recherche scientifique et technique.
+- [ ] EN : Bangui, capital of the Central African Republic, is home to the University of Bangui (1969), the National School of Arts (1966) and scientific and technological research institutes.
+- Source : https://www.britannica.com/place/Bangui
+- Citation : « Bangui is the site of the University of Bangui (1969), the National School of Arts (1966), and several scientific and technological research institutes. »
 
 ## République démocratique du Congo (COD)
 
-- [ ] FR : Dans le nord-est du pays, la Réserve de faune à okapis occupe un cinquième de la forêt d'Ituri, refuge de l'okapi, la « girafe de forêt ».
-- [ ] EN : In the north-east, the Okapi Wildlife Reserve covers one-fifth of the Ituri forest, a refuge of the okapi, the "forest giraffe".
-- Source : https://whc.unesco.org/en/list/718
-- Citation : « occupies about one-fifth of the Ituri forest in the north-east of the Democratic Republic of the Congo »
+- [ ] FR : La rumba congolaise, musique et danse des villes de la RD Congo et du Congo, vient d'une ancienne danse, le nkumba (« la taille » en kikongo). L'UNESCO l'a inscrite en 2021.
+- [ ] EN : Congolese rumba, a music and dance of cities in the DR Congo and Congo, comes from an old dance called nkumba ('waist' in Kikongo). UNESCO listed it in 2021.
+- Source : https://ich.unesco.org/en/RL/congolese-rumba-01711
+- Citation : « Congolese rumba is a musical genre and a dance common in urban areas of the Democratic Republic of the Congo and the Republic of the Congo. »
 
 ## République du Congo (COG)
 
@@ -286,24 +286,24 @@ Pour chaque pays : le fait en français, en anglais, la source, et la citation r
 
 ## Rwanda (RWA)
 
-- [ ] FR : Au Rwanda, la forêt de montagne de Nyungwe abrite un cinquième des espèces de singes d'Afrique, dont des chimpanzés, et plus de 300 espèces d'oiseaux.
-- [ ] EN : In Rwanda, Nyungwe mountain forest shelters one-fifth of Africa's primate species, including chimpanzees, and over 300 bird species.
-- Source : https://whc.unesco.org/en/list/1697/
-- Citation : « One-fifth of Africa’s primate species are present within the property »
+- [ ] FR : L'intore est une danse rwandaise exécutée en troupe, au rythme des tambours, avec des chants et des poèmes. Des écoles et des universités organisent des entraînements.
+- [ ] EN : Intore is a Rwandan dance performed by a troupe, to the rhythm of drums, with songs and poems. Schools and universities organise training sessions.
+- Source : https://ich.unesco.org/en/RL/intore-02129
+- Citation : « Intore is a Rwandan dance performed by a troupe. »
 
 ## Sao Tomé-et-Principe (STP)
 
-- [ ] FR : Sao Tomé-et-Principe est un pays d'îles volcaniques sur l'équateur. Son point culminant, le pic São Tomé, atteint 2 024 m.
-- [ ] EN : São Tomé and Príncipe is a country of volcanic islands on the Equator. Its highest point, São Tomé Peak, rises to 2,024 m.
+- [ ] FR : À São Tomé-et-Príncipe, on parle le portugais et trois créoles : le sãotomense, l'angolar et le principense.
+- [ ] EN : In São Tomé and Príncipe, people speak Portuguese and three creoles: Sãotomense, Angolar and Principense.
 - Source : https://www.britannica.com/place/Sao-Tome-and-Principe
-- Citation : « São Tomé Peak, the highest point on the main island, rises to 6,640 feet (2,024 metres) above sea level »
+- Citation : « three Portuguese-based creoles are spoken: Sãotomense »
 
 ## Sénégal (SEN)
 
-- [ ] FR : Dans le delta du fleuve Sénégal, le sanctuaire du Djoudj accueille environ 1,5 million d'oiseaux : pélicans blancs, hérons pourprés, spatules africaines...
-- [ ] EN : In the Senegal River delta, the Djoudj sanctuary shelters some 1.5 million birds, such as white pelicans, purple herons and African spoonbills.
-- Source : https://whc.unesco.org/en/list/25
-- Citation : « a living but fragile sanctuary for some 1.5 million birds, such as the white pelican, the purple heron, the African spoonbill »
+- [ ] FR : Poète, Léopold Sédar Senghor a publié « Chants d'ombre » en 1945. Premier président du Sénégal, il est entré en 1984 à l'Académie française, premier Africain à y siéger.
+- [ ] EN : Poet Léopold Sédar Senghor published 'Chants d'ombre' in 1945. Senegal's first president, he joined the Académie française in 1984, its first African member.
+- Source : https://www.britannica.com/biography/Leopold-Senghor
+- Citation : « Senghor was inducted into the French Academy in 1984 »
 
 ## Seychelles (SYC)
 
@@ -335,24 +335,24 @@ Pour chaque pays : le fait en français, en anglais, la source, et la citation r
 
 ## Soudan du Sud (SSD)
 
-- [ ] FR : Au Soudan du Sud, environ six millions d'antilopes et de gazelles (cobes à oreilles blanches, tiangs, gazelles de Mongalla) migrent chaque année, selon une estimation.
-- [ ] EN : In South Sudan, an estimated six million antelope and gazelles (white-eared kob, tiang, Mongalla gazelle) migrate across floodplains and savannas each year.
-- Source : https://whc.unesco.org/en/list/1808/
-- Citation : « Each year, an estimate six million White-Eared Kob, Tiang and Mongalla Gazelle move across vast floodplains, wetlands and savannas »
+- [ ] FR : Juba, capitale du Soudan du Sud, est un port sur le Nil et un carrefour routier vers l'Ouganda, le Kenya et la RD Congo. L'université de Juba y a été fondée en 1975.
+- [ ] EN : Juba, capital of South Sudan, is a Nile river port and a road hub towards Uganda, Kenya and the DR Congo. The University of Juba was founded there in 1975.
+- Source : https://www.britannica.com/place/Juba
+- Citation : « The town is the headquarters of the University of Juba, founded in 1975. »
 
 ## Tanzanie (TZA)
 
-- [ ] FR : Le Kilimandjaro, en Tanzanie, culmine à 5 895 m : c'est le point le plus haut d'Afrique, un volcan isolé dont le sommet enneigé domine la savane.
-- [ ] EN : Mount Kilimanjaro in Tanzania rises to 5,895 m: the highest point in Africa, an isolated volcano whose snowy peak towers over the savannah.
-- Source : https://whc.unesco.org/en/list/403
-- Citation : « At 5,895 m, Kilimanjaro is the highest point in Africa. »
+- [ ] FR : Kilwa Kisiwani, cité swahilie de Tanzanie, frappait sa propre monnaie et commerçait avec l'Arabie, l'Inde et la Chine entre le XIIIe et le XVIe siècle.
+- [ ] EN : Kilwa Kisiwani, a Swahili city in Tanzania, minted its own coins and traded with Arabia, India and China between the 13th and 16th centuries.
+- Source : https://whc.unesco.org/en/list/144/
+- Citation : « Kilwa Kisiwani minted its own currency in the 11th to 14th centuries. »
 
 ## Tchad (TCD)
 
-- [ ] FR : Au nord-est du Tchad, dans le désert du Sahara, les lacs d'Ounianga forment 18 lacs reliés entre eux et alimentés par des eaux souterraines.
-- [ ] EN : In north-eastern Chad, in the Sahara desert, the Lakes of Ounianga form 18 connected lakes fed by groundwater.
-- Source : https://whc.unesco.org/en/list/1400/
-- Citation : « The site includes eighteen interconnected lakes in the hyper arid Ennedi region of the Sahara desert »
+- [ ] FR : Près du lac Tchad, la culture sao, au Moyen Âge, a laissé des œuvres en terre cuite et en bronze, mises au jour dans les années 1950 le long du Logone et du Chari.
+- [ ] EN : Near Lake Chad, the medieval Sao culture left works in terracotta and bronze, unearthed in the 1950s along the Logone and Chari rivers.
+- Source : https://www.britannica.com/topic/Sao-people
+- Citation : « a medieval culture notable for work in terra-cotta and bronze »
 
 ## Togo (TGO)
 
@@ -370,10 +370,10 @@ Pour chaque pays : le fait en français, en anglais, la source, et la citation r
 
 ## Zambie (ZMB)
 
-- [ ] FR : En Zambie, aux chutes Victoria (Mosi-oa-Tunya), le Zambèze, large de plus de 2 km, plonge dans des gorges de basalte. Sa brume se voit à plus de 20 km.
-- [ ] EN : In Zambia, at Victoria Falls (Mosi-oa-Tunya), the Zambezi, over 2 km wide, plunges into basalt gorges. Its mist can be seen from more than 20 km away.
-- Source : https://whc.unesco.org/en/list/509
-- Citation : « The Zambezi River, which is more than 2 km wide at this point, plunges noisily down a series of basalt gorges and raises an iridescent mist that can be seen more than 20 km away. »
+- [ ] FR : En Zambie, la danse kalela, née dans la province de Luapula et adoptée par les mineurs, se danse en lignes qui avancent et reculent en chantant au rythme de trois tambours.
+- [ ] EN : In Zambia, the Kalela dance, born in Luapula Province and taken up by miners, is danced in lines moving forwards and backwards, singing to the beat of three drums.
+- Source : https://ich.unesco.org/en/RL/kalela-dance-01698
+- Citation : « Kalela is a kind of dance drill formation in which the dancers form two or three lines »
 
 ## Zimbabwe (ZWE)
 
@@ -434,18 +434,6 @@ Phrases et coordonnées vérifiées sur la source indiquée, principalement Wiki
 - [ ] EN : Mount Kenya is an old 5,199 m volcano near the equator that still has ice on its top.
 - Source : https://en.wikipedia.org/wiki/Mount_Kenya
 
-## Serengeti
-
-- [ ] FR : Chaque année, plus d'un million de gnous et beaucoup de zèbres parcourent le Serengeti : un immense défilé animal.
-- [ ] EN : Each year over a million wildebeest and many zebras loop across the Serengeti, like the world's biggest animal parade.
-- Source : https://en.wikipedia.org/wiki/Serengeti_National_Park
-
-## Delta de l'Okavango
-
-- [ ] FR : L'Okavango, au Botswana, est un monde d'eau où les rivières s'étalent en marais et en îles pleines d'animaux.
-- [ ] EN : The Okavango in Botswana is a watery wonderland where rivers spread into swamps and islands full of animals.
-- Source : https://en.wikipedia.org/wiki/Okavango_Delta
-
 ## Montagne de la Table
 
 - [ ] FR : La montagne de la Table, au sommet plat, domine Le Cap ; ses pentes abritent le fynbos, des plantes uniques.
@@ -457,12 +445,6 @@ Phrases et coordonnées vérifiées sur la source indiquée, principalement Wiki
 - [ ] FR : Le désert du Namib longe l'Atlantique : le brouillard désaltère plantes et insectes, et ses dunes dépassent des gratte-ciel.
 - [ ] EN : The Namib Desert runs along the Atlantic: fog gives plants and tiny bugs a drink, and its dunes rise taller than skyscrapers.
 - Source : https://en.wikipedia.org/wiki/Namib
-
-## Cratère du Ngorongoro
-
-- [ ] FR : Le cratère du Ngorongoro est une immense cuvette née de l'effondrement d'un volcan, où vivent lions et zèbres.
-- [ ] EN : Ngorongoro Crater is a huge bowl formed when a giant volcano collapsed, and it is home to lions, zebras and more.
-- Source : https://en.wikipedia.org/wiki/Ngorongoro_Conservation_Area
 
 ## Île de Gorée
 
@@ -494,23 +476,11 @@ Phrases et coordonnées vérifiées sur la source indiquée, principalement Wiki
 - [ ] EN : Rwenzori Mountains National Park in Uganda has snowy mountains, waterfalls, lakes and colourful plants.
 - Source : https://en.wikipedia.org/wiki/Rwenzori_Mountains_National_Park
 
-## Parc national des Virunga
-
-- [ ] FR : Le parc des Virunga, en RD Congo, abrite de rares gorilles de montagne et de hauts volcans.
-- [ ] EN : Virunga Park in the DR Congo is home to rare mountain gorillas and towering volcanoes.
-- Source : https://en.wikipedia.org/wiki/Virunga_National_Park
-
 ## Tsingy de Bemaraha
 
 - [ ] FR : Les Tsingy de Bemaraha forment une forêt d'aiguilles de calcaire pointues et très hautes.
 - [ ] EN : The Tsingy de Bemaraha are a giant forest of sharp, tall limestone spikes.
 - Source : https://en.wikipedia.org/wiki/Tsingy_de_Bemaraha_Strict_Nature_Reserve
-
-## Parc national du lac Malawi
-
-- [ ] FR : Dans le parc du lac Malawi nagent de petits poissons colorés, les cichlidés, dont beaucoup vivent ici seulement.
-- [ ] EN : In Lake Malawi National Park swim small colourful fish called cichlids, many found nowhere else on Earth.
-- Source : https://en.wikipedia.org/wiki/Lake_Malawi_National_Park
 
 ## Ruines de Kilwa Kisiwani
 
@@ -529,12 +499,6 @@ Phrases et coordonnées vérifiées sur la source indiquée, principalement Wiki
 - [ ] FR : Sehlabathebe, haut dans les montagnes du Lesotho, a des cascades et de très anciennes peintures sur la roche.
 - [ ] EN : Sehlabathebe, high in Lesotho's mountains, has waterfalls and ancient paintings on the rocks.
 - Source : https://en.wikipedia.org/wiki/Sehlabathebe_National_Park
-
-## Atoll d'Aldabra
-
-- [ ] FR : Aldabra, atoll des Seychelles, est le refuge de tortues géantes qui se promènent en liberté.
-- [ ] EN : Aldabra, an atoll in the Seychelles, is a special island home where giant tortoises roam.
-- Source : https://en.wikipedia.org/wiki/Aldabra
 
 ## Vallée de Mai
 
@@ -562,8 +526,8 @@ Phrases et coordonnées vérifiées sur la source indiquée, principalement Wiki
 
 ## Tassili n'Ajjer
 
-- [ ] FR : Le Tassili n'Ajjer est un plateau rocheux du Sahara où d'anciens artistes ont peint des animaux sur la pierre.
-- [ ] EN : Tassili n'Ajjer is a rocky Sahara plateau where ancient artists painted and carved animals into the sandstone.
+- [ ] FR : Sur ce plateau du Sahara, des artistes de la préhistoire ont peint plus de 15 000 scènes de vie sur la roche.
+- [ ] EN : On this Sahara plateau, prehistoric artists painted more than 15,000 scenes of daily life on the rock.
 - Source : https://en.wikipedia.org/wiki/Tassili_n%27Ajjer
 
 ## Leptis Magna
@@ -590,14 +554,308 @@ Phrases et coordonnées vérifiées sur la source indiquée, principalement Wiki
 - [ ] EN : Sukur is a hilltop place in Nigeria where crops have grown for centuries on giant staircase-like terraces.
 - Source : https://en.wikipedia.org/wiki/Sukur
 
-## Réserve du Dja
-
-- [ ] FR : La réserve du Dja est une immense forêt tropicale du Cameroun où vivent gorilles, chimpanzés et éléphants.
-- [ ] EN : The Dja Faunal Reserve is a huge rainforest in Cameroon where gorillas, chimpanzees and elephants live.
-- Source : https://en.wikipedia.org/wiki/Dja_Faunal_Reserve
-
 ## Lopé-Okanda
 
-- [ ] FR : Au Lopé, au Gabon, la forêt tropicale rencontre la savane, près du fleuve Ogooué.
-- [ ] EN : In Lopé, Gabon, thick rainforest meets open grassland, with the Ogooué River flowing nearby.
-- Source : https://en.wikipedia.org/wiki/Lop%C3%A9_National_Park
+- [ ] FR : Au Lopé, au Gabon, environ 1 800 gravures préhistoriques racontent les peuples qui ont vécu là.
+- [ ] EN : In Lopé, Gabon, about 1,800 prehistoric carvings tell of the peoples who lived there.
+- Source : https://whc.unesco.org/en/list/1147
+
+## Iten
+
+- [ ] FR : À Iten, à 2 400 m d'altitude, de nombreux coureurs de fond s'entraînent.
+- [ ] EN : At 2,400 m, Iten is a training base for many distance runners.
+- Source : https://en.wikipedia.org/wiki/Iten
+
+## Radiotélescope MeerKAT
+
+- [ ] FR : Dans le Cap-Nord, MeerKAT réunit 64 antennes radio reliées entre elles.
+- [ ] EN : In the Northern Cape, MeerKAT links 64 radio antennas together.
+- Source : https://en.wikipedia.org/wiki/MeerKAT
+
+## Complexe solaire Noor
+
+- [ ] FR : À 10 km d'Ouarzazate, le complexe solaire Noor transforme la lumière du soleil en électricité.
+- [ ] EN : 10 km from Ouarzazate, the Noor solar complex turns sunlight into electricity.
+- Source : https://en.wikipedia.org/wiki/Ouarzazate_Solar_Power_Station
+
+## Bibliotheca Alexandrina
+
+- [ ] FR : Sur la Méditerranée, à Alexandrie, une grande bibliothèque rappelle celle de l'Antiquité.
+- [ ] EN : On the Mediterranean in Alexandria, a major library commemorates the ancient one.
+- Source : https://en.wikipedia.org/wiki/Bibliotheca_Alexandrina
+
+## Université Al-Qarawiyyin
+
+- [ ] FR : À Fès, l'université Al-Qarawiyyin, fondée en 859, est l'une des plus anciennes encore en activité.
+- [ ] EN : In Fez, Al-Qarawiyyin, founded in 859, is one of the oldest universities still operating.
+- Source : https://en.wikipedia.org/wiki/University_of_al-Qarawiyyin
+
+## Zeitz MOCAA
+
+- [ ] FR : Au Cap, le Zeitz MOCAA, ouvert en 2017, est un grand musée d'art contemporain africain.
+- [ ] EN : In Cape Town, Zeitz MOCAA, opened in 2017, is a major museum of contemporary African art.
+- Source : https://en.wikipedia.org/wiki/Zeitz_Museum_of_Contemporary_Art_Africa
+
+## Centre de conférences de Kigali
+
+- [ ] FR : À Kigali, un grand centre de congrès accueille des rencontres venues du monde entier.
+- [ ] EN : In Kigali, a large convention centre hosts gatherings from around the world.
+- Source : https://en.wikipedia.org/wiki/Kigali_Convention_Centre
+
+## Université de Makerere
+
+- [ ] FR : À Kampala, Makerere, fondée en 1922, est la plus ancienne université active d'Afrique de l'Est.
+- [ ] EN : In Kampala, Makerere, founded in 1922, is East Africa's oldest active university.
+- Source : https://en.wikipedia.org/wiki/Makerere_University
+
+## Pont Tanzanite
+
+- [ ] FR : À Dar es Salaam, le pont Tanzanite enjambe le delta du Msimbazi.
+- [ ] EN : In Dar es Salaam, the Tanzanite Bridge crosses the Msimbazi delta.
+- Source : https://en.wikipedia.org/wiki/Tanzanite_Bridge
+
+## Musée national de Nairobi
+
+- [ ] FR : À Nairobi, sur Museum Hill, se trouve le Musée national et le siège des musées du Kenya.
+- [ ] EN : In Nairobi, on Museum Hill, stand the National Museum and the headquarters of Kenya's museums.
+- Source : https://en.wikipedia.org/wiki/National_Museums_of_Kenya
+
+## Musée national du Bardo
+
+- [ ] FR : Au Bardo, près de Tunis, un grand musée retrace l'histoire de la Tunisie.
+- [ ] EN : At Le Bardo near Tunis, a major museum traces the history of Tunisia.
+- Source : https://en.wikipedia.org/wiki/Bardo_National_Museum_(Tunis)
+
+## Stade Félix Houphouët-Boigny
+
+- [ ] FR : À Abidjan, le « Félicia » accueille football, rugby et athlétisme.
+- [ ] EN : In Abidjan, the 'Félicia' hosts football, rugby and athletics.
+- Source : https://en.wikipedia.org/wiki/Felix_Houphouet_Boigny_Stadium
+
+## Musée national d'Éthiopie
+
+- [ ] FR : À Addis-Abeba, le Musée national d'Éthiopie se trouve près de l'université.
+- [ ] EN : In Addis Ababa, the National Museum of Ethiopia stands near the university.
+- Source : https://en.wikipedia.org/wiki/National_Museum_of_Ethiopia
+
+## Université du Ghana
+
+- [ ] FR : À Accra, l'université du Ghana est la plus ancienne université publique du pays.
+- [ ] EN : In Accra, the University of Ghana is the country's oldest public university.
+- Source : https://en.wikipedia.org/wiki/University_of_Ghana
+
+## Théâtre national de Lagos
+
+- [ ] FR : À Lagos, le Théâtre national est le grand centre des arts de la scène du Nigeria.
+- [ ] EN : In Lagos, the National Theatre is Nigeria's main centre for the performing arts.
+- Source : https://en.wikipedia.org/wiki/National_Theatre%2C_Nigeria
+
+## Grande Poste d'Alger
+
+- [ ] FR : À Alger, la Grande Poste, construite en 1910, est la plus grande poste d'Algérie.
+- [ ] EN : In Algiers, the Central Post Office, built in 1910, is Algeria's largest post office.
+- Source : https://en.wikipedia.org/wiki/Grande_Poste_d'Alger
+
+## Université du Botswana
+
+- [ ] FR : À Gaborone, l'université du Botswana, créée en 1982, fut la première du pays.
+- [ ] EN : In Gaborone, the University of Botswana, set up in 1982, was the country's first.
+- Source : https://en.wikipedia.org/wiki/University_of_Botswana
+
+## Stade Prince Moulay Abdellah
+
+- [ ] FR : À Rabat, le stade Prince Moulay Abdellah est le stade de l'équipe nationale de football.
+- [ ] EN : In Rabat, the Prince Moulay Abdellah Stadium is the national football team's home.
+- Source : https://en.wikipedia.org/wiki/Prince_Moulay_Abdellah_Stadium
+
+## Université Cheikh Anta Diop
+
+- [ ] FR : À Dakar, l'université Cheikh Anta Diop accueille plus de 60 000 étudiants.
+- [ ] EN : In Dakar, Cheikh Anta Diop University enrols over 60,000 students.
+- Source : https://en.wikipedia.org/wiki/Cheikh_Anta_Diop_University
+
+# Reportages
+
+Personnages fictifs, faits réels. À relire comme les fiches pays.
+
+## Sur les ondes : trois capitales de la musique
+
+### cod-kinshasa
+
+- [ ] Indice : Sur le fleuve Congo, cette capitale fait face à Brazzaville, juste de l'autre côté de l'eau. / On the Congo River, this capital faces Brazzaville, just across the water.
+- [ ] Bienvenue au studio ! Ici, on enregistre de la rumba congolaise, une musique et une danse des villes de deux pays voisins. / Welcome to the studio! Here we record Congolese rumba, a music and dance of the cities of two neighbouring countries.
+- [ ] Elle vient d'une vieille danse appelée nkumba, qui veut dire « taille » en kikongo. L'UNESCO l'a inscrite en 2021. / It comes from an old dance called nkumba, meaning 'waist' in Kikongo. UNESCO listed it in 2021.
+- Source : https://ich.unesco.org/en/RL/congolese-rumba-01711
+- Citation : « it is a multicultural form of expression originating from an ancient dance called nkumba (meaning ‘waist’ in Kikongo) »
+
+### nga-lagos
+
+- [ ] Indice : Grande ville côtière sur le golfe de Guinée, dans un pays voisin du Bénin, du Niger et du Tchad. / Big coastal city on the Gulf of Guinea, in a country bordering Benin, Niger and Chad.
+- [ ] Ici, on mixe de l'afrobeat. Le musicien Fela Kuti a lancé ce style, né à Lagos à la fin des années 1960. / Here we mix afrobeat. The musician Fela Kuti launched this style, which grew up in Lagos in the late 1960s.
+- [ ] Il mélange le blues, le jazz et le funk américains avec la musique yoruba. Écoute les percussions : elles mènent le groove ! / It fuses American blues, jazz and funk with Yoruba music. Listen to the percussion: it leads the groove!
+- Source : https://www.britannica.com/biography/Fela-Kuti
+- Citation : « launched a modern style of music called Afro-beat, which fused American blues, jazz, and funk with traditional Yoruba music »
+
+### sen-dakar
+
+- [ ] Indice : Capitale tout à l'ouest du continent, dans un pays qui entoure presque la Gambie. / Capital at the far west of the continent, in a country that almost surrounds The Gambia.
+- [ ] À Dakar, on danse le mbalax ! Le chanteur Youssou N'Dour l'a fait connaître dans le monde entier. / In Dakar we dance to mbalax! The singer Youssou N'Dour introduced it to audiences around the world.
+- [ ] C'est un style sénégalais qui mêle les formes wolof, chantées et jouées, à des genres cubains et latino-américains. / It is a Senegalese style that blends Wolof vocal and instrumental forms with Cuban and Latin American genres.
+- Source : https://www.britannica.com/biography/Youssou-NDour
+- Citation : « introducing international audiences to mbalax—a Senegalese popular music style that blends Wolof traditional instrumental and vocal forms primarily with Cuban and other Latin American popular genres »
+
+## Lumière sur les écrans d'Afrique
+
+### bfa-ouagadougou
+
+- [ ] Indice : Capitale d'un pays sans accès à la mer, au nord du Ghana et de la Côte d'Ivoire. / Capital of a country with no access to the sea, north of Ghana and Côte d'Ivoire.
+- [ ] Bienvenue ! Ici, on prépare le Fespaco, le Festival panafricain du cinéma et de la télévision de Ouagadougou. / Welcome! Here we prepare FESPACO, the Pan-African Film and Television Festival of Ouagadougou.
+- [ ] Sa 30e édition est annoncée pour mars 2027. Des films de tout le continent y sont projetés devant le public. / Its 30th edition is announced for March 2027. Films from across the continent are shown to the public.
+- Source : https://fespaco.bf/en/welcome-to-fespaco/
+- Citation : « As part of the 30th Edition of the Pan-African Film and Television Festival of Ouagadougou (FESPACO) taking place from 20 to 27 March 2027 »
+
+### tun-tunis
+
+- [ ] Indice : Capitale tout au nord du continent, près des ruines de Carthage, entre l'Algérie et la Libye. / Capital at the far north of the continent, near the ruins of Carthage, between Algeria and Libya.
+- [ ] Les Journées cinématographiques de Carthage ont lieu à Tunis. Elles datent de 1966. / The Carthage Film Festival takes place in Tunis. It dates back to 1966.
+- [ ] C'est considéré comme le plus ancien festival de ce genre encore actif en Afrique. Il est devenu annuel en 2014. / It is regarded as the oldest event of its kind still active in Africa. It became annual in 2014.
+- Source : https://acc.film/festivals/festival25.php
+- Citation : « Going all the way back to 1966, Carthage Film Festival is regarded as the oldest event of its kind still active in Africa. »
+
+### nga-lagos
+
+- [ ] Indice : Grande ville côtière sur le golfe de Guinée, dans un pays voisin du Bénin, du Niger et du Tchad. / Big coastal city on the Gulf of Guinea, in a country bordering Benin, Niger and Chad.
+- [ ] Ici, on tourne beaucoup ! Nollywood, c'est l'industrie du cinéma nigériane : « Nigeria » plus « Hollywood ». / We shoot a lot here! Nollywood is Nigeria's film industry: 'Nigeria' plus 'Hollywood'.
+- [ ] Elle produit environ 2 500 films par an, en anglais mais aussi en yoruba, igbo, haoussa et d'autres langues. / It makes about 2,500 films a year, in English but also in Yoruba, Igbo, Hausa and other languages.
+- Source : https://www.britannica.com/topic/Nollywood
+- Citation : « The industry produces about 2,500 films per year »
+
+## Bibliothèques et savoirs
+
+### mar-fes
+
+- [ ] Indice : Ville d'un royaume qui touche à la fois l'Atlantique et la Méditerranée, voisin de l'Algérie à l'est. / City in a kingdom touching both the Atlantic and the Mediterranean, with Algeria to the east.
+- [ ] Ici, à Fès, se trouve l'université Al-Qarawiyyin. Elle a été fondée en 859 par Fatima al-Fihri. / Here in Fez stands Al-Qarawiyyin University. It was founded in 859 by Fatima al-Fihri.
+- [ ] C'est l'une des plus anciennes universités du monde encore en activité. Des étudiants y viennent toujours ! / It is one of the world's oldest universities still in operation. Students still come here!
+- Source : https://www.britannica.com/topic/Qarawiyyin
+- Citation : « Founded in 859 ce by philanthropist Fāṭimah al-Fihrī, Qarawiyyīn is one of the world’s oldest universities that is still in operation. »
+
+### poi-timbuktu
+
+- [ ] Indice : Ville du Sahel, au nord du fleuve Niger, dans un pays voisin de l'Algérie, du Niger et du Sénégal. / Sahel city north of the Niger River, in a country bordering Algeria, Niger and Senegal.
+- [ ] Je protège les manuscrits de Tombouctou. C'est une collection de plusieurs centaines de milliers de documents. / I look after the manuscripts of Timbuktu. It is a collection of several hundred thousand documents.
+- [ ] Certains datent du XIIIe siècle : ils ont plus de sept cents ans ! / Some date back to the 13th century: they are over seven hundred years old!
+- Source : https://whc.unesco.org/en/news/1219
+- Citation : « The manuscripts of Timbuktu form a collection of several hundred thousand documents some of which date as far back as the 13th century. »
+
+### egy-alexandria
+
+- [ ] Indice : Grande ville sur la Méditerranée, à l'ouest du delta du Nil, dans un pays voisin de la Libye et du Soudan. / Big Mediterranean city, west of the Nile Delta, in a country bordering Libya and Sudan.
+- [ ] Bienvenue à la Bibliotheca Alexandrina ! Elle se dresse au bord de la Méditerranée, à Alexandrie. / Welcome to the Bibliotheca Alexandrina! It stands on the Mediterranean shore, in Alexandria.
+- [ ] Elle a été pensée pour retrouver l'esprit d'ouverture et de savoir de l'ancienne Bibliothèque d'Alexandrie. C'est bien plus qu'une bibliothèque ! / It was designed to recapture the spirit of openness and scholarship of the original Library of Alexandria. It is much more than a library!
+- Source : https://www.bibalex.org/en/page/about
+- Citation : « The New Library of Alexandria, the New Bibliotheca Alexandrina is dedicated to recapturing the spirit of openness and scholarship of the original Bibliotheca Alexandrina. »
+
+## Inventions : de l'argent au soleil
+
+### ken-nairobi
+
+- [ ] Indice : Capitale proche de l'équateur, sur les hauts plateaux, entre l'Ouganda et la Tanzanie. / Capital close to the Equator, in the highlands, between Uganda and Tanzania.
+- [ ] Je programme des applis de paiement. M-Pesa a été lancé au Kenya en mars 2007 par l'opérateur Safaricom. / I code payment apps. M-Pesa was launched in Kenya in March 2007 by the operator Safaricom.
+- [ ] Le « M » veut dire mobile, et « pesa » veut dire argent en swahili. On envoie de l'argent avec un simple téléphone ! / The 'M' stands for mobile, and 'pesa' means money in Swahili. You can send money with an ordinary phone!
+- Source : https://documents1.worldbank.org/curated/en/638851468048259219/pdf/543380WP0M1PES1BOX0349405B01PUBLIC1.pdf
+- Citation : « “M” for mobile and “PESA” for money in Swahili »
+
+### poi-meerkat
+
+- [ ] Indice : Dans le Karoo, région semi-désertique tout au sud, au sud de la Namibie et du Botswana. / In the Karoo, a semi-desert region far to the south, below Namibia and Botswana.
+- [ ] Le télescope MeerKAT écoute le ciel avec des ondes radio. Il se trouve à 90 km de la petite ville de Carnarvon. / The MeerKAT telescope listens to the sky with radio waves. It stands 90 km from the small town of Carnarvon.
+- [ ] Il compte 64 antennes reliées entre elles. Son nom veut dire « plus de KAT », car il a grandi ! / It has 64 interlinked antennas. Its name means 'more of KAT', because it grew bigger!
+- Source : https://www.sarao.ac.za/science/meerkat/about-meerkat/
+- Citation : « The MeerKAT telescope is an array of 64 interlinked receptors »
+
+### poi-noor-ouarzazate
+
+- [ ] Indice : Au pied de l'Atlas, aux portes du Sahara, dans un royaume qui borde l'Atlantique et la Méditerranée. / At the foot of the Atlas, by the Sahara, in a kingdom on the Atlantic and the Mediterranean.
+- [ ] Voici le complexe solaire Noor, près d'Ouarzazate. Ses centrales transforment la lumière du soleil en électricité. / This is the Noor solar complex near Ouarzazate. Its plants turn sunlight into electricity.
+- [ ] En 2023, le complexe a produit 15 % d'électricité de plus que l'objectif fixé. / In 2023, the complex produced 15% more electricity than its target.
+- Source : https://documents1.worldbank.org/curated/en/099030324025054594/pdf/P13125613552030fb18250188bae0c1c28a.pdf
+- Citation : « The overall complex reached a total generation of 1500 GWh, which is 15% higher than the target indicator, during 2023 »
+
+## Villes de formes et de briques
+
+### eri-asmara
+
+- [ ] Indice : Capitale d'altitude, au nord de l'Éthiopie, dans un pays qui borde la mer Rouge. / High-altitude capital, north of Ethiopia, in a country on the Red Sea.
+- [ ] Asmara est à plus de 2 000 m d'altitude. L'UNESCO a inscrit « Asmara, ville africaine moderniste ». / Asmara lies over 2,000 m above sea level. UNESCO listed 'Asmara: A Modernist African City'.
+- [ ] Ses bâtiments forment l'une des collections d'architecture moderniste les plus complètes et les mieux conservées du monde. / Its buildings form one of the most complete and intact collections of modernist architecture in the world.
+- Source : https://whc.unesco.org/en/list/1550/
+- Citation : « Located at over 2,000 m above sea level, the capital of Eritrea developed from the 1890s onwards »
+
+### poi-djenne
+
+- [ ] Indice : Ville sur le Bani, affluent du Niger, dans un pays voisin de l'Algérie et du Burkina Faso. / Town on the Bani, a tributary of the Niger, in a country bordering Algeria and Burkina Faso.
+- [ ] À Djenné, presque tous les bâtiments sont en briques de terre séchée au soleil, enduites de boue de la rivière. / In Djenné, nearly all buildings are made of sun-dried earthen bricks, coated with mud plaster from the river.
+- [ ] Chaque année, on réenduit la grande mosquée. L'architecture de Djenné est le travail collectif d'une corporation de maçons, le Barey-ton. / Every year the Great Mosque is replastered. Djenné's architecture is the collective work of a guild of masons, the Barey-ton.
+- Source : https://whc.unesco.org/en/urban-heritage-atlas/djenne/
+- Citation : « The architecture of Djenné is the collective work of a corporation of masons known as Barey-ton. »
+
+### dza-algiers
+
+- [ ] Indice : Capitale au bord de la Méditerranée, voisine de la Tunisie à l'est et du Maroc à l'ouest. / Capital on the Mediterranean, with Tunisia to the east and Morocco to the west.
+- [ ] Voici la Casbah d'Alger, inscrite à l'UNESCO. C'est une sorte de médina très particulière. / This is the Kasbah of Algiers, listed by UNESCO. It is a very special kind of medina.
+- [ ] On y voit des restes de citadelle, de vieilles mosquées et des palais de style ottoman, et un quartier où règne un fort esprit de voisinage. / You can see remains of the citadel, old mosques and Ottoman-style palaces, and a quarter with a deep-rooted sense of community.
+- Source : https://whc.unesco.org/en/list/565/
+- Citation : « There are the remains of the citadel, old mosques and Ottoman-style palaces as well as the remains of a traditional urban structure associated with a deep-rooted sense of community. »
+
+## Courses, foulées et ballons
+
+### eth-addis-ababa
+
+- [ ] Indice : Capitale d'un pays sans accès à la mer, voisin de l'Érythrée, de Djibouti et du Kenya. / Capital of a country with no access to the sea, bordering Eritrea, Djibouti and Kenya.
+- [ ] Ici, on parle encore d'Abebe Bikila, marathonien éthiopien. À Rome en 1960, il a gagné l'or en courant pieds nus. / Here we still talk about Abebe Bikila, the Ethiopian marathon runner. In Rome in 1960 he won gold running barefoot.
+- [ ] Il a battu un record du monde, puis a été le premier à gagner deux marathons olympiques. Et le premier or olympique de l'Éthiopie ! / He set a world record, then was the first to win two Olympic marathons. And Ethiopia's first Olympic gold!
+- Source : https://www.britannica.com/biography/Abebe-Bikila
+- Citation : « Bikila was the first athlete to win two Olympic marathons, and he was the first athlete to win an Olympic gold medal for Ethiopia. »
+
+### poi-iten
+
+- [ ] Indice : Petite ville d'altitude (2 400 m) au bord de la vallée du Rift, dans un pays traversé par l'équateur. / Small high-altitude town (2,400 m) on the edge of the Rift Valley, in a country crossed by the Equator.
+- [ ] Bienvenue à Iten, une petite ville à 2 400 mètres d'altitude. Beaucoup de coureurs de fond s'y entraînent. / Welcome to Iten, a small town at 2,400 metres above sea level. Many distance runners train here.
+- [ ] Ici et dans les environs, il y a de grands camps d'entraînement. À cette altitude, on travaille son souffle ! / Here and nearby there are leading training camps. At this altitude, we build our breathing!
+- Source : https://worldathletics.org/personal-best/performance/kenyan-distance-running-reasons-success
+- Citation : « Iten, a small town at 2400 metres above sea level about an hour north »
+
+### mar-rabat
+
+- [ ] Indice : Capitale au bord de l'Atlantique, dans un royaume voisin de l'Algérie, au nord-ouest du continent. / Capital on the Atlantic, in a kingdom bordering Algeria, in the north-west of the continent.
+- [ ] À sept kilomètres du centre de Rabat, le complexe sportif Prince Moulay Abdellah est un des stades les plus connus du royaume. / Seven kilometres from the centre of Rabat, the Prince Moulay Abdellah sports complex is one of the kingdom's best-known venues.
+- [ ] Rabat a été l'une des villes hôtes de la Coupe d'Afrique des nations 2025. Le football y rassemble toute la ville ! / Rabat was one of the host cities of the 2025 Africa Cup of Nations. Football brings the whole city together!
+- Source : https://www.cafonline.com/afcon2025/news/your-guide-to-all-totalenergies-caf-afcon-morocco-2025-host-venues/
+- Citation : « Only seven kilometres from the centre of Rabat, the Complexe Sportif Prince Moulay Abdellah is one of the Kingdom's most iconic venues. »
+
+## Plumes d'Afrique : trois voix à lire
+
+### egy-cairo
+
+- [ ] Indice : Capitale sur le Nil, à la pointe du delta, dans un pays voisin de la Libye et du Soudan. / Capital on the Nile, at the tip of the delta, in a country bordering Libya and Sudan.
+- [ ] Naguib Mahfouz est né au Caire en 1911. Il a reçu le prix Nobel de littérature en 1988. / Naguib Mahfouz was born in Cairo in 1911. He received the Nobel Prize in Literature in 1988.
+- [ ] Il a écrit plus de 30 romans et 350 nouvelles. Le Caire, sa ville, sert souvent de décor à ses histoires. / He wrote more than 30 novels and 350 short stories. Cairo, his hometown, is often the setting of his tales.
+- Source : https://www.nobelprize.org/prizes/literature/1988/mahfouz/facts/
+- Citation : « Mahfouz’ body of work comprises more than 30 novels and 350 short stories. »
+
+### nga-ibadan
+
+- [ ] Indice : Grande ville de l'intérieur, au nord de Lagos, dans le sud-ouest d'un pays voisin du Bénin et du Niger. / Big inland city north of Lagos, in the south-west of a country bordering Benin and Niger.
+- [ ] Je vous présente le dramaturge Wole Soyinka, né à Abeokuta, au Nigeria. Il a reçu le prix Nobel de littérature en 1986. / Let me introduce the playwright Wole Soyinka, born in Abeokuta, Nigeria. He received the Nobel Prize in Literature in 1986.
+- [ ] Le Nobel salue un auteur qui, avec une large vision culturelle et des accents de poésie, façonne le drame de l'existence. / The Nobel citation honours a writer who, in a wide cultural perspective and with poetic overtones, fashions the drama of existence.
+- Source : https://www.nobelprize.org/prizes/literature/1986/soyinka/facts/
+- Citation : « who in a wide cultural perspective and with poetic overtones fashions the drama of existence »
+
+### sen-dakar
+
+- [ ] Indice : Capitale tout à l'ouest du continent, dans un pays qui entoure presque la Gambie. / Capital at the far west of the continent, in a country that almost surrounds The Gambia.
+- [ ] À Dakar, on lit Mariama Bâ, une grande écrivaine sénégalaise. Son roman s'appelle « Une si longue lettre ». / In Dakar we read Mariama Bâ, a great Senegalese writer. Her novel is called 'So Long a Letter'.
+- [ ] Il a reçu le tout premier prix Noma pour l'édition en Afrique, en 1980. Le livre est écrit comme une lettre à une amie. / It won the very first Noma Award for Publishing in Africa, in 1980. The book is written as a letter to a friend.
+- Source : https://en.wikipedia.org/wiki/So_Long_a_Letter
+- Citation : « It won the first Noma Award for Publishing in Africa in 1980. »

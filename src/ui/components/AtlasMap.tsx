@@ -22,18 +22,22 @@ export function AtlasMap({
 
   useEffect(() => {
     let cancelled = false;
-    fetch('/geo/atlas.json')
-      .then((response) => {
-        if (!response.ok) throw new Error(`Atlas indisponible : ${response.status}`);
-        return response.json() as Promise<Atlas>;
-      })
-      .then((loaded) => {
-        if (!cancelled) setAtlas(loaded);
-      })
-      // La silhouette reste affichée : l'accueil n'a pas besoin de l'atlas pour fonctionner.
-      .catch((error: unknown) => console.warn(error));
+    // Différé : l'atlas enrichit l'accueil, il ne doit pas ralentir son premier affichage.
+    const timer = window.setTimeout(() => {
+      fetch('/geo/atlas.json')
+        .then((response) => {
+          if (!response.ok) throw new Error(`Atlas indisponible : ${response.status}`);
+          return response.json() as Promise<Atlas>;
+        })
+        .then((loaded) => {
+          if (!cancelled) setAtlas(loaded);
+        })
+        // La silhouette reste affichée : l'accueil n'a pas besoin de l'atlas pour fonctionner.
+        .catch((error: unknown) => console.warn(error));
+    }, 400);
     return () => {
       cancelled = true;
+      window.clearTimeout(timer);
     };
   }, []);
 

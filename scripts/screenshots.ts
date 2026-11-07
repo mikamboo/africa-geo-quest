@@ -14,8 +14,12 @@ const PORT = 4174;
 const BASE = `http://localhost:${PORT}`;
 
 const SAVE = {
-  version: 1,
-  profile: { avatar: 'amina', pseudonym: { animal: 'gazelle', adjective: 'fast' } },
+  version: 2,
+  profile: { avatar: 'amina', pseudonym: { role: 'cartographer', adjective: 'fast' } },
+  story: null,
+  storiesDone: [],
+  notes: [],
+  roomsVisited: [],
   level: 'explorer',
   stamps: {
     CAF: '2026-11-01',

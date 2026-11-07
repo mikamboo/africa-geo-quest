@@ -57,6 +57,10 @@ Interdit pour passer au vert : baisser un seuil, `skip` ou `only`, `--no-verify`
 
 Après tout changement visuel : `pnpm build && pnpm screenshots`, et regarder réellement les images aux trois tailles. Des tests verts ne suffisent pas : c'est ainsi qu'a été trouvée une carte SVG sans aucun pays.
 
+## Contenu
+
+`docs/CHARTE_EDITORIALE.md` s'impose à tout texte : ni animalisation, ni réduction à la nature, ni vocabulaire colonial. `tests/content.test.ts` en vérifie une partie.
+
 ## Git
 
 Commits conventionnels en français. Pas de remote ni de déploiement sans demande explicite. `aidlc/` est créé par des hooks de la machine et exclu par `.git/info/exclude` : ne pas le committer.

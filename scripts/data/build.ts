@@ -343,6 +343,13 @@ function buildPlaces(placesShp: string, relief: ReliefData[]): void {
     }
   }
 
+  // Une étape de reportage doit exister à tous les niveaux, sinon le joueur serait bloqué.
+  const storyStops = new Set(
+    readJson<{ stops: { placeId: string }[] }[]>('data/stories.json').flatMap((story) =>
+      story.stops.map((stop) => stop.placeId),
+    ),
+  );
+  for (const place of places) if (storyStops.has(place.id)) place.level = 'explorer';
   const curated = readJson<PlaceData[]>('data/pois.json');
   const neighbors = computeNeighbors();
   const parsed = placesFileSchema.parse({ places: [...places, ...curated], relief, neighbors });

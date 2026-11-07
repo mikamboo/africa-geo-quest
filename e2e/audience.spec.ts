@@ -163,7 +163,7 @@ test('le défi du jour donne une série et un résultat à copier', async ({ pag
   await expect(page.getByTestId('share-daily')).toHaveText('Résultat copié !');
   const copied = await page.evaluate(() => navigator.clipboard.readText());
   expect(copied).toMatch(/^Tembea · Défi du \d{4}-\d{2}-\d{2} · \d+ points en \d+ s$/);
-  await success.getByRole('button', { name: 'Continuer à explorer' }).click();
+  await success.getByRole('button', { name: 'Continuer à voyager' }).click();
   await page.getByTestId('hud-menu').click();
   await expect(page.getByTestId('daily-meta')).toContainText('série de 1 jour');
   expectClean(guards);

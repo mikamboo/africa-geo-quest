@@ -46,7 +46,7 @@ export function SetupScreen() {
         <div className="names">
           {names.map((name, index) => (
             <label
-              key={`${name.animal}-${name.adjective}`}
+              key={`${name.role}-${name.adjective}`}
               className={`choice${nameIndex === index ? ' is-active' : ''}`}
             >
               <input

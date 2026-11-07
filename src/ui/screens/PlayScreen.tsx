@@ -4,10 +4,14 @@ import { countryByCode } from '../../core/catalog';
 import type { GameEvent } from '../../core/explorer';
 import type { Point } from '../../core/geometry';
 import { missionHint, type Mission } from '../../core/missions';
+import type { RoomSpot } from '../../core/rooms';
+import { currentStop, defaultRoomFor, storyById } from '../../core/stories';
 import { project, unproject } from '../../core/projection';
+import { hashString } from '../../core/rng';
 import { NON_STATE_TERRITORY, type Locale } from '../../core/types';
 import type { GameData } from '../../data/gameData';
 import type { GameRendererHandle } from '../../render/GameRenderer';
+import { RoomView } from '../components/RoomView';
 import { CountryCard } from '../components/CountryCard';
 import { Dialog } from '../components/Dialog';
 import { Joystick } from '../components/Joystick';
@@ -134,6 +138,117 @@ function Stopwatch() {
   );
 }
 
+/** Fin de reportage : la couverture du magazine, le moment fort de la partie. */
+function Publication({ data }: { data: GameData }) {
+  const { t, i18n } = useTranslation();
+  const locale = i18n.language as Locale;
+  const publication = useGameStore((state) => state.publication);
+  const close = useGameStore((state) => state.closePublication);
+  const navigate = useGameStore((state) => state.navigate);
+  const story = publication ? storyById(data.stories, publication) : undefined;
+  if (!story) return null;
+  return (
+    <Dialog
+      labelledBy="cover-title"
+      className="dialog--cover"
+      testId="publication"
+      onEscape={close}
+    >
+      <article className="cover">
+        <p className="cover__mast">{t('stories.magazine')}</p>
+        <h2 id="cover-title" className="cover__title">
+          {story.title[locale]}
+        </h2>
+        <ul className="cover__places">
+          {story.stops.map((stop) => (
+            <li key={stop.placeId}>{data.world.placeById(stop.placeId)?.names[locale]}</li>
+          ))}
+        </ul>
+      </article>
+      <p className="dialog__points">{t('stories.publishedTitle')}</p>
+      <p>{story.outro[locale]}</p>
+      <div className="dialog__actions">
+        <button type="button" className="btn btn--primary" onClick={close}>
+          {t('stories.publish')}
+        </button>
+        <button
+          type="button"
+          className="btn"
+          onClick={() => {
+            close();
+            navigate('stories');
+          }}
+        >
+          {t('stories.more')}
+        </button>
+      </div>
+    </Dialog>
+  );
+}
+
+/** Rappel de l'étape en cours : l'indice reste visible pendant le voyage. */
+function StoryBanner({ data, position }: { data: GameData; position: Point | null }) {
+  const { t, i18n } = useTranslation();
+  const locale = i18n.language as Locale;
+  const run = useGameStore((state) => state.progress.story);
+  const level = useGameStore((state) => state.progress.level);
+  const hintUsed = useGameStore((state) => state.hintUsed);
+  const revealHint = useGameStore((state) => state.revealHint);
+  const story = run ? storyById(data.stories, run.id) : undefined;
+  const stop = run ? currentStop(data.stories, run) : undefined;
+  const hint = useMemo(
+    () =>
+      position && stop
+        ? missionHint(
+            { id: 'story', type: 'go-to-place', targetId: stop.placeId },
+            position,
+            data.catalog,
+            { nearestRiverPoint: () => null },
+          )
+        : null,
+    [position, stop, data],
+  );
+  if (!run || !story || !stop) return null;
+  const compassHidden = level === 'expert' && !hintUsed;
+  return (
+    <section className="mission-banner" data-testid="story-banner" data-target={stop.placeId}>
+      <div>
+        <p className="mission-banner__kicker">
+          {story.title[locale]} ·{' '}
+          {t('stories.bannerStop', { current: run.stop + 1, total: story.stops.length })}
+        </p>
+        <p className="mission-banner__title mission-banner__title--clue" data-testid="story-clue">
+          {stop.clue[locale]}
+        </p>
+        {hint && compassHidden && (
+          <button
+            type="button"
+            className="link link--light"
+            data-testid="ask-hint"
+            onClick={revealHint}
+          >
+            {t('mission.askHint')}
+          </button>
+        )}
+        {hint && !compassHidden && (
+          <p
+            className="mission-banner__hint"
+            data-testid="mission-hint"
+            data-compass={hint.compass}
+          >
+            {hint.distanceKm < 55
+              ? t('stories.arrived')
+              : t('mission.hint', {
+                  distance: hint.distanceKm,
+                  direction: t(`mission.compass.${hint.compass}`),
+                })}
+          </p>
+        )}
+      </div>
+    </section>
+  );
+}
+
 function MissionSuccess() {
   const { t } = useTranslation();
   const [shared, setShared] = useState<'idle' | 'done' | 'failed'>('idle');
@@ -223,7 +338,9 @@ function Toasts({ data }: { data: GameData }) {
               ? data.hydro.rivers.find((river) => river.id === toast.subject)?.names[locale]
               : toast.kind === 'lake'
                 ? data.hydro.lakes.find((lake) => lake.id === toast.subject)?.names[locale]
-                : t(`region.${toast.subject}`);
+                : toast.kind === 'badge'
+                  ? t(`region.${toast.subject}`)
+                  : toast.subject;
         return (
           <div key={toast.id} className={`toast toast--${toast.kind}`} data-testid="toast">
             <p>{t(`toast.${toast.kind}`, { name: name ?? toast.subject })}</p>
@@ -258,6 +375,12 @@ export function PlayScreen() {
   const updateSettings = useGameStore((state) => state.updateSettings);
   const setFallback = useGameStore((state) => state.setFallback);
   const openCard = useGameStore((state) => state.openCard);
+  const room = useGameStore((state) => state.room);
+  const enterRoomAction = useGameStore((state) => state.enterRoom);
+  const tappedPlace = useGameStore((state) => state.tappedPlace);
+  const storyRun = progress.story;
+  const [nearSpot, setNearSpot] = useState<RoomSpot | null>(null);
+  const [sceneCard, setSceneCard] = useState(0);
 
   const [sprinting, setSprinting] = useState(false);
   const reducedMotion = useReducedMotionPreference(settings.reduceMotion);
@@ -344,13 +467,16 @@ export function PlayScreen() {
     handleRef.current?.setReducedMotion(reducedMotion);
   }, [reducedMotion]);
 
-  // Indices visuels réservés au niveau Explorateur.
+  // Indices visuels réservés au niveau Premiers pas.
   useEffect(() => {
     const handle = handleRef.current;
     if (!handle || !data) return;
     const isExplorer = level === 'explorer';
-    const place =
-      mission?.type === 'go-to-place' ? data.world.placeById(mission.targetId) : undefined;
+    const storyTarget =
+      !mission && progress.story ? currentStop(data.stories, progress.story) : undefined;
+    const targetId =
+      mission?.type === 'go-to-place' ? mission.targetId : (storyTarget?.placeId ?? null);
+    const place = targetId ? data.world.placeById(targetId) : undefined;
     handle.setTarget(isExplorer && place ? { x: place.x, y: place.y } : null);
     const highlight =
       isExplorer && mission?.type === 'find-landlocked'
@@ -359,7 +485,7 @@ export function PlayScreen() {
           ? data.catalog.countries.filter((c) => c.island).map((c) => c.code)
           : [];
     handle.setHighlight(highlight);
-  }, [mission, level, data, position === null]); // eslint-disable-line react-hooks/exhaustive-deps -- `position === null` relance l'effet quand le moteur vient de démarrer.
+  }, [mission, level, data, position === null, progress.story, room]); // eslint-disable-line react-hooks/exhaustive-deps -- `position === null` relance l'effet quand le moteur vient de démarrer.
 
   // La bulle d'aide disparaît dès que le joueur a compris : au premier vrai déplacement.
   const firstPosition = useRef<Point | null>(null);
@@ -372,6 +498,62 @@ export function PlayScreen() {
     );
     if (moved > 30) updateSettings({ seenTutorial: true });
   }, [position, settings.seenTutorial, updateSettings]);
+
+  const stopTarget = data && storyRun ? currentStop(data.stories, storyRun) : undefined;
+
+  // Le lieu où l'on peut entrer : le plus proche à portée, ou celui touché sur la carte.
+  const enterable = useMemo(() => {
+    if (!data || room) return null;
+    if (useSvg) return tappedPlace ? (data.world.placeById(tappedPlace) ?? null) : null;
+    if (!position) return null;
+    const near = data.world.placesNear(position, level);
+    // L'étape du reportage passe avant une ville voisine (Kinshasa et Brazzaville se touchent).
+    const storyPlace = near.find((candidate) => candidate.id === stopTarget?.placeId);
+    if (storyPlace) return storyPlace;
+    near.sort(
+      (a, b) =>
+        Math.hypot(a.x - position.x, a.y - position.y) -
+        Math.hypot(b.x - position.x, b.y - position.y),
+    );
+    return near[0] ?? null;
+  }, [data, room, useSvg, tappedPlace, position, level, stopTarget]);
+
+  const enterPlace = useCallback(() => {
+    if (!enterable) return;
+    const isStoryStop = stopTarget?.placeId === enterable.id;
+    const theme = isStoryStop && stopTarget ? stopTarget.room : defaultRoomFor(enterable);
+    enterRoomAction({ placeId: enterable.id, theme, isStoryStop });
+    setSceneCard((value) => value + 1);
+  }, [enterable, stopTarget, enterRoomAction]);
+
+  // Le moteur change de scène quand le joueur entre ou sort : la carte disparaît vraiment.
+  useEffect(() => {
+    const handle = handleRef.current;
+    if (!handle) return;
+    if (!room) {
+      handle.exitRoom();
+      return;
+    }
+    const look = hashString(room.placeId);
+    handle.enterRoom({
+      theme: room.theme,
+      leadLook: room.isStoryStop && stopTarget ? stopTarget.npc.look : look % 6,
+      extraLook: (look + 3) % 6,
+      accent: 0xb5381f,
+      onNear: setNearSpot,
+    });
+    // L'étape change à la fin de la conversation : la scène reste en place jusqu'à la sortie.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [room]);
+
+  useEffect(() => {
+    if (room || !enterable) return undefined;
+    const onKey = (event: KeyboardEvent): void => {
+      if (event.code === 'KeyE') enterPlace();
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [room, enterable, enterPlace]);
 
   const percent = useMemo(() => {
     if (!data) return 0;
@@ -406,13 +588,13 @@ export function PlayScreen() {
 
   return (
     <main
-      className={`play ${useSvg ? 'play--svg' : ''}`}
+      className={`play ${useSvg ? 'play--svg' : ''}${room ? ' play--room' : ''}`}
       data-testid="play-screen"
       data-mode={mode}
     >
       <h1 className="sr-only">Tembea</h1>
       {!useSvg && <div ref={hostRef} className="play__stage" data-testid="game-stage" />}
-      {useSvg && data && (
+      {useSvg && data && !room && (
         <Suspense fallback={<p className="play__loading">{t('app.loading')}</p>}>
           {usingFallback && !settings.noMovement && (
             <p className="notice" data-testid="webgl-fallback">
@@ -430,120 +612,151 @@ export function PlayScreen() {
       )}
       {!data && <p className="play__loading">{t('app.loading')}</p>}
 
-      <header className="hud">
-        <button
-          type="button"
-          className="btn btn--small"
-          data-testid="hud-menu"
-          onClick={() => navigate('home')}
-        >
-          {t('hud.menu')}
-        </button>
-        <button
-          type="button"
-          className="hud__place"
-          data-testid="hud-country"
-          data-code={currentCountry ?? ''}
-          disabled={!currentCountry}
-          aria-label={`${place}. ${t('hud.showCard')}`}
-          onClick={() => currentCountry && openCard(currentCountry)}
-        >
-          {place}
-        </button>
-        <p
-          className="hud__stat"
-          data-testid="hud-percent"
-          data-stamps={Object.keys(progress.stamps).length}
-        >
-          {t('hud.discovered', { percent })}
-        </p>
-        <button
-          type="button"
-          className="icon-btn"
-          data-testid="sound-toggle"
-          aria-pressed={settings.muted}
-          aria-label={settings.muted ? t('hud.soundOff') : t('hud.soundOn')}
-          onClick={() => updateSettings({ muted: !settings.muted })}
-        >
-          <Icon name={settings.muted ? 'soundOff' : 'soundOn'} />
-        </button>
-      </header>
+      {sceneCard > 0 && room && (
+        <div className="scene-card" key={sceneCard} aria-hidden="true">
+          <p>{t(`room.theme.${room.theme}`)}</p>
+          <strong>{data?.world.placeById(room.placeId)?.names[locale]}</strong>
+        </div>
+      )}
+
+      {data && room && <RoomView data={data} room={room} near={nearSpot} walking={!useSvg} />}
+
+      {!room && (
+        <header className="hud">
+          <button
+            type="button"
+            className="btn btn--small"
+            data-testid="hud-menu"
+            onClick={() => navigate('home')}
+          >
+            {t('hud.menu')}
+          </button>
+          <button
+            type="button"
+            className="hud__place"
+            data-testid="hud-country"
+            data-code={currentCountry ?? ''}
+            disabled={!currentCountry}
+            aria-label={`${place}. ${t('hud.showCard')}`}
+            onClick={() => currentCountry && openCard(currentCountry)}
+          >
+            {place}
+          </button>
+          <p
+            className="hud__stat"
+            data-testid="hud-percent"
+            data-stamps={Object.keys(progress.stamps).length}
+          >
+            {t('hud.travelled', { percent })}
+          </p>
+          <button
+            type="button"
+            className="icon-btn"
+            data-testid="sound-toggle"
+            aria-pressed={settings.muted}
+            aria-label={settings.muted ? t('hud.soundOff') : t('hud.soundOn')}
+            onClick={() => updateSettings({ muted: !settings.muted })}
+          >
+            <Icon name={settings.muted ? 'soundOff' : 'soundOn'} />
+          </button>
+        </header>
+      )}
 
       <p className="sr-only" aria-live="polite" data-testid="live-region">
         {countryName ? t('hud.entered', { name: countryName }) : ''}
       </p>
 
       <div className="play__panels">
-        {data && mission && <MissionBanner data={data} mission={mission} position={position} />}
-        {data && card && <CountryCard code={card} catalog={data.catalog} />}
+        {!room && data && mission && (
+          <MissionBanner data={data} mission={mission} position={position} />
+        )}
+        {!room && data && !mission && storyRun && <StoryBanner data={data} position={position} />}
+        {!room && data && card && <CountryCard code={card} catalog={data.catalog} />}
         {data && <Toasts data={data} />}
       </div>
       <MissionSuccess />
+      {data && <Publication data={data} />}
+
+      {!room && enterable && (
+        <button
+          type="button"
+          className="enter-prompt"
+          data-testid="enter-place"
+          onClick={enterPlace}
+        >
+          {t('hud.enter', { name: enterable.names[locale] })}
+          <kbd className="enter-prompt__key">E</kbd>
+        </button>
+      )}
 
       {!useSvg && (
         <>
-          <div className="zoom-controls">
-            <button
-              type="button"
-              className="icon-btn"
-              aria-label={t('hud.zoomIn')}
-              onClick={() => handleRef.current?.zoomBy(1.3)}
-            >
-              <Icon name="plus" />
-            </button>
-            <button
-              type="button"
-              className="icon-btn"
-              aria-label={t('hud.zoomOut')}
-              onClick={() => handleRef.current?.zoomBy(0.77)}
-            >
-              <Icon name="minus" />
-            </button>
-            <button
-              type="button"
-              className={`icon-btn${sprinting ? ' is-active' : ''}`}
-              data-testid="sprint-toggle"
-              aria-pressed={sprinting}
-              aria-label={t('hud.sprint')}
-              title={t('hud.sprint')}
-              onClick={() => {
-                setSprintToggled(!sprinting);
-                setSprinting(!sprinting);
-              }}
-            >
-              <Icon name="fast" />
-            </button>
-          </div>
+          {!room && (
+            <div className="zoom-controls">
+              <button
+                type="button"
+                className="icon-btn"
+                aria-label={t('hud.zoomIn')}
+                onClick={() => handleRef.current?.zoomBy(1.3)}
+              >
+                <Icon name="plus" />
+              </button>
+              <button
+                type="button"
+                className="icon-btn"
+                aria-label={t('hud.zoomOut')}
+                onClick={() => handleRef.current?.zoomBy(0.77)}
+              >
+                <Icon name="minus" />
+              </button>
+              <button
+                type="button"
+                className={`icon-btn${sprinting ? ' is-active' : ''}`}
+                data-testid="sprint-toggle"
+                aria-pressed={sprinting}
+                aria-label={t('hud.sprint')}
+                title={t('hud.sprint')}
+                onClick={() => {
+                  setSprintToggled(!sprinting);
+                  setSprinting(!sprinting);
+                }}
+              >
+                <Icon name="fast" />
+              </button>
+            </div>
+          )}
           <Joystick />
-          {data && (
+          {!room && data && (
             <MiniMap
               data={data}
               position={position}
               onToggle={() => handleRef.current?.toggleOverview()}
             />
           )}
-          {!settings.seenTutorial && (
+          {!room && !settings.seenTutorial && (
             <p className="coach" data-testid="tutorial">
               <span className="coach__keys">{t('hud.tutorialKeys')}</span>
               <span className="coach__touch">{t('hud.tutorialTouch')}</span>
             </p>
           )}
-          <footer className="hud-foot">
-            <span data-testid="hud-terrain" data-terrain={terrain}>
-              {terrain === 'water' ? t('hud.onWater') : t('hud.onLand')}
-            </span>
-            {coords && (
-              <span
-                data-testid="hud-position"
-                data-lat={coords.lat.toFixed(2)}
-                data-lon={coords.lon.toFixed(2)}
-              >
-                {Math.abs(coords.lat).toFixed(1)}° {coords.lat >= 0 ? 'N' : 'S'} ·{' '}
-                {Math.abs(coords.lon).toFixed(1)}° {coords.lon >= 0 ? 'E' : 'O'}
+          {!room && (
+            <footer className="hud-foot">
+              <span data-testid="hud-terrain" data-terrain={terrain}>
+                {terrain === 'water' ? t('hud.onWater') : t('hud.onLand')}
               </span>
-            )}
-            <span className="hud-foot__legal">{t('hud.borders')}</span>
-          </footer>
+              {coords && (
+                <span
+                  data-testid="hud-position"
+                  data-lat={coords.lat.toFixed(2)}
+                  data-lon={coords.lon.toFixed(2)}
+                >
+                  {Math.abs(coords.lat).toFixed(1)}° {coords.lat >= 0 ? 'N' : 'S'} ·{' '}
+                  {Math.abs(coords.lon).toFixed(1)}° {coords.lon >= 0 ? 'E' : 'O'}
+                </span>
+              )}
+              <span className="hud-foot__legal">{t('hud.borders')}</span>
+            </footer>
+          )}
         </>
       )}
     </main>

@@ -44,8 +44,12 @@ async function measure(gpuArgs: string[], label: string, throttle: number) {
     localStorage.setItem(
       'tembea.progress',
       JSON.stringify({
-        version: 1,
-        profile: { avatar: 'kofi', pseudonym: { animal: 'lion', adjective: 'calm' } },
+        version: 2,
+        profile: { avatar: 'kofi', pseudonym: { role: 'poet', adjective: 'calm' } },
+        story: null,
+        storiesDone: [],
+        notes: [],
+        roomsVisited: [],
         level: 'geographer',
         stamps: {},
         discoveredPlaces: [],

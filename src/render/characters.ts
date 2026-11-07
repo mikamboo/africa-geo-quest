@@ -64,6 +64,76 @@ export const LOOKS: Record<AvatarId, CharacterLook> = {
   },
 };
 
+/** Personnes rencontrées dans les lieux : tenues de ville et de travail, aucune tenue « typique ». */
+export const NPC_LOOKS: CharacterLook[] = [
+  {
+    skin: '#5F3822',
+    skinShade: '#4A2A18',
+    hair: '#16100C',
+    shirt: '#F4F1E8',
+    shirtShade: '#D9D4C4',
+    bottom: '#28344A',
+    shoes: '#3A2A20',
+    pack: '#28344A',
+    hairStyle: 'short',
+  },
+  {
+    skin: '#8A5A36',
+    skinShade: '#70482A',
+    hair: '#1E1410',
+    shirt: '#2E5E8C',
+    shirtShade: '#244B70',
+    bottom: '#2A2A2E',
+    shoes: '#F4F1E8',
+    pack: '#2A2A2E',
+    hairStyle: 'braids',
+  },
+  {
+    skin: '#B98A62',
+    skinShade: '#9C7450',
+    hair: '#2E2018',
+    shirt: '#7A2E3A',
+    shirtShade: '#62242E',
+    bottom: '#3A3F46',
+    shoes: '#2A2018',
+    pack: '#3A3F46',
+    hairStyle: 'curls',
+  },
+  {
+    skin: '#4E2E1C',
+    skinShade: '#3C2214',
+    hair: '#120C08',
+    shirt: '#E2A72E',
+    shirtShade: '#C48E22',
+    bottom: '#2C3E36',
+    shoes: '#F4F1E8',
+    pack: '#2C3E36',
+    hairStyle: 'puffs',
+  },
+  {
+    skin: '#6E4428',
+    skinShade: '#58361F',
+    hair: '#17110D',
+    shirt: '#3E6B4E',
+    shirtShade: '#32563F',
+    bottom: '#4A3A2E',
+    shoes: '#2A2018',
+    pack: '#4A3A2E',
+    hairStyle: 'short',
+  },
+  {
+    skin: '#A06C44',
+    skinShade: '#855936',
+    hair: '#241810',
+    shirt: '#44415E',
+    shirtShade: '#37344C',
+    bottom: '#8A7458',
+    shoes: '#F4F1E8',
+    pack: '#8A7458',
+    hairStyle: 'curls',
+  },
+];
+
 export const CELL_WIDTH = 96;
 export const CELL_HEIGHT = 128;
 export const DIRECTIONS: Facing[] = ['down', 'left', 'right', 'up'];
@@ -172,21 +242,41 @@ function drawHair(
   }
 }
 
-function drawFace(ctx: CanvasRenderingContext2D, facing: Facing, headY: number): void {
+function drawFace(
+  ctx: CanvasRenderingContext2D,
+  look: CharacterLook,
+  facing: Facing,
+  headY: number,
+): void {
   if (facing === 'up') return;
-  const white = '#FFF9EE';
-  const ink = '#1B110C';
-  const eyes = facing === 'down' ? [17, 31] : facing === 'left' ? [14] : [34];
+  const eyeColor = '#2A1810';
+  const eyes = facing === 'down' ? [18, 30] : facing === 'left' ? [14] : [34];
   for (const x of eyes) {
-    circle(ctx, x, headY + 2, 4, white);
-    circle(ctx, x + (facing === 'left' ? -1 : facing === 'right' ? 1 : 0), headY + 2.4, 2.4, ink);
+    // Yeux sombres et simples, sans grande sclère blanche : aucun trait de caricature.
+    ctx.fillStyle = eyeColor;
+    ctx.beginPath();
+    ctx.ellipse(x, headY + 1.5, 2, 2.5, 0, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.85)';
+    ctx.beginPath();
+    ctx.arc(x + 0.6, headY + 0.6, 0.6, 0, Math.PI * 2);
+    ctx.fill();
+    // Sourcil discret, qui donne du caractère sans exagérer l'expression.
+    ctx.strokeStyle = look.hair;
+    ctx.lineWidth = 1.2;
+    ctx.lineCap = 'round';
+    ctx.beginPath();
+    ctx.moveTo(x - 2.5, headY - 2.8);
+    ctx.lineTo(x + 2.5, headY - 3.2);
+    ctx.stroke();
   }
-  ctx.strokeStyle = ink;
-  ctx.lineWidth = 1.6;
+  // Bouche : un trait fin, dans un ton proche de la peau.
+  ctx.strokeStyle = look.skinShade;
+  ctx.lineWidth = 1.4;
   ctx.lineCap = 'round';
   ctx.beginPath();
   const mouthX = facing === 'down' ? 24 : facing === 'left' ? 15 : 33;
-  ctx.arc(mouthX, headY + 7, 3.2, 0.2, Math.PI - 0.2);
+  ctx.arc(mouthX, headY + 6, 2.4, 0.35, Math.PI - 0.35);
   ctx.stroke();
 }
 
@@ -272,7 +362,7 @@ export function drawCharacter(
   // Tête : les cheveux de derrière d'abord pour certaines coiffures, puis le visage.
   circle(ctx, 24, headY, 15, look.skin);
   drawHair(ctx, look, facing, headY);
-  drawFace(ctx, facing, headY);
+  drawFace(ctx, look, facing, headY);
   ctx.restore();
 }
 

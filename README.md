@@ -2,7 +2,7 @@
 
 **Marche l'Afrique. 54 pays t'attendent.**
 
-Tembea (« marcher, voyager » en swahili) est un jeu de géographie pour tous, dès 8 ans. Un personnage parcourt à pied et en pirogue une vraie carte de l'Afrique pour découvrir ses pays, ses capitales, ses fleuves, ses lacs et ses reliefs. Pas de compte, pas de publicité, pas de traceur : tout reste sur l'appareil.
+Tembea (« marcher, voyager » en swahili) est un jeu de géographie pour tous, dès 8 ans. Un personnage parcourt à pied et en bateau une vraie carte de l'Afrique, suit des enquêtes de ville en ville et entre dans les lieux pour rencontrer ceux qui y travaillent. Pas de compte, pas de publicité, pas de traceur : tout reste sur l'appareil.
 
 | Exploration                                                                             | Accueil                                                         | Passeport                                                             |
 | --------------------------------------------------------------------------------------- | --------------------------------------------------------------- | --------------------------------------------------------------------- |
@@ -30,11 +30,13 @@ Puis ouvrir http://localhost:4173.
 
 ## Le jeu
 
-- **Exploration libre :** flèches ou WASD, joystick sur mobile. L'océan se traverse en pirogue, jusqu'aux six pays insulaires.
+- **Reportages :** tu écris pour un magazine fictif. Sept enquêtes (musique, cinéma, savoirs, technologies, architecture, sport, littérature) te mènent de ville en ville avec des indices géographiques. Tu entres dans les lieux, tu y circules, tu parles aux gens, tu résous un défi, et chaque enquête finit en couverture.
+- **Lieux :** chaque ville et monument s'ouvre : on quitte la carte pour un intérieur, avec des personnes à rencontrer, un panneau à lire et une carte murale à résoudre.
+- **Voyage libre :** flèches ou WASD, joystick sur mobile. L'océan se traverse en bateau, jusqu'aux six pays insulaires.
 - **Missions :** va à une capitale, traverse un fleuve, trouve un pays sans accès à la mer, rejoins une île. Chronomètre facultatif.
 - **Quiz :** les questions viennent de ce que tu as visité. Les erreurs reviennent par répétition espacée (Leitner), sans sanction.
 - **Défi du jour :** même mission pour tous, déduite de la date UTC, score local, série de jours et résultat à copier.
-- **Trois niveaux :** Explorateur pour découvrir, Géographe pour aller plus loin, Expert pour les connaisseurs (carte muette, boussole sur demande, pièges de la même région).
+- **Trois niveaux :** Premiers pas pour débuter, Géographe pour aller plus loin, Expert pour les connaisseurs (carte muette, boussole sur demande, pièges de la même région).
 - **Confort :** pas rapide (Maj), vue d'ensemble (M), mini-carte, réponses au clavier dans le quiz. Une fiche ne s'ouvre qu'à la découverte d'un pays.
 - **Progression :** passeport à tampons, badges des cinq régions M49, pourcentage de carte découverte.
 - **Accessibilité :** clavier complet, mode sans déplacement avec carte SVG, police pour la dyslexie, réduction des animations.

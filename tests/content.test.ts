@@ -2,6 +2,9 @@ import { existsSync, readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import { factsFileSchema } from '../src/data/facts';
 import { project } from '../src/core/projection';
+import { validateDialogue } from '../src/core/dialogue';
+import { stopDialogue, type StoryStop } from '../src/core/stories';
+import { storiesSchema } from '../src/data/schemas';
 import en from '../src/i18n/en.json';
 import fr from '../src/i18n/fr.json';
 import { EXPECTED_CODES, loadAll } from '../scripts/data/checks';
@@ -38,6 +41,97 @@ describe('i18n', () => {
         expect(String(value).length, key).toBeGreaterThan(0);
       }
     }
+  });
+});
+
+/** Charte éditoriale (`docs/CHARTE_EDITORIALE.md`) : mots interdits, quel que soit le sujet. */
+const CLICHES =
+  /\b(gorilles?|girafes?|éléphants?|hippopotames?|singes?|okapis?|antilopes?|gazelles?|zèbres?|chimpanzés?|giraffes?|elephants?|hippos?|monkeys?|zebras?|safari|brousse|jungle|bush|tribus?|tribes?|tribal|primitifs?|primitive|exotiques?|exotic|sauvages?|savages?|ancestrale?s?|mystérieu[xs]e?|mysterious)\b/i;
+
+describe('charte éditoriale', () => {
+  it('écarte animaux et clichés des fiches pays', () => {
+    for (const code of sorted) {
+      expect(factsFr[code]!.text, code).not.toMatch(CLICHES);
+      expect(factsEn[code]!.text, code).not.toMatch(CLICHES);
+    }
+  });
+  it('écarte animaux et clichés des lieux', () => {
+    for (const place of data.placesFile.places) {
+      for (const text of [place.blurb?.fr ?? '', place.blurb?.en ?? '', place.names.fr]) {
+        expect(text, place.id).not.toMatch(CLICHES);
+      }
+    }
+  });
+  it('écarte animaux et clichés de l’interface', () => {
+    for (const file of [fr, en]) {
+      expect(JSON.stringify(file)).not.toMatch(CLICHES);
+    }
+  });
+  it('ne parle plus de « découvrir » l’Afrique ni de pirogue', () => {
+    for (const file of [fr, en]) {
+      // Les valeurs seulement : les clés techniques `explorer` restent stables dans les sauvegardes.
+      const text = JSON.stringify(file, (_key, value) => value).replace(/"[\w-]+":/g, '');
+      expect(text).not.toMatch(/découvert|discovered|explorateur|\bExplorer\b|pirogue|canoe/i);
+    }
+  });
+  it('garde plus de lieux humains que de sites naturels', () => {
+    const pois = data.placesFile.places.filter((place) => place.id.startsWith('poi-'));
+    const nature = pois.filter((place) => place.kind === 'nature').length;
+    expect(nature).toBeLessThan(pois.length / 2);
+  });
+});
+
+describe('reportages', () => {
+  const stories = storiesSchema.parse(read('data/stories.json'));
+  const places = new Map(data.placesFile.places.map((place) => [place.id, place]));
+
+  it('comptent assez d’étapes, dans des pays différents par reportage', () => {
+    expect(stories.length).toBeGreaterThanOrEqual(6);
+    for (const story of stories) {
+      const countries = story.stops.map((stop) => places.get(stop.placeId)?.country);
+      expect(new Set(countries).size, story.id).toBe(story.stops.length);
+    }
+  });
+  it('mènent à des lieux visibles à tous les niveaux', () => {
+    for (const story of stories) {
+      for (const stop of story.stops) {
+        const place = places.get(stop.placeId);
+        expect(place, stop.placeId).toBeDefined();
+        expect(place?.level, stop.placeId).toBe('explorer');
+      }
+    }
+  });
+  it('ont des indices qui ne donnent ni la ville ni le pays', () => {
+    for (const story of stories) {
+      for (const stop of story.stops) {
+        const place = places.get(stop.placeId)!;
+        const country = data.countries.find((c) => c.code === place.country)!;
+        for (const name of [place.names.fr, country.names.fr]) {
+          expect(stop.clue.fr, `${stop.placeId} ${name}`).not.toContain(name);
+        }
+        for (const name of [place.names.en, country.names.en]) {
+          expect(stop.clue.en, `${stop.placeId} ${name}`).not.toContain(name);
+        }
+      }
+    }
+  });
+  it('ont des conversations sans impasse, et une seule bonne réponse', () => {
+    for (const story of stories) {
+      story.stops.forEach((stop, index) => {
+        const graph = stopDialogue(stop as StoryStop, story.stops[index + 1] as StoryStop);
+        expect(validateDialogue(graph), stop.placeId).toEqual([]);
+        expect(stop.question.options[stop.question.answer], stop.placeId).toBeDefined();
+      });
+    }
+  });
+  it('ne placent pas toujours la bonne réponse au même endroit', () => {
+    const positions = stories.flatMap((s) => s.stops.map((stop) => stop.question.answer));
+    expect(new Set(positions).size).toBeGreaterThan(1);
+  });
+  it('respectent la charte éditoriale', () => {
+    expect(JSON.stringify(stories.map((s) => [s.title, s.intro, s.outro, s.stops]))).not.toMatch(
+      CLICHES,
+    );
   });
 });
 
@@ -83,9 +177,6 @@ describe('fiches pays', () => {
   });
 });
 
-/** Atoll seychellois réel, absent de Natural Earth à 1:50m : il se rejoint en pirogue. */
-const OUTLYING_ISLANDS = ['poi-aldabra'];
-
 describe('drapeaux et lieux', () => {
   it('a un drapeau auto-hébergé pour chaque pays', () => {
     for (const country of data.countries) {
@@ -98,9 +189,7 @@ describe('drapeaux et lieux', () => {
     for (const poi of pois) {
       const { x, y } = project(poi.lon, poi.lat);
       const gap = data.world.distanceToCountry(poi.country, x, y);
-      if (OUTLYING_ISLANDS.includes(poi.id)) {
-        expect(data.world.locate({ x, y }).terrain, poi.id).toBe('water');
-      } else {
+      {
         // Un îlot absent à 1:50m reste dans la zone de détection de son pays insulaire.
         expect(gap, poi.id).toBeLessThanOrEqual(Math.max(30, data.world.hitRadiusOf(poi.country)));
       }

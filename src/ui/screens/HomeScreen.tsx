@@ -7,6 +7,7 @@ import { COUNTRIES_META } from '../../data/countriesMeta';
 import { AtlasMap } from '../components/AtlasMap';
 import { Avatar } from '../components/Avatar';
 import { Icon } from '../components/Icon';
+import { switchLocale as applyLocale } from '../../i18n';
 import { formatPseudonym } from '../format';
 import { useGameStore } from '../store';
 
@@ -21,7 +22,7 @@ function nextBadge(stamps: Record<string, string>) {
 }
 
 export function HomeScreen() {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const progress = useGameStore((state) => state.progress);
   const recovered = useGameStore((state) => state.recovered);
   const dailyScores = useGameStore((state) => state.dailyScores);
@@ -46,7 +47,7 @@ export function HomeScreen() {
 
   function switchLocale(locale: 'fr' | 'en'): void {
     updateSettings({ locale });
-    void i18n.changeLanguage(locale);
+    void applyLocale(locale);
   }
 
   const dailyMeta = [
@@ -118,7 +119,7 @@ export function HomeScreen() {
             <>
               <p className="stat" data-testid="home-progress" data-percent={percent}>
                 <span className="stat__value">{percent} %</span>
-                <span className="stat__label">{t('home.discovered')}</span>
+                <span className="stat__label">{t('home.travelled')}</span>
               </p>
               <div className="meter" aria-hidden="true">
                 <div className="meter__fill" style={{ width: `${percent}%` }} />
@@ -132,10 +133,17 @@ export function HomeScreen() {
                     total: badge.total,
                   })}`}
               </p>
-              <button type="button" className="cta" data-testid="mode-explore" onClick={startFree}>
+              <button
+                type="button"
+                className="cta"
+                data-testid="mode-stories"
+                onClick={() => navigate('stories')}
+              >
                 <span>
-                  <strong>{t('home.explore')}</strong>
-                  <span className="cta__desc">{t('home.exploreDesc')}</span>
+                  <strong>{t('home.stories')}</strong>
+                  <span className="cta__desc">
+                    {progress.story ? t('home.storiesResume') : t('home.storiesDesc')}
+                  </span>
                 </span>
                 <Icon name="chevron" />
               </button>
@@ -147,6 +155,18 @@ export function HomeScreen() {
       {profile && (
         <>
           <nav className="modes" aria-label={t('home.modes')}>
+            <button
+              type="button"
+              className="mode mode--explore"
+              data-testid="mode-explore"
+              onClick={startFree}
+            >
+              <strong>{t('home.explore')}</strong>
+              <span>{t('home.exploreDesc')}</span>
+              <span className="mode__meta">
+                {t('passport.places', { count: progress.discoveredPlaces.length })}
+              </span>
+            </button>
             <button
               type="button"
               className="mode mode--missions"

@@ -13,7 +13,7 @@ import {
   stampCountry,
 } from './progress';
 import { dailyScore, missionPoints, quizPoints } from './scoring';
-import { generatePseudonyms, isValidPseudonym } from './pseudonyms';
+import { generatePseudonyms, isValidPseudonym, migrateLegacyPseudonym, ROLES } from './pseudonyms';
 import { createTestWorld } from './testing';
 import { capitalsOf, countryByCode, primaryCapital } from './catalog';
 
@@ -104,7 +104,10 @@ describe('progression', () => {
     expect(regionProgress(p, catalog).find((r) => r.region === 'east')?.visited).toBe(0);
   });
   it('réinitialise en gardant le profil', () => {
-    const profile = { avatar: 'zola' as const, pseudonym: { animal: 'lion', adjective: 'calm' } };
+    const profile = {
+      avatar: 'zola' as const,
+      pseudonym: { role: 'astronomer', adjective: 'calm' },
+    };
     const p = { ...stampCountry(createInitialProgress(), 'AAA', 'd'), profile };
     const reset = resetKeepingProfile(p);
     expect(reset.profile).toEqual(profile);
@@ -167,11 +170,24 @@ describe('pseudonymes', () => {
     const list = generatePseudonyms(createRng(3), 6);
     expect(list).toHaveLength(6);
     expect(list.every(isValidPseudonym)).toBe(true);
-    expect(new Set(list.map((p) => p.animal)).size).toBe(6);
+    expect(new Set(list.map((p) => p.role)).size).toBe(6);
   });
   it('refuse un texte libre', () => {
-    expect(isValidPseudonym({ animal: 'Jean Dupont', adjective: 'fast' })).toBe(false);
-    expect(isValidPseudonym({ animal: 'lion', adjective: 'xxx' })).toBe(false);
+    expect(isValidPseudonym({ role: 'Jean Dupont', adjective: 'fast' })).toBe(false);
+    expect(isValidPseudonym({ role: 'poet', adjective: 'xxx' })).toBe(false);
+  });
+  it('ne contient aucun animal', () => {
+    for (const animal of ['gazelle', 'lion', 'zebra', 'okapi']) {
+      expect(ROLES as readonly string[]).not.toContain(animal);
+    }
+  });
+  it('convertit les anciens pseudonymes et refuse le reste', () => {
+    expect(migrateLegacyPseudonym('gazelle', 'curious')).toEqual({
+      role: 'cartographer',
+      adjective: 'lucid',
+    });
+    expect(migrateLegacyPseudonym('Jean Dupont', 'calm')).toBeNull();
+    expect(migrateLegacyPseudonym('lion', 'xxx')).toBeNull();
   });
   it('borne la demande à la taille des listes', () => {
     expect(generatePseudonyms(createRng(3), 999)).toHaveLength(12);
