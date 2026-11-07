@@ -343,6 +343,13 @@ function buildPlaces(placesShp: string, relief: ReliefData[]): void {
     }
   }
 
+  // Une étape de reportage doit exister à tous les niveaux, sinon le joueur serait bloqué.
+  const storyStops = new Set(
+    readJson<{ stops: { placeId: string }[] }[]>('data/stories.json').flatMap((story) =>
+      story.stops.map((stop) => stop.placeId),
+    ),
+  );
+  for (const place of places) if (storyStops.has(place.id)) place.level = 'explorer';
   const curated = readJson<PlaceData[]>('data/pois.json');
   const neighbors = computeNeighbors();
   const parsed = placesFileSchema.parse({ places: [...places, ...curated], relief, neighbors });
@@ -426,11 +433,63 @@ function buildSilhouette(countriesShp: string): void {
   writeFileSync(
     'src/data/generated/silhouette.json',
     JSON.stringify({
+      minX: Math.round(box.minX),
+      minY: Math.round(box.minY),
+      scale,
       width: Math.round((box.maxX - box.minX) * scale),
       height: Math.round((box.maxY - box.minY) * scale),
       d,
     }),
   );
+}
+
+/** Atlas très léger de l'accueil : un tracé par pays, pour que la carte du joueur se remplisse. */
+function buildAtlas(): void {
+  const file = join(work, 'atlas.json');
+  mapshaper(
+    join(OUT_DIR, 'world.topo.json'),
+    '-target',
+    'countries',
+    '-simplify',
+    'percentage=22%',
+    'keep-shapes',
+    '-o',
+    file,
+    'format=geojson',
+  );
+  const collection = readJson<FeatureCollection<Polygon | MultiPolygon, { code: string }>>(file);
+  const scale = 0.1;
+  const projected = collection.features.map((feature) => {
+    const { geometry } = feature;
+    const polygons = geometry.type === 'Polygon' ? [geometry.coordinates] : geometry.coordinates;
+    return {
+      code: feature.properties.code,
+      rings: polygons.map((rings) => rings[0]!.map(([lon, lat]) => project(lon!, lat!))),
+    };
+  });
+  const points = projected.flatMap((country) => country.rings.flat());
+  const minX = Math.min(...points.map((p) => p.x));
+  const minY = Math.min(...points.map((p) => p.y));
+  const maxX = Math.max(...points.map((p) => p.x));
+  const maxY = Math.max(...points.map((p) => p.y));
+  const atlas = {
+    width: Math.round((maxX - minX) * scale),
+    height: Math.round((maxY - minY) * scale),
+    countries: Object.fromEntries(
+      projected.map(({ code, rings }) => [
+        code,
+        rings
+          .map((ring) => {
+            const path = ring
+              .map((p) => `${Math.round((p.x - minX) * scale)} ${Math.round((p.y - minY) * scale)}`)
+              .filter((point, index, all) => point !== all[index - 1]);
+            return `M${path.join('L')}Z`;
+          })
+          .join(''),
+      ]),
+    ),
+  };
+  writeFileSync(join(OUT_DIR, 'atlas.json'), JSON.stringify(atlas));
 }
 
 function copyFlags(): void {
@@ -451,6 +510,7 @@ buildPlaces(
   buildRelief(paths.ne_50m_geography_regions_polys!),
 );
 buildSilhouette(paths.ne_50m_admin_0_countries!);
+buildAtlas();
 copyFlags();
 rmSync(work, { recursive: true, force: true });
 console.log('Données générées dans public/geo et public/flags.');

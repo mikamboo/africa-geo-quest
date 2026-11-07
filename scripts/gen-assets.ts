@@ -4,10 +4,10 @@ import silhouette from '../src/data/generated/silhouette.json';
 
 /** Icônes, favicon et image Open Graph, générés par code depuis la silhouette du continent. */
 const font = readFileSync(
-  'node_modules/@fontsource/lilita-one/files/lilita-one-latin-400-normal.woff2',
+  'node_modules/@fontsource/fraunces/files/fraunces-latin-900-normal.woff2',
 ).toString('base64');
 const body = readFileSync(
-  'node_modules/@fontsource/nunito/files/nunito-latin-800-normal.woff2',
+  'node_modules/@fontsource/atkinson-hyperlegible/files/atkinson-hyperlegible-latin-700-normal.woff2',
 ).toString('base64');
 
 const map = (fill: string, stroke: string) =>
@@ -25,11 +25,11 @@ function iconSvg(background: string, padding: number): string {
 const band = `<div style="height:36px;background:repeating-linear-gradient(90deg,#b5381f 0 72px,#f0b03a 72px 108px,#3f6a1f 108px 180px,#fff6e3 180px 216px,#1e6f8f 216px 288px)"></div>`;
 const ogHtml = `<!doctype html><style>
 @font-face{font-family:L;src:url(data:font/woff2;base64,${font})}
-@font-face{font-family:N;src:url(data:font/woff2;base64,${body});font-weight:800}
+@font-face{font-family:N;src:url(data:font/woff2;base64,${body});font-weight:700}
 *{margin:0;box-sizing:border-box}body{width:1200px;height:630px;background:#f6e4bf;color:#2a1a12;overflow:hidden}
 .w{display:flex;align-items:center;justify-content:space-between;padding:30px 70px;height:594px}
-h1{font:400 190px/0.95 L;color:#b5381f;text-shadow:7px 7px 0 #f0b03a}
-p{font:800 44px/1.2 N;margin-top:24px;max-width:640px}
+h1{font:400 170px/0.95 L;color:#b5381f}
+p{font:700 42px/1.2 N;margin-top:24px;max-width:640px}
 svg{height:520px}</style>${band}<div class="w"><div><h1>Tembea</h1><p>Marche l'Afrique. 54 pays t'attendent.</p></div>
 <svg viewBox="-10 -10 ${silhouette.width + 20} ${silhouette.height + 20}"><path d="${silhouette.d}" transform="translate(12 14)" fill="#2a1a12"/>${map('#8db85a', '#2a1a12')}</svg></div>`;
 

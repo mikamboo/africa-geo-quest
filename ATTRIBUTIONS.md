@@ -23,6 +23,8 @@ Les sous-régions de `data/countries.json` suivent la classification M49 de la D
 | `data/capitals.json`                       | Britannica pour les cas délicats ; Le Monde pour la Guinée équatoriale                                                             | Curaté                                                   |
 | `data/pois.json`                           | Wikipédia anglaise (CC BY-SA 4.0) et UNESCO, pour les coordonnées et les faits. Les phrases sont reformulées                       | L'URL de chaque lieu est dans le fichier                 |
 
+Les reportages (`data/stories.json`) s'appuient sur UNESCO, Britannica, Nobel Prize, SARAO, Banque mondiale, World Athletics, CAF, FESPACO et ACC ; une étape cite Wikipédia. L'URL de chaque source est dans le fichier. Les personnages sont fictifs.
+
 ## Drapeaux
 
 [flag-icons](https://github.com/lipis/flag-icons) (MIT), 54 fichiers SVG auto-hébergés dans `public/flags/`.
@@ -31,11 +33,11 @@ Les sous-régions de `data/countries.json` suivent la classification M49 de la D
 
 Auto-hébergées via Fontsource, sans appel à un CDN. Toutes sous licence SIL Open Font License 1.1.
 
-| Police       | Paquet                     | Usage           |
-| ------------ | -------------------------- | --------------- |
-| Lilita One   | `@fontsource/lilita-one`   | Titres          |
-| Nunito       | `@fontsource/nunito`       | Texte           |
-| OpenDyslexic | `@fontsource/opendyslexic` | Option dyslexie |
+| Police                | Paquet                              | Usage           |
+| --------------------- | ----------------------------------- | --------------- |
+| Fraunces              | `@fontsource/fraunces`              | Titres          |
+| Atkinson Hyperlegible | `@fontsource/atkinson-hyperlegible` | Texte           |
+| OpenDyslexic          | `@fontsource/opendyslexic`          | Option dyslexie |
 
 ## Bibliothèques
 

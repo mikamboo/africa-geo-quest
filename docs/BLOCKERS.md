@@ -14,3 +14,9 @@
 
 - **Exigence :** `ci.yml` syntaxiquement valide, « test ou `actionlint` si disponible sans installation globale ».
 - **Choix :** `tests/config.test.ts` analyse le YAML et vérifie la structure et les commandes. `actionlint` n'a pas été lancé. Le workflow n'a jamais tourné sur GitHub.
+
+## Gel de la page après rechargement, sous SwiftShader : cause non établie
+
+- **Constat :** dans `e2e/rooms.spec.ts`, juste après un rechargement, la page met parfois 27 à 43 s à répondre, sans requête en attente ni erreur.
+- **Hors SwiftShader :** le même parcours prend environ 1 s (948 à 1 122 ms mesurés). Le test garde un délai de 60 s à cet endroit.
+- **Pour conclure :** profiler ce rechargement sur une machine avec GPU, puis retirer ce délai.

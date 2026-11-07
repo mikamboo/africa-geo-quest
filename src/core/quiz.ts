@@ -10,6 +10,7 @@ export type QuestionKind =
   | 'flag-of'
   | 'region-of'
   | 'city-in'
+  | 'shape-of'
   | 'borders'
   | 'landlocked';
 
@@ -34,11 +35,13 @@ const GEOGRAPHER_KINDS: QuestionKind[] = [
   'city-in',
   'borders',
   'landlocked',
+  'shape-of',
 ];
 
 const REGION_OPTIONS = ['north', 'west', 'central', 'east', 'south'];
 
 export function optionCount(level: Level, box: number): number {
+  if (level === 'expert') return 5;
   if (level === 'geographer') return 4;
   return box >= 3 ? 4 : 3;
 }
@@ -48,6 +51,29 @@ function distractors(rng: Rng, pool: string[], answer: string, count: number): s
     rng,
     pool.filter((id) => id !== answer),
   ).slice(0, count);
+}
+
+/** Au niveau Expert, les pièges viennent de la même région : la question devient vraiment difficile. */
+function countryDistractors(
+  rng: Rng,
+  catalog: GameCatalog,
+  level: Level,
+  answer: string,
+  count: number,
+): string[] {
+  const codes = catalog.countries.map((country) => country.code);
+  if (level !== 'expert') return distractors(rng, codes, answer, count);
+  const region = countryByCode(catalog, answer)?.region;
+  const sameRegion = catalog.countries.filter((c) => c.region === region).map((c) => c.code);
+  const near = distractors(rng, sameRegion, answer, count);
+  const taken = new Set([answer, ...near]);
+  const rest = distractors(
+    rng,
+    codes.filter((code) => !taken.has(code)),
+    answer,
+    count - near.length,
+  );
+  return [...near, ...rest];
 }
 
 function withOptions(rng: Rng, answer: string, others: string[]): string[] {
@@ -84,14 +110,15 @@ export function buildQuestion(
       };
     }
     case 'country-of-capital':
-    case 'flag-of': {
+    case 'flag-of':
+    case 'shape-of': {
       if (!countryByCode(catalog, subject)) return null;
       return {
         itemId,
         kind,
         subject,
         answer: subject,
-        options: withOptions(rng, subject, distractors(rng, codes, subject, count)),
+        options: withOptions(rng, subject, countryDistractors(rng, catalog, level, subject, count)),
       };
     }
     case 'region-of': {
@@ -182,7 +209,7 @@ export function generateQuiz(
     visited.flatMap((code) => itemsForCountry(code, level, catalog)),
   ).filter(unseen);
   const cityItems =
-    level === 'geographer'
+    level !== 'explorer'
       ? shuffle(
           rng,
           placesForLevel(catalog, level)

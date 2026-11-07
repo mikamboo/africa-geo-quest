@@ -1,0 +1,1325 @@
+[
+  {
+    "id": "son",
+    "theme": "son",
+    "title": {
+      "fr": "Sur les ondes : trois capitales de la musique",
+      "en": "On the air: three music capitals"
+    },
+    "intro": {
+      "fr": "Tembea Mag prépare un numéro spécial musique. Ton premier studio t'attend au bord d'un grand fleuve.",
+      "en": "Tembea Mag is preparing a special music issue. Your first studio is waiting by a great river."
+    },
+    "outro": {
+      "fr": "Rumba, afrobeat, mbalax : ton dossier fait danser toute la rédaction. Bravo, reporter !",
+      "en": "Rumba, afrobeat, mbalax: your story has the whole newsroom dancing. Well done, reporter!"
+    },
+    "stops": [
+      {
+        "placeId": "cod-kinshasa",
+        "room": "studio",
+        "clue": {
+          "fr": "Sur le fleuve Congo, cette capitale fait face à Brazzaville, juste de l'autre côté de l'eau.",
+          "en": "On the Congo River, this capital faces Brazzaville, just across the water."
+        },
+        "npc": {
+          "name": "Merveille",
+          "role": {
+            "fr": "ingénieure du son",
+            "en": "sound engineer"
+          },
+          "look": 1
+        },
+        "lines": [
+          {
+            "fr": "Bienvenue au studio ! Ici, on enregistre de la rumba congolaise, une musique et une danse des villes de deux pays voisins.",
+            "en": "Welcome to the studio! Here we record Congolese rumba, a music and dance of the cities of two neighbouring countries."
+          },
+          {
+            "fr": "Elle vient d'une vieille danse appelée nkumba, qui veut dire « taille » en kikongo. L'UNESCO l'a inscrite en 2021.",
+            "en": "It comes from an old dance called nkumba, meaning 'waist' in Kikongo. UNESCO listed it in 2021."
+          }
+        ],
+        "question": {
+          "text": {
+            "fr": "Que veut dire « nkumba », la danse dont vient la rumba ?",
+            "en": "What does 'nkumba', the dance behind rumba, mean?"
+          },
+          "options": [
+            {
+              "fr": "La lune",
+              "en": "The moon"
+            },
+            {
+              "fr": "Le fleuve",
+              "en": "The river"
+            },
+            {
+              "fr": "La taille",
+              "en": "The waist"
+            }
+          ],
+          "answer": 2,
+          "explanation": {
+            "fr": "C'est « taille » en kikongo : la rumba se danse en couple, en bougeant les hanches.",
+            "en": "It means 'waist' in Kikongo: rumba is danced as a couple, moving the hips."
+          }
+        },
+        "note": {
+          "fr": "Rumba congolaise : née de la danse nkumba, inscrite à l'UNESCO en 2021.",
+          "en": "Congolese rumba: born from the nkumba dance, UNESCO-listed in 2021."
+        },
+        "sourceUrl": "https://ich.unesco.org/en/RL/congolese-rumba-01711",
+        "quote": "it is a multicultural form of expression originating from an ancient dance called nkumba (meaning ‘waist’ in Kikongo)"
+      },
+      {
+        "placeId": "nga-lagos",
+        "room": "studio",
+        "clue": {
+          "fr": "Grande ville côtière sur le golfe de Guinée, dans un pays voisin du Bénin, du Niger et du Tchad.",
+          "en": "Big coastal city on the Gulf of Guinea, in a country bordering Benin, Niger and Chad."
+        },
+        "npc": {
+          "name": "Adaeze",
+          "role": {
+            "fr": "productrice musicale",
+            "en": "music producer"
+          },
+          "look": 3
+        },
+        "lines": [
+          {
+            "fr": "Ici, on mixe de l'afrobeat. Le musicien Fela Kuti a lancé ce style, né à Lagos à la fin des années 1960.",
+            "en": "Here we mix afrobeat. The musician Fela Kuti launched this style, which grew up in Lagos in the late 1960s."
+          },
+          {
+            "fr": "Il mélange le blues, le jazz et le funk américains avec la musique yoruba. Écoute les percussions : elles mènent le groove !",
+            "en": "It fuses American blues, jazz and funk with Yoruba music. Listen to the percussion: it leads the groove!"
+          }
+        ],
+        "question": {
+          "text": {
+            "fr": "Avec quelle musique l'afrobeat mêle-t-il le blues, le jazz et le funk ?",
+            "en": "Which music does afrobeat blend with blues, jazz and funk?"
+          },
+          "options": [
+            {
+              "fr": "La musique yoruba",
+              "en": "Yoruba music"
+            },
+            {
+              "fr": "La musique viennoise",
+              "en": "Viennese music"
+            },
+            {
+              "fr": "La musique andine",
+              "en": "Andean music"
+            }
+          ],
+          "answer": 0,
+          "explanation": {
+            "fr": "Fela Kuti a fondu ces styles avec la musique yoruba, une grande langue et culture du sud-ouest du Nigeria.",
+            "en": "Fela Kuti fused these styles with Yoruba music, from a major language and culture of south-west Nigeria."
+          }
+        },
+        "note": {
+          "fr": "Afrobeat : blues, jazz et funk mêlés à la musique yoruba, lancé par Fela Kuti.",
+          "en": "Afrobeat: blues, jazz and funk blended with Yoruba music, launched by Fela Kuti."
+        },
+        "sourceUrl": "https://www.britannica.com/biography/Fela-Kuti",
+        "quote": "launched a modern style of music called Afro-beat, which fused American blues, jazz, and funk with traditional Yoruba music"
+      },
+      {
+        "placeId": "sen-dakar",
+        "room": "studio",
+        "clue": {
+          "fr": "Capitale tout à l'ouest du continent, dans un pays qui entoure presque la Gambie.",
+          "en": "Capital at the far west of the continent, in a country that almost surrounds The Gambia."
+        },
+        "npc": {
+          "name": "Moussa",
+          "role": {
+            "fr": "batteur et ingénieur du son",
+            "en": "drummer and sound engineer"
+          },
+          "look": 4
+        },
+        "lines": [
+          {
+            "fr": "À Dakar, on danse le mbalax ! Le chanteur Youssou N'Dour l'a fait connaître dans le monde entier.",
+            "en": "In Dakar we dance to mbalax! The singer Youssou N'Dour introduced it to audiences around the world."
+          },
+          {
+            "fr": "C'est un style sénégalais qui mêle les formes wolof, chantées et jouées, à des genres cubains et latino-américains.",
+            "en": "It is a Senegalese style that blends Wolof vocal and instrumental forms with Cuban and Latin American genres."
+          }
+        ],
+        "question": {
+          "text": {
+            "fr": "Le mbalax mêle des formes wolof à des genres venus d'où ?",
+            "en": "Mbalax blends Wolof forms with genres from where?"
+          },
+          "options": [
+            {
+              "fr": "De Cuba et d'Amérique latine",
+              "en": "Cuba and Latin America"
+            },
+            {
+              "fr": "De Scandinavie",
+              "en": "Scandinavia"
+            },
+            {
+              "fr": "Du Japon",
+              "en": "Japan"
+            }
+          ],
+          "answer": 0,
+          "explanation": {
+            "fr": "Oui ! Ces échanges musicaux à travers l'Atlantique ont donné au mbalax son rythme unique.",
+            "en": "Yes! These musical exchanges across the Atlantic gave mbalax its unique rhythm."
+          }
+        },
+        "note": {
+          "fr": "Mbalax : musique sénégalaise, formes wolof mêlées à des rythmes cubains.",
+          "en": "Mbalax: Senegalese music, Wolof forms mixed with Cuban rhythms."
+        },
+        "sourceUrl": "https://www.britannica.com/biography/Youssou-NDour",
+        "quote": "introducing international audiences to mbalax—a Senegalese popular music style that blends Wolof traditional instrumental and vocal forms primarily with Cuban and other Latin American popular genres"
+      }
+    ]
+  },
+  {
+    "id": "ecran",
+    "theme": "ecran",
+    "title": {
+      "fr": "Lumière sur les écrans d'Afrique",
+      "en": "Spotlight on Africa's screens"
+    },
+    "intro": {
+      "fr": "Tembea Mag couvre le cinéma africain. Direction un festival panafricain, puis deux autres écrans.",
+      "en": "Tembea Mag is covering African cinema. Off to a Pan-African festival, then two more screens."
+    },
+    "outro": {
+      "fr": "Clap de fin ! Tu as vu des festivals et une industrie qui tournent des milliers d'histoires. Beau reportage.",
+      "en": "That's a wrap! You saw festivals and an industry that shoot thousands of stories. Great report."
+    },
+    "stops": [
+      {
+        "placeId": "bfa-ouagadougou",
+        "room": "cinema",
+        "clue": {
+          "fr": "Capitale d'un pays sans accès à la mer, au nord du Ghana et de la Côte d'Ivoire.",
+          "en": "Capital of a country with no access to the sea, north of Ghana and Côte d'Ivoire."
+        },
+        "npc": {
+          "name": "Salimata",
+          "role": {
+            "fr": "programmatrice de festival",
+            "en": "festival programmer"
+          },
+          "look": 2
+        },
+        "lines": [
+          {
+            "fr": "Bienvenue ! Ici, on prépare le Fespaco, le Festival panafricain du cinéma et de la télévision de Ouagadougou.",
+            "en": "Welcome! Here we prepare FESPACO, the Pan-African Film and Television Festival of Ouagadougou."
+          },
+          {
+            "fr": "Sa 30e édition est annoncée pour mars 2027. Des films de tout le continent y sont projetés devant le public.",
+            "en": "Its 30th edition is announced for March 2027. Films from across the continent are shown to the public."
+          }
+        ],
+        "question": {
+          "text": {
+            "fr": "Dans quelle ville se tient le Fespaco ?",
+            "en": "In which city is FESPACO held?"
+          },
+          "options": [
+            {
+              "fr": "Dakar",
+              "en": "Dakar"
+            },
+            {
+              "fr": "Nairobi",
+              "en": "Nairobi"
+            },
+            {
+              "fr": "Ouagadougou",
+              "en": "Ouagadougou"
+            }
+          ],
+          "answer": 2,
+          "explanation": {
+            "fr": "Le Fespaco se tient à Ouagadougou, la capitale du Burkina Faso.",
+            "en": "FESPACO is held in Ouagadougou, the capital of Burkina Faso."
+          }
+        },
+        "note": {
+          "fr": "Fespaco : le festival panafricain du cinéma de Ouagadougou, 30e édition en mars 2027.",
+          "en": "FESPACO: Ouagadougou's Pan-African film festival, 30th edition in March 2027."
+        },
+        "sourceUrl": "https://fespaco.bf/en/welcome-to-fespaco/",
+        "quote": "As part of the 30th Edition of the Pan-African Film and Television Festival of Ouagadougou (FESPACO) taking place from 20 to 27 March 2027"
+      },
+      {
+        "placeId": "tun-tunis",
+        "room": "cinema",
+        "clue": {
+          "fr": "Capitale tout au nord du continent, près des ruines de Carthage, entre l'Algérie et la Libye.",
+          "en": "Capital at the far north of the continent, near the ruins of Carthage, between Algeria and Libya."
+        },
+        "npc": {
+          "name": "Yasmine",
+          "role": {
+            "fr": "programmatrice de festival",
+            "en": "festival programmer"
+          },
+          "look": 5
+        },
+        "lines": [
+          {
+            "fr": "Les Journées cinématographiques de Carthage ont lieu à Tunis. Elles datent de 1966.",
+            "en": "The Carthage Film Festival takes place in Tunis. It dates back to 1966."
+          },
+          {
+            "fr": "C'est considéré comme le plus ancien festival de ce genre encore actif en Afrique. Il est devenu annuel en 2014.",
+            "en": "It is regarded as the oldest event of its kind still active in Africa. It became annual in 2014."
+          }
+        ],
+        "question": {
+          "text": {
+            "fr": "En quelle année ont commencé les Journées cinématographiques de Carthage ?",
+            "en": "In what year did the Carthage Film Festival begin?"
+          },
+          "options": [
+            {
+              "fr": "1966",
+              "en": "1966"
+            },
+            {
+              "fr": "1996",
+              "en": "1996"
+            },
+            {
+              "fr": "2014",
+              "en": "2014"
+            }
+          ],
+          "answer": 0,
+          "explanation": {
+            "fr": "1966 ! En 2014, le festival est devenu annuel : il se tient donc chaque année.",
+            "en": "1966! In 2014 it became annual, so it now takes place every year."
+          }
+        },
+        "note": {
+          "fr": "Les JCC de Tunis, créées en 1966, sont considérées comme le plus ancien festival actif d'Afrique.",
+          "en": "Tunis's Carthage film festival, created in 1966, is considered Africa's oldest active festival."
+        },
+        "sourceUrl": "https://acc.film/festivals/festival25.php",
+        "quote": "Going all the way back to 1966, Carthage Film Festival is regarded as the oldest event of its kind still active in Africa."
+      },
+      {
+        "placeId": "nga-lagos",
+        "room": "cinema",
+        "clue": {
+          "fr": "Grande ville côtière sur le golfe de Guinée, dans un pays voisin du Bénin, du Niger et du Tchad.",
+          "en": "Big coastal city on the Gulf of Guinea, in a country bordering Benin, Niger and Chad."
+        },
+        "npc": {
+          "name": "Chinedu",
+          "role": {
+            "fr": "réalisateur",
+            "en": "film director"
+          },
+          "look": 0
+        },
+        "lines": [
+          {
+            "fr": "Ici, on tourne beaucoup ! Nollywood, c'est l'industrie du cinéma nigériane : « Nigeria » plus « Hollywood ».",
+            "en": "We shoot a lot here! Nollywood is Nigeria's film industry: 'Nigeria' plus 'Hollywood'."
+          },
+          {
+            "fr": "Elle produit environ 2 500 films par an, en anglais mais aussi en yoruba, igbo, haoussa et d'autres langues.",
+            "en": "It makes about 2,500 films a year, in English but also in Yoruba, Igbo, Hausa and other languages."
+          }
+        ],
+        "question": {
+          "text": {
+            "fr": "Combien de films Nollywood produit-il environ chaque année ?",
+            "en": "About how many films does Nollywood make each year?"
+          },
+          "options": [
+            {
+              "fr": "25",
+              "en": "25"
+            },
+            {
+              "fr": "2 500",
+              "en": "2,500"
+            },
+            {
+              "fr": "250 000",
+              "en": "250,000"
+            }
+          ],
+          "answer": 1,
+          "explanation": {
+            "fr": "Environ 2 500 films par an : l'une des plus grandes productions de films au monde.",
+            "en": "About 2,500 films a year: one of the biggest film outputs in the world."
+          }
+        },
+        "note": {
+          "fr": "Nollywood produit environ 2 500 films par an, en plusieurs langues du Nigeria.",
+          "en": "Nollywood makes about 2,500 films a year, in several Nigerian languages."
+        },
+        "sourceUrl": "https://www.britannica.com/topic/Nollywood",
+        "quote": "The industry produces about 2,500 films per year"
+      }
+    ]
+  },
+  {
+    "id": "savoirs",
+    "theme": "savoirs",
+    "title": {
+      "fr": "Bibliothèques et savoirs",
+      "en": "Libraries and learning"
+    },
+    "intro": {
+      "fr": "Tembea Mag enquête sur les grands lieux du savoir. Ta première étape : une université très ancienne.",
+      "en": "Tembea Mag is investigating great places of learning. Your first stop: a very old university."
+    },
+    "outro": {
+      "fr": "Du Maroc à l'Égypte en passant par le Mali : tu as suivi la route des livres. Quel beau dossier !",
+      "en": "From Morocco to Egypt via Mali: you followed the road of books. What a great story!"
+    },
+    "stops": [
+      {
+        "placeId": "mar-fes",
+        "room": "library",
+        "clue": {
+          "fr": "Ville d'un royaume qui touche à la fois l'Atlantique et la Méditerranée, voisin de l'Algérie à l'est.",
+          "en": "City in a kingdom touching both the Atlantic and the Mediterranean, with Algeria to the east."
+        },
+        "npc": {
+          "name": "Imane",
+          "role": {
+            "fr": "bibliothécaire universitaire",
+            "en": "university librarian"
+          },
+          "look": 5
+        },
+        "lines": [
+          {
+            "fr": "Ici, à Fès, se trouve l'université Al-Qarawiyyin. Elle a été fondée en 859 par Fatima al-Fihri.",
+            "en": "Here in Fez stands Al-Qarawiyyin University. It was founded in 859 by Fatima al-Fihri."
+          },
+          {
+            "fr": "C'est l'une des plus anciennes universités du monde encore en activité. Des étudiants y viennent toujours !",
+            "en": "It is one of the world's oldest universities still in operation. Students still come here!"
+          }
+        ],
+        "question": {
+          "text": {
+            "fr": "Qui a fondé l'université Al-Qarawiyyin ?",
+            "en": "Who founded Al-Qarawiyyin University?"
+          },
+          "options": [
+            {
+              "fr": "Un navigateur portugais",
+              "en": "A Portuguese navigator"
+            },
+            {
+              "fr": "Un roi de France",
+              "en": "A king of France"
+            },
+            {
+              "fr": "Fatima al-Fihri",
+              "en": "Fatima al-Fihri"
+            }
+          ],
+          "answer": 2,
+          "explanation": {
+            "fr": "C'est Fatima al-Fihri, une femme généreuse, qui l'a fondée en 859.",
+            "en": "It was Fatima al-Fihri, a generous woman, who founded it in 859."
+          }
+        },
+        "note": {
+          "fr": "À Fès, l'université Al-Qarawiyyin, fondée en 859 par Fatima al-Fihri, est toujours active.",
+          "en": "In Fez, Al-Qarawiyyin, founded in 859 by Fatima al-Fihri, is still active."
+        },
+        "sourceUrl": "https://www.britannica.com/topic/Qarawiyyin",
+        "quote": "Founded in 859 ce by philanthropist Fāṭimah al-Fihrī, Qarawiyyīn is one of the world’s oldest universities that is still in operation."
+      },
+      {
+        "placeId": "poi-timbuktu",
+        "room": "library",
+        "clue": {
+          "fr": "Ville du Sahel, au nord du fleuve Niger, dans un pays voisin de l'Algérie, du Niger et du Sénégal.",
+          "en": "Sahel city north of the Niger River, in a country bordering Algeria, Niger and Senegal."
+        },
+        "npc": {
+          "name": "Fatoumata",
+          "role": {
+            "fr": "conservatrice de manuscrits",
+            "en": "manuscript conservator"
+          },
+          "look": 2
+        },
+        "lines": [
+          {
+            "fr": "Je protège les manuscrits de Tombouctou. C'est une collection de plusieurs centaines de milliers de documents.",
+            "en": "I look after the manuscripts of Timbuktu. It is a collection of several hundred thousand documents."
+          },
+          {
+            "fr": "Certains datent du XIIIe siècle : ils ont plus de sept cents ans !",
+            "en": "Some date back to the 13th century: they are over seven hundred years old!"
+          }
+        ],
+        "question": {
+          "text": {
+            "fr": "Combien de documents compte la collection de manuscrits de Tombouctou ?",
+            "en": "How many documents are in the Timbuktu manuscript collection?"
+          },
+          "options": [
+            {
+              "fr": "Une centaine",
+              "en": "About a hundred"
+            },
+            {
+              "fr": "Une vingtaine",
+              "en": "About twenty"
+            },
+            {
+              "fr": "Plusieurs centaines de milliers",
+              "en": "Several hundred thousand"
+            }
+          ],
+          "answer": 2,
+          "explanation": {
+            "fr": "Plusieurs centaines de milliers : un trésor d'écrits à protéger et à partager.",
+            "en": "Several hundred thousand: a treasure of writings to protect and share."
+          }
+        },
+        "note": {
+          "fr": "Les manuscrits de Tombouctou : plusieurs centaines de milliers de documents, certains du XIIIe siècle.",
+          "en": "Timbuktu's manuscripts: hundreds of thousands of documents, some from the 13th century."
+        },
+        "sourceUrl": "https://whc.unesco.org/en/news/1219",
+        "quote": "The manuscripts of Timbuktu form a collection of several hundred thousand documents some of which date as far back as the 13th century."
+      },
+      {
+        "placeId": "egy-alexandria",
+        "room": "library",
+        "clue": {
+          "fr": "Grande ville sur la Méditerranée, à l'ouest du delta du Nil, dans un pays voisin de la Libye et du Soudan.",
+          "en": "Big Mediterranean city, west of the Nile Delta, in a country bordering Libya and Sudan."
+        },
+        "npc": {
+          "name": "Nour",
+          "role": {
+            "fr": "bibliothécaire",
+            "en": "librarian"
+          },
+          "look": 3
+        },
+        "lines": [
+          {
+            "fr": "Bienvenue à la Bibliotheca Alexandrina ! Elle se dresse au bord de la Méditerranée, à Alexandrie.",
+            "en": "Welcome to the Bibliotheca Alexandrina! It stands on the Mediterranean shore, in Alexandria."
+          },
+          {
+            "fr": "Elle a été pensée pour retrouver l'esprit d'ouverture et de savoir de l'ancienne Bibliothèque d'Alexandrie. C'est bien plus qu'une bibliothèque !",
+            "en": "It was designed to recapture the spirit of openness and scholarship of the original Library of Alexandria. It is much more than a library!"
+          }
+        ],
+        "question": {
+          "text": {
+            "fr": "Au bord de quelle mer se trouve Alexandrie ?",
+            "en": "On which sea does Alexandria lie?"
+          },
+          "options": [
+            {
+              "fr": "La mer Rouge",
+              "en": "The Red Sea"
+            },
+            {
+              "fr": "La Méditerranée",
+              "en": "The Mediterranean"
+            },
+            {
+              "fr": "L'océan Indien",
+              "en": "The Indian Ocean"
+            }
+          ],
+          "answer": 1,
+          "explanation": {
+            "fr": "Alexandrie est au bord de la Méditerranée, à l'ouest du delta du Nil.",
+            "en": "Alexandria is on the Mediterranean, west of the Nile delta."
+          }
+        },
+        "note": {
+          "fr": "La Bibliotheca Alexandrina revit l'esprit de la bibliothèque d'Alexandrie.",
+          "en": "The Bibliotheca Alexandrina revives the spirit of the Library of Alexandria."
+        },
+        "sourceUrl": "https://www.bibalex.org/en/page/about",
+        "quote": "The New Library of Alexandria, the New Bibliotheca Alexandrina is dedicated to recapturing the spirit of openness and scholarship of the original Bibliotheca Alexandrina."
+      }
+    ]
+  },
+  {
+    "id": "tech",
+    "theme": "tech",
+    "title": {
+      "fr": "Inventions : de l'argent au soleil",
+      "en": "Inventions: from money to sunshine"
+    },
+    "intro": {
+      "fr": "Tembea Mag part à la rencontre des inventeurs. Premier arrêt : un pays où l'on paie avec son téléphone.",
+      "en": "Tembea Mag is meeting inventors. First stop: a country where people pay with their phone."
+    },
+    "outro": {
+      "fr": "Paiement mobile, radiotélescope, centrale solaire : l'Afrique invente aussi. Reportage terminé, bravo !",
+      "en": "Mobile payments, radio telescope, solar plant: Africa invents too. Story complete, well done!"
+    },
+    "stops": [
+      {
+        "placeId": "ken-nairobi",
+        "room": "lab",
+        "clue": {
+          "fr": "Capitale proche de l'équateur, sur les hauts plateaux, entre l'Ouganda et la Tanzanie.",
+          "en": "Capital close to the Equator, in the highlands, between Uganda and Tanzania."
+        },
+        "npc": {
+          "name": "Wanjiru",
+          "role": {
+            "fr": "développeuse de logiciels",
+            "en": "software developer"
+          },
+          "look": 3
+        },
+        "lines": [
+          {
+            "fr": "Je programme des applis de paiement. M-Pesa a été lancé au Kenya en mars 2007 par l'opérateur Safaricom.",
+            "en": "I code payment apps. M-Pesa was launched in Kenya in March 2007 by the operator Safaricom."
+          },
+          {
+            "fr": "Le « M » veut dire mobile, et « pesa » veut dire argent en swahili. On envoie de l'argent avec un simple téléphone !",
+            "en": "The 'M' stands for mobile, and 'pesa' means money in Swahili. You can send money with an ordinary phone!"
+          }
+        ],
+        "question": {
+          "text": {
+            "fr": "Que veut dire « pesa » en swahili ?",
+            "en": "What does 'pesa' mean in Swahili?"
+          },
+          "options": [
+            {
+              "fr": "Téléphone",
+              "en": "Phone"
+            },
+            {
+              "fr": "Argent",
+              "en": "Money"
+            },
+            {
+              "fr": "Route",
+              "en": "Road"
+            }
+          ],
+          "answer": 1,
+          "explanation": {
+            "fr": "« Pesa » veut dire argent : M-Pesa, c'est donc « argent mobile ».",
+            "en": "'Pesa' means money, so M-Pesa means 'mobile money'."
+          }
+        },
+        "note": {
+          "fr": "M-Pesa, lancé en 2007 au Kenya : « M » pour mobile, « pesa » pour argent.",
+          "en": "M-Pesa, launched in Kenya in 2007: 'M' for mobile, 'pesa' for money."
+        },
+        "sourceUrl": "https://documents1.worldbank.org/curated/en/638851468048259219/pdf/543380WP0M1PES1BOX0349405B01PUBLIC1.pdf",
+        "quote": "“M” for mobile and “PESA” for money in Swahili"
+      },
+      {
+        "placeId": "poi-meerkat",
+        "room": "lab",
+        "clue": {
+          "fr": "Dans le Karoo, région semi-désertique tout au sud, au sud de la Namibie et du Botswana.",
+          "en": "In the Karoo, a semi-desert region far to the south, below Namibia and Botswana."
+        },
+        "npc": {
+          "name": "Thandiwe",
+          "role": {
+            "fr": "ingénieure en radioastronomie",
+            "en": "radio astronomy engineer"
+          },
+          "look": 1
+        },
+        "lines": [
+          {
+            "fr": "Le télescope MeerKAT écoute le ciel avec des ondes radio. Il se trouve à 90 km de la petite ville de Carnarvon.",
+            "en": "The MeerKAT telescope listens to the sky with radio waves. It stands 90 km from the small town of Carnarvon."
+          },
+          {
+            "fr": "Il compte 64 antennes reliées entre elles. Son nom veut dire « plus de KAT », car il a grandi !",
+            "en": "It has 64 interlinked antennas. Its name means 'more of KAT', because it grew bigger!"
+          }
+        ],
+        "question": {
+          "text": {
+            "fr": "Combien d'antennes compte MeerKAT ?",
+            "en": "How many antennas does MeerKAT have?"
+          },
+          "options": [
+            {
+              "fr": "6",
+              "en": "6"
+            },
+            {
+              "fr": "640",
+              "en": "640"
+            },
+            {
+              "fr": "64",
+              "en": "64"
+            }
+          ],
+          "answer": 2,
+          "explanation": {
+            "fr": "64 antennes, d'abord prévues à 20 : le projet a été agrandi.",
+            "en": "64 antennas, first planned as 20: the project was enlarged."
+          }
+        },
+        "note": {
+          "fr": "MeerKAT, en Afrique du Sud : 64 antennes radio qui écoutent l'espace.",
+          "en": "MeerKAT, in South Africa: 64 radio antennas that listen to space."
+        },
+        "sourceUrl": "https://www.sarao.ac.za/science/meerkat/about-meerkat/",
+        "quote": "The MeerKAT telescope is an array of 64 interlinked receptors"
+      },
+      {
+        "placeId": "poi-noor-ouarzazate",
+        "room": "lab",
+        "clue": {
+          "fr": "Au pied de l'Atlas, aux portes du Sahara, dans un royaume qui borde l'Atlantique et la Méditerranée.",
+          "en": "At the foot of the Atlas, by the Sahara, in a kingdom on the Atlantic and the Mediterranean."
+        },
+        "npc": {
+          "name": "Hamza",
+          "role": {
+            "fr": "ingénieur en énergie solaire",
+            "en": "solar energy engineer"
+          },
+          "look": 0
+        },
+        "lines": [
+          {
+            "fr": "Voici le complexe solaire Noor, près d'Ouarzazate. Ses centrales transforment la lumière du soleil en électricité.",
+            "en": "This is the Noor solar complex near Ouarzazate. Its plants turn sunlight into electricity."
+          },
+          {
+            "fr": "En 2023, le complexe a produit 15 % d'électricité de plus que l'objectif fixé.",
+            "en": "In 2023, the complex produced 15% more electricity than its target."
+          }
+        ],
+        "question": {
+          "text": {
+            "fr": "Quelle énergie produit le complexe Noor ?",
+            "en": "What energy does the Noor complex produce?"
+          },
+          "options": [
+            {
+              "fr": "Solaire",
+              "en": "Solar"
+            },
+            {
+              "fr": "Charbon",
+              "en": "Coal"
+            },
+            {
+              "fr": "Marémotrice",
+              "en": "Tidal"
+            }
+          ],
+          "answer": 0,
+          "explanation": {
+            "fr": "Solaire : le complexe capte la lumière du soleil, très abondante dans cette région.",
+            "en": "Solar: the complex captures sunlight, which is abundant in this region."
+          }
+        },
+        "note": {
+          "fr": "Le complexe solaire Noor, au Maroc, a dépassé son objectif de production en 2023.",
+          "en": "Morocco's Noor solar complex beat its production target in 2023."
+        },
+        "sourceUrl": "https://documents1.worldbank.org/curated/en/099030324025054594/pdf/P13125613552030fb18250188bae0c1c28a.pdf",
+        "quote": "The overall complex reached a total generation of 1500 GWh, which is 15% higher than the target indicator, during 2023"
+      }
+    ]
+  },
+  {
+    "id": "formes",
+    "theme": "formes",
+    "title": {
+      "fr": "Villes de formes et de briques",
+      "en": "Cities of shapes and bricks"
+    },
+    "intro": {
+      "fr": "Tembea Mag s'intéresse à l'architecture. Premier arrêt : une capitale haut perchée aux lignes modernes.",
+      "en": "Tembea Mag is looking at architecture. First stop: a high-up capital with modern lines."
+    },
+    "outro": {
+      "fr": "Lignes modernes, briques de terre, vieille ville : tu as lu trois villes comme des livres. Bravo !",
+      "en": "Modern lines, earthen bricks, an old city: you read three cities like books. Well done!"
+    },
+    "stops": [
+      {
+        "placeId": "eri-asmara",
+        "room": "gallery",
+        "clue": {
+          "fr": "Capitale d'altitude, au nord de l'Éthiopie, dans un pays qui borde la mer Rouge.",
+          "en": "High-altitude capital, north of Ethiopia, in a country on the Red Sea."
+        },
+        "npc": {
+          "name": "Selam",
+          "role": {
+            "fr": "architecte",
+            "en": "architect"
+          },
+          "look": 5
+        },
+        "lines": [
+          {
+            "fr": "Asmara est à plus de 2 000 m d'altitude. L'UNESCO a inscrit « Asmara, ville africaine moderniste ».",
+            "en": "Asmara lies over 2,000 m above sea level. UNESCO listed 'Asmara: A Modernist African City'."
+          },
+          {
+            "fr": "Ses bâtiments forment l'une des collections d'architecture moderniste les plus complètes et les mieux conservées du monde.",
+            "en": "Its buildings form one of the most complete and intact collections of modernist architecture in the world."
+          }
+        ],
+        "question": {
+          "text": {
+            "fr": "À quelle altitude se trouve Asmara ?",
+            "en": "At what altitude does Asmara lie?"
+          },
+          "options": [
+            {
+              "fr": "Plus de 2 000 m",
+              "en": "Over 2,000 m"
+            },
+            {
+              "fr": "Au niveau de la mer",
+              "en": "At sea level"
+            },
+            {
+              "fr": "Environ 100 m",
+              "en": "About 100 m"
+            }
+          ],
+          "answer": 0,
+          "explanation": {
+            "fr": "Plus de 2 000 m : Asmara est sur un haut plateau, l'air y est frais.",
+            "en": "Over 2,000 m: Asmara sits on a highland plateau, where the air is cool."
+          }
+        },
+        "note": {
+          "fr": "Asmara, à plus de 2 000 m : une collection d'architecture moderniste parmi les plus complètes.",
+          "en": "Asmara, over 2,000 m up: one of the most complete modernist architecture collections."
+        },
+        "sourceUrl": "https://whc.unesco.org/en/list/1550/",
+        "quote": "Located at over 2,000 m above sea level, the capital of Eritrea developed from the 1890s onwards"
+      },
+      {
+        "placeId": "poi-djenne",
+        "room": "gallery",
+        "clue": {
+          "fr": "Ville sur le Bani, affluent du Niger, dans un pays voisin de l'Algérie et du Burkina Faso.",
+          "en": "Town on the Bani, a tributary of the Niger, in a country bordering Algeria and Burkina Faso."
+        },
+        "npc": {
+          "name": "Awa",
+          "role": {
+            "fr": "architecte-restauratrice",
+            "en": "restoration architect"
+          },
+          "look": 2
+        },
+        "lines": [
+          {
+            "fr": "À Djenné, presque tous les bâtiments sont en briques de terre séchée au soleil, enduites de boue de la rivière.",
+            "en": "In Djenné, nearly all buildings are made of sun-dried earthen bricks, coated with mud plaster from the river."
+          },
+          {
+            "fr": "Chaque année, on réenduit la grande mosquée. L'architecture de Djenné est le travail collectif d'une corporation de maçons, le Barey-ton.",
+            "en": "Every year the Great Mosque is replastered. Djenné's architecture is the collective work of a guild of masons, the Barey-ton."
+          }
+        ],
+        "question": {
+          "text": {
+            "fr": "Avec quoi enduit-on les bâtiments de Djenné ?",
+            "en": "What are Djenné's buildings plastered with?"
+          },
+          "options": [
+            {
+              "fr": "Du verre",
+              "en": "Glass"
+            },
+            {
+              "fr": "De l'acier",
+              "en": "Steel"
+            },
+            {
+              "fr": "De la boue de la rivière",
+              "en": "Mud from the river"
+            }
+          ],
+          "answer": 2,
+          "explanation": {
+            "fr": "De la boue de la rivière, refaite chaque année : un travail d'équipe pour toute la ville.",
+            "en": "Mud from the river, renewed every year: teamwork for the whole town."
+          }
+        },
+        "note": {
+          "fr": "Djenné : briques de terre, mosquée réenduite chaque année par les maçons du Barey-ton.",
+          "en": "Djenné: earthen bricks, a mosque replastered each year by the Barey-ton masons."
+        },
+        "sourceUrl": "https://whc.unesco.org/en/urban-heritage-atlas/djenne/",
+        "quote": "The architecture of Djenné is the collective work of a corporation of masons known as Barey-ton."
+      },
+      {
+        "placeId": "dza-algiers",
+        "room": "gallery",
+        "clue": {
+          "fr": "Capitale au bord de la Méditerranée, voisine de la Tunisie à l'est et du Maroc à l'ouest.",
+          "en": "Capital on the Mediterranean, with Tunisia to the east and Morocco to the west."
+        },
+        "npc": {
+          "name": "Lamia",
+          "role": {
+            "fr": "historienne de l'architecture",
+            "en": "architectural historian"
+          },
+          "look": 4
+        },
+        "lines": [
+          {
+            "fr": "Voici la Casbah d'Alger, inscrite à l'UNESCO. C'est une sorte de médina très particulière.",
+            "en": "This is the Kasbah of Algiers, listed by UNESCO. It is a very special kind of medina."
+          },
+          {
+            "fr": "On y voit des restes de citadelle, de vieilles mosquées et des palais de style ottoman, et un quartier où règne un fort esprit de voisinage.",
+            "en": "You can see remains of the citadel, old mosques and Ottoman-style palaces, and a quarter with a deep-rooted sense of community."
+          }
+        ],
+        "question": {
+          "text": {
+            "fr": "Sur quelle mer se trouve Alger ?",
+            "en": "On which sea does Algiers lie?"
+          },
+          "options": [
+            {
+              "fr": "La mer Rouge",
+              "en": "The Red Sea"
+            },
+            {
+              "fr": "La Méditerranée",
+              "en": "The Mediterranean"
+            },
+            {
+              "fr": "L'océan Indien",
+              "en": "The Indian Ocean"
+            }
+          ],
+          "answer": 1,
+          "explanation": {
+            "fr": "Alger est au bord de la Méditerranée, tout au nord de l'Algérie.",
+            "en": "Algiers is on the Mediterranean, in the far north of Algeria."
+          }
+        },
+        "note": {
+          "fr": "La Casbah d'Alger : citadelle, palais ottomans et fort esprit de quartier.",
+          "en": "Kasbah of Algiers: citadel, Ottoman palaces and a strong sense of community."
+        },
+        "sourceUrl": "https://whc.unesco.org/en/list/565/",
+        "quote": "There are the remains of the citadel, old mosques and Ottoman-style palaces as well as the remains of a traditional urban structure associated with a deep-rooted sense of community."
+      }
+    ]
+  },
+  {
+    "id": "course",
+    "theme": "course",
+    "title": {
+      "fr": "Courses, foulées et ballons",
+      "en": "Races, strides and footballs"
+    },
+    "intro": {
+      "fr": "Tembea Mag fait un numéro sport. Premier arrêt : la ville d'un marathonien devenu légende.",
+      "en": "Tembea Mag is making a sports issue. First stop: the city of a marathon runner turned legend."
+    },
+    "outro": {
+      "fr": "Marathon, altitude, football : tu as fait le tour des terrains. Un grand reportage !",
+      "en": "Marathon, altitude, football: you toured the fields. A great report!"
+    },
+    "stops": [
+      {
+        "placeId": "eth-addis-ababa",
+        "room": "stadium",
+        "clue": {
+          "fr": "Capitale d'un pays sans accès à la mer, voisin de l'Érythrée, de Djibouti et du Kenya.",
+          "en": "Capital of a country with no access to the sea, bordering Eritrea, Djibouti and Kenya."
+        },
+        "npc": {
+          "name": "Tigist",
+          "role": {
+            "fr": "entraîneuse d'athlétisme",
+            "en": "athletics coach"
+          },
+          "look": 3
+        },
+        "lines": [
+          {
+            "fr": "Ici, on parle encore d'Abebe Bikila, marathonien éthiopien. À Rome en 1960, il a gagné l'or en courant pieds nus.",
+            "en": "Here we still talk about Abebe Bikila, the Ethiopian marathon runner. In Rome in 1960 he won gold running barefoot."
+          },
+          {
+            "fr": "Il a battu un record du monde, puis a été le premier à gagner deux marathons olympiques. Et le premier or olympique de l'Éthiopie !",
+            "en": "He set a world record, then was the first to win two Olympic marathons. And Ethiopia's first Olympic gold!"
+          }
+        ],
+        "question": {
+          "text": {
+            "fr": "Dans quelle ville Abebe Bikila a-t-il gagné l'or en 1960 ?",
+            "en": "In which city did Abebe Bikila win gold in 1960?"
+          },
+          "options": [
+            {
+              "fr": "Tokyo",
+              "en": "Tokyo"
+            },
+            {
+              "fr": "Rome",
+              "en": "Rome"
+            },
+            {
+              "fr": "Addis-Abeba",
+              "en": "Addis Ababa"
+            }
+          ],
+          "answer": 1,
+          "explanation": {
+            "fr": "À Rome ! En 1964, il a regagné l'or à Tokyo : deux marathons olympiques de suite.",
+            "en": "In Rome! In 1964 he won gold again in Tokyo: two Olympic marathons in a row."
+          }
+        },
+        "note": {
+          "fr": "Abebe Bikila : or olympique à Rome en 1960, pieds nus, premier double champion du marathon.",
+          "en": "Abebe Bikila: Olympic gold in Rome in 1960, barefoot, first double marathon champion."
+        },
+        "sourceUrl": "https://www.britannica.com/biography/Abebe-Bikila",
+        "quote": "Bikila was the first athlete to win two Olympic marathons, and he was the first athlete to win an Olympic gold medal for Ethiopia."
+      },
+      {
+        "placeId": "poi-iten",
+        "room": "stadium",
+        "clue": {
+          "fr": "Petite ville d'altitude (2 400 m) au bord de la vallée du Rift, dans un pays traversé par l'équateur.",
+          "en": "Small high-altitude town (2,400 m) on the edge of the Rift Valley, in a country crossed by the Equator."
+        },
+        "npc": {
+          "name": "Kiprop",
+          "role": {
+            "fr": "entraîneur de course de fond",
+            "en": "distance running coach"
+          },
+          "look": 0
+        },
+        "lines": [
+          {
+            "fr": "Bienvenue à Iten, une petite ville à 2 400 mètres d'altitude. Beaucoup de coureurs de fond s'y entraînent.",
+            "en": "Welcome to Iten, a small town at 2,400 metres above sea level. Many distance runners train here."
+          },
+          {
+            "fr": "Ici et dans les environs, il y a de grands camps d'entraînement. À cette altitude, on travaille son souffle !",
+            "en": "Here and nearby there are leading training camps. At this altitude, we build our breathing!"
+          }
+        ],
+        "question": {
+          "text": {
+            "fr": "À quelle altitude se trouve Iten ?",
+            "en": "At what altitude is Iten?"
+          },
+          "options": [
+            {
+              "fr": "2 400 m",
+              "en": "2,400 m"
+            },
+            {
+              "fr": "240 m",
+              "en": "240 m"
+            },
+            {
+              "fr": "24 m",
+              "en": "24 m"
+            }
+          ],
+          "answer": 0,
+          "explanation": {
+            "fr": "2 400 m : en altitude, l'air contient moins d'oxygène, ce qui entraîne le souffle des coureurs.",
+            "en": "2,400 m: at altitude the air holds less oxygen, which trains runners' breathing."
+          }
+        },
+        "note": {
+          "fr": "Iten, à 2 400 m d'altitude, est un grand lieu d'entraînement pour la course de fond.",
+          "en": "Iten, at 2,400 m, is a major training spot for distance running."
+        },
+        "sourceUrl": "https://worldathletics.org/personal-best/performance/kenyan-distance-running-reasons-success",
+        "quote": "Iten, a small town at 2400 metres above sea level about an hour north"
+      },
+      {
+        "placeId": "mar-rabat",
+        "room": "stadium",
+        "clue": {
+          "fr": "Capitale au bord de l'Atlantique, dans un royaume voisin de l'Algérie, au nord-ouest du continent.",
+          "en": "Capital on the Atlantic, in a kingdom bordering Algeria, in the north-west of the continent."
+        },
+        "npc": {
+          "name": "Youssef",
+          "role": {
+            "fr": "entraîneur de football",
+            "en": "football coach"
+          },
+          "look": 4
+        },
+        "lines": [
+          {
+            "fr": "À sept kilomètres du centre de Rabat, le complexe sportif Prince Moulay Abdellah est un des stades les plus connus du royaume.",
+            "en": "Seven kilometres from the centre of Rabat, the Prince Moulay Abdellah sports complex is one of the kingdom's best-known venues."
+          },
+          {
+            "fr": "Rabat a été l'une des villes hôtes de la Coupe d'Afrique des nations 2025. Le football y rassemble toute la ville !",
+            "en": "Rabat was one of the host cities of the 2025 Africa Cup of Nations. Football brings the whole city together!"
+          }
+        ],
+        "question": {
+          "text": {
+            "fr": "Quelle compétition Rabat a-t-elle accueillie pour l'édition 2025 ?",
+            "en": "Which competition did Rabat host for its 2025 edition?"
+          },
+          "options": [
+            {
+              "fr": "Le Tour de France",
+              "en": "The Tour de France"
+            },
+            {
+              "fr": "La Coupe d'Afrique des nations",
+              "en": "The Africa Cup of Nations"
+            },
+            {
+              "fr": "Les Jeux d'hiver",
+              "en": "The Winter Games"
+            }
+          ],
+          "answer": 1,
+          "explanation": {
+            "fr": "La Coupe d'Afrique des nations, organisée au Maroc en 2025.",
+            "en": "The Africa Cup of Nations, hosted in Morocco in 2025."
+          }
+        },
+        "note": {
+          "fr": "Rabat, ville hôte de la Coupe d'Afrique 2025 : le complexe Prince Moulay Abdellah.",
+          "en": "Rabat, a host city of the 2025 Africa Cup: the Prince Moulay Abdellah complex."
+        },
+        "sourceUrl": "https://www.cafonline.com/afcon2025/news/your-guide-to-all-totalenergies-caf-afcon-morocco-2025-host-venues/",
+        "quote": "Only seven kilometres from the centre of Rabat, the Complexe Sportif Prince Moulay Abdellah is one of the Kingdom's most iconic venues."
+      }
+    ]
+  },
+  {
+    "id": "plumes",
+    "theme": "plumes",
+    "title": {
+      "fr": "Plumes d'Afrique : trois voix à lire",
+      "en": "Pens of Africa: three voices to read"
+    },
+    "intro": {
+      "fr": "Tembea Mag consacre un dossier aux écrivains. Premier arrêt : une ville du Nil où un romancier a placé ses histoires.",
+      "en": "Tembea Mag is making a writers' feature. First stop: a Nile city where a novelist set his stories."
+    },
+    "outro": {
+      "fr": "Un Nobel égyptien, un Nobel nigérian, une romancière sénégalaise : ta pile de livres est prête !",
+      "en": "An Egyptian Nobel, a Nigerian Nobel, a Senegalese novelist: your pile of books is ready!"
+    },
+    "stops": [
+      {
+        "placeId": "egy-cairo",
+        "room": "library",
+        "clue": {
+          "fr": "Capitale sur le Nil, à la pointe du delta, dans un pays voisin de la Libye et du Soudan.",
+          "en": "Capital on the Nile, at the tip of the delta, in a country bordering Libya and Sudan."
+        },
+        "npc": {
+          "name": "Mariam",
+          "role": {
+            "fr": "bibliothécaire",
+            "en": "librarian"
+          },
+          "look": 5
+        },
+        "lines": [
+          {
+            "fr": "Naguib Mahfouz est né au Caire en 1911. Il a reçu le prix Nobel de littérature en 1988.",
+            "en": "Naguib Mahfouz was born in Cairo in 1911. He received the Nobel Prize in Literature in 1988."
+          },
+          {
+            "fr": "Il a écrit plus de 30 romans et 350 nouvelles. Le Caire, sa ville, sert souvent de décor à ses histoires.",
+            "en": "He wrote more than 30 novels and 350 short stories. Cairo, his hometown, is often the setting of his tales."
+          }
+        ],
+        "question": {
+          "text": {
+            "fr": "Combien de romans Naguib Mahfouz a-t-il écrits ?",
+            "en": "How many novels did Naguib Mahfouz write?"
+          },
+          "options": [
+            {
+              "fr": "Trois",
+              "en": "Three"
+            },
+            {
+              "fr": "Plus de 30",
+              "en": "More than 30"
+            },
+            {
+              "fr": "Un seul",
+              "en": "Just one"
+            }
+          ],
+          "answer": 1,
+          "explanation": {
+            "fr": "Plus de 30 romans, et 350 nouvelles : une œuvre immense !",
+            "en": "More than 30 novels, plus 350 short stories: an immense body of work!"
+          }
+        },
+        "note": {
+          "fr": "Naguib Mahfouz, du Caire : plus de 30 romans, Nobel de littérature 1988.",
+          "en": "Naguib Mahfouz, of Cairo: over 30 novels, Nobel Prize in Literature 1988."
+        },
+        "sourceUrl": "https://www.nobelprize.org/prizes/literature/1988/mahfouz/facts/",
+        "quote": "Mahfouz’ body of work comprises more than 30 novels and 350 short stories."
+      },
+      {
+        "placeId": "nga-ibadan",
+        "room": "library",
+        "clue": {
+          "fr": "Grande ville de l'intérieur, au nord de Lagos, dans le sud-ouest d'un pays voisin du Bénin et du Niger.",
+          "en": "Big inland city north of Lagos, in the south-west of a country bordering Benin and Niger."
+        },
+        "npc": {
+          "name": "Folake",
+          "role": {
+            "fr": "bibliothécaire",
+            "en": "librarian"
+          },
+          "look": 2
+        },
+        "lines": [
+          {
+            "fr": "Je vous présente le dramaturge Wole Soyinka, né à Abeokuta, au Nigeria. Il a reçu le prix Nobel de littérature en 1986.",
+            "en": "Let me introduce the playwright Wole Soyinka, born in Abeokuta, Nigeria. He received the Nobel Prize in Literature in 1986."
+          },
+          {
+            "fr": "Le Nobel salue un auteur qui, avec une large vision culturelle et des accents de poésie, façonne le drame de l'existence.",
+            "en": "The Nobel citation honours a writer who, in a wide cultural perspective and with poetic overtones, fashions the drama of existence."
+          }
+        ],
+        "question": {
+          "text": {
+            "fr": "Wole Soyinka est surtout connu comme… ?",
+            "en": "Wole Soyinka is best known as a… ?"
+          },
+          "options": [
+            {
+              "fr": "Marathonien",
+              "en": "Marathon runner"
+            },
+            {
+              "fr": "Dramaturge",
+              "en": "Playwright"
+            },
+            {
+              "fr": "Architecte",
+              "en": "Architect"
+            }
+          ],
+          "answer": 1,
+          "explanation": {
+            "fr": "Dramaturge : il écrit du théâtre, mais aussi de la poésie, des romans et des essais.",
+            "en": "Playwright: he writes theatre, but also poetry, novels and essays."
+          }
+        },
+        "note": {
+          "fr": "Wole Soyinka, dramaturge nigérian, prix Nobel de littérature en 1986.",
+          "en": "Wole Soyinka, Nigerian playwright, Nobel Prize in Literature in 1986."
+        },
+        "sourceUrl": "https://www.nobelprize.org/prizes/literature/1986/soyinka/facts/",
+        "quote": "who in a wide cultural perspective and with poetic overtones fashions the drama of existence"
+      },
+      {
+        "placeId": "sen-dakar",
+        "room": "newsroom",
+        "clue": {
+          "fr": "Capitale tout à l'ouest du continent, dans un pays qui entoure presque la Gambie.",
+          "en": "Capital at the far west of the continent, in a country that almost surrounds The Gambia."
+        },
+        "npc": {
+          "name": "Khady",
+          "role": {
+            "fr": "journaliste culturelle",
+            "en": "culture journalist"
+          },
+          "look": 3
+        },
+        "lines": [
+          {
+            "fr": "À Dakar, on lit Mariama Bâ, une grande écrivaine sénégalaise. Son roman s'appelle « Une si longue lettre ».",
+            "en": "In Dakar we read Mariama Bâ, a great Senegalese writer. Her novel is called 'So Long a Letter'."
+          },
+          {
+            "fr": "Il a reçu le tout premier prix Noma pour l'édition en Afrique, en 1980. Le livre est écrit comme une lettre à une amie.",
+            "en": "It won the very first Noma Award for Publishing in Africa, in 1980. The book is written as a letter to a friend."
+          }
+        ],
+        "question": {
+          "text": {
+            "fr": "Comment s'appelle le roman de Mariama Bâ ?",
+            "en": "What is Mariama Bâ's novel called?"
+          },
+          "options": [
+            {
+              "fr": "Le Petit Prince",
+              "en": "The Little Prince"
+            },
+            {
+              "fr": "Une si longue lettre",
+              "en": "So Long a Letter"
+            },
+            {
+              "fr": "Les Misérables",
+              "en": "Les Misérables"
+            }
+          ],
+          "answer": 1,
+          "explanation": {
+            "fr": "« Une si longue lettre », publié en 1980, a été traduit en de nombreuses langues.",
+            "en": "'So Long a Letter', published in 1980, has been translated into many languages."
+          }
+        },
+        "note": {
+          "fr": "Mariama Bâ, Dakar : « Une si longue lettre », premier prix Noma en 1980.",
+          "en": "Mariama Bâ, Dakar: 'So Long a Letter', first Noma Award in 1980."
+        },
+        "sourceUrl": "https://en.wikipedia.org/wiki/So_Long_a_Letter",
+        "quote": "It won the first Noma Award for Publishing in Africa in 1980."
+      }
+    ]
+  }
+]

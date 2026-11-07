@@ -1,6 +1,6 @@
 # Tembea : règles pour les agents
 
-Jeu de géographie sur l'Afrique pour les 8–15 ans. Le code est en anglais ; la documentation et les messages de commit sont en français.
+Jeu de géographie sur l'Afrique pour tous, dès 8 ans (ADR 0007). Les mineurs restent un public à part entière : la section « Mineurs » s'applique à tout le monde. Le code est en anglais ; la documentation et les messages de commit sont en français.
 
 Ce projet n'utilise pas `/aidlc` : `docs/PLAN.md` et `docs/adr/` servent de trace.
 
@@ -56,6 +56,10 @@ Aucune donnée personnelle, aucune saisie libre, aucun cookie, aucune requête v
 Interdit pour passer au vert : baisser un seuil, `skip` ou `only`, `--no-verify`, test vide, `eslint-disable` ou `@ts-ignore` sans justification écrite.
 
 Après tout changement visuel : `pnpm build && pnpm screenshots`, et regarder réellement les images aux trois tailles. Des tests verts ne suffisent pas : c'est ainsi qu'a été trouvée une carte SVG sans aucun pays.
+
+## Contenu
+
+`docs/CHARTE_EDITORIALE.md` s'impose à tout texte : ni animalisation, ni réduction à la nature, ni vocabulaire colonial. `tests/content.test.ts` en vérifie une partie.
 
 ## Git
 

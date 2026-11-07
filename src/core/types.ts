@@ -1,7 +1,7 @@
 import type { Position } from 'geojson';
 
 export type Locale = 'fr' | 'en';
-export type Level = 'explorer' | 'geographer';
+export type Level = 'explorer' | 'geographer' | 'expert';
 export type RegionId = 'north' | 'west' | 'central' | 'east' | 'south';
 export type Terrain = 'land' | 'water';
 

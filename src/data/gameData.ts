@@ -1,12 +1,15 @@
 import type { Position } from 'geojson';
 import { mesh } from 'topojson-client';
 import type { GameCatalog } from '../core/catalog';
+import type { Story } from '../core/stories';
 import type { CountryGeometry, CountryInfo, PlaceInfo } from '../core/types';
 import { WorldModel } from '../core/world';
 import countriesJson from '../../data/countries.json';
+import storiesJson from '../../data/stories.json';
 import {
   countriesSchema,
   hydroFileSchema,
+  storiesSchema,
   placesFileSchema,
   type HydroFile,
   type ReliefData,
@@ -23,6 +26,7 @@ export interface GameData {
   hydro: HydroFile;
   relief: ReliefData[];
   places: PlaceInfo[];
+  stories: Story[];
   /** Frontières terrestres entre pays, sans doublon. */
   borderLines: Position[][];
   /** Trait de côte des pays jouables. */
@@ -72,6 +76,7 @@ async function load(): Promise<GameData> {
     hydro,
     relief: placesFile.relief,
     places,
+    stories: storiesSchema.parse(storiesJson),
     borderLines,
     coastLines,
   };

@@ -3,12 +3,12 @@
     "performance": 94,
     "accessibility": 100,
     "best-practices": 100,
-    "lcpMs": 775
+    "lcpMs": 769
   },
   "desktop": {
     "performance": 100,
     "accessibility": 100,
     "best-practices": 100,
-    "lcpMs": 233
+    "lcpMs": 215
   }
 }

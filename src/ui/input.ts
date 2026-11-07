@@ -1,4 +1,4 @@
-import type { InputVector } from '../core/movement';
+import { SPRINT_FACTOR, type InputVector } from '../core/movement';
 
 /** État partagé entre le clavier, le joystick et la boucle de jeu, hors du cycle React. */
 export const joystick: InputVector = { x: 0, y: 0 };
@@ -15,6 +15,19 @@ const AXES: Record<string, [number, number]> = {
   ArrowRight: [1, 0],
   KeyD: [1, 0],
 };
+
+const SPRINT_KEYS = ['ShiftLeft', 'ShiftRight'];
+let sprintToggled = false;
+
+export function setSprintToggled(value: boolean): void {
+  sprintToggled = value;
+}
+
+/** Pas rapide : touche Maj maintenue, ou bouton dédié sur écran tactile. */
+export function readSpeedFactor(): number {
+  const held = SPRINT_KEYS.some((code) => pressed.has(code));
+  return held || sprintToggled ? SPRINT_FACTOR : 1;
+}
 
 export function readInput(): InputVector {
   let x = joystick.x;
@@ -34,12 +47,19 @@ function isTextTarget(target: EventTarget | null): boolean {
 }
 
 /** Écoute le clavier pendant la partie. Retourne la fonction de nettoyage. */
-export function listenKeyboard(onZoom: (factor: number) => void): () => void {
+export function listenKeyboard(
+  onZoom: (factor: number) => void,
+  onOverview: () => void,
+): () => void {
   const onKeyDown = (event: KeyboardEvent): void => {
     if (isTextTarget(event.target)) return;
     if (AXES[event.code]) {
       pressed.add(event.code);
       event.preventDefault();
+    } else if (SPRINT_KEYS.includes(event.code)) {
+      pressed.add(event.code);
+    } else if (event.code === 'KeyM') {
+      onOverview();
     } else if (event.key === '+' || event.key === '=') {
       onZoom(1.25);
     } else if (event.key === '-') {
@@ -60,5 +80,6 @@ export function listenKeyboard(onZoom: (factor: number) => void): () => void {
     clear();
     joystick.x = 0;
     joystick.y = 0;
+    sprintToggled = false;
   };
 }

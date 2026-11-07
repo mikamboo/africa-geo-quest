@@ -113,13 +113,13 @@ test('la réinitialisation efface tout depuis la page parents', async ({ page })
 test('le changement de langue traduit et persiste', async ({ page }) => {
   await createProfile(page);
   await page.getByTestId('lang-en').click();
-  await expect(page.getByTestId('mode-explore')).toContainText('Free exploring');
+  await expect(page.getByTestId('mode-explore')).toContainText('Free travel');
   await expect(page.locator('html')).toHaveAttribute('lang', 'en');
   await page.reload();
-  await expect(page.getByTestId('mode-explore')).toContainText('Free exploring');
+  await expect(page.getByTestId('mode-explore')).toContainText('Free travel');
   await page.getByTestId('mode-explore').click();
   await expect(page.getByTestId('card-name')).toHaveText('Central African Republic');
   await page.getByTestId('hud-menu').click();
   await page.getByTestId('lang-fr').click();
-  await expect(page.getByTestId('mode-explore')).toContainText('Exploration libre');
+  await expect(page.getByTestId('mode-explore')).toContainText('Voyage libre');
 });

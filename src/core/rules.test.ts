@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { dayNumber, dueItems, masteredCount, MAX_BOX, reviewCard } from './leitner';
+import { dailyStreak } from './dates';
 import { createRng, hashString, pick, shuffle } from './rng';
 import {
   createInitialProgress,
@@ -12,7 +13,7 @@ import {
   stampCountry,
 } from './progress';
 import { dailyScore, missionPoints, quizPoints } from './scoring';
-import { generatePseudonyms, isValidPseudonym } from './pseudonyms';
+import { generatePseudonyms, isValidPseudonym, migrateLegacyPseudonym, ROLES } from './pseudonyms';
 import { createTestWorld } from './testing';
 import { capitalsOf, countryByCode, primaryCapital } from './catalog';
 
@@ -103,7 +104,10 @@ describe('progression', () => {
     expect(regionProgress(p, catalog).find((r) => r.region === 'east')?.visited).toBe(0);
   });
   it('réinitialise en gardant le profil', () => {
-    const profile = { avatar: 'zola' as const, pseudonym: { animal: 'lion', adjective: 'calm' } };
+    const profile = {
+      avatar: 'zola' as const,
+      pseudonym: { role: 'astronomer', adjective: 'calm' },
+    };
     const p = { ...stampCountry(createInitialProgress(), 'AAA', 'd'), profile };
     const reset = resetKeepingProfile(p);
     expect(reset.profile).toEqual(profile);
@@ -132,9 +136,32 @@ describe('score', () => {
     expect(quizPoints(false)).toBeGreaterThan(0);
     expect(quizPoints(true)).toBeGreaterThan(quizPoints(false));
   });
+  it('récompense une mission réussie sans aide, sans jamais pénaliser', () => {
+    expect(missionPoints(5, false, true)).toBe(150);
+    expect(missionPoints(5, false, false)).toBe(100);
+    expect(missionPoints(10, true, true)).toBe(240);
+  });
   it('le défi garde un plancher', () => {
     expect(dailyScore(1)).toBe(995);
     expect(dailyScore(99999)).toBe(100);
+  });
+});
+
+describe('série du défi', () => {
+  const today = new Date('2026-11-05T12:00:00Z');
+  it('compte les jours consécutifs jusqu’à aujourd’hui', () => {
+    expect(dailyStreak(['2026-11-05', '2026-11-04', '2026-11-03'], today)).toBe(3);
+  });
+  it('ne perd pas la série tant que le défi du jour reste à faire', () => {
+    expect(dailyStreak(['2026-11-04', '2026-11-03'], today)).toBe(2);
+  });
+  it('repart de zéro après un trou', () => {
+    expect(dailyStreak(['2026-11-05', '2026-11-03'], today)).toBe(1);
+    expect(dailyStreak(['2026-11-02'], today)).toBe(0);
+    expect(dailyStreak([], today)).toBe(0);
+  });
+  it('traverse un changement de mois', () => {
+    expect(dailyStreak(['2026-11-01', '2026-10-31'], new Date('2026-11-01T01:00:00Z'))).toBe(2);
   });
 });
 
@@ -143,11 +170,24 @@ describe('pseudonymes', () => {
     const list = generatePseudonyms(createRng(3), 6);
     expect(list).toHaveLength(6);
     expect(list.every(isValidPseudonym)).toBe(true);
-    expect(new Set(list.map((p) => p.animal)).size).toBe(6);
+    expect(new Set(list.map((p) => p.role)).size).toBe(6);
   });
   it('refuse un texte libre', () => {
-    expect(isValidPseudonym({ animal: 'Jean Dupont', adjective: 'fast' })).toBe(false);
-    expect(isValidPseudonym({ animal: 'lion', adjective: 'xxx' })).toBe(false);
+    expect(isValidPseudonym({ role: 'Jean Dupont', adjective: 'fast' })).toBe(false);
+    expect(isValidPseudonym({ role: 'poet', adjective: 'xxx' })).toBe(false);
+  });
+  it('ne contient aucun animal', () => {
+    for (const animal of ['gazelle', 'lion', 'zebra', 'okapi']) {
+      expect(ROLES as readonly string[]).not.toContain(animal);
+    }
+  });
+  it('convertit les anciens pseudonymes et refuse le reste', () => {
+    expect(migrateLegacyPseudonym('gazelle', 'curious')).toEqual({
+      role: 'cartographer',
+      adjective: 'lucid',
+    });
+    expect(migrateLegacyPseudonym('Jean Dupont', 'calm')).toBeNull();
+    expect(migrateLegacyPseudonym('lion', 'xxx')).toBeNull();
   });
   it('borne la demande à la taille des listes', () => {
     expect(generatePseudonyms(createRng(3), 999)).toHaveLength(12);

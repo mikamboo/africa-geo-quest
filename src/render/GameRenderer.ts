@@ -11,6 +11,14 @@ import {
 } from 'pixi.js';
 import type { Position } from 'geojson';
 import { Explorer, type GameEvent } from '../core/explorer';
+import { facingFromInput, type Facing } from '../core/movement';
+import {
+  createLayout,
+  nearestSpot,
+  stepInRoom,
+  type RoomSpot,
+  type RoomTheme,
+} from '../core/rooms';
 import { bboxOfRings, type Point } from '../core/geometry';
 import type { InputVector } from '../core/movement';
 import type { AvatarId } from '../core/progress';
@@ -24,7 +32,9 @@ import {
   DIRECTIONS,
   FRAMES_PER_DIRECTION,
   LOOKS,
+  NPC_LOOKS,
 } from './characters';
+import { drawRoom, ROOM_TILE } from './roomArt';
 import {
   BORDER,
   CONTEXT_LAND,
@@ -42,8 +52,8 @@ import {
 
 const MIN_ZOOM = 0.09;
 const MAX_ZOOM = 2.6;
-const LABEL_FONT = 'Lilita One, Nunito, sans-serif';
-const BODY_FONT = 'Nunito, sans-serif';
+const LABEL_FONT = 'Fraunces, Georgia, serif';
+const BODY_FONT = '"Atkinson Hyperlegible", system-ui, sans-serif';
 
 export interface RendererOptions {
   host: HTMLElement;
@@ -56,13 +66,25 @@ export interface RendererOptions {
   discovered: ReadonlySet<string>;
   reducedMotion: boolean;
   getInput: () => InputVector;
+  getSpeedFactor: () => number;
   onEvents: (events: GameEvent[]) => void;
   onPosition: (position: Point, terrain: 'land' | 'water') => void;
+}
+
+export interface RoomScene {
+  theme: RoomTheme;
+  leadLook: number;
+  extraLook: number;
+  accent: number;
+  onNear: (spot: RoomSpot | null) => void;
 }
 
 export interface GameRendererHandle {
   destroy(): void;
   zoomBy(factor: number): void;
+  toggleOverview(): void;
+  enterRoom(room: RoomScene): void;
+  exitRoom(): void;
   setStamped(stamped: ReadonlySet<string>): void;
   setDiscovered(discovered: ReadonlySet<string>): void;
   setTarget(target: Point | null): void;
@@ -79,6 +101,8 @@ interface Label {
   maxZoom: number;
   style: 'country' | 'place' | 'relief' | 'water';
   anchorY: number;
+  /** Sur la carte muette, le nom n'apparaît qu'une fois ce lieu découvert. */
+  gate?: string;
 }
 
 interface Marker {
@@ -129,25 +153,19 @@ function createWaveTexture(): Texture {
   return Texture.from(canvas);
 }
 
-/** Pirogue vue de trois quarts, dessinée en code, centrée sur l'origine. */
-function drawPirogue(graphics: Graphics): void {
+/** Petit bateau à moteur, dessiné en code, centré sur l'origine : une coque, une cabine, un sillage. */
+function drawBoat(graphics: Graphics): void {
   graphics
-    .moveTo(-40, -6)
-    .quadraticCurveTo(0, 2, 40, -6)
-    .quadraticCurveTo(30, 16, 0, 17)
-    .quadraticCurveTo(-30, 16, -40, -6)
-    .fill(0x7a4422)
-    .stroke({ color: INK, width: 3 });
-  graphics.moveTo(-30, 0).quadraticCurveTo(0, 7, 30, 0).stroke({ color: OCRE, width: 3 });
-  graphics
-    .moveTo(-24, 8)
-    .lineTo(-16, 5)
-    .lineTo(-8, 10)
-    .lineTo(0, 6)
-    .lineTo(8, 10)
-    .lineTo(16, 5)
-    .lineTo(24, 8)
-    .stroke({ color: PAPER, width: 2 });
+    .moveTo(-42, -4)
+    .lineTo(42, -4)
+    .lineTo(30, 16)
+    .lineTo(-30, 16)
+    .closePath()
+    .fill(0xfffaf0)
+    .stroke({ color: INK, width: 2.5 });
+  graphics.rect(-38, 2, 72, 4).fill(TERRE);
+  graphics.moveTo(-54, 12).lineTo(-36, 12).stroke({ color: PAPER, width: 2, alpha: 0.8 });
+  graphics.moveTo(-60, 18).lineTo(-34, 18).stroke({ color: PAPER, width: 2, alpha: 0.5 });
 }
 
 /** Dessine le moteur ; toute la logique de jeu reste dans `core/`. */
@@ -183,7 +201,8 @@ export async function createGameRenderer(options: RendererOptions): Promise<Game
   });
   app.stage.addChild(waves);
 
-  const map = new Container();
+  // Grande couche statique : en render group, le GPU ne recalcule que sa transformation.
+  const map = new Container({ isRenderGroup: true });
   app.stage.addChild(map);
 
   // Terres hors du jeu : neutres, elles situent le continent.
@@ -297,9 +316,9 @@ export async function createGameRenderer(options: RendererOptions): Promise<Game
     }
     bordersLayer.clear();
     strokeLines(bordersLayer, borders);
-    bordersLayer.stroke({ color: BORDER, width: 1.5 * unit, alpha: 0.85, join: 'round' });
+    bordersLayer.stroke({ color: BORDER, width: 1.1 * unit, alpha: 0.7, join: 'round' });
     strokeLines(bordersLayer, coasts);
-    bordersLayer.stroke({ color: BORDER, width: 2 * unit, join: 'round' });
+    bordersLayer.stroke({ color: BORDER, width: 1.4 * unit, join: 'round' });
   }
 
   // Marqueurs de lieux, à taille constante à l'écran.
@@ -314,11 +333,13 @@ export async function createGameRenderer(options: RendererOptions): Promise<Game
   map.addChild(labelsLayer);
   map.addChild(targetRing);
 
+  // Niveau Expert : carte muette, seuls les lieux déjà découverts sont nommés.
+  const isBlind = options.level === 'expert';
   const markers: Marker[] = [];
   const labels: Label[] = [];
   let discovered = options.discovered;
   const visiblePlaces = data.places.filter(
-    (place) => options.level === 'geographer' || place.level === 'explorer',
+    (place) => options.level !== 'explorer' || place.level === 'explorer',
   );
 
   function drawMarker(marker: Marker): void {
@@ -363,13 +384,14 @@ export async function createGameRenderer(options: RendererOptions): Promise<Game
       maxZoom: Infinity,
       style: 'place',
       anchorY: -0.45,
+      ...(isBlind ? { gate: place.id } : {}),
     });
   }
 
   for (const country of data.countries) {
     const meta = countryMeta.get(country.code);
     const isNonState = country.code === NON_STATE_TERRITORY;
-    if (!meta && !isNonState) continue;
+    if (isBlind || (!meta && !isNonState)) continue;
     const largest = [...country.polygons].sort((a, b) => b[0]!.length - a[0]!.length)[0]![0]!;
     const flat = projectLine(largest);
     let sx = 0;
@@ -399,7 +421,7 @@ export async function createGameRenderer(options: RendererOptions): Promise<Game
   }
 
   for (const relief of data.relief) {
-    if (options.level === 'explorer' && relief.level !== 'explorer') continue;
+    if (isBlind || (options.level === 'explorer' && relief.level !== 'explorer')) continue;
     labels.push({
       point: project(relief.label[0], relief.label[1]),
       text: relief.names,
@@ -413,7 +435,7 @@ export async function createGameRenderer(options: RendererOptions): Promise<Game
 
   // Fleuves et lacs : le nom est posé sur la ligne la plus longue ou au centre du lac.
   for (const river of data.hydro.rivers) {
-    if (options.level === 'explorer' && river.level !== 'explorer') continue;
+    if (isBlind || (options.level === 'explorer' && river.level !== 'explorer')) continue;
     const longest = [...river.lines].sort((a, b) => b.length - a.length)[0]!;
     const middle = longest[Math.floor(longest.length / 2)]!;
     labels.push({
@@ -427,7 +449,7 @@ export async function createGameRenderer(options: RendererOptions): Promise<Game
     });
   }
   for (const lake of data.hydro.lakes) {
-    if (options.level === 'explorer' && lake.level !== 'explorer') continue;
+    if (isBlind || (options.level === 'explorer' && lake.level !== 'explorer')) continue;
     const ring = [...lake.polygons].sort((a, b) => b[0]!.length - a[0]!.length)[0]![0]!;
     const flat = projectLine(ring);
     let sx = 0;
@@ -454,7 +476,7 @@ export async function createGameRenderer(options: RendererOptions): Promise<Game
       text: label.style === 'relief' ? label.text[locale].toUpperCase() : label.text[locale],
       style: {
         fontFamily: isCountry ? LABEL_FONT : BODY_FONT,
-        fontWeight: isCountry ? '400' : '800',
+        fontWeight: isCountry ? '900' : '700',
         fontSize: isCountry ? 19 : 16,
         letterSpacing: label.style === 'relief' ? 2 : 0,
         fill: label.style === 'relief' ? 0x5a4026 : label.style === 'water' ? 0x0f4c68 : INK,
@@ -482,18 +504,19 @@ export async function createGameRenderer(options: RendererOptions): Promise<Game
     );
   });
   const avatarRoot = new Container();
-  const pirogue = new Graphics();
-  drawPirogue(pirogue);
-  pirogue.visible = false;
+  const boat = new Graphics();
+  drawBoat(boat);
+  boat.visible = false;
   const avatar = new Sprite(frames.down![4]!);
   avatar.anchor.set(0.5, 0.92);
-  avatar.scale.set(0.62);
+  avatar.scale.set(0.52);
+  boat.scale.set(0.84);
   // Onde d'encre quand un pays reçoit son tampon.
   const ripple = new Graphics();
   ripple.circle(0, 0, 40).stroke({ color: TERRE, width: 6 });
   ripple.visible = false;
   let rippleAge = Infinity;
-  avatarRoot.addChild(ripple, pirogue, avatar);
+  avatarRoot.addChild(ripple, boat, avatar);
   app.stage.addChild(avatarRoot);
 
   function initialZoom(): number {
@@ -502,6 +525,7 @@ export async function createGameRenderer(options: RendererOptions): Promise<Game
   }
   let zoom = initialZoom();
   let targetZoom = zoom;
+  let overviewFrom: number | null = null;
   let cullTimer = 0;
   let animationClock = 0;
 
@@ -542,7 +566,11 @@ export async function createGameRenderer(options: RendererOptions): Promise<Game
     // Les étiquettes prioritaires réservent leur place ; celles qui les chevauchent se masquent.
     const taken: { x: number; y: number; w: number; h: number }[] = [];
     for (const label of orderedLabels()) {
-      let show = zoom >= label.minZoom && zoom < label.maxZoom && inside(label.point);
+      let show =
+        zoom >= label.minZoom &&
+        zoom < label.maxZoom &&
+        inside(label.point) &&
+        (!label.gate || discovered.has(label.gate));
       if (show) {
         const name = label.text[options.locale];
         const w = name.length * (label.style === 'country' ? 10 : 9) + 10;
@@ -590,12 +618,142 @@ export async function createGameRenderer(options: RendererOptions): Promise<Game
   applyCamera();
 
   let lastTerrain = explorer.location.terrain;
-  pirogue.visible = lastTerrain === 'water';
+  boat.visible = lastTerrain === 'water';
   let positionTimer = 0;
+
+  // Scène d'intérieur : tout le décor de la carte s'efface, le contexte change vraiment.
+  interface ActiveRoom {
+    scene: RoomScene;
+    layout: ReturnType<typeof createLayout>;
+    root: Container;
+    player: Sprite;
+    position: Point;
+    facing: Facing;
+    near: RoomSpot | null;
+    clock: number;
+    owned: Texture[];
+    leadMarker: Graphics | null;
+  }
+  let room: ActiveRoom | null = null;
+
+  function makeFrames(look: (typeof NPC_LOOKS)[number]): { sheet: Texture; idle: Texture } {
+    const npcSheet = Texture.from(createSpriteSheet(look));
+    const idle = new Texture({
+      source: npcSheet.source,
+      frame: new Rectangle(4 * CELL_WIDTH, 0, CELL_WIDTH, CELL_HEIGHT),
+    });
+    return { sheet: npcSheet, idle };
+  }
+
+  function layoutRoom(active: ActiveRoom): void {
+    const { width, height } = app.screen;
+    const fit = Math.min(
+      (width - 16) / (active.layout.width * ROOM_TILE),
+      (height - 150) / (active.layout.height * ROOM_TILE),
+      1.6,
+    );
+    active.root.scale.set(fit);
+    active.root.position.set(
+      (width - active.layout.width * ROOM_TILE * fit) / 2,
+      // Sur écran tactile, la pièce reste en haut : le bas appartient au joystick.
+      width < 720 ? 72 : Math.max(64, (height - active.layout.height * ROOM_TILE * fit) / 2),
+    );
+  }
+
+  function enterRoom(scene: RoomScene): void {
+    exitRoom();
+    const layout = createLayout(scene.theme);
+    const root = new Container();
+    const art = new Graphics();
+    drawRoom(art, layout, scene.accent);
+    root.addChild(art);
+    const owned: Texture[] = [];
+    let leadMarker: Graphics | null = null;
+    for (const spot of layout.spots) {
+      if (spot.kind !== 'lead' && spot.kind !== 'extra') continue;
+      const index = spot.kind === 'lead' ? scene.leadLook : scene.extraLook;
+      const { sheet: npcSheet, idle } = makeFrames(NPC_LOOKS[index % NPC_LOOKS.length]!);
+      owned.push(npcSheet);
+      const npc = new Sprite(idle);
+      npc.anchor.set(0.5, 0.9);
+      npc.scale.set(0.62);
+      npc.position.set(spot.x * ROOM_TILE, spot.y * ROOM_TILE + 14);
+      root.addChild(npc);
+      if (spot.kind === 'lead') {
+        // Repère au-dessus de la personne à rencontrer : on sait tout de suite où aller.
+        leadMarker = new Graphics();
+        leadMarker.circle(0, 0, 11).fill(OCRE).stroke({ color: INK, width: 2 });
+        leadMarker.rect(-1.5, -6, 3, 7).fill(INK);
+        leadMarker.circle(0, 4, 1.8).fill(INK);
+        leadMarker.position.set(spot.x * ROOM_TILE, spot.y * ROOM_TILE - 58);
+        root.addChild(leadMarker);
+      }
+    }
+    const player = new Sprite(frames.up![4]!);
+    player.anchor.set(0.5, 0.9);
+    player.scale.set(0.62);
+    root.addChild(player);
+    app.stage.addChild(root);
+    map.visible = false;
+    waves.visible = false;
+    avatarRoot.visible = false;
+    app.renderer.background.color = 0x241812;
+    room = {
+      scene,
+      layout,
+      root,
+      player,
+      position: { ...layout.entry },
+      facing: 'up',
+      near: null,
+      clock: 0,
+      owned,
+      leadMarker,
+    };
+    layoutRoom(room);
+    scene.onNear(null);
+  }
+
+  function exitRoom(): void {
+    if (!room) return;
+    room.root.destroy({ children: true });
+    for (const texture of room.owned) texture.destroy(true);
+    room = null;
+    map.visible = true;
+    waves.visible = true;
+    avatarRoot.visible = true;
+    app.renderer.background.color = OCEAN;
+  }
+
+  function tickRoom(active: ActiveRoom, dt: number): void {
+    const input = options.getInput();
+    active.position = stepInRoom(active.layout, active.position, input, dt);
+    active.facing = facingFromInput(input, active.facing);
+    active.clock += dt;
+    if (active.leadMarker && !reducedMotion) {
+      active.leadMarker.scale.set(1 + Math.sin(active.clock * 4) * 0.12);
+    }
+    const moving = input.x !== 0 || input.y !== 0;
+    const frame = moving ? Math.floor(active.clock * 9) % 4 : 4;
+    active.player.texture = frames[active.facing]![frame]!;
+    active.player.position.set(active.position.x * ROOM_TILE, active.position.y * ROOM_TILE + 14);
+    // Le joueur passe devant ou derrière les personnes selon sa position.
+    active.root.setChildIndex(active.player, active.root.children.length - 1);
+    const near = nearestSpot(active.layout, active.position);
+    if (near !== active.near) {
+      active.near = near;
+      active.scene.onNear(near);
+    }
+    layoutRoom(active);
+  }
 
   const tick = (ticker: { deltaMS: number }): void => {
     const dt = ticker.deltaMS / 1000;
-    const events = explorer.update(options.getInput(), dt);
+    if (room) {
+      tickRoom(room, dt);
+      return;
+    }
+    const events = explorer.update(options.getInput(), dt, options.getSpeedFactor());
     if (events.length > 0) options.onEvents(events);
 
     if (Math.abs(targetZoom - zoom) > 0.0005) {
@@ -617,12 +775,12 @@ export async function createGameRenderer(options: RendererOptions): Promise<Game
     const terrain = explorer.location.terrain;
     if (terrain !== lastTerrain) {
       lastTerrain = terrain;
-      pirogue.visible = terrain === 'water';
+      boat.visible = terrain === 'water';
     }
     if (terrain === 'water') {
       const sway = reducedMotion ? 0 : Math.sin(animationClock * 2.4) * 1.5;
       avatar.position.y = 4 + sway;
-      pirogue.position.y = 4 + sway;
+      boat.position.y = 4 + sway;
     } else {
       avatar.position.y = 0;
     }
@@ -697,10 +855,28 @@ export async function createGameRenderer(options: RendererOptions): Promise<Game
       canvas.removeEventListener('pointerup', onPointerUp);
       canvas.removeEventListener('pointercancel', onPointerUp);
       app.ticker.remove(tick);
+      exitRoom();
       app.destroy(true, { children: true, texture: true });
     },
     zoomBy(factor) {
+      overviewFrom = null;
       targetZoom = clampZoom(targetZoom * factor);
+    },
+    enterRoom,
+    exitRoom,
+    toggleOverview() {
+      if (overviewFrom !== null) {
+        targetZoom = overviewFrom;
+        overviewFrom = null;
+        return;
+      }
+      overviewFrom = targetZoom;
+      const { bounds } = data.world;
+      const fit = Math.min(
+        app.screen.width / (bounds.maxX - bounds.minX),
+        app.screen.height / (bounds.maxY - bounds.minY),
+      );
+      targetZoom = clampZoom(fit);
     },
     setStamped(next) {
       if (next.size > stamped.size && !reducedMotion) {

@@ -62,5 +62,5 @@ test('un micro-État reste atteignable à pied', async ({ page }, testInfo) => {
     return (await hud.getAttribute('data-code')) === 'DJI';
   });
   await expect(page.getByTestId('card-name')).toHaveText('Djibouti');
-  await expect(page.getByTestId('card-fact')).toContainText('Assal');
+  await expect(page.getByTestId('card-fact')).toContainText('Addis-Abeba');
 });

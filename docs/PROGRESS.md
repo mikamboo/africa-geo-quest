@@ -49,3 +49,7 @@ Commandes de vérification : `pnpm verify`, `pnpm lighthouse`, `pnpm perf`.
 ## Non fait ou non vérifié
 
 Voir `docs/BLOCKERS.md` : 60 FPS non vérifié, faute de GPU et d'appareil réel. Relecture humaine des faits et avis juridique à faire.
+
+## Refonte tout public (branche `feat/tout-public`)
+
+Public élargi à tous, dès 8 ans : voir ADR 0007. Preuves : `e2e/audience.spec.ts`, `src/core/modes.test.ts`, `src/core/rules.test.ts`.

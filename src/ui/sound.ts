@@ -1,5 +1,5 @@
 /** Sons synthétisés avec WebAudio : aucun fichier, aucune requête. */
-type SoundName = 'enter' | 'stamp' | 'success' | 'gentle' | 'tap';
+type SoundName = 'enter' | 'stamp' | 'success' | 'gentle' | 'tap' | 'door' | 'publish';
 
 let context: AudioContext | null = null;
 let muted = false;
@@ -45,6 +45,16 @@ const SOUNDS: Record<SoundName, [number, number, number, OscillatorType, number]
   ],
   gentle: [[330, 0, 0.22, 'sine', 0.09]],
   tap: [[600, 0, 0.05, 'sine', 0.05]],
+  door: [
+    [180, 0, 0.1, 'triangle', 0.14],
+    [240, 0.08, 0.16, 'triangle', 0.1],
+  ],
+  publish: [
+    [392, 0, 0.14, 'triangle', 0.14],
+    [523, 0.12, 0.14, 'triangle', 0.14],
+    [659, 0.24, 0.14, 'triangle', 0.14],
+    [784, 0.36, 0.34, 'triangle', 0.16],
+  ],
 };
 
 export function playSound(name: SoundName): void {

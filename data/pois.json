@@ -26,7 +26,7 @@
     },
     "lat": 13.91,
     "lon": -4.56,
-    "level": "geographer",
+    "level": "explorer",
     "blurb": {
       "fr": "À Djenné, la grande mosquée en briques de terre reçoit chaque année une nouvelle couche d'enduit de boue.",
       "en": "In Djenné, the Great Mosque of mud bricks gets a fresh coat of mud plaster every year."
@@ -136,40 +136,6 @@
     "sourceUrl": "https://en.wikipedia.org/wiki/Mount_Kenya"
   },
   {
-    "id": "poi-serengeti",
-    "kind": "nature",
-    "country": "TZA",
-    "names": {
-      "fr": "Serengeti",
-      "en": "Serengeti"
-    },
-    "lat": -2.4,
-    "lon": 34.6,
-    "level": "explorer",
-    "blurb": {
-      "fr": "Chaque année, plus d'un million de gnous et beaucoup de zèbres parcourent le Serengeti : un immense défilé animal.",
-      "en": "Each year over a million wildebeest and many zebras loop across the Serengeti, like the world's biggest animal parade."
-    },
-    "sourceUrl": "https://en.wikipedia.org/wiki/Serengeti_National_Park"
-  },
-  {
-    "id": "poi-okavango",
-    "kind": "nature",
-    "country": "BWA",
-    "names": {
-      "fr": "Delta de l'Okavango",
-      "en": "Okavango Delta"
-    },
-    "lat": -19.4,
-    "lon": 22.9,
-    "level": "explorer",
-    "blurb": {
-      "fr": "L'Okavango, au Botswana, est un monde d'eau où les rivières s'étalent en marais et en îles pleines d'animaux.",
-      "en": "The Okavango in Botswana is a watery wonderland where rivers spread into swamps and islands full of animals."
-    },
-    "sourceUrl": "https://en.wikipedia.org/wiki/Okavango_Delta"
-  },
-  {
     "id": "poi-table-mountain",
     "kind": "nature",
     "country": "ZAF",
@@ -202,23 +168,6 @@
       "en": "The Namib Desert runs along the Atlantic: fog gives plants and tiny bugs a drink, and its dunes rise taller than skyscrapers."
     },
     "sourceUrl": "https://en.wikipedia.org/wiki/Namib"
-  },
-  {
-    "id": "poi-ngorongoro",
-    "kind": "nature",
-    "country": "TZA",
-    "names": {
-      "fr": "Cratère du Ngorongoro",
-      "en": "Ngorongoro Crater"
-    },
-    "lat": -3.21,
-    "lon": 35.46,
-    "level": "geographer",
-    "blurb": {
-      "fr": "Le cratère du Ngorongoro est une immense cuvette née de l'effondrement d'un volcan, où vivent lions et zèbres.",
-      "en": "Ngorongoro Crater is a huge bowl formed when a giant volcano collapsed, and it is home to lions, zebras and more."
-    },
-    "sourceUrl": "https://en.wikipedia.org/wiki/Ngorongoro_Conservation_Area"
   },
   {
     "id": "poi-goree",
@@ -306,23 +255,6 @@
     "sourceUrl": "https://en.wikipedia.org/wiki/Rwenzori_Mountains_National_Park"
   },
   {
-    "id": "poi-virunga",
-    "kind": "nature",
-    "country": "COD",
-    "names": {
-      "fr": "Parc national des Virunga",
-      "en": "Virunga National Park"
-    },
-    "lat": -0.92,
-    "lon": 29.17,
-    "level": "explorer",
-    "blurb": {
-      "fr": "Le parc des Virunga, en RD Congo, abrite de rares gorilles de montagne et de hauts volcans.",
-      "en": "Virunga Park in the DR Congo is home to rare mountain gorillas and towering volcanoes."
-    },
-    "sourceUrl": "https://en.wikipedia.org/wiki/Virunga_National_Park"
-  },
-  {
     "id": "poi-tsingy",
     "kind": "nature",
     "country": "MDG",
@@ -338,23 +270,6 @@
       "en": "The Tsingy de Bemaraha are a giant forest of sharp, tall limestone spikes."
     },
     "sourceUrl": "https://en.wikipedia.org/wiki/Tsingy_de_Bemaraha_Strict_Nature_Reserve"
-  },
-  {
-    "id": "poi-lake-malawi-park",
-    "kind": "nature",
-    "country": "MWI",
-    "names": {
-      "fr": "Parc national du lac Malawi",
-      "en": "Lake Malawi National Park"
-    },
-    "lat": -14.03,
-    "lon": 34.88,
-    "level": "geographer",
-    "blurb": {
-      "fr": "Dans le parc du lac Malawi nagent de petits poissons colorés, les cichlidés, dont beaucoup vivent ici seulement.",
-      "en": "In Lake Malawi National Park swim small colourful fish called cichlids, many found nowhere else on Earth."
-    },
-    "sourceUrl": "https://en.wikipedia.org/wiki/Lake_Malawi_National_Park"
   },
   {
     "id": "poi-kilwa",
@@ -406,23 +321,6 @@
       "en": "Sehlabathebe, high in Lesotho's mountains, has waterfalls and ancient paintings on the rocks."
     },
     "sourceUrl": "https://en.wikipedia.org/wiki/Sehlabathebe_National_Park"
-  },
-  {
-    "id": "poi-aldabra",
-    "kind": "nature",
-    "country": "SYC",
-    "names": {
-      "fr": "Atoll d'Aldabra",
-      "en": "Aldabra Atoll"
-    },
-    "lat": -9.42,
-    "lon": 46.35,
-    "level": "geographer",
-    "blurb": {
-      "fr": "Aldabra, atoll des Seychelles, est le refuge de tortues géantes qui se promènent en liberté.",
-      "en": "Aldabra, an atoll in the Seychelles, is a special island home where giant tortoises roam."
-    },
-    "sourceUrl": "https://en.wikipedia.org/wiki/Aldabra"
   },
   {
     "id": "poi-vallee-de-mai",
@@ -504,8 +402,8 @@
     "lon": 9.0,
     "level": "geographer",
     "blurb": {
-      "fr": "Le Tassili n'Ajjer est un plateau rocheux du Sahara où d'anciens artistes ont peint des animaux sur la pierre.",
-      "en": "Tassili n'Ajjer is a rocky Sahara plateau where ancient artists painted and carved animals into the sandstone."
+      "fr": "Sur ce plateau du Sahara, des artistes de la préhistoire ont peint plus de 15 000 scènes de vie sur la roche.",
+      "en": "On this Sahara plateau, prehistoric artists painted more than 15,000 scenes of daily life on the rock."
     },
     "sourceUrl": "https://en.wikipedia.org/wiki/Tassili_n%27Ajjer"
   },
@@ -578,23 +476,6 @@
     "sourceUrl": "https://en.wikipedia.org/wiki/Sukur"
   },
   {
-    "id": "poi-dja",
-    "kind": "nature",
-    "country": "CMR",
-    "names": {
-      "fr": "Réserve du Dja",
-      "en": "Dja Faunal Reserve"
-    },
-    "lat": 3.0,
-    "lon": 13.0,
-    "level": "geographer",
-    "blurb": {
-      "fr": "La réserve du Dja est une immense forêt tropicale du Cameroun où vivent gorilles, chimpanzés et éléphants.",
-      "en": "The Dja Faunal Reserve is a huge rainforest in Cameroon where gorillas, chimpanzees and elephants live."
-    },
-    "sourceUrl": "https://en.wikipedia.org/wiki/Dja_Faunal_Reserve"
-  },
-  {
     "id": "poi-lope",
     "kind": "nature",
     "country": "GAB",
@@ -606,9 +487,332 @@
     "lon": 11.5,
     "level": "geographer",
     "blurb": {
-      "fr": "Au Lopé, au Gabon, la forêt tropicale rencontre la savane, près du fleuve Ogooué.",
-      "en": "In Lopé, Gabon, thick rainforest meets open grassland, with the Ogooué River flowing nearby."
+      "fr": "Au Lopé, au Gabon, environ 1 800 gravures préhistoriques racontent les peuples qui ont vécu là.",
+      "en": "In Lopé, Gabon, about 1,800 prehistoric carvings tell of the peoples who lived there."
     },
-    "sourceUrl": "https://en.wikipedia.org/wiki/Lop%C3%A9_National_Park"
+    "sourceUrl": "https://whc.unesco.org/en/list/1147"
+  },
+  {
+    "id": "poi-iten",
+    "kind": "monument",
+    "country": "KEN",
+    "names": {
+      "fr": "Iten",
+      "en": "Iten"
+    },
+    "lat": 0.6731,
+    "lon": 35.5083,
+    "level": "explorer",
+    "blurb": {
+      "fr": "À Iten, à 2 400 m d'altitude, de nombreux coureurs de fond s'entraînent.",
+      "en": "At 2,400 m, Iten is a training base for many distance runners."
+    },
+    "sourceUrl": "https://en.wikipedia.org/wiki/Iten"
+  },
+  {
+    "id": "poi-meerkat",
+    "kind": "monument",
+    "country": "ZAF",
+    "names": {
+      "fr": "Radiotélescope MeerKAT",
+      "en": "MeerKAT radio telescope"
+    },
+    "lat": -30.7132,
+    "lon": 21.4431,
+    "level": "explorer",
+    "blurb": {
+      "fr": "Dans le Cap-Nord, MeerKAT réunit 64 antennes radio reliées entre elles.",
+      "en": "In the Northern Cape, MeerKAT links 64 radio antennas together."
+    },
+    "sourceUrl": "https://en.wikipedia.org/wiki/MeerKAT"
+  },
+  {
+    "id": "poi-noor-ouarzazate",
+    "kind": "monument",
+    "country": "MAR",
+    "names": {
+      "fr": "Complexe solaire Noor",
+      "en": "Noor solar complex"
+    },
+    "lat": 31.0492,
+    "lon": -6.8694,
+    "level": "explorer",
+    "blurb": {
+      "fr": "À 10 km d'Ouarzazate, le complexe solaire Noor transforme la lumière du soleil en électricité.",
+      "en": "10 km from Ouarzazate, the Noor solar complex turns sunlight into electricity."
+    },
+    "sourceUrl": "https://en.wikipedia.org/wiki/Ouarzazate_Solar_Power_Station"
+  },
+  {
+    "id": "poi-bibalex",
+    "kind": "monument",
+    "country": "EGY",
+    "names": {
+      "fr": "Bibliotheca Alexandrina",
+      "en": "Bibliotheca Alexandrina"
+    },
+    "lat": 31.2089,
+    "lon": 29.9092,
+    "level": "explorer",
+    "blurb": {
+      "fr": "Sur la Méditerranée, à Alexandrie, une grande bibliothèque rappelle celle de l'Antiquité.",
+      "en": "On the Mediterranean in Alexandria, a major library commemorates the ancient one."
+    },
+    "sourceUrl": "https://en.wikipedia.org/wiki/Bibliotheca_Alexandrina"
+  },
+  {
+    "id": "poi-qarawiyyin",
+    "kind": "monument",
+    "country": "MAR",
+    "names": {
+      "fr": "Université Al-Qarawiyyin",
+      "en": "University of al-Qarawiyyin"
+    },
+    "lat": 34.0644,
+    "lon": -4.9733,
+    "level": "geographer",
+    "blurb": {
+      "fr": "À Fès, l'université Al-Qarawiyyin, fondée en 859, est l'une des plus anciennes encore en activité.",
+      "en": "In Fez, Al-Qarawiyyin, founded in 859, is one of the oldest universities still operating."
+    },
+    "sourceUrl": "https://en.wikipedia.org/wiki/University_of_al-Qarawiyyin"
+  },
+  {
+    "id": "poi-zeitz-mocaa",
+    "kind": "monument",
+    "country": "ZAF",
+    "names": {
+      "fr": "Zeitz MOCAA",
+      "en": "Zeitz MOCAA"
+    },
+    "lat": -33.9084,
+    "lon": 18.423,
+    "level": "explorer",
+    "blurb": {
+      "fr": "Au Cap, le Zeitz MOCAA, ouvert en 2017, est un grand musée d'art contemporain africain.",
+      "en": "In Cape Town, Zeitz MOCAA, opened in 2017, is a major museum of contemporary African art."
+    },
+    "sourceUrl": "https://en.wikipedia.org/wiki/Zeitz_Museum_of_Contemporary_Art_Africa"
+  },
+  {
+    "id": "poi-kigali-convention-centre",
+    "kind": "monument",
+    "country": "RWA",
+    "names": {
+      "fr": "Centre de conférences de Kigali",
+      "en": "Kigali Convention Centre"
+    },
+    "lat": -1.9547,
+    "lon": 30.0939,
+    "level": "geographer",
+    "blurb": {
+      "fr": "À Kigali, un grand centre de congrès accueille des rencontres venues du monde entier.",
+      "en": "In Kigali, a large convention centre hosts gatherings from around the world."
+    },
+    "sourceUrl": "https://en.wikipedia.org/wiki/Kigali_Convention_Centre"
+  },
+  {
+    "id": "poi-makerere",
+    "kind": "monument",
+    "country": "UGA",
+    "names": {
+      "fr": "Université de Makerere",
+      "en": "Makerere University"
+    },
+    "lat": 0.335,
+    "lon": 32.5675,
+    "level": "explorer",
+    "blurb": {
+      "fr": "À Kampala, Makerere, fondée en 1922, est la plus ancienne université active d'Afrique de l'Est.",
+      "en": "In Kampala, Makerere, founded in 1922, is East Africa's oldest active university."
+    },
+    "sourceUrl": "https://en.wikipedia.org/wiki/Makerere_University"
+  },
+  {
+    "id": "poi-tanzanite-bridge",
+    "kind": "monument",
+    "country": "TZA",
+    "names": {
+      "fr": "Pont Tanzanite",
+      "en": "Tanzanite Bridge"
+    },
+    "lat": -6.7919,
+    "lon": 39.2853,
+    "level": "geographer",
+    "blurb": {
+      "fr": "À Dar es Salaam, le pont Tanzanite enjambe le delta du Msimbazi.",
+      "en": "In Dar es Salaam, the Tanzanite Bridge crosses the Msimbazi delta."
+    },
+    "sourceUrl": "https://en.wikipedia.org/wiki/Tanzanite_Bridge"
+  },
+  {
+    "id": "poi-musee-national-nairobi",
+    "kind": "monument",
+    "country": "KEN",
+    "names": {
+      "fr": "Musée national de Nairobi",
+      "en": "Nairobi National Museum"
+    },
+    "lat": -1.2739,
+    "lon": 36.815,
+    "level": "geographer",
+    "blurb": {
+      "fr": "À Nairobi, sur Museum Hill, se trouve le Musée national et le siège des musées du Kenya.",
+      "en": "In Nairobi, on Museum Hill, stand the National Museum and the headquarters of Kenya's museums."
+    },
+    "sourceUrl": "https://en.wikipedia.org/wiki/National_Museums_of_Kenya"
+  },
+  {
+    "id": "poi-bardo",
+    "kind": "monument",
+    "country": "TUN",
+    "names": {
+      "fr": "Musée national du Bardo",
+      "en": "Bardo National Museum"
+    },
+    "lat": 36.8094,
+    "lon": 10.1343,
+    "level": "explorer",
+    "blurb": {
+      "fr": "Au Bardo, près de Tunis, un grand musée retrace l'histoire de la Tunisie.",
+      "en": "At Le Bardo near Tunis, a major museum traces the history of Tunisia."
+    },
+    "sourceUrl": "https://en.wikipedia.org/wiki/Bardo_National_Museum_(Tunis)"
+  },
+  {
+    "id": "poi-stade-houphouet-boigny",
+    "kind": "monument",
+    "country": "CIV",
+    "names": {
+      "fr": "Stade Félix Houphouët-Boigny",
+      "en": "Félix Houphouët-Boigny Stadium"
+    },
+    "lat": 5.3283,
+    "lon": -4.0183,
+    "level": "geographer",
+    "blurb": {
+      "fr": "À Abidjan, le « Félicia » accueille football, rugby et athlétisme.",
+      "en": "In Abidjan, the 'Félicia' hosts football, rugby and athletics."
+    },
+    "sourceUrl": "https://en.wikipedia.org/wiki/Felix_Houphouet_Boigny_Stadium"
+  },
+  {
+    "id": "poi-musee-national-ethiopie",
+    "kind": "monument",
+    "country": "ETH",
+    "names": {
+      "fr": "Musée national d'Éthiopie",
+      "en": "National Museum of Ethiopia"
+    },
+    "lat": 9.0383,
+    "lon": 38.7619,
+    "level": "explorer",
+    "blurb": {
+      "fr": "À Addis-Abeba, le Musée national d'Éthiopie se trouve près de l'université.",
+      "en": "In Addis Ababa, the National Museum of Ethiopia stands near the university."
+    },
+    "sourceUrl": "https://en.wikipedia.org/wiki/National_Museum_of_Ethiopia"
+  },
+  {
+    "id": "poi-universite-ghana",
+    "kind": "monument",
+    "country": "GHA",
+    "names": {
+      "fr": "Université du Ghana",
+      "en": "University of Ghana"
+    },
+    "lat": 5.6508,
+    "lon": -0.1869,
+    "level": "geographer",
+    "blurb": {
+      "fr": "À Accra, l'université du Ghana est la plus ancienne université publique du pays.",
+      "en": "In Accra, the University of Ghana is the country's oldest public university."
+    },
+    "sourceUrl": "https://en.wikipedia.org/wiki/University_of_Ghana"
+  },
+  {
+    "id": "poi-theatre-national-lagos",
+    "kind": "monument",
+    "country": "NGA",
+    "names": {
+      "fr": "Théâtre national de Lagos",
+      "en": "National Theatre, Lagos"
+    },
+    "lat": 6.4764,
+    "lon": 3.3694,
+    "level": "explorer",
+    "blurb": {
+      "fr": "À Lagos, le Théâtre national est le grand centre des arts de la scène du Nigeria.",
+      "en": "In Lagos, the National Theatre is Nigeria's main centre for the performing arts."
+    },
+    "sourceUrl": "https://en.wikipedia.org/wiki/National_Theatre%2C_Nigeria"
+  },
+  {
+    "id": "poi-grande-poste-alger",
+    "kind": "monument",
+    "country": "DZA",
+    "names": {
+      "fr": "Grande Poste d'Alger",
+      "en": "Algiers Central Post Office"
+    },
+    "lat": 36.7731,
+    "lon": 3.0594,
+    "level": "geographer",
+    "blurb": {
+      "fr": "À Alger, la Grande Poste, construite en 1910, est la plus grande poste d'Algérie.",
+      "en": "In Algiers, the Central Post Office, built in 1910, is Algeria's largest post office."
+    },
+    "sourceUrl": "https://en.wikipedia.org/wiki/Grande_Poste_d'Alger"
+  },
+  {
+    "id": "poi-universite-botswana",
+    "kind": "monument",
+    "country": "BWA",
+    "names": {
+      "fr": "Université du Botswana",
+      "en": "University of Botswana"
+    },
+    "lat": -24.6667,
+    "lon": 25.9333,
+    "level": "geographer",
+    "blurb": {
+      "fr": "À Gaborone, l'université du Botswana, créée en 1982, fut la première du pays.",
+      "en": "In Gaborone, the University of Botswana, set up in 1982, was the country's first."
+    },
+    "sourceUrl": "https://en.wikipedia.org/wiki/University_of_Botswana"
+  },
+  {
+    "id": "poi-stade-moulay-abdellah",
+    "kind": "monument",
+    "country": "MAR",
+    "names": {
+      "fr": "Stade Prince Moulay Abdellah",
+      "en": "Prince Moulay Abdellah Stadium"
+    },
+    "lat": 33.9594,
+    "lon": -6.8886,
+    "level": "explorer",
+    "blurb": {
+      "fr": "À Rabat, le stade Prince Moulay Abdellah est le stade de l'équipe nationale de football.",
+      "en": "In Rabat, the Prince Moulay Abdellah Stadium is the national football team's home."
+    },
+    "sourceUrl": "https://en.wikipedia.org/wiki/Prince_Moulay_Abdellah_Stadium"
+  },
+  {
+    "id": "poi-ucad",
+    "kind": "monument",
+    "country": "SEN",
+    "names": {
+      "fr": "Université Cheikh Anta Diop",
+      "en": "Cheikh Anta Diop University"
+    },
+    "lat": 14.6869,
+    "lon": -17.4633,
+    "level": "explorer",
+    "blurb": {
+      "fr": "À Dakar, l'université Cheikh Anta Diop accueille plus de 60 000 étudiants.",
+      "en": "In Dakar, Cheikh Anta Diop University enrols over 60,000 students."
+    },
+    "sourceUrl": "https://en.wikipedia.org/wiki/Cheikh_Anta_Diop_University"
   }
 ]

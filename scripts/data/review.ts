@@ -51,5 +51,36 @@ for (const poi of pois) {
     '',
   );
 }
+const stories = read('data/stories.json') as {
+  title: { fr: string };
+  stops: {
+    placeId: string;
+    clue: { fr: string; en: string };
+    lines: { fr: string; en: string }[];
+    note: { fr: string };
+    sourceUrl: string;
+    quote?: string;
+  }[];
+}[];
+lines.push(
+  '# Reportages',
+  '',
+  'Personnages fictifs, faits réels. À relire comme les fiches pays.',
+  '',
+);
+for (const story of stories) {
+  lines.push(`## ${story.title.fr}`, '');
+  for (const stop of story.stops) {
+    lines.push(
+      `### ${stop.placeId}`,
+      '',
+      `- [ ] Indice : ${stop.clue.fr} / ${stop.clue.en}`,
+      ...stop.lines.map((line) => `- [ ] ${line.fr} / ${line.en}`),
+      `- Source : ${stop.sourceUrl}`,
+      `- Citation : « ${stop.quote ?? ''} »`,
+      '',
+    );
+  }
+}
 writeFileSync('docs/REVIEW_FACTS.md', lines.join('\n'));
 console.log('docs/REVIEW_FACTS.md généré.');

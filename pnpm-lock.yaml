@@ -8,10 +8,10 @@ importers:
 
   .:
     dependencies:
-      '@fontsource/lilita-one':
+      '@fontsource/atkinson-hyperlegible':
         specifier: ^5.3.0
         version: 5.3.0
-      '@fontsource/nunito':
+      '@fontsource/fraunces':
         specifier: ^5.3.0
         version: 5.3.0
       '@fontsource/opendyslexic':
@@ -1034,11 +1034,11 @@ packages:
       '@noble/hashes':
         optional: true
 
-  '@fontsource/lilita-one@5.3.0':
-    resolution: {integrity: sha512-bNW3tD+m5pOsAQpW/NvtRbFthFe+B73hDJK2DLLCFCtF+1p+UMBgo7ibxdcb9Sftr06LKAVbt080wiMdSqGbOg==}
+  '@fontsource/atkinson-hyperlegible@5.3.0':
+    resolution: {integrity: sha512-Sp8Ve8+rQmENY2Lv02VH7sLpntzTTvnncnJMTbRE7DX6TLxGraN4ykZfzaUWIoCFmaomwkvNiqmlPkrKBuDoSA==}
 
-  '@fontsource/nunito@5.3.0':
-    resolution: {integrity: sha512-vw9TaTQJ/zpEpKrsODuPmOvaVjXgdda6B+xXA4YqjrdeJ62MLgVoDerdRXFQHyBnSCt2yQ2nHKCHPP/Pv7Xq4Q==}
+  '@fontsource/fraunces@5.3.0':
+    resolution: {integrity: sha512-LEHTOBiZufQzAvnAe2rZ8ZknbDS28Q9kzwb0L+gZJEmjLGr8hhZ/5NuHXwDuHBWhVXYoiGGXmrb0H6Ko/RrHTg==}
 
   '@fontsource/opendyslexic@5.3.0':
     resolution: {integrity: sha512-BVYIW/ghc1U2iAghhYTN+GFWiZ3lnCy8Jf2KkZC23aHQHBNcMqKT718zckfqVxRx4qsXJmIMPWvczirRuhmtsg==}
@@ -5509,9 +5509,9 @@ snapshots:
 
   '@exodus/bytes@1.16.0': {}
 
-  '@fontsource/lilita-one@5.3.0': {}
+  '@fontsource/atkinson-hyperlegible@5.3.0': {}
 
-  '@fontsource/nunito@5.3.0': {}
+  '@fontsource/fraunces@5.3.0': {}
 
   '@fontsource/opendyslexic@5.3.0': {}
 

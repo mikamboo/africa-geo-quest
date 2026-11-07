@@ -4,6 +4,7 @@ import {
   MAX_STEP_S,
   normalizeInput,
   SPEED_KM_PER_S,
+  SPRINT_FACTOR,
   stepPosition,
 } from './movement';
 import { Explorer } from './explorer';
@@ -31,6 +32,16 @@ describe('déplacement', () => {
   it('plafonne le pas de temps', () => {
     const next = stepPosition({ x: 0, y: 0 }, { x: 1, y: 0 }, 10, world);
     expect(next.x).toBeCloseTo(SPEED_KM_PER_S * MAX_STEP_S);
+  });
+  it('double la vitesse au pas rapide, sans sauter de détection', () => {
+    const next = stepPosition({ x: 0, y: 0 }, { x: 1, y: 0 }, 0.05, world, SPRINT_FACTOR);
+    expect(next.x).toBeCloseTo(SPEED_KM_PER_S * SPRINT_FACTOR * 0.05);
+    const explorer = new Explorer(world, { x: 900, y: 0 }, 'explorer');
+    const events = [];
+    for (let t = 0; t < 2.5; t += 0.05) {
+      events.push(...explorer.update({ x: -1, y: 0 }, 0.05, SPRINT_FACTOR));
+    }
+    expect(events).toContainEqual({ type: 'river-crossed', id: 'grand' });
   });
   it('ignore un temps négatif', () => {
     expect(stepPosition({ x: 0, y: 0 }, { x: 1, y: 0 }, -1, world).x).toBe(0);

@@ -3,38 +3,60 @@
     "tagline": "Walk across Africa. 54 countries are waiting.",
     "loading": "Getting the map ready…",
     "loadError": "The map could not load.",
-    "retry": "Try again"
+    "retry": "Try again",
+    "audience": "A geography game for everyone from age 8: you pick your level."
   },
   "home": {
-    "start": "Start the adventure",
+    "start": "Start",
     "hello": "Hi, {{name}}!",
-    "explore": "Free exploring",
-    "exploreDesc": "Wander and discover, no pressure.",
+    "explore": "Free travel",
+    "exploreDesc": "Wander on foot or by boat, with no goal.",
     "missions": "Missions",
     "missionsDesc": "One goal, one map, you find the way.",
     "quiz": "Quiz",
-    "quizDesc": "What you saw comes back at the right time.",
+    "quizDesc": "What you remember less comes back at the right time.",
     "daily": "Daily challenge",
-    "dailyDesc": "The same mission for everyone today.",
-    "dailyBest": "Your best score today: {{score}}",
+    "dailyDesc": "The same mission for everyone, every day.",
+    "dailyBest": "Best score: {{score}}",
     "passport": "Passport",
     "settings": "Settings",
-    "parents": "Parents & teachers",
+    "parents": "About · Parents & teachers",
     "recovered": "Your save could not be read. The game starts fresh, nothing to worry about.",
-    "ok": "OK"
+    "ok": "OK",
+    "travelled": "of Africa travelled",
+    "modes": "Game modes",
+    "nextBadge": "next badge: {{region}} ({{visited}}/{{total}})",
+    "noReviews": "No reviews waiting",
+    "dailyNew": "Ready for today",
+    "stamps_one": "{{count}} stamp out of 54",
+    "stamps_other": "{{count}} stamps out of 54",
+    "reviews_one": "{{count}} review waiting",
+    "reviews_other": "{{count}} reviews waiting",
+    "streak_one": "{{count}}-day streak",
+    "streak_other": "{{count}}-day streak",
+    "missionsDone_one": "{{count}} mission completed",
+    "missionsDone_other": "{{count}} missions completed",
+    "stories": "Stories",
+    "storiesDesc": "Follow a lead from city to city, step inside, publish your story.",
+    "storiesDone_one": "{{count}} story published",
+    "storiesDone_other": "{{count}} stories published",
+    "storiesNone": "None published yet",
+    "storiesResume": "Pick up your story in progress."
   },
   "setup": {
     "title": "Who is travelling?",
     "avatar": "Pick your character",
-    "pseudonym": "Pick your explorer name",
+    "pseudonym": "Pick your travel name",
     "others": "Other names",
     "level": "Pick your level",
-    "explorer": "Explorer",
-    "explorerDesc": "Ages 8–11: countries, capitals, big rivers, with hints on the map.",
+    "explorer": "First steps",
+    "explorerDesc": "To begin: countries, capitals, big rivers, with markers on the map.",
     "geographer": "Geographer",
-    "geographerDesc": "Ages 12–15: cities, landforms, regions and borders, with less help.",
+    "geographerDesc": "To go further: cities, landforms, regions and borders, with less help.",
     "go": "Let's go!",
-    "privacy": "No account, no real name. Everything stays on this device."
+    "privacy": "No account, no real name. Everything stays on this device.",
+    "expert": "Expert",
+    "expertDesc": "For connoisseurs: blank map, compass on request, hard questions."
   },
   "avatar": {
     "amina": "Amina",
@@ -43,77 +65,39 @@
     "idir": "Idir"
   },
   "pseudo": {
-    "animal": {
-      "gazelle": "gazelle",
-      "lion": "lion",
-      "elephant": "elephant",
-      "giraffe": "giraffe",
-      "zebra": "zebra",
-      "okapi": "okapi",
-      "hippo": "hippo",
-      "pangolin": "pangolin",
-      "ibis": "ibis",
-      "turtle": "turtle",
-      "fennec": "fennec",
-      "meerkat": "meerkat"
-    },
-    "gender": {
-      "gazelle": "m",
-      "lion": "m",
-      "elephant": "m",
-      "giraffe": "m",
-      "zebra": "m",
-      "okapi": "m",
-      "hippo": "m",
-      "pangolin": "m",
-      "ibis": "m",
-      "turtle": "m",
-      "fennec": "m",
-      "meerkat": "m"
+    "role": {
+      "cartographer": "Cartographer",
+      "astronomer": "Astronomer",
+      "architect": "Architect",
+      "pilot": "Pilot",
+      "poet": "Poet",
+      "journalist": "Journalist",
+      "librarian": "Librarian",
+      "filmmaker": "Filmmaker",
+      "photographer": "Photographer",
+      "archivist": "Archivist",
+      "chemist": "Chemist",
+      "geologist": "Geologist"
     },
     "adj": {
-      "fast": {
-        "m": "Fast",
-        "f": "Fast"
-      },
-      "curious": {
-        "m": "Curious",
-        "f": "Curious"
-      },
-      "brave": {
-        "m": "Brave",
-        "f": "Brave"
-      },
-      "clever": {
-        "m": "Clever",
-        "f": "Clever"
-      },
-      "calm": {
-        "m": "Calm",
-        "f": "Calm"
-      },
-      "joyful": {
-        "m": "Joyful",
-        "f": "Joyful"
-      },
-      "patient": {
-        "m": "Patient",
-        "f": "Patient"
-      },
-      "bold": {
-        "m": "Bold",
-        "f": "Bold"
-      }
+      "fast": "Swift",
+      "calm": "Calm",
+      "skilled": "Skilled",
+      "wise": "Wise",
+      "agile": "Agile",
+      "lucid": "Clear-eyed",
+      "loyal": "Loyal",
+      "tenacious": "Tenacious"
     },
-    "format": "{{adjective}} {{animal}}"
+    "format": "{{adjective}} {{role}}"
   },
   "hud": {
     "menu": "Menu",
-    "ocean": "By canoe, on the ocean",
+    "ocean": "By boat, on the ocean",
     "outside": "Outside Africa",
-    "onWater": "By canoe",
+    "onWater": "By boat",
     "onLand": "On foot",
-    "discovered": "{{percent}}% discovered",
+    "travelled": "{{percent}}% travelled",
     "stamps": "{{count}} / 54 stamps",
     "soundOn": "Turn sound off",
     "soundOff": "Turn sound on",
@@ -124,7 +108,13 @@
     "showCard": "Show the card again",
     "controls": "Arrows or WASD to walk, + and − to zoom.",
     "joystick": "Movement joystick",
-    "pickCountry": "Pick a country on the map"
+    "pickCountry": "Pick a country on the map",
+    "sprint": "Fast pace (Shift key)",
+    "overview": "Whole continent view (M key)",
+    "tutorialKeys": "Arrows or WASD to walk, Shift to go faster",
+    "tutorialTouch": "Push the joystick to walk",
+    "enter": "Enter: {{name}}",
+    "leave": "Leave"
   },
   "card": {
     "capital": "Capital",
@@ -149,10 +139,12 @@
     }
   },
   "toast": {
-    "place": "Place discovered: {{name}}",
+    "place": "Place visited: {{name}}",
     "river": "River crossed: {{name}}",
     "badge": "Badge earned: {{name}}!",
-    "lake": "Lake reached: {{name}}"
+    "lake": "Lake reached: {{name}}",
+    "note": "Notebook updated: +{{name}} points",
+    "map": "Well placed: {{name}}"
   },
   "region": {
     "north": "Northern Africa",
@@ -179,7 +171,7 @@
     "findLandlocked": "Find a country with no access to the sea",
     "findLandlockedDesc": "Enter a country surrounded only by land.",
     "findIsland": "Reach an island country",
-    "findIslandDesc": "Take the canoe and head for an island state.",
+    "findIslandDesc": "Take the boat and head for an island state.",
     "hint": "About {{distance}} km to {{direction}}",
     "hintNone": "Change country to succeed.",
     "successTitle": "Mission complete!",
@@ -187,7 +179,7 @@
     "time": "In {{seconds}} s",
     "dailyScore": "Your score today: {{score}}",
     "another": "Another mission",
-    "continue": "Keep exploring",
+    "continue": "Keep travelling",
     "cancel": "Drop this mission",
     "compass": {
       "N": "the north",
@@ -198,7 +190,12 @@
       "SW": "the south-west",
       "W": "the west",
       "NW": "the north-west"
-    }
+    },
+    "askHint": "Ask for the compass",
+    "share": "Copy my result",
+    "shared": "Result copied!",
+    "shareFailed": "Copying isn't available on this device.",
+    "shareText": "Tembea · Challenge of {{date}} · {{score}} points in {{seconds}} s"
   },
   "quiz": {
     "title": "Quiz",
@@ -222,18 +219,22 @@
     "score": "{{correct}} right answers out of {{total}}",
     "encouragement": "Every answer counts. What you remember less will come back later.",
     "replay": "Play again",
-    "empty": "Explore a bit to unlock questions."
+    "empty": "Travel a bit to unlock questions.",
+    "shapeOf": "Which country has this shape?",
+    "shapeAlt": "Outline of a country to recognise",
+    "recapTitle": "Worth remembering",
+    "recapClean": "No mistakes. These questions will come back later, to anchor what you know."
   },
   "passport": {
     "title": "My passport",
-    "percent": "{{percent}}% of the map discovered",
+    "percent": "{{percent}}% of the map travelled",
     "badges": "Region badges",
     "badgeProgress": "{{visited}} of {{total}}",
     "earned": "Badge earned",
     "stamped": "Visited on {{date}}",
     "notYet": "Not visited yet",
-    "places_one": "{{count}} place discovered",
-    "places_other": "{{count}} places discovered",
+    "places_one": "{{count}} place visited",
+    "places_other": "{{count}} places visited",
     "rivers_one": "{{count}} river crossed",
     "rivers_other": "{{count}} rivers crossed",
     "missions_one": "{{count}} mission completed",
@@ -265,15 +266,15 @@
   },
   "external": {
     "title": "You are about to leave Tembea",
-    "body": "This link opens another website, which this game does not control. Ask an adult before you continue.",
+    "body": "This link opens another website, which this game does not control. If you are a minor, ask an adult before you continue.",
     "continue": "Open the website",
     "stay": "Stay in the game"
   },
   "parents": {
-    "title": "Parents & teachers",
-    "teachTitle": "What the game teaches",
-    "teach": "Africa's 54 countries, their capitals, major cities, rivers, lakes, landforms and regions. Explorer level for ages 8–11, Geographer for ages 12–15. Items that are harder to remember come back through spaced repetition.",
-    "dataTitle": "Stored data",
+    "title": "About",
+    "teachTitle": "Who it's for, what it teaches",
+    "teach": "Tembea is for everyone from age 8. It teaches Africa's 54 countries, their capitals and cities, their geography, and what their people create: music, film, literature, science, technology, architecture, sport. Three levels: First steps (recommended for younger players), Geographer, Expert. Items that are harder to remember come back through spaced repetition.",
+    "dataTitle": "For parents and teachers: stored data",
     "data": "On this device only: the avatar, the generated nickname, progress, scores and settings. No account, no real name, no email, no cookie, no ads, no purchases, no trackers. The game sends no game data to any server.",
     "resetTitle": "Reset",
     "resetText": "Erases all progress and settings on this device. This cannot be undone.",
@@ -300,5 +301,63 @@
     "title": "Oops, something got stuck.",
     "body": "Your progress is safe on this device. Reload the page to carry on.",
     "reload": "Reload"
+  },
+  "stories": {
+    "title": "Stories",
+    "intro": "You write for Tembea Mag, a fictional magazine. Each story takes you to several cities: it's up to you to work out where to go.",
+    "start": "Start",
+    "resume": "Resume",
+    "replay": "Play again",
+    "published": "Published",
+    "inProgress": "In progress",
+    "stops": "{{count}} stops",
+    "notebook": "Notebook",
+    "emptyNotebook": "Your story notes will appear here.",
+    "bannerStop": "Stop {{current}} of {{total}}",
+    "abandon": "Put the story aside",
+    "publishedTitle": "Front page!",
+    "magazine": "Tembea Mag",
+    "publish": "Back to travelling",
+    "more": "See the stories",
+    "arrived": "You're here: go inside."
+  },
+  "room": {
+    "theme": {
+      "hall": "Cultural centre",
+      "newsroom": "Local newsroom",
+      "studio": "Recording studio",
+      "cinema": "Cinema",
+      "library": "Library",
+      "lab": "Laboratory",
+      "gallery": "Museum",
+      "stadium": "Sports centre"
+    },
+    "talk": "Talk",
+    "talkTo": "Talk to: {{name}}",
+    "readBoard": "Read the board",
+    "useMap": "Wall map",
+    "exit": "Leave",
+    "guide": "Guide",
+    "visitor": "Someone here",
+    "continue": "Continue",
+    "close": "Close",
+    "actions": "In this place",
+    "boardTitle": "Board",
+    "boardEmpty": "Welcome. This month's programme is at the front desk.",
+    "mapTitle": "Wall map",
+    "mapAsk": "Show where this country is: {{name}}.",
+    "mapRight": "Correct! +{{points}} points.",
+    "mapWrong": "Not here: you touched {{picked}}. The right country is flashing on the map.",
+    "extra": {
+      "hall": "The current exhibition is drawing a crowd. Take time to talk with the team.",
+      "newsroom": "We're closing tonight's edition. Good stories start with a good question.",
+      "studio": "One more take and this track is ready. Listen to the bass: it holds everything together.",
+      "cinema": "The screening starts soon. The discussion after it is often as good as the film.",
+      "library": "Quiet please, we're digitising archives. Every page gets a new life.",
+      "lab": "The prototype finally runs. We spent weeks on this sensor.",
+      "gallery": "Look closely at the details: you can read all of the makers' skill in them.",
+      "stadium": "Interval session this morning. Consistency always beats talent alone."
+    },
+    "talkToExtra": "Talk to someone else"
   }
 }

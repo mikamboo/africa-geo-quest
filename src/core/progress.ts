@@ -1,15 +1,16 @@
 import { REGIONS, type GameCatalog } from './catalog';
 import type { Point } from './geometry';
 import type { LeitnerState } from './leitner';
+import type { StoryProgress } from './stories';
 import type { Level, RegionId } from './types';
 
-export const PROGRESS_VERSION = 1;
+export const PROGRESS_VERSION = 2;
 
 export const AVATAR_IDS = ['amina', 'kofi', 'zola', 'idir'] as const;
 export type AvatarId = (typeof AVATAR_IDS)[number];
 
 export interface Pseudonym {
-  animal: string;
+  role: string;
   adjective: string;
 }
 
@@ -32,6 +33,13 @@ export interface ProgressData {
   quizAnswered: number;
   points: number;
   lastPosition: Point | null;
+  /** Reportage en cours et étape atteinte. */
+  story: StoryProgress | null;
+  storiesDone: string[];
+  /** Étapes dont la note figure au carnet : `reportage:étape`. */
+  notes: string[];
+  /** Lieux dans lesquels le joueur est entré. */
+  roomsVisited: string[];
 }
 
 export function createInitialProgress(): ProgressData {
@@ -48,6 +56,10 @@ export function createInitialProgress(): ProgressData {
     quizAnswered: 0,
     points: 0,
     lastPosition: null,
+    story: null,
+    storiesDone: [],
+    notes: [],
+    roomsVisited: [],
   };
 }
 

@@ -20,6 +20,9 @@ const PassportScreen = lazy(() =>
 const ParentsScreen = lazy(() =>
   import('./screens/ParentsScreen').then((module) => ({ default: module.ParentsScreen })),
 );
+const StoriesScreen = lazy(() =>
+  import('./screens/StoriesScreen').then((module) => ({ default: module.StoriesScreen })),
+);
 const SettingsScreen = lazy(() =>
   import('./screens/SettingsScreen').then((module) => ({ default: module.SettingsScreen })),
 );
@@ -41,6 +44,8 @@ function Screen() {
       return <PassportScreen />;
     case 'parents':
       return <ParentsScreen />;
+    case 'stories':
+      return <StoriesScreen />;
     case 'settings':
       return <SettingsScreen />;
   }

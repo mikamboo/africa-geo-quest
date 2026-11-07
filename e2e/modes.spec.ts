@@ -16,7 +16,7 @@ test('réussir une mission en se guidant avec la boussole', async ({ page }, tes
   const success = page.getByTestId('mission-success');
   await walker.walkUntil(followHint(page), () => success.isVisible());
   await expect(success).toContainText('+100 points');
-  await success.getByRole('button', { name: 'Continuer à explorer' }).click();
+  await success.getByRole('button', { name: 'Continuer à voyager' }).click();
   await expect(page.getByTestId('mission-banner')).toBeHidden();
   await page.getByTestId('hud-menu').click();
   await page.getByTestId('open-passport').click();

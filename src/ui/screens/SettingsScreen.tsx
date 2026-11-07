@@ -1,9 +1,10 @@
 import { useTranslation } from 'react-i18next';
 import type { Level } from '../../core/types';
+import { switchLocale } from '../../i18n';
 import { useGameStore } from '../store';
 
 export function SettingsScreen() {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const settings = useGameStore((state) => state.settings);
   const level = useGameStore((state) => state.progress.level);
   const updateSettings = useGameStore((state) => state.updateSettings);
@@ -45,7 +46,7 @@ export function SettingsScreen() {
             onChange={(event) => {
               const locale = event.target.value as 'fr' | 'en';
               updateSettings({ locale });
-              void i18n.changeLanguage(locale);
+              void switchLocale(locale);
             }}
           >
             <option value="fr">Français</option>
@@ -63,6 +64,7 @@ export function SettingsScreen() {
           >
             <option value="explorer">{t('setup.explorer')}</option>
             <option value="geographer">{t('setup.geographer')}</option>
+            <option value="expert">{t('setup.expert')}</option>
           </select>
         </label>
       </section>

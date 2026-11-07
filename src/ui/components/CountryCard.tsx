@@ -6,6 +6,7 @@ import { NON_STATE_TERRITORY } from '../../core/types';
 import { loadFacts, type Fact } from '../../data/facts';
 import { useGameStore } from '../store';
 import { ExternalLink } from './ExternalLink';
+import { Icon } from './Icon';
 
 const AUTO_CLOSE_MS = 16_000;
 
@@ -45,7 +46,7 @@ export function CountryCard({ code, catalog }: { code: string; catalog: GameCata
           onClick={closeCard}
           aria-label={t('card.close')}
         >
-          ×
+          <Icon name="close" />
         </button>
         <h2 className="card__name" data-testid="card-name">
           {locale === 'fr' ? 'Sahara occidental' : 'Western Sahara'}
@@ -69,7 +70,7 @@ export function CountryCard({ code, catalog }: { code: string; catalog: GameCata
         onClick={closeCard}
         aria-label={t('card.close')}
       >
-        ×
+        <Icon name="close" />
       </button>
       <div className="card__head">
         <img

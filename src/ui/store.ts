@@ -4,6 +4,8 @@ import type { DailyChallenge } from '../core/daily';
 import { utcDateKey } from '../core/dates';
 import type { GameEvent } from '../core/explorer';
 import type { Point } from '../core/geometry';
+import type { RoomTheme } from '../core/rooms';
+import { completeStop, startStory as beginStory, type Story } from '../core/stories';
 import { dayNumber, reviewCard } from '../core/leitner';
 import { missionCompletedBy, type Mission } from '../core/missionRules';
 import {
@@ -29,7 +31,7 @@ import {
 import { playSound, setMuted } from './sound';
 
 export type Screen =
-  'home' | 'setup' | 'play' | 'missions' | 'quiz' | 'passport' | 'parents' | 'settings';
+  'home' | 'setup' | 'play' | 'missions' | 'quiz' | 'passport' | 'parents' | 'settings' | 'stories';
 
 export type PlayMode = 'free' | 'mission' | 'daily';
 
@@ -39,9 +41,16 @@ export interface MissionResult {
   daily: DailyScore | null;
 }
 
+export interface ActiveRoom {
+  placeId: string;
+  theme: RoomTheme;
+  /** Vrai si ce lieu est l'étape attendue du reportage en cours. */
+  isStoryStop: boolean;
+}
+
 export interface Toast {
   id: number;
-  kind: 'place' | 'river' | 'lake' | 'badge';
+  kind: 'place' | 'river' | 'lake' | 'badge' | 'note' | 'map';
   subject: string;
 }
 
@@ -63,6 +72,7 @@ interface GameStore {
   mode: PlayMode;
   mission: Mission | null;
   missionStartedAt: number;
+  hintUsed: boolean;
   missionResult: MissionResult | null;
   daily: DailyChallenge | null;
   startOverride: Point | null;
@@ -73,6 +83,11 @@ interface GameStore {
   position: Point | null;
   toasts: Toast[];
   usingFallback: boolean;
+  /** Lieu dans lequel le joueur se trouve, s'il est entré quelque part. */
+  room: ActiveRoom | null;
+  /** Dernier lieu touché sur la carte à cliquer, où l'on peut entrer. */
+  tappedPlace: string | null;
+  publication: string | null;
 
   navigate: (screen: Screen) => void;
   dismissRecovered: () => void;
@@ -89,12 +104,21 @@ interface GameStore {
     options?: { skipMissions?: boolean },
   ) => void;
   closeCard: () => void;
+  revealHint: () => void;
   openCard: (code: string) => void;
   setFallback: (value: boolean) => void;
   dismissToast: (id: number) => void;
   updatePosition: (position: Point, terrain: Terrain) => void;
   answerQuiz: (itemId: string, correct: boolean) => void;
   resetAll: () => void;
+  startStory: (id: string) => void;
+  resumeStory: () => void;
+  abandonStory: () => void;
+  enterRoom: (room: ActiveRoom) => void;
+  leaveRoom: () => void;
+  finishStop: (stories: readonly Story[], firstTry: boolean) => void;
+  closePublication: () => void;
+  rewardRoomGame: (points: number, kind: 'map', subject: string) => void;
 }
 
 function persist(progress: ProgressData): ProgressData {
@@ -115,6 +139,7 @@ export const useGameStore = create<GameStore>((set, get) => ({
   mode: 'free',
   mission: null,
   missionStartedAt: 0,
+  hintUsed: false,
   missionResult: null,
   daily: null,
   startOverride: null,
@@ -124,13 +149,16 @@ export const useGameStore = create<GameStore>((set, get) => ({
   position: null,
   toasts: [],
   usingFallback: false,
+  room: null,
+  tappedPlace: null,
+  publication: null,
 
   navigate: (screen) => {
     if (screen !== 'play') {
       const { position, progress } = get();
       if (position) set({ progress: persist({ ...progress, lastPosition: position }) });
     }
-    set({ screen, card: null });
+    set({ screen, card: null, room: screen === 'play' ? get().room : null });
   },
   dismissRecovered: () => set({ recovered: false }),
   updateSettings: (patch) => {
@@ -154,6 +182,7 @@ export const useGameStore = create<GameStore>((set, get) => ({
       daily: null,
       startOverride: null,
       card: null,
+      room: null,
       currentCountry: null,
     }),
   startMission: (mission) =>
@@ -162,10 +191,12 @@ export const useGameStore = create<GameStore>((set, get) => ({
       mode: 'mission',
       mission,
       missionResult: null,
+      hintUsed: false,
       missionStartedAt: Date.now(),
       daily: null,
       startOverride: null,
       card: null,
+      room: null,
       currentCountry: null,
     }),
   startDaily: (daily) => {
@@ -175,16 +206,18 @@ export const useGameStore = create<GameStore>((set, get) => ({
       mission: daily.mission,
       daily,
       missionResult: null,
+      hintUsed: false,
       missionStartedAt: Date.now(),
       startOverride: daily.start,
       card: null,
+      room: null,
       currentCountry: null,
     });
   },
   finishMissionResult: () => set({ missionResult: null, mission: null, mode: 'free', daily: null }),
   handleEvents: (events, catalog, options) => {
-    let { progress, currentCountry, card, terrain, missionResult, toasts } = get();
-    const { mode, mission, missionStartedAt, settings, daily } = get();
+    let { progress, currentCountry, card, terrain, missionResult, toasts, tappedPlace } = get();
+    const { mode, mission, missionStartedAt, settings, daily, hintUsed } = get();
     let dailyScores = get().dailyScores;
     let changed = false;
 
@@ -192,7 +225,14 @@ export const useGameStore = create<GameStore>((set, get) => ({
       switch (event.type) {
         case 'country-entered': {
           currentCountry = event.code;
-          card = event.code;
+          // La fiche s'ouvre à la découverte, ou sur demande : repasser dans un pays connu n'interrompt pas.
+          if (
+            event.explicit ||
+            event.code === NON_STATE_TERRITORY ||
+            !progress.stamps[event.code]
+          ) {
+            card = event.code;
+          }
           if (event.code !== NON_STATE_TERRITORY && !progress.stamps[event.code]) {
             progress = stampCountry(progress, event.code, todayStamp());
             progress = { ...progress, points: progress.points + STAMP_POINTS };
@@ -220,6 +260,7 @@ export const useGameStore = create<GameStore>((set, get) => ({
           toasts = [...toasts.slice(-2), { id: toastId, kind: 'lake', subject: event.id }];
           break;
         case 'place-reached':
+          tappedPlace = event.id;
           if (!progress.discoveredPlaces.includes(event.id)) {
             progress = discoverPlace(progress, event.id);
             progress = { ...progress, points: progress.points + PLACE_POINTS };
@@ -244,7 +285,11 @@ export const useGameStore = create<GameStore>((set, get) => ({
         missionCompletedBy(mission, event, catalog)
       ) {
         const seconds = Math.max(0, Math.round((Date.now() - missionStartedAt) / 1000));
-        let points = missionPoints(seconds, settings.timer);
+        let points = missionPoints(
+          seconds,
+          settings.timer,
+          progress.level === 'expert' && !hintUsed,
+        );
         let dailyEntry: DailyScore | null = null;
         if (mode === 'daily' && daily) {
           points = dailyScore(seconds);
@@ -266,9 +311,20 @@ export const useGameStore = create<GameStore>((set, get) => ({
       }
     }
     if (changed) persist(progress);
-    set({ progress, currentCountry, card, terrain, mission, missionResult, toasts, dailyScores });
+    set({
+      progress,
+      currentCountry,
+      card,
+      terrain,
+      mission,
+      missionResult,
+      toasts,
+      dailyScores,
+      tappedPlace,
+    });
   },
   closeCard: () => set({ card: null }),
+  revealHint: () => set({ hintUsed: true }),
   openCard: (code) => set({ card: code }),
   setFallback: (value) => set({ usingFallback: value }),
   dismissToast: (id) => set({ toasts: get().toasts.filter((toast) => toast.id !== id) }),
@@ -284,6 +340,72 @@ export const useGameStore = create<GameStore>((set, get) => ({
         quizCorrect: progress.quizCorrect + (correct ? 1 : 0),
         points: progress.points + quizPoints(correct),
       }),
+    });
+  },
+  startStory: (id) => {
+    set({
+      progress: persist(beginStory(get().progress, id)),
+      screen: 'play',
+      mode: 'free',
+      mission: null,
+      missionResult: null,
+      daily: null,
+      startOverride: null,
+      card: null,
+      room: null,
+      currentCountry: null,
+      hintUsed: false,
+    });
+  },
+  resumeStory: () =>
+    set({
+      screen: 'play',
+      mode: 'free',
+      mission: null,
+      missionResult: null,
+      daily: null,
+      startOverride: null,
+      card: null,
+      room: null,
+      currentCountry: null,
+    }),
+  abandonStory: () => set({ progress: persist({ ...get().progress, story: null }) }),
+  enterRoom: (room) => {
+    const { progress } = get();
+    playSound('door');
+    const roomsVisited = progress.roomsVisited.includes(room.placeId)
+      ? progress.roomsVisited
+      : [...progress.roomsVisited, room.placeId];
+    set({ room, card: null, progress: persist({ ...progress, roomsVisited }) });
+  },
+  leaveRoom: () => {
+    playSound('door');
+    set({ room: null });
+  },
+  finishStop: (stories, firstTry) => {
+    const outcome = completeStop(get().progress, stories, firstTry);
+    if (outcome.points === 0) return;
+    const finished = get().progress.story?.id ?? null;
+    playSound(outcome.published ? 'publish' : 'success');
+    toastId += 1;
+    set({
+      progress: persist(outcome.progress),
+      publication: outcome.published ? finished : null,
+      hintUsed: false,
+      toasts: [
+        ...get().toasts.slice(-2),
+        { id: toastId, kind: 'note', subject: String(outcome.points) },
+      ],
+    });
+  },
+  closePublication: () => set({ publication: null }),
+  rewardRoomGame: (points, kind, subject) => {
+    const { progress, toasts } = get();
+    playSound('success');
+    toastId += 1;
+    set({
+      progress: persist({ ...progress, points: progress.points + points }),
+      toasts: [...toasts.slice(-2), { id: toastId, kind, subject }],
     });
   },
   resetAll: () => {

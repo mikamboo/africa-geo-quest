@@ -1,8 +1,17 @@
 import { useEffect, useRef } from 'react';
 import type { AvatarId } from '../../core/progress';
-import { drawCharacter, LOOKS } from '../../render/characters';
+import { drawCharacter, LOOKS, type CharacterLook } from '../../render/characters';
 
-export function Avatar({ id, size = 96 }: { id: AvatarId; size?: number }) {
+export function Avatar({
+  id,
+  look,
+  size = 96,
+}: {
+  id?: AvatarId;
+  look?: CharacterLook;
+  size?: number;
+}) {
+  const resolved = look ?? LOOKS[id ?? 'amina'];
   const ref = useRef<HTMLCanvasElement>(null);
   useEffect(() => {
     // Créer un contexte Canvas 2D coûte cher : chaque avatar se dessine dans sa propre tâche.
@@ -13,11 +22,11 @@ export function Avatar({ id, size = 96 }: { id: AvatarId; size?: number }) {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       ctx.save();
       ctx.scale(canvas.width / 48, canvas.height / 64);
-      drawCharacter(ctx, LOOKS[id], 'down', 4);
+      drawCharacter(ctx, resolved, 'down', 4);
       ctx.restore();
     }, 60);
     return () => window.clearTimeout(timer);
-  }, [id]);
+  }, [resolved]);
   return (
     <canvas
       ref={ref}
