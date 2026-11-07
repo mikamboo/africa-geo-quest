@@ -1,0 +1,45 @@
+name: Retours — synthèse
+
+# Regroupe chaque semaine les retours triés en tickets `agent-proposed` (ADR 0009,
+# `.github/agents/digest.md`). Un humain les valide en posant `ready`.
+on:
+  schedule:
+    - cron: '41 5 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: feedback-agents
+  cancel-in-progress: false
+
+jobs:
+  digest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      GH_TOKEN: ${{ github.token }}
+      HAS_KEY: ${{ secrets.ANTHROPIC_API_KEY != '' }}
+    steps:
+      - name: Compter les retours triés
+        id: pending
+        run: |
+          count=$(gh issue list --repo "$GITHUB_REPOSITORY" --label triage:done --state open --limit 100 --json number --jq length)
+          echo "count=$count" >> "$GITHUB_OUTPUT"
+          echo "Retours triés ouverts : $count"
+          if [ "$HAS_KEY" != "true" ]; then echo "::warning::Secret ANTHROPIC_API_KEY absent : synthèse ignorée."; fi
+      - uses: actions/checkout@v4
+        if: steps.pending.outputs.count != '0' && env.HAS_KEY == 'true'
+      - uses: anthropics/claude-code-action@c3d45e8e941e1b2ad7b278c57482d9c5bf1f35b3 # v1.0.99
+        if: steps.pending.outputs.count != '0' && env.HAS_KEY == 'true'
+        with:
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          github_token: ${{ github.token }}
+          prompt: |
+            Dépôt : ${{ github.repository }}
+            Lis `.github/agents/digest.md` et applique-le exactement.
+          claude_args: |
+            --max-turns 80
+            --allowedTools "Read,Glob,Grep,Bash(gh issue list:*),Bash(gh issue view:*),Bash(gh issue create:*),Bash(gh issue comment:*),Bash(gh label list:*),Bash(gh search issues:*)"

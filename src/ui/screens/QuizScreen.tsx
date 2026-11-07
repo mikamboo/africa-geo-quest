@@ -6,6 +6,7 @@ import { dayNumber } from '../../core/leitner';
 import { generateQuiz, type QuizQuestion } from '../../core/quiz';
 import { createRng } from '../../core/rng';
 import type { Locale } from '../../core/types';
+import { FeedbackButton } from '../components/Feedback';
 import { countryShape } from '../countryShape';
 import { useGameStore } from '../store';
 import { useGameData } from '../useGameData';
@@ -225,6 +226,7 @@ export function QuizScreen() {
               <strong>{picked === question.answer ? t('quiz.right') : t('quiz.almost')}</strong>
               <p>{explanationOf(t, question, data.catalog, locale)}</p>
               {picked !== question.answer && <p>{t('quiz.again')}</p>}
+              <FeedbackButton target={{ screen: 'quiz', questionId: question.itemId }} />
             </div>
           )}
           {picked !== null && (

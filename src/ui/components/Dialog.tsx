@@ -1,4 +1,5 @@
 import { useEffect, useRef, type ReactNode } from 'react';
+import { createPortal } from 'react-dom';
 
 interface Props {
   labelledBy: string;
@@ -12,7 +13,11 @@ interface Props {
 
 const FOCUSABLE = 'button:not([disabled]), [href], select, input, [tabindex]:not([tabindex="-1"])';
 
-/** Fenêtre modale : place le focus dedans, l'y retient, et rend la main à la fermeture. */
+/**
+ * Fenêtre modale : place le focus dedans, l'y retient, et rend la main à la fermeture.
+ * Rendue dans `document.body` : un parent animé (fiche pays) ou une autre fenêtre
+ * ne doit pas servir de référence au `position: fixed` du voile.
+ */
 export function Dialog({
   labelledBy,
   describedBy,
@@ -30,7 +35,7 @@ export function Dialog({
     return () => previous?.focus();
   }, []);
 
-  return (
+  return createPortal(
     <div className="overlay" data-testid={testId}>
       <div
         ref={ref}
@@ -58,6 +63,7 @@ export function Dialog({
       >
         {children}
       </div>
-    </div>
+    </div>,
+    document.body,
   );
 }

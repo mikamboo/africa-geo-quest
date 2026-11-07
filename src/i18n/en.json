@@ -290,7 +290,10 @@
     "naturalEarth": "Natural Earth website",
     "accessTitle": "Accessibility",
     "access": "Full keyboard play, a dyslexia-friendly font, reduced animations, and a no-movement mode in the settings.",
-    "legal": "This page describes how the game works. It is not legal advice."
+    "legal": "This page describes how the game works. It is not legal advice.",
+    "contributeTitle": "Contribute: report a mistake, suggest an idea",
+    "contribute": "The “Report” button, on country cards and in the quiz, prepares a message from fixed choices: never free text, never sent automatically. You post it on GitHub (13 and over), where automated agents sort it and group it into tickets. A human reviews everything before the game changes.",
+    "contributeLink": "See reports on GitHub"
   },
   "common": {
     "back": "Back",
@@ -359,5 +362,39 @@
       "stadium": "Interval session this morning. Consistency always beats talent alone."
     },
     "talkToExtra": "Talk to someone else"
+  },
+  "feedback": {
+    "open": "Report",
+    "title": "Help us improve Tembea",
+    "intro": "Choose what you want to report. The game sends nothing by itself: you prepare a message, then you or an adult post it.",
+    "choose": "Type of report",
+    "category": {
+      "fact-wrong": "Some info is wrong",
+      "map": "The map is wrong",
+      "translation": "Typo or translation",
+      "too-hard": "Too hard",
+      "too-easy": "Too easy",
+      "bug": "Something is broken",
+      "idea": "I have an idea"
+    },
+    "field": {
+      "category": "Category",
+      "country": "Country",
+      "question": "Question",
+      "screen": "Screen",
+      "locale": "Language",
+      "level": "Level",
+      "version": "Version"
+    },
+    "privacy": "The message only holds this choice, the country or question, the language, the level and the game version. No personal data.",
+    "github": "Post on GitHub",
+    "copy": "Copy for an adult",
+    "copied": "Copied! An adult can paste it into an e-mail or on GitHub.",
+    "copyFailed": "Copying did not work. Ask an adult to open GitHub.",
+    "young": "GitHub is for people over 13. If you are younger, copy the message and give it to an adult.",
+    "error": "This report could not be prepared. Try another category.",
+    "close": "Close",
+    "summaryTitle": "Tembea report",
+    "summaryLink": "To post it on GitHub:"
   }
 }

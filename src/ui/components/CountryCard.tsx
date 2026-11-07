@@ -6,6 +6,7 @@ import { NON_STATE_TERRITORY } from '../../core/types';
 import { loadFacts, type Fact } from '../../data/facts';
 import { useGameStore } from '../store';
 import { ExternalLink } from './ExternalLink';
+import { FeedbackButton } from './Feedback';
 import { Icon } from './Icon';
 
 const AUTO_CLOSE_MS = 16_000;
@@ -16,6 +17,8 @@ export function CountryCard({ code, catalog }: { code: string; catalog: GameCata
   const stampDate = useGameStore((state) => state.progress.stamps[code]);
   const locale = i18n.language as Locale;
   const [fact, setFact] = useState<Fact | null>(null);
+  // Pendant un signalement, la fiche ne doit pas se refermer sous les doigts du joueur.
+  const [reporting, setReporting] = useState(false);
 
   useEffect(() => {
     let cancelled = false;
@@ -30,9 +33,10 @@ export function CountryCard({ code, catalog }: { code: string; catalog: GameCata
   }, [code, locale]);
 
   useEffect(() => {
+    if (reporting) return;
     const timer = window.setTimeout(closeCard, AUTO_CLOSE_MS);
     return () => window.clearTimeout(timer);
-  }, [code, closeCard]);
+  }, [code, closeCard, reporting]);
 
   const country = countryByCode(catalog, code);
   const isFresh = stampDate !== undefined;
@@ -101,13 +105,17 @@ export function CountryCard({ code, catalog }: { code: string; catalog: GameCata
           ` · ${former.map((p) => `${p.names[locale]} (${t('card.role.former')})`).join(', ')}`}
       </p>
       {fact && (
-        <>
-          <p className="card__fact" data-testid="card-fact">
-            {fact.text}
-          </p>
-          <ExternalLink href={fact.sourceUrl}>{t('card.source')}</ExternalLink>
-        </>
+        <p className="card__fact" data-testid="card-fact">
+          {fact.text}
+        </p>
       )}
+      <div className="card__actions">
+        {fact && <ExternalLink href={fact.sourceUrl}>{t('card.source')}</ExternalLink>}
+        <FeedbackButton
+          target={{ screen: 'country-card', country: code }}
+          onOpenChange={setReporting}
+        />
+      </div>
     </aside>
   );
 }

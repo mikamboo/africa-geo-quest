@@ -2060,3 +2060,51 @@ html.reduce-motion *::after {
     display: none;
   }
 }
+
+/* Signalement guidé (ADR 0009) */
+.dialog--feedback {
+  max-height: calc(100dvh - 24px);
+  overflow: auto;
+}
+
+.feedback-choices {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 12px 0;
+}
+
+.feedback-choice {
+  min-height: 44px;
+  padding: 6px 14px;
+  background: var(--paper);
+  border: var(--line);
+  border-radius: 999px;
+  font: inherit;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.feedback-choice.is-active {
+  background: var(--ocre);
+  box-shadow: var(--shadow-small);
+}
+
+.feedback-choice:focus-visible {
+  outline: 3px solid var(--fleuve);
+  outline-offset: 3px;
+}
+
+.feedback-send .dialog__actions {
+  margin-top: 8px;
+}
+
+.card__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-top: 8px;
+}

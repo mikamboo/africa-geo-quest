@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { FEEDBACK_REPO } from '../../core/feedback';
 import { ExternalLink } from '../components/ExternalLink';
+import { FeedbackButton } from '../components/Feedback';
 import { useGameStore } from '../store';
 
 export function ParentsScreen() {
@@ -29,6 +31,16 @@ export function ParentsScreen() {
         <ExternalLink href="https://www.naturalearthdata.com/">
           {t('parents.naturalEarth')}
         </ExternalLink>
+      </section>
+      <section className="panel" data-testid="parents-contribute">
+        <h2>{t('parents.contributeTitle')}</h2>
+        <p>{t('parents.contribute')}</p>
+        <div className="card__actions">
+          <FeedbackButton target={{ screen: 'parents' }} className="btn" />
+          <ExternalLink href={`https://github.com/${FEEDBACK_REPO}/issues`}>
+            {t('parents.contributeLink')}
+          </ExternalLink>
+        </div>
       </section>
       <section className="panel">
         <h2>{t('parents.resetTitle')}</h2>

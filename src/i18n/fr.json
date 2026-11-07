@@ -299,7 +299,10 @@
     "naturalEarth": "Site de Natural Earth",
     "accessTitle": "Accessibilité",
     "access": "Clavier complet, police adaptée à la dyslexie, réduction des animations, et mode sans déplacement dans les réglages.",
-    "legal": "Cette page décrit le fonctionnement du jeu. Elle ne constitue pas un avis juridique."
+    "legal": "Cette page décrit le fonctionnement du jeu. Elle ne constitue pas un avis juridique.",
+    "contributeTitle": "Contribuer : signaler une erreur, proposer une idée",
+    "contribute": "Le bouton « Signaler », sur les fiches pays et dans le quiz, prépare un message à partir de choix fermés : jamais de texte libre, jamais d'envoi automatique. Vous le publiez sur GitHub (13 ans et plus), où des agents automatiques le trient et le regroupent en tickets. Un humain relit tout avant de modifier le jeu.",
+    "contributeLink": "Voir les signalements sur GitHub"
   },
   "common": {
     "back": "Retour",
@@ -368,5 +371,39 @@
       "stadium": "Séance d'intervalles ce matin. La régularité bat toujours le talent seul."
     },
     "talkToExtra": "Parler à quelqu'un d'autre"
+  },
+  "feedback": {
+    "open": "Signaler",
+    "title": "Aide-nous à améliorer Tembea",
+    "intro": "Choisis ce que tu veux signaler. Le jeu n'envoie rien tout seul : tu prépares un message, puis toi ou un adulte le publiez.",
+    "choose": "Type de signalement",
+    "category": {
+      "fact-wrong": "Une info est fausse",
+      "map": "La carte se trompe",
+      "translation": "Faute ou traduction",
+      "too-hard": "Trop dur",
+      "too-easy": "Trop facile",
+      "bug": "Quelque chose bugue",
+      "idea": "J'ai une idée"
+    },
+    "field": {
+      "category": "Catégorie",
+      "country": "Pays",
+      "question": "Question",
+      "screen": "Écran",
+      "locale": "Langue",
+      "level": "Niveau",
+      "version": "Version"
+    },
+    "privacy": "Le message ne contient que ce choix, le pays ou la question, la langue, le niveau et la version du jeu. Aucune donnée personnelle.",
+    "github": "Publier sur GitHub",
+    "copy": "Copier pour un adulte",
+    "copied": "Copié ! Un adulte peut le coller dans un e-mail ou sur GitHub.",
+    "copyFailed": "La copie n'a pas marché. Demande à un adulte d'ouvrir GitHub.",
+    "young": "GitHub est réservé aux plus de 13 ans. Si tu es plus jeune, copie le message et confie-le à un adulte.",
+    "error": "Ce signalement n'a pas pu être préparé. Essaie une autre catégorie.",
+    "close": "Fermer",
+    "summaryTitle": "Signalement Tembea",
+    "summaryLink": "Pour le publier sur GitHub :"
   }
 }

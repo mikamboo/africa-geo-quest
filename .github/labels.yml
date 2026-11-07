@@ -1,0 +1,59 @@
+# Taxonomie des retours (ADR 0009). Appliquée par `.github/workflows/labels-sync.yml`.
+# Les labels `pays:XXX` sont générés à partir de `data/countries.json`.
+- name: 'type:fait-errone'
+  color: 'b5381f'
+  description: Fait, capitale ou information à corriger
+- name: 'type:carte'
+  color: 'c2662d'
+  description: Frontière, tracé ou position sur la carte
+- name: 'type:traduction'
+  color: 'd99a3c'
+  description: Faute, traduction ou texte peu clair
+- name: 'type:difficulte'
+  color: 'e6c069'
+  description: Question ou niveau trop dur, ou trop facile
+- name: 'type:bug'
+  color: 'a1251b'
+  description: Quelque chose ne marche pas
+- name: 'type:idee'
+  color: '3f8f5a'
+  description: Idée d'évolution
+- name: 'lang:fr'
+  color: '1d4e89'
+  description: Concerne la version française
+- name: 'lang:en'
+  color: '1d4e89'
+  description: Concerne la version anglaise
+- name: 'prio:p0'
+  color: '7a0d0d'
+  description: Bloquant, sécurité, ou contenu inapproprié pour des enfants
+- name: 'prio:p1'
+  color: 'b3261e'
+  description: Erreur factuelle visible ou bug gênant
+- name: 'prio:p2'
+  color: 'e08b2c'
+  description: Amélioration utile
+- name: 'prio:p3'
+  color: 'f2d17c'
+  description: Confort, à regrouper
+- name: 'triage:new'
+  color: 'ededed'
+  description: En attente du tri automatique
+- name: 'triage:done'
+  color: 'c5def5'
+  description: Trié par l'agent, prêt à être regroupé
+- name: 'needs-human'
+  color: 'fbca04'
+  description: L'agent a besoin d'un humain pour décider
+- name: 'agent-proposed'
+  color: 'bfd4f2'
+  description: Ticket de développement proposé par l'agent, à valider
+- name: 'ready'
+  color: '0e8a16'
+  description: Validé par un humain, prêt à développer
+- name: 'duplicate'
+  color: 'cfd3d7'
+  description: Doublon d'une autre issue, à fermer par un humain
+- name: 'digest'
+  color: '5319e7'
+  description: Synthèse hebdomadaire des retours

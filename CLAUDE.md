@@ -6,16 +6,17 @@ Ce projet n'utilise pas `/aidlc` : `docs/PLAN.md` et `docs/adr/` servent de trac
 
 ## Commandes
 
-| Commande           | Rôle                                                                                                                          |
-| ------------------ | ----------------------------------------------------------------------------------------------------------------------------- |
-| `pnpm dev`         | Serveur de développement, sans les en-têtes de sécurité                                                                       |
-| `pnpm verify`      | Lint, types, tests et couverture, données, build, budget, e2e, audit. À lancer avant tout commit de jalon. Plus de 10 minutes |
-| `pnpm lighthouse`  | Scores ≥ 90 et LCP < 2,5 s, sur le build. Rapports dans `docs/reports/`                                                       |
-| `pnpm perf`        | Proxy FPS, ce n'est pas une mesure sur appareil réel                                                                          |
-| `pnpm data:build`  | Régénère `public/geo`, `public/flags` et la silhouette. Télécharge au besoin dans `.cache/`                                   |
-| `pnpm data:review` | Régénère `docs/REVIEW_FACTS.md` après une modification des faits                                                              |
-| `pnpm assets`      | Régénère les icônes et l'image Open Graph                                                                                     |
-| `pnpm screenshots` | Captures réelles du build dans `docs/screenshots/` (lancer `pnpm build` avant)                                                |
+| Commande               | Rôle                                                                                                                          |
+| ---------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| `pnpm dev`             | Serveur de développement, sans les en-têtes de sécurité                                                                       |
+| `pnpm verify`          | Lint, types, tests et couverture, données, build, budget, e2e, audit. À lancer avant tout commit de jalon. Plus de 10 minutes |
+| `pnpm lighthouse`      | Scores ≥ 90 et LCP < 2,5 s, sur le build. Rapports dans `docs/reports/`                                                       |
+| `pnpm perf`            | Proxy FPS, ce n'est pas une mesure sur appareil réel                                                                          |
+| `pnpm data:build`      | Régénère `public/geo`, `public/flags` et la silhouette. Télécharge au besoin dans `.cache/`                                   |
+| `pnpm data:review`     | Régénère `docs/REVIEW_FACTS.md` après une modification des faits                                                              |
+| `pnpm assets`          | Régénère les icônes et l'image Open Graph                                                                                     |
+| `pnpm screenshots`     | Captures réelles du build dans `docs/screenshots/` (lancer `pnpm build` avant)                                                |
+| `pnpm feedback:labels` | Synchronise les labels GitHub des retours (`--dry-run` pour afficher)                                                         |
 
 `corepack` est cassé sur la machine d'origine : appeler `pnpm` directement.
 
@@ -45,7 +46,7 @@ tests/       oracles de données, contenu, configuration
 
 ## Mineurs (non négociable)
 
-Aucune donnée personnelle, aucune saisie libre, aucun cookie, aucune requête vers un tiers au runtime, aucun lien externe sans `ExternalLink`. L'analytics reste derrière `VITE_ENABLE_ANALYTICS`. Toute fonction en ligne rouvre l'ADR 0004.
+Aucune donnée personnelle, aucune saisie libre, aucun cookie, aucune requête vers un tiers au runtime, aucun lien externe sans `ExternalLink`. L'analytics reste derrière `VITE_ENABLE_ANALYTICS`. Toute fonction en ligne rouvre l'ADR 0004. Les retours des joueurs passent par le signalement fermé de l'ADR 0009 : jamais de champ texte, jamais d'envoi par le jeu.
 
 ## Sécurité
 
@@ -56,6 +57,10 @@ Aucune donnée personnelle, aucune saisie libre, aucun cookie, aucune requête v
 Interdit pour passer au vert : baisser un seuil, `skip` ou `only`, `--no-verify`, test vide, `eslint-disable` ou `@ts-ignore` sans justification écrite.
 
 Après tout changement visuel : `pnpm build && pnpm screenshots`, et regarder réellement les images aux trois tailles. Des tests verts ne suffisent pas : c'est ainsi qu'a été trouvée une carte SVG sans aucun pays.
+
+## Retours et agents
+
+`docs/FEEDBACK.md` décrit le circuit. Les consignes des agents (`.github/agents/`) sont du code relu : ne pas élargir leurs outils ni leurs permissions, ne pas ajouter de déclencheur `issues`, ne jamais interpoler le texte d'une issue dans un prompt. `tests/feedback.test.ts` le vérifie.
 
 ## Contenu
 
