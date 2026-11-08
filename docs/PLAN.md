@@ -37,6 +37,7 @@ Sens des dépendances : `ui` et `render` dépendent de `core` et `data` ; `core`
 | Mineurs, RGPD, COPPA   | Aucune donnée collectée, analyse à valider             | 0004 |
 | Couches et persistance | `core/` pur, repositories, Zod                         | 0005 |
 | CSP                    | Sans `unsafe-eval`, `vercel.json` source unique        | 0006 |
+| Retours des joueurs    | Signalement fermé, issues GitHub, agents planifiés     | 0009 |
 
 ## Risques
 

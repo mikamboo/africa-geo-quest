@@ -3,12 +3,24 @@ import { useTranslation } from 'react-i18next';
 import { Dialog } from './Dialog';
 
 /** Aucun lien externe sans écran d'avertissement (section 6). */
-export function ExternalLink({ href, children }: { href: string; children: ReactNode }) {
+interface Props {
+  href: string;
+  children: ReactNode;
+  className?: string;
+  testId?: string;
+}
+
+export function ExternalLink({ href, children, className = 'link', testId }: Props) {
   const { t } = useTranslation();
   const [open, setOpen] = useState(false);
   return (
     <>
-      <button type="button" className="link" onClick={() => setOpen(true)}>
+      <button
+        type="button"
+        className={className}
+        data-testid={testId}
+        onClick={() => setOpen(true)}
+      >
         {children}
       </button>
       {open && (

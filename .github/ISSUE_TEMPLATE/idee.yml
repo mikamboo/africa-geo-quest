@@ -1,0 +1,53 @@
+name: Partager une idée
+description: Un mode de jeu, un contenu, une amélioration.
+labels: ['triage:new', 'type:idee']
+body:
+  - type: textarea
+    id: details
+    attributes:
+      label: Ton idée
+      description: Quel problème résout-elle, pour qui ?
+    validations:
+      required: true
+
+  - type: markdown
+    attributes:
+      value: |
+        Les champs « Contexte » sont remplis par le bouton « Améliorer Tembea » du jeu. Laisse-les tels quels, ou vides si tu écris depuis GitHub.
+        **Ne mets aucune donnée personnelle** (nom, âge, école, adresse, photo). Si tu as moins de 13 ans, demande à un adulte de publier pour toi.
+  - type: input
+    id: category
+    attributes:
+      label: 'Contexte : catégorie'
+  - type: input
+    id: country
+    attributes:
+      label: 'Contexte : pays (code ISO A3)'
+  - type: input
+    id: question
+    attributes:
+      label: 'Contexte : question du quiz'
+  - type: input
+    id: screen
+    attributes:
+      label: 'Contexte : écran'
+  - type: input
+    id: locale
+    attributes:
+      label: 'Contexte : langue'
+  - type: input
+    id: level
+    attributes:
+      label: 'Contexte : niveau'
+  - type: input
+    id: version
+    attributes:
+      label: 'Contexte : version du jeu'
+
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: Données personnelles
+      options:
+        - label: Ce message ne contient aucune donnée personnelle.
+          required: true

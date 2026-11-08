@@ -694,6 +694,49 @@ select {
   cursor: pointer;
 }
 
+.hud .icon-btn,
+.hud .btn {
+  /* Cibles tactiles de 48 px : c'est le nom du pays qui cède la place sur mobile. */
+  flex-shrink: 0;
+}
+
+.hud__stat-short {
+  display: none;
+}
+
+@media (max-width: 480px) {
+  .hud {
+    gap: 6px;
+  }
+
+  .hud__place {
+    font-size: 1rem;
+    line-height: 1;
+    padding: 6px 10px;
+    hyphens: auto;
+    overflow-wrap: break-word;
+  }
+
+  .hud__stat {
+    padding: 4px 8px;
+    white-space: nowrap;
+  }
+
+  .hud__stat-short {
+    display: inline;
+  }
+
+  /* Le libellé complet reste lu par les lecteurs d'écran. */
+  .hud__stat-full {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+}
+
 .hud__place:disabled {
   cursor: default;
   color: var(--ink);
@@ -2084,4 +2127,52 @@ html.reduce-motion *::after {
   .talk .avatar {
     display: none;
   }
+}
+
+/* Signalement guidé (ADR 0009) */
+.dialog--feedback {
+  max-height: calc(100dvh - 24px);
+  overflow: auto;
+}
+
+.feedback-choices {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 12px 0;
+}
+
+.feedback-choice {
+  min-height: 44px;
+  padding: 6px 14px;
+  background: var(--paper);
+  border: var(--line);
+  border-radius: 999px;
+  font: inherit;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.feedback-choice.is-active {
+  background: var(--ocre);
+  box-shadow: var(--shadow-small);
+}
+
+.feedback-choice:focus-visible {
+  outline: 3px solid var(--fleuve);
+  outline-offset: 3px;
+}
+
+.feedback-send .dialog__actions {
+  margin-top: 8px;
+}
+
+.card__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-top: 8px;
 }

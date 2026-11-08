@@ -8,6 +8,10 @@ interface VercelConfig {
   headers: { source: string; headers: { key: string; value: string }[] }[];
 }
 
+/** Version affichée dans les signalements (ADR 0009). */
+const appVersion = (JSON.parse(readFileSync('package.json', 'utf8')) as { version: string })
+  .version;
+
 /** `vercel.json` est l'unique source de vérité des en-têtes : `vite preview` les réapplique. */
 function securityHeaders(): Record<string, string> {
   const config = JSON.parse(readFileSync('vercel.json', 'utf8')) as VercelConfig;
@@ -16,6 +20,7 @@ function securityHeaders(): Record<string, string> {
 }
 
 export default defineConfig({
+  define: { __APP_VERSION__: JSON.stringify(appVersion) },
   plugins: [
     react(),
     VitePWA({

@@ -127,7 +127,11 @@ try {
 
     await page.getByTestId('open-parents').click();
     await shot('parents');
-    await page.getByRole('button', { name: /Retour|Back/ }).click();
+    await page.getByTestId('parents-contribute').getByTestId('feedback-open').click();
+    await page.getByTestId('feedback-fact-wrong').click();
+    await shot('feedback');
+    await page.getByTestId('feedback-close').click();
+    await page.getByRole('button', { name: /^(Retour|Back)$/ }).click();
 
     await page.evaluate(() =>
       localStorage.setItem('tembea.settings', JSON.stringify({ noMovement: true })),

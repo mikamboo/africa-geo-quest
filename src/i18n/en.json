@@ -114,7 +114,8 @@
     "tutorialKeys": "Arrows or WASD to walk, Shift to go faster",
     "tutorialTouch": "Push the joystick to walk",
     "enter": "Enter: {{name}}",
-    "leave": "Leave"
+    "leave": "Leave",
+    "travelledShort": "{{percent}}%"
   },
   "card": {
     "capital": "Capital",
@@ -334,7 +335,10 @@
     "naturalEarth": "Natural Earth website",
     "accessTitle": "Accessibility",
     "access": "Full keyboard play, a dyslexia-friendly font, reduced animations, and a no-movement mode in the settings.",
-    "legal": "This page describes how the game works. It is not legal advice."
+    "legal": "This page describes how the game works. It is not legal advice.",
+    "contributeTitle": "Growing Tembea together",
+    "contribute": "An idea, a better fact, clearer wording? The “Improve Tembea” button, on country cards, in the quiz and here, prepares a message from simple choices: never free text, never sent automatically. You share it on GitHub (13 and over), where automated agents sort it and group it with others. A human reviews everything before the game changes.",
+    "contributeLink": "See contributions on GitHub"
   },
   "common": {
     "back": "Back",
@@ -403,5 +407,39 @@
       "stadium": "Interval session this morning. Consistency always beats talent alone."
     },
     "talkToExtra": "Talk to someone else"
+  },
+  "feedback": {
+    "open": "Improve Tembea",
+    "title": "Tembea grows with you",
+    "intro": "You can help the game grow too. Choose what to share, then you or an adult post it.",
+    "choose": "What you want to share",
+    "category": {
+      "idea": "I have an idea",
+      "fact-wrong": "I know a better fact",
+      "map": "I can improve the map",
+      "translation": "I can suggest better wording",
+      "too-hard": "It was too hard",
+      "too-easy": "It was too easy",
+      "bug": "Something isn't working"
+    },
+    "field": {
+      "category": "Category",
+      "country": "Country",
+      "question": "Question",
+      "screen": "Screen",
+      "locale": "Language",
+      "level": "Level",
+      "version": "Version"
+    },
+    "privacy": "The message only holds your choice, the country or question, the language, the level and the game version. No personal data.",
+    "github": "Share on GitHub",
+    "copy": "Copy for an adult",
+    "copied": "Copied! An adult can paste it into an e-mail or on GitHub. Thanks for your help!",
+    "copyFailed": "Copying did not work. Ask an adult to open GitHub.",
+    "young": "GitHub is for people over 13. If you are younger, copy the message and give it to an adult.",
+    "error": "This message could not be prepared. Try another choice.",
+    "close": "Close",
+    "summaryTitle": "Contribution to Tembea",
+    "summaryLink": "To post it on GitHub:"
   }
 }

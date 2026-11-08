@@ -1,0 +1,46 @@
+name: Retours — tri
+
+# Tri planifié des issues `triage:new` (ADR 0009, `.github/agents/triage.md`).
+# Volontairement sans déclencheur `issues: opened` : seul le planificateur ou un mainteneur
+# lance l'agent, jamais l'auteur d'une issue. Le texte des issues n'entre pas dans le prompt.
+on:
+  schedule:
+    - cron: '23 */6 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: feedback-agents
+  cancel-in-progress: false
+
+jobs:
+  triage:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      GH_TOKEN: ${{ github.token }}
+      HAS_KEY: ${{ secrets.ANTHROPIC_API_KEY != '' }}
+    steps:
+      - name: Compter les issues à trier
+        id: pending
+        run: |
+          count=$(gh issue list --repo "$GITHUB_REPOSITORY" --label triage:new --state open --limit 100 --json number --jq length)
+          echo "count=$count" >> "$GITHUB_OUTPUT"
+          echo "Issues à trier : $count"
+          if [ "$HAS_KEY" != "true" ]; then echo "::warning::Secret ANTHROPIC_API_KEY absent : tri ignoré."; fi
+      - uses: actions/checkout@v4
+        if: steps.pending.outputs.count != '0' && env.HAS_KEY == 'true'
+      - uses: anthropics/claude-code-action@c3d45e8e941e1b2ad7b278c57482d9c5bf1f35b3 # v1.0.99
+        if: steps.pending.outputs.count != '0' && env.HAS_KEY == 'true'
+        with:
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          github_token: ${{ github.token }}
+          prompt: |
+            Dépôt : ${{ github.repository }}
+            Lis `.github/agents/triage.md` et applique-le exactement aux issues ouvertes qui portent `triage:new`.
+          claude_args: |
+            --max-turns 60
+            --allowedTools "Read,Glob,Grep,Bash(gh issue list:*),Bash(gh issue view:*),Bash(gh issue edit:*),Bash(gh issue comment:*),Bash(gh label list:*),Bash(gh search issues:*)"

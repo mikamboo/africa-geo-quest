@@ -13,6 +13,7 @@ import type { GameData } from '../../data/gameData';
 import type { GameRendererHandle } from '../../render/GameRenderer';
 import { RoomView } from '../components/RoomView';
 import { CountryCard } from '../components/CountryCard';
+import { FeedbackButton } from '../components/Feedback';
 import { Dialog } from '../components/Dialog';
 import { Joystick } from '../components/Joystick';
 import { Icon } from '../components/Icon';
@@ -647,7 +648,11 @@ export function PlayScreen() {
             data-testid="hud-percent"
             data-stamps={Object.keys(progress.stamps).length}
           >
-            {t('hud.travelled', { percent })}
+            {/* Sur petit écran, le libellé court laisse la place au nom du pays. */}
+            <span className="hud__stat-full">{t('hud.travelled', { percent })}</span>
+            <span className="hud__stat-short" aria-hidden="true">
+              {t('hud.travelledShort', { percent })}
+            </span>
           </p>
           <button
             type="button"
@@ -659,6 +664,18 @@ export function PlayScreen() {
           >
             <Icon name={settings.muted ? 'soundOff' : 'soundOn'} />
           </button>
+          <FeedbackButton
+            variant="icon"
+            testId="hud-feedback"
+            target={{
+              screen: 'map',
+              // Le Sahara occidental n'est pas un État (ADR 0003) : pas de pays pré-rempli.
+              country:
+                currentCountry && currentCountry !== NON_STATE_TERRITORY
+                  ? currentCountry
+                  : undefined,
+            }}
+          />
         </header>
       )}
 

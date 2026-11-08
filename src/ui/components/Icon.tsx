@@ -7,6 +7,7 @@ const PATHS = {
   close: 'M6 6l12 12M18 6 6 18',
   chevron: 'M9 5l7 7-7 7',
   back: 'M15 5l-7 7 7 7',
+  idea: 'M9 18h6M10 21h4M12 3a6 6 0 0 0-3.8 10.6c.6.5.8 1.2.8 1.9V16h6v-.5c0-.7.2-1.4.8-1.9A6 6 0 0 0 12 3Z',
 } as const;
 
 export type IconName = keyof typeof PATHS;

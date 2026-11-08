@@ -85,7 +85,8 @@
     "assets": "tsx scripts/gen-assets.ts",
     "screenshots": "tsx scripts/screenshots.ts",
     "data:review": "tsx scripts/data/review.ts",
-    "prepare": "husky"
+    "prepare": "husky",
+    "feedback:labels": "tsx scripts/feedback/labels.ts"
   },
   "lint-staged": {
     "*.{ts,tsx,js,mjs}": [

@@ -1,0 +1,31 @@
+name: Retours — labels
+
+# Applique `.github/labels.yml` et les labels `pays:xxx` (ADR 0009).
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/labels.yml'
+      - 'data/countries.json'
+      - 'scripts/feedback/labels.ts'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  labels:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm feedback:labels
