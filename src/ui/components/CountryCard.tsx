@@ -17,7 +17,7 @@ export function CountryCard({ code, catalog }: { code: string; catalog: GameCata
   const stampDate = useGameStore((state) => state.progress.stamps[code]);
   const locale = i18n.language as Locale;
   const [fact, setFact] = useState<Fact | null>(null);
-  // Pendant un signalement, la fiche ne doit pas se refermer sous les doigts du joueur.
+  // Pendant une contribution, la fiche ne doit pas se refermer sous les doigts du joueur.
   const [reporting, setReporting] = useState(false);
 
   useEffect(() => {

@@ -1,5 +1,5 @@
-name: Bug
-description: Quelque chose ne marche pas comme prévu.
+name: Quelque chose ne marche pas
+description: Aide-nous à réparer un problème.
 labels: ['triage:new', 'type:bug']
 body:
   - type: textarea
@@ -13,7 +13,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        Les champs « Contexte » sont remplis par le bouton « Signaler » du jeu. Laisse-les tels quels, ou vides si tu écris depuis GitHub.
+        Les champs « Contexte » sont remplis par le bouton « Améliorer Tembea » du jeu. Laisse-les tels quels, ou vides si tu écris depuis GitHub.
         **Ne mets aucune donnée personnelle** (nom, âge, école, adresse, photo). Si tu as moins de 13 ans, demande à un adulte de publier pour toi.
   - type: input
     id: category
@@ -49,5 +49,5 @@ body:
     attributes:
       label: Données personnelles
       options:
-        - label: Ce signalement ne contient aucune donnée personnelle.
+        - label: Ce message ne contient aucune donnée personnelle.
           required: true

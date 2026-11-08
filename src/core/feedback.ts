@@ -1,7 +1,7 @@
 import type { Level, Locale } from './types';
 
 /**
- * Signalement guidé (ADR 0009) : uniquement des valeurs fermées, aucune saisie libre.
+ * Contribution guidée (ADR 0009) : uniquement des valeurs fermées, aucune saisie libre.
  * Le jeu ne transmet rien : il construit un lien GitHub pré-rempli ou un résumé à copier.
  */
 
@@ -42,9 +42,10 @@ const TEMPLATE_OF: Record<FeedbackCategory, FeedbackTemplateKey> = {
 };
 
 const CATEGORIES_BY_SCREEN: Record<FeedbackScreen, readonly FeedbackCategory[]> = {
-  'country-card': ['fact-wrong', 'map', 'translation', 'bug', 'idea'],
-  quiz: ['fact-wrong', 'translation', 'too-hard', 'too-easy', 'bug'],
-  parents: ['fact-wrong', 'map', 'translation', 'bug', 'idea'],
+  // Ordre d'affichage : ce que le joueur apporte d'abord, les problèmes en dernier.
+  'country-card': ['idea', 'fact-wrong', 'map', 'translation', 'bug'],
+  quiz: ['too-hard', 'too-easy', 'fact-wrong', 'translation', 'bug'],
+  parents: ['idea', 'fact-wrong', 'map', 'translation', 'bug'],
 };
 
 /** Identifiants des champs des formulaires, communs à tous les modèles. */
@@ -157,6 +158,6 @@ export function toIssueUrl(report: FeedbackReport): string {
   });
   for (const [field, value] of reportFields(report)) params.set(field, value);
   const url = `https://github.com/${FEEDBACK_REPO}/issues/new?${params.toString()}`;
-  if (url.length > MAX_URL_LENGTH) throw new FeedbackError('lien de signalement trop long');
+  if (url.length > MAX_URL_LENGTH) throw new FeedbackError('lien de contribution trop long');
   return url;
 }

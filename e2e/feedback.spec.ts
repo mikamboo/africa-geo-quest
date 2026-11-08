@@ -19,7 +19,7 @@ async function recordOpens(page: Page): Promise<void> {
 const openedUrls = (page: Page): Promise<string[]> =>
   page.evaluate(() => (window as unknown as { __opened: string[] }).__opened);
 
-test('la page À propos prépare un signalement sans saisie libre ni requête', async ({
+test('la page À propos prépare une contribution sans saisie libre ni requête', async ({
   page,
   context,
 }) => {
@@ -44,7 +44,7 @@ test('la page À propos prépare un signalement sans saisie libre ni requête', 
   await expect(page.getByTestId('external-warning')).toBeVisible();
   await expect(page.getByTestId('external-host')).toHaveText('github.com');
 
-  // Échap ferme l'avertissement seul : le signalement reste ouvert.
+  // Échap ferme l'avertissement seul : la contribution reste ouverte.
   await page.keyboard.press('Escape');
   await expect(page.getByTestId('external-warning')).toBeHidden();
   await expect(dialog).toBeVisible();
@@ -84,13 +84,13 @@ test('le quiz copie un résumé pour un adulte', async ({ page, context }) => {
   await page.getByTestId('feedback-copy').click();
   await expect(page.getByTestId('feedback-copy-status')).toContainText('Copié');
   const copied = await page.evaluate(() => navigator.clipboard.readText());
-  expect(copied).toContain('Signalement Tembea');
-  expect(copied).toContain('Catégorie : Trop dur');
+  expect(copied).toContain('Contribution à Tembea');
+  expect(copied).toContain("Catégorie : C'était trop dur");
   expect(copied).toContain(`Question : ${itemId}`);
   expect(copied).toContain('https://github.com/mikamboo/africa-geo-quest/issues/new?');
 });
 
-test('la fiche pays propose un signalement et reste ouverte pendant', async ({ page }) => {
+test('la fiche pays propose de contribuer et reste ouverte pendant', async ({ page }) => {
   await createProfile(page);
   await page.getByTestId('mode-explore').click();
   const card = page.getByTestId('country-card');

@@ -8,9 +8,9 @@ Le propriétaire veut que le jeu évolue à partir des retours de ses joueurs, e
 
 ## Décision
 
-**Dans le jeu : un signalement guidé, jamais transmis par le jeu.**
+**Dans le jeu : une contribution guidée, jamais transmise par le jeu.**
 
-- Un bouton « Signaler » apparaît sur la fiche pays, après une réponse au quiz et dans la page « À propos ». Le joueur choisit une catégorie dans une liste fermée, et rien d'autre.
+- Un bouton « Améliorer Tembea » apparaît sur la fiche pays, après une réponse au quiz et dans la page « À propos ». Le joueur choisit une catégorie dans une liste fermée, et rien d'autre.
 - `src/core/feedback.ts` assemble un rapport à partir de valeurs fermées : catégorie, code pays, identifiant de question, écran, langue, niveau, version. Toute valeur hors liste est refusée.
 - Le jeu en tire deux sorties, l'une comme l'autre déclenchée par un clic explicite :
   - un lien GitHub pré-rempli, ouvert par `ExternalLink` derrière l'écran d'avertissement ;
@@ -27,7 +27,7 @@ Le propriétaire veut que le jeu évolue à partir des retours de ses joueurs, e
 
 ## Sécurité
 
-- **Aucun flux réseau nouveau dans le jeu.** Le test e2e « aucune requête hors origine » reste inchangé, et `e2e/feedback.spec.ts` vérifie que le signalement n'en ajoute aucune.
+- **Aucun flux réseau nouveau dans le jeu.** Le test e2e « aucune requête hors origine » reste inchangé, et `e2e/feedback.spec.ts` vérifie que la contribution n’en ajoute aucune.
 - **Pas de déclencheur `issues: opened`.** Seuls le planificateur et les mainteneurs lancent les agents, jamais l'auteur d'une issue. Le texte des issues n'est jamais interpolé dans le prompt ni dans une expression du workflow.
 - **Injection de prompt :** le contenu des issues est déclaré non fiable dans les consignes. Les agents n'ont que `contents: read` et `issues: write`, et une liste fermée de commandes `gh issue …` et `gh label list`. Ils ne peuvent ni fermer, ni pousser, ni ouvrir de PR. Le pire cas est donc du bruit dans les issues, réversible.
 - L'action `anthropics/claude-code-action` est épinglée sur un commit. `tests/feedback.test.ts` vérifie les déclencheurs, les permissions, l'épinglage et les outils autorisés.

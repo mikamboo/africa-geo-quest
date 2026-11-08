@@ -119,7 +119,7 @@ function FeedbackDialog({ target, onClose }: { target: FeedbackTarget; onClose: 
   );
 }
 
-/** Bouton « Signaler » : ouvre le signalement guidé, sans saisie libre ni envoi par le jeu. */
+/** Bouton « Améliorer Tembea » : ouvre la contribution guidée, sans saisie libre ni envoi par le jeu. */
 export function FeedbackButton({
   target,
   className = 'btn btn--small',

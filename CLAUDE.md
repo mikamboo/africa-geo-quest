@@ -46,7 +46,7 @@ tests/       oracles de données, contenu, configuration
 
 ## Mineurs (non négociable)
 
-Aucune donnée personnelle, aucune saisie libre, aucun cookie, aucune requête vers un tiers au runtime, aucun lien externe sans `ExternalLink`. L'analytics reste derrière `VITE_ENABLE_ANALYTICS`. Toute fonction en ligne rouvre l'ADR 0004. Les retours des joueurs passent par le signalement fermé de l'ADR 0009 : jamais de champ texte, jamais d'envoi par le jeu.
+Aucune donnée personnelle, aucune saisie libre, aucun cookie, aucune requête vers un tiers au runtime, aucun lien externe sans `ExternalLink`. L'analytics reste derrière `VITE_ENABLE_ANALYTICS`. Toute fonction en ligne rouvre l'ADR 0004. Les retours des joueurs passent par la contribution guidée de l'ADR 0009 : jamais de champ texte, jamais d'envoi par le jeu.
 
 ## Sécurité
 

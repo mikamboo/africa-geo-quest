@@ -1,9 +1,9 @@
 # Retours des joueurs
 
-Circuit décidé par l'ADR 0009. Le jeu ne transmet rien : il prépare un signalement que le joueur, ou un adulte, publie sur GitHub. Des agents planifiés trient ensuite ces signalements et en tirent des tickets.
+Circuit décidé par l'ADR 0009. Le jeu ne transmet rien : il prépare une contribution que le joueur, ou un adulte, publie sur GitHub. Des agents planifiés trient ensuite ces contributions et en tirent des tickets.
 
 ```
-Jeu : bouton « Signaler », choix fermés
+Jeu : bouton « Améliorer Tembea », choix fermés
   ├─ « Publier sur GitHub » → avertissement → formulaire pré-rempli
   └─ « Copier pour un adulte » → résumé et lien
 GitHub : issue avec triage:new et type:*
@@ -46,7 +46,7 @@ Sans le secret, les workflows des agents s'arrêtent avec un avertissement, sans
 | Pays     | `pays:sen`, `pays:ken`… (54, jamais `esh`)                                                      |
 | État     | `triage:new`, `triage:done`, `needs-human`, `duplicate`, `agent-proposed`, `ready`, `digest`    |
 
-## Ajouter une catégorie de signalement
+## Ajouter une catégorie de contribution
 
 1. Ajouter la valeur à `FEEDBACK_CATEGORIES` et à `TEMPLATE_OF`, et l'écran à `CATEGORIES_BY_SCREEN` (`src/core/feedback.ts`).
 2. Ajouter `feedback.category.<valeur>` dans `fr.json` **et** `en.json`.
