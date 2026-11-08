@@ -84,6 +84,16 @@ export function SettingsScreen() {
         ))}
         <p className="muted">{t('settings.noMovementHelp')}</p>
       </section>
+      <section className="panel">
+        <button
+          type="button"
+          className="btn"
+          data-testid="settings-rules"
+          onClick={() => navigate('rules')}
+        >
+          {t('rules.menu')}
+        </button>
+      </section>
     </main>
   );
 }

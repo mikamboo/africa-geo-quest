@@ -23,6 +23,9 @@ const ParentsScreen = lazy(() =>
 const StoriesScreen = lazy(() =>
   import('./screens/StoriesScreen').then((module) => ({ default: module.StoriesScreen })),
 );
+const RulesScreen = lazy(() =>
+  import('./screens/RulesScreen').then((module) => ({ default: module.RulesScreen })),
+);
 const SettingsScreen = lazy(() =>
   import('./screens/SettingsScreen').then((module) => ({ default: module.SettingsScreen })),
 );
@@ -46,6 +49,8 @@ function Screen() {
       return <ParentsScreen />;
     case 'stories':
       return <StoriesScreen />;
+    case 'rules':
+      return <RulesScreen />;
     case 'settings':
       return <SettingsScreen />;
   }

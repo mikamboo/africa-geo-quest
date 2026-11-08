@@ -242,6 +242,50 @@
     "points_one": "{{count}} point",
     "points_other": "{{count}} points"
   },
+  "rules": {
+    "title": "How to play",
+    "walk": "Walk across the map of Africa: arrow keys, WASD or the joystick.",
+    "discover": "Discover countries, their profiles and places to visit.",
+    "missions": "Take on missions and learn as you play.",
+    "stamps": "Answer quizzes: every country you find earns a stamp in your passport.",
+    "levels": "Pick your level: first steps, geographer or expert. You can change it any time.",
+    "ok": "Got it",
+    "all": "All the rules",
+    "back": "Back",
+    "menu": "How to play",
+    "intro": "Everything you need to know to play. Here, points are never taken away.",
+    "contents": "Contents",
+    "sections": {
+      "explore": {
+        "title": "Free travel",
+        "body": "Walk across the map of Africa with the arrow keys, WASD or the joystick. Enter a country to read its profile and earn a stamp (+{{stampPoints}} points). Each place you visit earns {{placePoints}} points."
+      },
+      "missions": {
+        "title": "Missions",
+        "body": "A mission asks you to reach a place, cross a river or find a country. A completed mission earns {{points}} points, and {{unaidedBonus}} more at Expert level if you don't use the compass."
+      },
+      "quiz": {
+        "title": "Quiz",
+        "body": "A correct answer earns {{correctPoints}} points, and {{attemptPoints}} points for trying. Questions come back at growing intervals, across {{boxes}} boxes, up to {{maxDays}} days. A mistake brings the question back sooner, with no penalty."
+      },
+      "daily": {
+        "title": "Daily challenge",
+        "body": "A new challenge every day, the same for everyone. The faster you are, the higher your score. Play several days in a row to grow your streak."
+      },
+      "stories": {
+        "title": "Stories",
+        "body": "Follow a trail from town to town and step inside the places. Each stop earns {{stopPoints}} points, {{firstTryBonus}} more if you get it right the first time. The last stop, which publishes your investigation, earns {{finalPoints}} points more."
+      },
+      "levels": {
+        "title": "Levels",
+        "body": "First steps: countries, capitals and big rivers, with markers on the map. Geographer: cities, landforms, regions and borders, with less help. Expert: very little help. You can change level in the settings."
+      },
+      "score": {
+        "title": "Points and badges",
+        "body": "Points always reward and are never taken away. Visit every country in a region to earn its badge in your passport."
+      }
+    }
+  },
   "settings": {
     "title": "Settings",
     "language": "Language",

@@ -160,6 +160,7 @@ export const settingsSchema = z.object({
   noMovement: z._default(z.boolean(), false),
   timer: z._default(z.boolean(), false),
   seenTutorial: z._default(z.boolean(), false),
+  seenRules: z._default(z.boolean(), false),
 });
 export type Settings = z.infer<typeof settingsSchema>;
 

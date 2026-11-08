@@ -21,6 +21,16 @@ export default defineConfig({
   use: {
     baseURL: `http://localhost:${port}`,
     trace: 'off',
+    // Les règles du jeu s'affichent au premier lancement : les tests partent d'un joueur qui les a vues.
+    storageState: {
+      cookies: [],
+      origins: [
+        {
+          origin: `http://localhost:${port}`,
+          localStorage: [{ name: 'tembea.settings', value: JSON.stringify({ seenRules: true }) }],
+        },
+      ],
+    },
     launchOptions: { args: swiftShaderArgs },
   },
   projects: [
