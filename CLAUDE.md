@@ -41,6 +41,7 @@ tests/       oracles de données, contenu, configuration
 - Les territoires contestés suivent l'ADR 0003. Le code `ESH` n'est pas un État : pas de tampon, de drapeau ni de question.
 - Ne jamais passer `reviewStatus` à autre chose que `ai-draft` : un agent n'est pas un relecteur humain.
 - Toute chaîne visible va dans `fr.json` **et** `en.json`. Police ≥ 16 px.
+- Toute évolution d'une règle de jeu (mode, barème, niveau) met à jour `src/core/rules.ts` et les textes `rules.*` de `fr.json` et `en.json` dans le même commit. Les barèmes se lisent dans les constantes de `core/`, jamais recopiés dans un texte. `src/core/rules.test.ts` et `tests/rules-content.test.ts` échouent sinon.
 - Texte des faits : positif, adapté à l'âge, 200 caractères maximum, source lue pour de vrai.
 
 ## Mineurs (non négociable)

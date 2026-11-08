@@ -1,6 +1,9 @@
 import type { Position } from 'geojson';
 
 export type Locale = 'fr' | 'en';
+/** Modes de jeu sur la carte ; les règles de chacun sont dans `rules.ts`. */
+export type PlayMode = 'free' | 'mission' | 'daily';
+
 export type Level = 'explorer' | 'geographer' | 'expert';
 export type RegionId = 'north' | 'west' | 'central' | 'east' | 'south';
 export type Terrain = 'land' | 'water';

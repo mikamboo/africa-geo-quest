@@ -18,6 +18,14 @@ test('les règles s’affichent au premier lancement, une seule fois', async ({ 
   expectClean(guards);
 });
 
+test('la modale renvoie vers toutes les règles', async ({ page }) => {
+  await page.goto('/');
+  await page.getByTestId('rules-all').click();
+  await expect(page.getByTestId('rules-screen')).toBeVisible();
+  await page.reload();
+  await expect(page.getByTestId('rules')).toBeHidden();
+});
+
 test('Échap ferme les règles', async ({ page }) => {
   await page.goto('/');
   await expect(page.getByTestId('rules')).toBeVisible();
@@ -45,8 +53,19 @@ test.describe('règles déjà vues', () => {
     await page.getByTestId('open-settings').click();
     await expect(page.getByTestId('rules')).toBeHidden();
     await page.getByTestId('settings-rules').click();
-    await expect(page.getByTestId('rules')).toBeVisible();
-    await page.getByTestId('rules-close').click();
-    await expect(page.getByTestId('rules')).toBeHidden();
+    await expect(page.getByTestId('rules-screen')).toBeVisible();
+  });
+
+  test('l’accueil mène à toutes les règles, section par section', async ({ page }) => {
+    await createProfile(page);
+    await page.getByTestId('open-rules').click();
+    await expect(page.getByTestId('rules-screen')).toBeVisible();
+    for (const id of ['explore', 'missions', 'quiz', 'daily', 'stories', 'levels', 'score']) {
+      await expect(page.getByTestId(`rules-section-${id}`)).toBeVisible();
+    }
+    // Aucun paramètre non résolu ne doit s'afficher.
+    await expect(page.getByTestId('rules-screen')).not.toContainText('{{');
+    await page.getByRole('button', { name: 'Retour' }).click();
+    await expect(page.getByTestId('mode-explore')).toBeVisible();
   });
 });

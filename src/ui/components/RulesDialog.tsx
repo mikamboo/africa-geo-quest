@@ -4,7 +4,14 @@ import { Dialog } from './Dialog';
 const RULE_KEYS = ['walk', 'discover', 'missions', 'stamps', 'levels'] as const;
 
 /** Règles du jeu, en cinq points : affichées au premier lancement, rouvrables depuis les réglages. */
-export function RulesDialog({ onClose }: { onClose: () => void }) {
+export function RulesDialog({
+  onClose,
+  onAll,
+}: {
+  onClose: () => void;
+  /** Ouvre l'écran des règles complètes. */
+  onAll: () => void;
+}) {
   const { t } = useTranslation();
   return (
     <Dialog labelledBy="rules-title" className="dialog--rules" testId="rules" onEscape={onClose}>
@@ -22,6 +29,9 @@ export function RulesDialog({ onClose }: { onClose: () => void }) {
           onClick={onClose}
         >
           {t('rules.ok')}
+        </button>
+        <button type="button" className="btn" data-testid="rules-all" onClick={onAll}>
+          {t('rules.all')}
         </button>
       </div>
     </Dialog>

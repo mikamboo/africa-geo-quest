@@ -258,7 +258,42 @@
     "missions": "Relève des missions pour apprendre en jouant.",
     "stamps": "Réponds aux quiz : chaque pays trouvé donne un tampon dans ton passeport.",
     "levels": "Choisis ton niveau : premiers pas, géographe ou expert. Tu peux en changer à tout moment.",
-    "ok": "J'ai compris"
+    "ok": "J'ai compris",
+    "all": "Toutes les règles",
+    "back": "Retour",
+    "menu": "Règles du jeu",
+    "intro": "Tout ce qu'il faut savoir pour jouer. Ici, aucun point n'est jamais retiré.",
+    "contents": "Sommaire",
+    "sections": {
+      "explore": {
+        "title": "Voyage libre",
+        "body": "Marche sur la carte de l'Afrique avec les flèches, WASD ou le joystick. Entre dans un pays pour lire sa fiche et gagner un tampon (+{{stampPoints}} points). Chaque lieu visité rapporte {{placePoints}} points."
+      },
+      "missions": {
+        "title": "Missions",
+        "body": "Une mission te demande de rejoindre un lieu, de traverser un fleuve ou de trouver un pays. Une mission réussie rapporte {{points}} points, et {{unaidedBonus}} de plus en niveau Expert si tu n'utilises pas la boussole."
+      },
+      "quiz": {
+        "title": "Quiz",
+        "body": "Une bonne réponse rapporte {{correctPoints}} points, et {{attemptPoints}} points pour avoir essayé. Les questions se répètent à intervalles croissants, dans {{boxes}} boîtes, jusqu'à {{maxDays}} jours. Une erreur ramène la question plus tôt, sans pénalité."
+      },
+      "daily": {
+        "title": "Défi du jour",
+        "body": "Un nouveau défi chaque jour, le même pour tout le monde. Plus tu es rapide, plus ton score est haut. Joue plusieurs jours de suite pour allonger ta série."
+      },
+      "stories": {
+        "title": "Reportages",
+        "body": "Suis une piste de ville en ville et entre dans les lieux. Chaque étape rapporte {{stopPoints}} points, {{firstTryBonus}} de plus si tu réussis du premier coup. La dernière étape, qui publie ton enquête, rapporte {{finalPoints}} points de plus."
+      },
+      "levels": {
+        "title": "Niveaux",
+        "body": "Premiers pas : pays, capitales et grands fleuves, avec des repères sur la carte. Géographe : villes, reliefs, régions et frontières, avec moins d'aide. Expert : peu d'aide. Tu peux changer de niveau dans les réglages."
+      },
+      "score": {
+        "title": "Points et badges",
+        "body": "Les points récompensent toujours et ne se retirent jamais. Visite tous les pays d'une région pour gagner son badge dans ton passeport."
+      }
+    }
   },
   "settings": {
     "title": "Réglages",
@@ -268,7 +303,6 @@
     "dyslexia": "Police adaptée à la dyslexie",
     "reduceMotion": "Réduire les animations",
     "noMovement": "Mode sans déplacement (carte à cliquer)",
-    "rules": "Revoir les règles",
     "noMovementHelp": "Tu joues en touchant ou en choisissant les lieux, sans faire marcher le personnage."
   },
   "svg": {

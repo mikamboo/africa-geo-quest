@@ -81,7 +81,15 @@ export function HomeScreen() {
           ))}
         </div>
       </div>
-      {!settings.seenRules && <RulesDialog onClose={() => updateSettings({ seenRules: true })} />}
+      {!settings.seenRules && (
+        <RulesDialog
+          onClose={() => updateSettings({ seenRules: true })}
+          onAll={() => {
+            updateSettings({ seenRules: true });
+            navigate('rules');
+          }}
+        />
+      )}
       {recovered && (
         <div className="notice" role="status" data-testid="recovered-notice">
           <span>{t('home.recovered')}</span>
@@ -229,6 +237,14 @@ export function HomeScreen() {
               onClick={() => navigate('settings')}
             >
               {t('home.settings')}
+            </button>
+            <button
+              type="button"
+              className="btn"
+              data-testid="open-rules"
+              onClick={() => navigate('rules')}
+            >
+              {t('rules.menu')}
             </button>
           </div>
         </>

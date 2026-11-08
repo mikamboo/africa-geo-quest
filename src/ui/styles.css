@@ -1000,6 +1000,24 @@ select {
   color: var(--terre);
 }
 
+.rules__toc {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0 0 16px;
+  padding: 0;
+  list-style: none;
+}
+
+.rules__toc a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.rules__section {
+  scroll-margin-top: 16px;
+}
+
 .rules__list {
   display: grid;
   gap: 10px;

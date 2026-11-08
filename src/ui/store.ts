@@ -19,7 +19,7 @@ import {
 } from '../core/progress';
 import type { DailyScore } from '../core/repositories';
 import { dailyScore, missionPoints, PLACE_POINTS, quizPoints, STAMP_POINTS } from '../core/scoring';
-import { NON_STATE_TERRITORY, type Level, type Terrain } from '../core/types';
+import { NON_STATE_TERRITORY, type Level, type PlayMode, type Terrain } from '../core/types';
 import {
   clearSettings,
   loadSettings,
@@ -31,9 +31,18 @@ import {
 import { playSound, setMuted } from './sound';
 
 export type Screen =
-  'home' | 'setup' | 'play' | 'missions' | 'quiz' | 'passport' | 'parents' | 'settings' | 'stories';
+  | 'home'
+  | 'setup'
+  | 'play'
+  | 'missions'
+  | 'quiz'
+  | 'passport'
+  | 'parents'
+  | 'settings'
+  | 'stories'
+  | 'rules';
 
-export type PlayMode = 'free' | 'mission' | 'daily';
+export type { PlayMode };
 
 export interface MissionResult {
   points: number;

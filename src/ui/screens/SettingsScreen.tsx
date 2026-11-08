@@ -1,8 +1,6 @@
-import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import type { Level } from '../../core/types';
 import { switchLocale } from '../../i18n';
-import { RulesDialog } from '../components/RulesDialog';
 import { useGameStore } from '../store';
 
 export function SettingsScreen() {
@@ -12,7 +10,6 @@ export function SettingsScreen() {
   const updateSettings = useGameStore((state) => state.updateSettings);
   const setLevel = useGameStore((state) => state.setLevel);
   const navigate = useGameStore((state) => state.navigate);
-  const [showRules, setShowRules] = useState(false);
 
   const toggles = [
     { key: 'muted', label: t('settings.sound'), value: !settings.muted, invert: true },
@@ -92,12 +89,11 @@ export function SettingsScreen() {
           type="button"
           className="btn"
           data-testid="settings-rules"
-          onClick={() => setShowRules(true)}
+          onClick={() => navigate('rules')}
         >
-          {t('settings.rules')}
+          {t('rules.menu')}
         </button>
       </section>
-      {showRules && <RulesDialog onClose={() => setShowRules(false)} />}
     </main>
   );
 }
