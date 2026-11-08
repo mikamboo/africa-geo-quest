@@ -251,6 +251,15 @@
     "missions_many": "{{count}} missions réussies",
     "points_many": "{{count}} points"
   },
+  "rules": {
+    "title": "Les règles du jeu",
+    "walk": "Marche sur la carte de l'Afrique : flèches, WASD ou joystick.",
+    "discover": "Découvre les pays, leurs fiches et leurs lieux à visiter.",
+    "missions": "Relève des missions pour apprendre en jouant.",
+    "stamps": "Réponds aux quiz : chaque pays trouvé donne un tampon dans ton passeport.",
+    "levels": "Choisis ton niveau : premiers pas, géographe ou expert. Tu peux en changer à tout moment.",
+    "ok": "J'ai compris"
+  },
   "settings": {
     "title": "Réglages",
     "language": "Langue",
@@ -259,6 +268,7 @@
     "dyslexia": "Police adaptée à la dyslexie",
     "reduceMotion": "Réduire les animations",
     "noMovement": "Mode sans déplacement (carte à cliquer)",
+    "rules": "Revoir les règles",
     "noMovementHelp": "Tu joues en touchant ou en choisissant les lieux, sans faire marcher le personnage."
   },
   "svg": {

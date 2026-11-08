@@ -67,6 +67,8 @@ test('des données corrompues sont écartées proprement', async ({ page }) => {
     localStorage.setItem('tembea.scores', '[{"dateKey":3}]');
   });
   await page.reload();
+  // Réglages illisibles : les règles du premier lancement réapparaissent.
+  await page.getByTestId('rules-close').click();
   await expect(page.getByTestId('recovered-notice')).toBeVisible();
   await expect(page.getByTestId('start')).toBeVisible();
   const raw = await page.evaluate(() => localStorage.getItem('tembea.progress'));

@@ -7,6 +7,7 @@ import { COUNTRIES_META } from '../../data/countriesMeta';
 import { AtlasMap } from '../components/AtlasMap';
 import { Avatar } from '../components/Avatar';
 import { Icon } from '../components/Icon';
+import { RulesDialog } from '../components/RulesDialog';
 import { switchLocale as applyLocale } from '../../i18n';
 import { formatPseudonym } from '../format';
 import { useGameStore } from '../store';
@@ -80,6 +81,7 @@ export function HomeScreen() {
           ))}
         </div>
       </div>
+      {!settings.seenRules && <RulesDialog onClose={() => updateSettings({ seenRules: true })} />}
       {recovered && (
         <div className="notice" role="status" data-testid="recovered-notice">
           <span>{t('home.recovered')}</span>

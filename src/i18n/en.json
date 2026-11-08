@@ -242,6 +242,15 @@
     "points_one": "{{count}} point",
     "points_other": "{{count}} points"
   },
+  "rules": {
+    "title": "How to play",
+    "walk": "Walk across the map of Africa: arrow keys, WASD or the joystick.",
+    "discover": "Discover countries, their profiles and places to visit.",
+    "missions": "Take on missions and learn as you play.",
+    "stamps": "Answer quizzes: every country you find earns a stamp in your passport.",
+    "levels": "Pick your level: first steps, geographer or expert. You can change it any time.",
+    "ok": "Got it"
+  },
   "settings": {
     "title": "Settings",
     "language": "Language",
@@ -250,6 +259,7 @@
     "dyslexia": "Dyslexia-friendly font",
     "reduceMotion": "Reduce animations",
     "noMovement": "No-movement mode (clickable map)",
+    "rules": "See the rules again",
     "noMovementHelp": "You play by tapping or choosing places, without walking the character."
   },
   "svg": {
