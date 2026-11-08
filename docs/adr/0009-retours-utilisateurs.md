@@ -10,7 +10,7 @@ Le propriétaire veut que le jeu évolue à partir des retours de ses joueurs, e
 
 **Dans le jeu : une contribution guidée, jamais transmise par le jeu.**
 
-- Un bouton « Améliorer Tembea » apparaît sur la fiche pays, après une réponse au quiz et dans la page « À propos ». Le joueur choisit une catégorie dans une liste fermée, et rien d'autre.
+- Un bouton « Améliorer Tembea » apparaît sur la carte (icône ampoule en haut), sur la fiche pays, après une réponse au quiz et dans la page « À propos ». Le joueur choisit une catégorie dans une liste fermée, et rien d'autre.
 - `src/core/feedback.ts` assemble un rapport à partir de valeurs fermées : catégorie, code pays, identifiant de question, écran, langue, niveau, version. Toute valeur hors liste est refusée.
 - Le jeu en tire deux sorties, l'une comme l'autre déclenchée par un clic explicite :
   - un lien GitHub pré-rempli, ouvert par `ExternalLink` derrière l'écran d'avertissement ;

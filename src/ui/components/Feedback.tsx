@@ -14,6 +14,7 @@ import type { Locale } from '../../core/types';
 import { useGameStore } from '../store';
 import { Dialog } from './Dialog';
 import { ExternalLink } from './ExternalLink';
+import { Icon } from './Icon';
 
 /** Ce que l'écran sait de son contexte ; langue, niveau et version sont ajoutés ici. */
 export type FeedbackTarget = Pick<FeedbackContext, 'screen' | 'country' | 'questionId'>;
@@ -119,14 +120,21 @@ function FeedbackDialog({ target, onClose }: { target: FeedbackTarget; onClose: 
   );
 }
 
-/** Bouton « Améliorer Tembea » : ouvre la contribution guidée, sans saisie libre ni envoi par le jeu. */
+/**
+ * Bouton « Améliorer Tembea » : ouvre la contribution guidée, sans saisie libre ni envoi par le jeu.
+ * `variant="icon"` affiche une ampoule seule, avec le libellé en nom accessible et en infobulle.
+ */
 export function FeedbackButton({
   target,
   className = 'btn btn--small',
+  variant = 'text',
+  testId = 'feedback-open',
   onOpenChange,
 }: {
   target: FeedbackTarget;
   className?: string;
+  variant?: 'text' | 'icon';
+  testId?: string;
   onOpenChange?: (open: boolean) => void;
 }) {
   const { t } = useTranslation();
@@ -135,16 +143,30 @@ export function FeedbackButton({
     setOpen(next);
     onOpenChange?.(next);
   };
+  const label = t('feedback.open');
   return (
     <>
-      <button
-        type="button"
-        className={className}
-        data-testid="feedback-open"
-        onClick={() => toggle(true)}
-      >
-        {t('feedback.open')}
-      </button>
+      {variant === 'icon' ? (
+        <button
+          type="button"
+          className="icon-btn"
+          data-testid={testId}
+          aria-label={label}
+          title={label}
+          onClick={() => toggle(true)}
+        >
+          <Icon name="idea" />
+        </button>
+      ) : (
+        <button
+          type="button"
+          className={className}
+          data-testid={testId}
+          onClick={() => toggle(true)}
+        >
+          {label}
+        </button>
+      )}
       {open && <FeedbackDialog target={target} onClose={() => toggle(false)} />}
     </>
   );

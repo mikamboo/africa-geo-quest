@@ -3,7 +3,7 @@
 Circuit décidé par l'ADR 0009. Le jeu ne transmet rien : il prépare une contribution que le joueur, ou un adulte, publie sur GitHub. Des agents planifiés trient ensuite ces contributions et en tirent des tickets.
 
 ```
-Jeu : bouton « Améliorer Tembea », choix fermés
+Jeu : bouton « Améliorer Tembea » (ampoule sur la carte, fiche pays, quiz, À propos), choix fermés
   ├─ « Publier sur GitHub » → avertissement → formulaire pré-rempli
   └─ « Copier pour un adulte » → résumé et lien
 GitHub : issue avec triage:new et type:*

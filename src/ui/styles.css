@@ -694,6 +694,49 @@ select {
   cursor: pointer;
 }
 
+.hud .icon-btn,
+.hud .btn {
+  /* Cibles tactiles de 48 px : c'est le nom du pays qui cède la place sur mobile. */
+  flex-shrink: 0;
+}
+
+.hud__stat-short {
+  display: none;
+}
+
+@media (max-width: 480px) {
+  .hud {
+    gap: 6px;
+  }
+
+  .hud__place {
+    font-size: 1rem;
+    line-height: 1;
+    padding: 6px 10px;
+    hyphens: auto;
+    overflow-wrap: break-word;
+  }
+
+  .hud__stat {
+    padding: 4px 8px;
+    white-space: nowrap;
+  }
+
+  .hud__stat-short {
+    display: inline;
+  }
+
+  /* Le libellé complet reste lu par les lecteurs d'écran. */
+  .hud__stat-full {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+}
+
 .hud__place:disabled {
   cursor: default;
   color: var(--ink);

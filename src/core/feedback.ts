@@ -18,7 +18,7 @@ export const FEEDBACK_CATEGORIES = [
 ] as const;
 export type FeedbackCategory = (typeof FEEDBACK_CATEGORIES)[number];
 
-export const FEEDBACK_SCREENS = ['country-card', 'quiz', 'parents'] as const;
+export const FEEDBACK_SCREENS = ['map', 'country-card', 'quiz', 'parents'] as const;
 export type FeedbackScreen = (typeof FEEDBACK_SCREENS)[number];
 
 /** Formulaires GitHub (`.github/ISSUE_TEMPLATE/`), un par famille de retours. */
@@ -43,6 +43,7 @@ const TEMPLATE_OF: Record<FeedbackCategory, FeedbackTemplateKey> = {
 
 const CATEGORIES_BY_SCREEN: Record<FeedbackScreen, readonly FeedbackCategory[]> = {
   // Ordre d'affichage : ce que le joueur apporte d'abord, les problèmes en dernier.
+  map: ['idea', 'fact-wrong', 'map', 'translation', 'bug'],
   'country-card': ['idea', 'fact-wrong', 'map', 'translation', 'bug'],
   quiz: ['too-hard', 'too-easy', 'fact-wrong', 'translation', 'bug'],
   parents: ['idea', 'fact-wrong', 'map', 'translation', 'bug'],

@@ -119,7 +119,8 @@
     "tutorialKeys": "Flèches ou WASD pour marcher, Maj pour accélérer",
     "tutorialTouch": "Pousse le joystick pour marcher",
     "enter": "Entrer : {{name}}",
-    "leave": "Sortir"
+    "leave": "Sortir",
+    "travelledShort": "{{percent}} %"
   },
   "card": {
     "capital": "Capitale",

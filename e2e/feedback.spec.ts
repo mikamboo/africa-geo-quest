@@ -107,3 +107,26 @@ test('la fiche pays propose de contribuer et reste ouverte pendant', async ({ pa
   await page.getByTestId('feedback-close').click();
   await expect(card).toBeVisible();
 });
+
+test('l’ampoule de la carte ouvre la contribution avec le pays en cours', async ({ page }) => {
+  await createProfile(page);
+  await page.getByTestId('mode-explore').click();
+  const hud = page.getByTestId('hud-country');
+  await expect(hud).toHaveAttribute('data-code', 'CAF', { timeout: 30_000 });
+  const button = page.getByTestId('hud-feedback');
+  await expect(button).toBeVisible();
+  await expect(button).toHaveAccessibleName('Améliorer Tembea');
+  await button.click();
+  await page.getByTestId('feedback-idea').click();
+  await recordOpens(page);
+  await page.getByTestId('feedback-github').click();
+  await page.getByTestId('external-continue').click();
+  const [url] = await openedUrls(page);
+  const params = new URL(url!).searchParams;
+  expect(params.get('screen')).toBe('map');
+  expect(params.get('country')).toBe('CAF');
+  expect(params.get('template')).toBe('idee.yml');
+  await page.getByTestId('feedback-close').click();
+  await expect(page.getByTestId('feedback-dialog')).toBeHidden();
+  await expect(button).toBeFocused();
+});

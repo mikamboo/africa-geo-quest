@@ -114,7 +114,8 @@
     "tutorialKeys": "Arrows or WASD to walk, Shift to go faster",
     "tutorialTouch": "Push the joystick to walk",
     "enter": "Enter: {{name}}",
-    "leave": "Leave"
+    "leave": "Leave",
+    "travelledShort": "{{percent}}%"
   },
   "card": {
     "capital": "Capital",
